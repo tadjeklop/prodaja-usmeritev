@@ -32,6 +32,22 @@ on conflict (id) do nothing;
 alter table public.portal_profiles enable row level security;
 alter table public.portal_user_access enable row level security;
 
+create or replace function public.is_portal_admin()
+returns boolean
+language sql
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1
+    from public.portal_user_access
+    where lower(user_email) = lower(auth.jwt() ->> 'email')
+      and is_admin = true
+  );
+$$;
+
+grant execute on function public.is_portal_admin() to authenticated;
+
 drop policy if exists "profiles visible to signed in users" on public.portal_profiles;
 create policy "profiles visible to signed in users"
 on public.portal_profiles for select
@@ -44,52 +60,19 @@ on public.portal_user_access for select
 to authenticated
 using (
   lower(user_email) = lower(auth.jwt() ->> 'email')
-  or exists (
-    select 1
-    from public.portal_user_access admin_access
-    where lower(admin_access.user_email) = lower(auth.jwt() ->> 'email')
-      and admin_access.is_admin = true
-  )
+  or public.is_portal_admin()
 );
 
 drop policy if exists "admins manage profiles" on public.portal_profiles;
 create policy "admins manage profiles"
 on public.portal_profiles for all
 to authenticated
-using (
-  exists (
-    select 1
-    from public.portal_user_access admin_access
-    where lower(admin_access.user_email) = lower(auth.jwt() ->> 'email')
-      and admin_access.is_admin = true
-  )
-)
-with check (
-  exists (
-    select 1
-    from public.portal_user_access admin_access
-    where lower(admin_access.user_email) = lower(auth.jwt() ->> 'email')
-      and admin_access.is_admin = true
-  )
-);
+using (public.is_portal_admin())
+with check (public.is_portal_admin());
 
 drop policy if exists "admins manage user access" on public.portal_user_access;
 create policy "admins manage user access"
 on public.portal_user_access for all
 to authenticated
-using (
-  exists (
-    select 1
-    from public.portal_user_access admin_access
-    where lower(admin_access.user_email) = lower(auth.jwt() ->> 'email')
-      and admin_access.is_admin = true
-  )
-)
-with check (
-  exists (
-    select 1
-    from public.portal_user_access admin_access
-    where lower(admin_access.user_email) = lower(auth.jwt() ->> 'email')
-      and admin_access.is_admin = true
-  )
-);
+using (public.is_portal_admin())
+with check (public.is_portal_admin());
