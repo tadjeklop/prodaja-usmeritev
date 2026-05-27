@@ -3,126 +3,493 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Discovery obrazec — Interzero EPR</title>
+  <title>Discovery obrazec - Interzero EPR</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/style.css" />
   <style>
     @media print {
-      .app-nav, .no-print, .obrazec-controls { display: none !important; }
+      .app-nav, .no-print, .saved-panel, .form-toolbar { display: none !important; }
       body { background: white !important; font-size: 11pt; }
+      main { max-width: 100% !important; padding: 0 !important; }
+      .discovery-shell { display: block !important; }
       .obrazec { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; }
       .obrazec-sklop { page-break-inside: avoid; }
-      .vrstica { border-bottom: 1px solid #999 !important; height: 1.5rem; }
+      input, textarea { border-color: #999 !important; background: white !important; resize: none !important; }
     }
-    .obrazec {
+
+    .discovery-shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .saved-panel, .obrazec {
       background: white;
       border: 1px solid #e7e5e4;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 2.5rem;
-      max-width: 800px;
-      margin: 0 auto;
     }
+
+    .saved-panel {
+      border-radius: 8px;
+      padding: 1rem;
+      position: sticky;
+      top: 5rem;
+    }
+
+    .saved-item {
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      padding: 0.75rem;
+      background: #fafaf9;
+      text-align: left;
+      width: 100%;
+    }
+
+    .saved-item.active {
+      border-color: #2e7d32;
+      background: #f0fdf4;
+    }
+
+    .obrazec {
+      border-radius: 8px;
+      padding: 2rem;
+      min-width: 0;
+    }
+
     .obrazec h2 {
       font-size: 1.05rem;
       font-weight: 700;
       color: #1b5e20;
       border-bottom: 1px solid #2e7d32;
       padding-bottom: 0.25rem;
-      margin-top: 1.25rem;
-      margin-bottom: 0.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
     }
-    .obrazec-sklop { margin-bottom: 1rem; }
-    .vprasanje { display: flex; gap: 0.5rem; padding: 0.25rem 0; font-size: 0.9rem; }
-    .vprasanje-num { color: #6b7280; min-width: 1.25rem; }
-    .vrstica { border-bottom: 1px dotted #9ca3af; height: 1.25rem; margin-top: 0.125rem; }
+
+    .obrazec label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #57534e;
+      margin-bottom: 0.25rem;
+    }
+
+    .obrazec input, .obrazec textarea {
+      width: 100%;
+      border: 1px solid #d6d3d1;
+      border-radius: 6px;
+      padding: 0.55rem 0.65rem;
+      background: #fff;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .obrazec textarea {
+      min-height: 5rem;
+    }
+
+    .answer-field {
+      min-height: 4.25rem;
+      margin-top: 0.35rem;
+    }
+
     .obrazec-header {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem 1rem;
       margin-bottom: 1.5rem;
       padding-bottom: 1rem;
       border-bottom: 2px solid #2e7d32;
     }
-    .obrazec-polje { display: flex; gap: 0.5rem; align-items: baseline; font-size: 0.9rem; }
-    .obrazec-polje label { font-weight: 600; color: #57534e; min-width: 5rem; }
-    .obrazec-polje .vrstica { flex: 1; }
+
+    .vprasanje {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid #f5f5f4;
+    }
+
+    .vprasanje-num {
+      color: #6b7280;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-right: 0.35rem;
+    }
+
+    @media (max-width: 900px) {
+      .discovery-shell { grid-template-columns: 1fr; }
+      .saved-panel { position: static; }
+      .obrazec-header { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body class="bg-stone-50 text-stone-900">
   <div id="app-nav"></div>
 
-  <main class="max-w-5xl mx-auto px-6 py-10">
-    <div class="obrazec-controls flex justify-between items-center mb-6 no-print">
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <div class="form-toolbar flex flex-col gap-4 md:flex-row md:justify-between md:items-end mb-6 no-print">
       <div>
         <h1 class="text-2xl font-bold" data-i18n="page.obrazec.title">Discovery obrazec za sestanek</h1>
-        <p class="text-sm text-stone-600">Natisni in nesi na sestanek. Vprašanja so razdeljena po sklopih, prazne vrstice za zapiske.</p>
+        <p class="text-sm text-stone-600">Piši direktno v obrazec, shrani osnutek in ga po sestanku zaključi.</p>
+        <p id="form-status" class="text-xs text-stone-500 mt-2" aria-live="polite"></p>
       </div>
-      <button onclick="window.print()" class="btn btn-primary">🖨️ Natisni</button>
+      <div class="flex flex-wrap gap-2">
+        <button id="new-form" type="button" class="btn">Nov obrazec</button>
+        <button id="save-draft" type="button" class="btn btn-primary">Shrani osnutek</button>
+        <button id="complete-form" type="button" class="btn">Zaključi</button>
+        <button id="print-form" type="button" class="btn">Natisni / PDF</button>
+      </div>
     </div>
 
-    <div class="obrazec">
-      <div class="text-center mb-4">
-        <div class="text-xs uppercase tracking-wider text-stone-500">Interzero EPR · Discovery obrazec</div>
-        <div class="text-lg font-bold mt-1">Prvi sestanek pri stranki</div>
-      </div>
-
-      <div class="obrazec-header">
-        <div class="space-y-1">
-          <div class="obrazec-polje"><label>Stranka:</label><span class="vrstica"></span></div>
-          <div class="obrazec-polje"><label>Kontakt:</label><span class="vrstica"></span></div>
-          <div class="obrazec-polje"><label>Funkcija:</label><span class="vrstica"></span></div>
+    <div class="discovery-shell">
+      <aside class="saved-panel no-print">
+        <div class="flex items-center justify-between gap-2 mb-3">
+          <h2 class="text-base font-bold">Shranjeni obrazci</h2>
+          <button id="refresh-forms" type="button" class="btn btn-small">Osveži</button>
         </div>
-        <div class="space-y-1">
-          <div class="obrazec-polje"><label>Datum:</label><span class="vrstica"></span></div>
-          <div class="obrazec-polje"><label>Lokacija:</label><span class="vrstica"></span></div>
-          <div class="obrazec-polje"><label>Komercialist:</label><span class="vrstica"></span></div>
+        <div id="saved-forms" class="space-y-2 text-sm">
+          <p class="text-stone-500">Nalaganje...</p>
         </div>
-      </div>
+      </aside>
 
-      <div id="sklopi"></div>
+      <section class="obrazec">
+        <div class="text-center mb-4">
+          <div class="text-xs uppercase tracking-wider text-stone-500">Interzero EPR · Discovery obrazec</div>
+          <input id="form-title" class="text-center text-lg font-bold mt-2" placeholder="Naslov obrazca" />
+        </div>
 
-      <h2>Naslednji koraki</h2>
-      <div class="obrazec-sklop">
-        <div class="vprasanje"><span class="vprasanje-num">1.</span><div class="flex-1">Konkreten naslednji korak in datum:<div class="vrstica"></div><div class="vrstica"></div></div></div>
-        <div class="vprasanje"><span class="vprasanje-num">2.</span><div class="flex-1">Podatki, ki jih stranka pošlje:<div class="vrstica"></div><div class="vrstica"></div></div></div>
-        <div class="vprasanje"><span class="vprasanje-num">3.</span><div class="flex-1">Kdo mora biti vključen v odločitev:<div class="vrstica"></div></div></div>
-        <div class="vprasanje"><span class="vprasanje-num">4.</span><div class="flex-1">Datum naslednjega sestanka:<div class="vrstica"></div></div></div>
-      </div>
+        <div class="obrazec-header">
+          <div>
+            <label for="customer">Stranka</label>
+            <input id="customer" autocomplete="organization" />
+          </div>
+          <div>
+            <label for="meeting-date">Datum</label>
+            <input id="meeting-date" type="date" />
+          </div>
+          <div>
+            <label for="contact">Kontakt</label>
+            <input id="contact" autocomplete="name" />
+          </div>
+          <div>
+            <label for="location">Lokacija</label>
+            <input id="location" />
+          </div>
+          <div>
+            <label for="contact-role">Funkcija</label>
+            <input id="contact-role" />
+          </div>
+          <div>
+            <label for="salesperson">Komercialist</label>
+            <input id="salesperson" />
+          </div>
+        </div>
 
-      <h2>Lasten zapis (po sestanku)</h2>
-      <div class="obrazec-sklop">
-        <div class="text-xs text-stone-500 mb-1">Glavne 3 bolečine, ki sem jih slišal:</div>
-        <div class="vrstica"></div><div class="vrstica"></div><div class="vrstica"></div>
-        <div class="text-xs text-stone-500 mt-2 mb-1">Občutek o stranki (interes, časovni okvir, blok):</div>
-        <div class="vrstica"></div><div class="vrstica"></div>
-        <div class="text-xs text-stone-500 mt-2 mb-1">Kaj bi naredil drugače naslednjič:</div>
-        <div class="vrstica"></div>
-      </div>
+        <div id="sklopi"></div>
+
+        <h2>Naslednji koraki</h2>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div>
+            <label for="next-step">Konkreten naslednji korak</label>
+            <textarea id="next-step"></textarea>
+          </div>
+          <div>
+            <label for="next-step-date">Datum naslednjega koraka</label>
+            <input id="next-step-date" type="date" />
+          </div>
+          <div>
+            <label for="customer-data">Podatki, ki jih stranka pošlje</label>
+            <textarea id="customer-data"></textarea>
+          </div>
+          <div>
+            <label for="decision-people">Kdo mora biti vključen v odločitev</label>
+            <textarea id="decision-people"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <label for="next-meeting-date">Datum naslednjega sestanka</label>
+            <input id="next-meeting-date" type="date" />
+          </div>
+        </div>
+
+        <h2>Lasten zapis po sestanku</h2>
+        <div class="grid md:grid-cols-3 gap-3">
+          <div>
+            <label for="top-pains">Glavne 3 bolečine, ki sem jih slišal</label>
+            <textarea id="top-pains"></textarea>
+          </div>
+          <div>
+            <label for="customer-feeling">Občutek o stranki</label>
+            <textarea id="customer-feeling"></textarea>
+          </div>
+          <div>
+            <label for="do-different">Kaj bi naredil drugače naslednjič</label>
+            <textarea id="do-different"></textarea>
+          </div>
+        </div>
+      </section>
     </div>
   </main>
 
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
   <script>
-    async function init() {
-      const data = await loadData('discovery');
-      if (!data) {
-        document.getElementById('sklopi').innerHTML =
-          '<p class="text-red-700">Ne morem naložiti discovery vprašanj.</p>';
+    let discoveryData = null;
+    let savedForms = [];
+    let currentFormId = null;
+    let saveTimer = null;
+
+    const localStorageKey = 'discovery-forms';
+
+    function field(id) {
+      return document.getElementById(id);
+    }
+
+    function setStatus(message) {
+      const el = field('form-status');
+      if (el) el.textContent = message ? localText(message) : '';
+    }
+
+    function localText(text) {
+      return typeof I18n !== 'undefined' && I18n.localizeText ? I18n.localizeText(text) : text;
+    }
+
+    function hasCloudStorage() {
+      return typeof Auth !== 'undefined' && Auth.isEnabled() && !!Auth.user?.email;
+    }
+
+    function answerKey(sectionIndex, questionIndex) {
+      return `s${sectionIndex}_q${questionIndex}`;
+    }
+
+    function dateOnly(value) {
+      return value ? value : null;
+    }
+
+    async function waitForRuntime() {
+      if (typeof authLoadPromise !== 'undefined' && authLoadPromise) await authLoadPromise;
+      if (typeof Auth !== 'undefined' && Auth.ready) await Auth.ready;
+      if (typeof waitForI18n === 'function') await waitForI18n();
+    }
+
+    function renderQuestions() {
+      const target = field('sklopi');
+      if (!discoveryData?.sklopi?.length) {
+        target.innerHTML = `<p class="text-red-700">${localText('Ne morem naložiti discovery vprašanj.')}</p>`;
         return;
       }
-      document.getElementById('sklopi').innerHTML = data.sklopi.map(s => `
+
+      target.innerHTML = discoveryData.sklopi.map((section, sectionIndex) => `
         <div class="obrazec-sklop">
-          <h2>${s.naslov}</h2>
-          ${s.vprasanja.map((v, i) => `
+          <h2>${section.naslov}</h2>
+          ${section.vprasanja.map((question, questionIndex) => `
             <div class="vprasanje">
-              <span class="vprasanje-num">${i + 1}.</span>
-              <div class="flex-1">${v}<div class="vrstica"></div></div>
+              <div><span class="vprasanje-num">${questionIndex + 1}.</span>${question}</div>
+              <textarea class="answer-field" data-answer="${answerKey(sectionIndex, questionIndex)}"></textarea>
             </div>
           `).join('')}
         </div>
       `).join('');
     }
+
+    function collectAnswers() {
+      const answers = {};
+      document.querySelectorAll('[data-answer]').forEach(input => {
+        answers[input.dataset.answer] = input.value.trim();
+      });
+      return answers;
+    }
+
+    function collectForm(status = 'draft') {
+      const customer = field('customer').value.trim();
+      const title = field('form-title').value.trim() || customer || 'Discovery obrazec';
+      return {
+        user_email: hasCloudStorage() ? Auth.user.email.toLowerCase() : 'local',
+        status,
+        title,
+        customer,
+        contact: field('contact').value.trim(),
+        contact_role: field('contact-role').value.trim(),
+        meeting_date: dateOnly(field('meeting-date').value),
+        location: field('location').value.trim(),
+        salesperson: field('salesperson').value.trim(),
+        answers: collectAnswers(),
+        next_steps: {
+          next_step: field('next-step').value.trim(),
+          next_step_date: dateOnly(field('next-step-date').value),
+          customer_data: field('customer-data').value.trim(),
+          decision_people: field('decision-people').value.trim(),
+          next_meeting_date: dateOnly(field('next-meeting-date').value)
+        },
+        reflection: {
+          top_pains: field('top-pains').value.trim(),
+          customer_feeling: field('customer-feeling').value.trim(),
+          do_different: field('do-different').value.trim()
+        },
+        updated_at: new Date().toISOString()
+      };
+    }
+
+    async function loadSavedForms() {
+      try {
+        if (hasCloudStorage()) {
+          const email = encodeURIComponent(Auth.user.email.toLowerCase());
+          savedForms = await Auth.rest(`discovery_forms?select=*&user_email=eq.${email}&order=updated_at.desc`);
+        } else {
+          savedForms = Storage.get(localStorageKey, []);
+        }
+        renderSavedForms();
+      } catch (err) {
+        console.error(err);
+        field('saved-forms').innerHTML = `<p class="text-red-700">${localText('Obrazcev ni mogoče naložiti. Preveri, ali je Supabase SQL shema posodobljena.')}</p>`;
+      }
+    }
+
+    function renderSavedForms() {
+      const target = field('saved-forms');
+      if (!savedForms.length) {
+        target.innerHTML = `<p class="text-stone-500">${localText('Ni še shranjenih obrazcev.')}</p>`;
+        return;
+      }
+
+      target.innerHTML = savedForms.map(item => `
+        <div class="space-y-2">
+          <button type="button" class="saved-item ${item.id === currentFormId ? 'active' : ''}" data-open-form="${item.id}">
+            <div class="font-bold">${item.title || item.customer || localText('Discovery obrazec')}</div>
+            <div class="text-xs text-stone-500">${item.customer || localText('Brez stranke')} · ${item.status === 'completed' ? localText('Zaključen') : localText('Osnutek')}</div>
+            <div class="text-xs text-stone-400">${(item.updated_at || '').slice(0, 10)}</div>
+          </button>
+          <button type="button" class="text-xs text-red-700" data-delete-form="${item.id}">${localText('Izbriši')}</button>
+        </div>
+      `).join('');
+    }
+
+    function clearForm() {
+      currentFormId = null;
+      ['form-title', 'customer', 'contact', 'contact-role', 'location', 'salesperson',
+        'next-step', 'customer-data', 'decision-people', 'top-pains', 'customer-feeling', 'do-different'
+      ].forEach(id => field(id).value = '');
+      ['meeting-date', 'next-step-date', 'next-meeting-date'].forEach(id => field(id).value = '');
+      document.querySelectorAll('[data-answer]').forEach(input => input.value = '');
+      renderSavedForms();
+      setStatus('Nov obrazec je pripravljen.');
+      field('customer').focus();
+    }
+
+    function fillForm(item) {
+      currentFormId = item.id;
+      field('form-title').value = item.title || '';
+      field('customer').value = item.customer || '';
+      field('contact').value = item.contact || '';
+      field('contact-role').value = item.contact_role || '';
+      field('meeting-date').value = item.meeting_date || '';
+      field('location').value = item.location || '';
+      field('salesperson').value = item.salesperson || '';
+
+      document.querySelectorAll('[data-answer]').forEach(input => {
+        input.value = item.answers?.[input.dataset.answer] || '';
+      });
+
+      field('next-step').value = item.next_steps?.next_step || '';
+      field('next-step-date').value = item.next_steps?.next_step_date || '';
+      field('customer-data').value = item.next_steps?.customer_data || '';
+      field('decision-people').value = item.next_steps?.decision_people || '';
+      field('next-meeting-date').value = item.next_steps?.next_meeting_date || '';
+      field('top-pains').value = item.reflection?.top_pains || '';
+      field('customer-feeling').value = item.reflection?.customer_feeling || '';
+      field('do-different').value = item.reflection?.do_different || '';
+      renderSavedForms();
+      setStatus('Obrazec je odprt.');
+    }
+
+    async function saveForm(status = 'draft') {
+      const payload = collectForm(status);
+      setStatus('Shranjujem...');
+
+      try {
+        if (hasCloudStorage()) {
+          const result = currentFormId
+            ? await Auth.rest(`discovery_forms?id=eq.${encodeURIComponent(currentFormId)}`, {
+                method: 'PATCH',
+                body: payload,
+                prefer: 'return=representation'
+              })
+            : await Auth.rest('discovery_forms', {
+                method: 'POST',
+                body: payload,
+                prefer: 'return=representation'
+              });
+          const saved = Array.isArray(result) ? result[0] : result;
+          currentFormId = saved?.id || currentFormId;
+        } else {
+          const now = new Date().toISOString();
+          const item = { ...payload, id: currentFormId || crypto.randomUUID(), created_at: now };
+          currentFormId = item.id;
+          const existing = Storage.get(localStorageKey, []);
+          const next = [item, ...existing.filter(row => row.id !== item.id)];
+          Storage.set(localStorageKey, next);
+        }
+        await loadSavedForms();
+        setStatus(status === 'completed' ? 'Obrazec je zaključen in shranjen.' : 'Osnutek je shranjen.');
+      } catch (err) {
+        console.error(err);
+        setStatus('Shranjevanje ni uspelo. Preveri Supabase SQL shemo in prijavo.');
+      }
+    }
+
+    async function deleteForm(id) {
+      if (!confirm(localText('Izbrišem ta obrazec?'))) return;
+      try {
+        if (hasCloudStorage()) {
+          await Auth.rest(`discovery_forms?id=eq.${encodeURIComponent(id)}`, {
+            method: 'DELETE',
+            prefer: 'return=minimal'
+          });
+        } else {
+          Storage.set(localStorageKey, Storage.get(localStorageKey, []).filter(row => row.id !== id));
+        }
+        if (currentFormId === id) clearForm();
+        await loadSavedForms();
+        setStatus('Obrazec je izbrisan.');
+      } catch (err) {
+        console.error(err);
+        setStatus('Brisanje ni uspelo.');
+      }
+    }
+
+    function scheduleAutosave() {
+      if (!currentFormId) return;
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(() => saveForm('draft'), 1200);
+    }
+
+    function bindEvents() {
+      field('new-form').addEventListener('click', clearForm);
+      field('save-draft').addEventListener('click', () => saveForm('draft'));
+      field('complete-form').addEventListener('click', () => saveForm('completed'));
+      field('print-form').addEventListener('click', () => window.print());
+      field('refresh-forms').addEventListener('click', loadSavedForms);
+
+      document.querySelector('.obrazec').addEventListener('input', scheduleAutosave);
+      field('saved-forms').addEventListener('click', event => {
+        const openButton = event.target.closest('[data-open-form]');
+        const deleteButton = event.target.closest('[data-delete-form]');
+        if (openButton) {
+          const item = savedForms.find(row => row.id === openButton.dataset.openForm);
+          if (item) fillForm(item);
+        }
+        if (deleteButton) deleteForm(deleteButton.dataset.deleteForm);
+      });
+    }
+
+    async function init() {
+      await waitForRuntime();
+      field('form-title').setAttribute('placeholder', localText('Naslov obrazca'));
+      discoveryData = await loadData('discovery');
+      renderQuestions();
+      bindEvents();
+      await loadSavedForms();
+      clearForm();
+    }
+
     document.addEventListener('DOMContentLoaded', init);
   </script>
 </body>

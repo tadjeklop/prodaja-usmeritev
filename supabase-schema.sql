@@ -21,6 +21,24 @@ create table if not exists public.portal_user_access (
   updated_at timestamptz not null default now()
 );
 
+create table if not exists public.discovery_forms (
+  id uuid primary key default gen_random_uuid(),
+  user_email text not null,
+  status text not null default 'draft' check (status in ('draft', 'completed')),
+  title text not null default '',
+  customer text not null default '',
+  contact text not null default '',
+  contact_role text not null default '',
+  meeting_date date,
+  location text not null default '',
+  salesperson text not null default '',
+  answers jsonb not null default '{}',
+  next_steps jsonb not null default '{}',
+  reflection jsonb not null default '{}',
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
 insert into public.portal_profiles (id, name, role, default_language, markets, enabled_modules)
 values
   ('admin', 'Admin', 'admin', 'sl', array['sl','hr','sr'], array['index','dashboard','stranke','segmentacija','vodic','roleplay','priprava','obrazec','govori','ugovori','konkurenca','reference','kalkulacije','ponudba','proces','glosar','koledar','vsebine','zakonodaja','onboarding','kpi','asistent','zgodovina','settings']),
@@ -31,6 +49,7 @@ on conflict (id) do nothing;
 
 alter table public.portal_profiles enable row level security;
 alter table public.portal_user_access enable row level security;
+alter table public.discovery_forms enable row level security;
 
 create or replace function public.is_portal_admin()
 returns boolean
@@ -87,6 +106,7 @@ end;
 $$;
 
 grant execute on function public.bootstrap_portal_admin() to authenticated;
+grant select, insert, update, delete on public.discovery_forms to authenticated;
 
 drop policy if exists "profiles visible to signed in users" on public.portal_profiles;
 create policy "profiles visible to signed in users"
@@ -116,3 +136,43 @@ on public.portal_user_access for all
 to authenticated
 using (public.is_portal_admin())
 with check (public.is_portal_admin());
+
+drop policy if exists "users read own discovery forms" on public.discovery_forms;
+create policy "users read own discovery forms"
+on public.discovery_forms for select
+to authenticated
+using (
+  lower(user_email) = lower(auth.jwt() ->> 'email')
+  or public.is_portal_admin()
+);
+
+drop policy if exists "users create own discovery forms" on public.discovery_forms;
+create policy "users create own discovery forms"
+on public.discovery_forms for insert
+to authenticated
+with check (
+  lower(user_email) = lower(auth.jwt() ->> 'email')
+  or public.is_portal_admin()
+);
+
+drop policy if exists "users update own discovery forms" on public.discovery_forms;
+create policy "users update own discovery forms"
+on public.discovery_forms for update
+to authenticated
+using (
+  lower(user_email) = lower(auth.jwt() ->> 'email')
+  or public.is_portal_admin()
+)
+with check (
+  lower(user_email) = lower(auth.jwt() ->> 'email')
+  or public.is_portal_admin()
+);
+
+drop policy if exists "users delete own discovery forms" on public.discovery_forms;
+create policy "users delete own discovery forms"
+on public.discovery_forms for delete
+to authenticated
+using (
+  lower(user_email) = lower(auth.jwt() ->> 'email')
+  or public.is_portal_admin()
+);
