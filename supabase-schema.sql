@@ -48,6 +48,46 @@ $$;
 
 grant execute on function public.is_portal_admin() to authenticated;
 
+create or replace function public.bootstrap_portal_admin()
+returns public.portal_user_access
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  current_email text := lower(auth.jwt() ->> 'email');
+  admin_exists boolean;
+  result_row public.portal_user_access;
+begin
+  if current_email is null or current_email = '' then
+    raise exception 'Missing authenticated email';
+  end if;
+
+  select exists (
+    select 1
+    from public.portal_user_access
+    where is_admin = true
+  ) into admin_exists;
+
+  if admin_exists then
+    raise exception 'Portal admin already exists';
+  end if;
+
+  insert into public.portal_user_access (user_email, profile_id, can_edit_content, is_admin)
+  values (current_email, 'admin', true, true)
+  on conflict (user_email) do update set
+    profile_id = excluded.profile_id,
+    can_edit_content = excluded.can_edit_content,
+    is_admin = excluded.is_admin,
+    updated_at = now()
+  returning * into result_row;
+
+  return result_row;
+end;
+$$;
+
+grant execute on function public.bootstrap_portal_admin() to authenticated;
+
 drop policy if exists "profiles visible to signed in users" on public.portal_profiles;
 create policy "profiles visible to signed in users"
 on public.portal_profiles for select

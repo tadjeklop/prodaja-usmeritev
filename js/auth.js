@@ -25,8 +25,7 @@ const Auth = {
 
     try {
       this.user = await this.fetchUser();
-      this.access = await this.fetchAccess();
-      this.profile = await this.fetchProfile(this.access.profile_id);
+      await this.loadPortalAccess();
       this.applyProfile();
     } catch (err) {
       console.warn('Auth session invalid', err);
@@ -76,8 +75,7 @@ const Auth = {
     this.session = data;
     Storage.set('auth-session', data);
     this.user = data.user || await this.fetchUser();
-    this.access = await this.fetchAccess();
-    this.profile = await this.fetchProfile(this.access.profile_id);
+    await this.loadPortalAccess();
     this.applyProfile();
     return this.profile;
   },
@@ -98,14 +96,29 @@ const Auth = {
   async fetchAccess() {
     const email = encodeURIComponent(this.user.email.toLowerCase());
     const rows = await this.rest(`portal_user_access?select=*&user_email=eq.${email}&limit=1`);
-    if (!rows.length) throw new Error('Uporabnik nima dodeljenega profila.');
-    return rows[0];
+    return rows[0] || null;
   },
 
   async fetchProfile(id) {
     const rows = await this.rest(`portal_profiles?select=*&id=eq.${encodeURIComponent(id)}&limit=1`);
     if (!rows.length) throw new Error('Profil ne obstaja.');
     return this.normalizeProfile(rows[0], this.access);
+  },
+
+  async loadPortalAccess() {
+    this.access = await this.fetchAccess();
+    if (this.access?.profile_id) {
+      this.profile = await this.fetchProfile(this.access.profile_id);
+      return;
+    }
+    this.profile = {
+      id: 'unassigned',
+      name: 'Brez dodeljenega profila',
+      role: 'viewer',
+      defaultLanguage: 'sl',
+      markets: [],
+      enabledModules: ['settings']
+    };
   },
 
   async fetchProfiles() {
@@ -158,6 +171,17 @@ const Auth = {
       method: 'DELETE',
       prefer: 'return=minimal'
     });
+  },
+
+  async bootstrapAdmin() {
+    const row = await this.rest('rpc/bootstrap_portal_admin', {
+      method: 'POST',
+      body: {}
+    });
+    this.access = Array.isArray(row) ? row[0] : row;
+    await this.loadPortalAccess();
+    this.applyProfile();
+    return this.profile;
   },
 
   applyProfile() {

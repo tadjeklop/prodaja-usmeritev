@@ -77,8 +77,27 @@ on conflict (user_email) do update set
           </div>
           <p class="text-sm text-stone-600 mt-4 mb-2">${this.t('settings.admin_sql_hint', 'V Supabase SQL Editorju za ta email zaženi ta ukaz:')}</p>
           <pre class="script-block text-xs overflow-x-auto">${this.escape(adminSql)}</pre>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button class="btn btn-primary" id="bootstrap-admin" type="button">Nastavi me kot prvega admina</button>
+            <button class="btn btn-secondary" data-auth-logout type="button">Odjava</button>
+          </div>
+          <p class="text-xs text-stone-500 mt-2">Gumb deluje samo, če v portalu še ne obstaja noben admin. Če admin že obstaja, mora novi uporabnik dobiti dostop prek obstoječega admina.</p>
         </section>
       `;
+      this.content.querySelector('#bootstrap-admin')?.addEventListener('click', async () => {
+        const button = this.content.querySelector('#bootstrap-admin');
+        button.disabled = true;
+        button.textContent = 'Nastavljam...';
+        try {
+          await Auth.bootstrapAdmin();
+          location.reload();
+        } catch (err) {
+          button.disabled = false;
+          button.textContent = 'Nastavi me kot prvega admina';
+          alert(err.message || 'Admin nastavitev ni uspela.');
+        }
+      });
+      this.content.querySelector('[data-auth-logout]')?.addEventListener('click', () => Auth.signOut());
       return;
     }
 

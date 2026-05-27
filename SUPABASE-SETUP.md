@@ -25,7 +25,9 @@ Ta ustvari:
 
 V Supabase Authentication ustvari uporabnika z emailom in geslom.
 
-Nato v SQL editorju dodaj njegov dostop:
+Najlažja pot: prijavi se v portal s tem uporabnikom, odpri `Settings` in klikni **Nastavi me kot prvega admina**. To deluje samo, če v portalu še ni nobenega admina.
+
+Ročna pot: v SQL editorju dodaj njegov dostop:
 
 ```sql
 insert into public.portal_user_access (user_email, profile_id, can_edit_content, is_admin)
