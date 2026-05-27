@@ -16,6 +16,7 @@ const checks = [
   ['Discovery form groups CRM answers by section', html.includes('function groupAnswersBySection')],
   ['Discovery form has section jump navigation', html.includes('id="section-jumps"')],
   ['Discovery form has section ids for jumps', html.includes('function sectionId')],
+  ['Discovery form has back to top links', html.includes('class="back-to-top')],
   ['Discovery form has local save fallback', html.includes('function saveLocalForm')],
   ['Discovery form writes through Auth.rest', html.includes('Auth.rest(')],
   ['App navigation uses dropdown menu', app.includes('class="app-nav-menu"')],

@@ -147,10 +147,43 @@
 
     .obrazec-sklop,
     #basic-data,
+    #form-top,
     #next-steps,
     #meeting-notes,
     #crm-summary-panel {
       scroll-margin-top: 5rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid #2e7d32;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-heading h2 {
+      border-bottom: 0;
+      margin: 0;
+    }
+
+    .back-to-top {
+      border: 1px solid #d6d3d1;
+      border-radius: 9999px;
+      background: #f8faf8;
+      color: #1b5e20;
+      padding: 0.25rem 0.55rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .back-to-top:hover {
+      background: #f0fdf4;
+      border-color: #2e7d32;
     }
 
     @media (max-width: 900px) {
@@ -163,7 +196,7 @@
 <body class="bg-stone-50 text-stone-900">
   <div id="app-nav"></div>
 
-  <main class="max-w-7xl mx-auto px-6 py-10">
+  <main id="form-top" class="max-w-7xl mx-auto px-6 py-10">
     <div class="form-toolbar flex flex-col gap-4 md:flex-row md:justify-between md:items-end mb-6 no-print">
       <div>
         <h1 class="text-2xl font-bold" data-i18n="page.obrazec.title">Discovery obrazec za sestanek</h1>
@@ -226,7 +259,10 @@
 
         <div id="sklopi"></div>
 
-        <h2 id="next-steps">Naslednji koraki</h2>
+        <div class="section-heading" id="next-steps">
+          <h2>Naslednji koraki</h2>
+          <a class="back-to-top no-print" href="#form-top">Na vrh</a>
+        </div>
         <div class="grid md:grid-cols-2 gap-3">
           <div>
             <label for="next-step">Konkreten naslednji korak</label>
@@ -250,7 +286,10 @@
           </div>
         </div>
 
-        <h2 id="meeting-notes">Lasten zapis po sestanku</h2>
+        <div class="section-heading" id="meeting-notes">
+          <h2>Lasten zapis po sestanku</h2>
+          <a class="back-to-top no-print" href="#form-top">Na vrh</a>
+        </div>
         <div class="grid md:grid-cols-3 gap-3">
           <div>
             <label for="top-pains">Glavne 3 bolečine, ki sem jih slišal</label>
@@ -272,7 +311,10 @@
               <h2 class="mt-0 mb-1">CRM zapisnik</h2>
               <p class="text-sm text-stone-600">Besedilo kopiraj v zunanji CRM po zaključenem sestanku.</p>
             </div>
-            <button id="copy-crm-summary" type="button" class="btn btn-primary">Kopiraj za CRM</button>
+            <div class="flex flex-wrap gap-2">
+              <a class="back-to-top" href="#form-top">Na vrh</a>
+              <button id="copy-crm-summary" type="button" class="btn btn-primary">Kopiraj za CRM</button>
+            </div>
           </div>
           <textarea id="crm-summary" readonly class="min-h-80 font-mono text-sm"></textarea>
         </div>
@@ -342,7 +384,10 @@
 
       target.innerHTML = discoveryData.sklopi.map((section, sectionIndex) => `
         <div class="obrazec-sklop" id="${sectionId(sectionIndex)}">
-          <h2>${section.naslov}</h2>
+          <div class="section-heading">
+            <h2>${section.naslov}</h2>
+            <a class="back-to-top no-print" href="#form-top">${localText('Na vrh')}</a>
+          </div>
           ${section.vprasanja.map((question, questionIndex) => `
             <div class="vprasanje">
               <div><span class="vprasanje-num">${questionIndex + 1}.</span>${question}</div>

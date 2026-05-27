@@ -40,6 +40,7 @@ async function main() {
     await waitForReady(browser);
     await waitForCondition(browser, `document.querySelectorAll('.answer-field').length > 5`);
     await waitForCondition(browser, `document.querySelectorAll('#section-jumps a').length > 5`);
+    await waitForCondition(browser, `document.querySelectorAll('.back-to-top').length > 5`);
     await waitForCondition(browser, `document.getElementById('form-status').textContent.includes('Nov obrazec')`);
 
     await evalValue(browser, `
@@ -78,6 +79,20 @@ async function main() {
 
     await evalValue(browser, `document.querySelector('#section-jumps a[href="#discovery-section-0"]').click()`);
     await waitForCondition(browser, `location.hash === '#discovery-section-0'`);
+    await evalValue(browser, `document.querySelector('#discovery-section-0 .back-to-top').click()`);
+    await waitForCondition(browser, `location.hash === '#form-top'`);
+
+    const menuResult = await evalValue(browser, `(() => {
+      const menu = document.querySelector('.app-nav-menu');
+      menu.open = true;
+      const links = document.querySelector('.app-nav-links');
+      return {
+        overflowY: getComputedStyle(links).overflowY,
+        linkCount: links.querySelectorAll('a').length
+      };
+    })()`);
+    assert(menuResult.overflowY !== 'auto' && menuResult.overflowY !== 'scroll', 'dropdown menu still has internal scrolling');
+    assert(menuResult.linkCount > 5, 'dropdown menu did not render links');
 
     await browser.send('Emulation.setDeviceMetricsOverride', {
       width: 390,
