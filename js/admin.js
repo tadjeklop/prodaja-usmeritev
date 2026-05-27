@@ -58,10 +58,25 @@ const SettingsAdmin = {
 
   async renderCloud() {
     if (!Auth.isAdmin()) {
+      const email = Auth.user?.email || '';
+      const currentProfile = Auth.profile?.name || Auth.access?.profile_id || 'brez profila';
+      const adminSql = `insert into public.portal_user_access (user_email, profile_id, can_edit_content, is_admin)
+values ('${email}', 'admin', true, true)
+on conflict (user_email) do update set
+  profile_id = excluded.profile_id,
+  can_edit_content = excluded.can_edit_content,
+  is_admin = excluded.is_admin;`;
       this.content.innerHTML = `
         <section class="panel">
           <h2 class="text-xl font-bold mb-2">${this.t('settings.no_admin', 'Nimaš admin dostopa')}</h2>
-          <p class="text-stone-600">${this.t('settings.no_admin_hint', 'Tvoj profil določa, katere module vidiš. Urejanje uporabnikov je na voljo samo adminu.')}</p>
+          <p class="text-stone-600 mb-4">${this.t('settings.no_admin_hint', 'Tvoj profil določa, katere module vidiš. Urejanje uporabnikov je na voljo samo adminu.')}</p>
+          <div class="bg-stone-50 border border-stone-200 rounded-lg p-4 text-sm space-y-2">
+            <div><strong>Email:</strong> ${this.escape(email || 'ni zaznan')}</div>
+            <div><strong>Profil:</strong> ${this.escape(currentProfile)}</div>
+            <div><strong>Admin:</strong> Ne</div>
+          </div>
+          <p class="text-sm text-stone-600 mt-4 mb-2">${this.t('settings.admin_sql_hint', 'V Supabase SQL Editorju za ta email zaženi ta ukaz:')}</p>
+          <pre class="script-block text-xs overflow-x-auto">${this.escape(adminSql)}</pre>
         </section>
       `;
       return;

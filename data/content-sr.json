@@ -3378,5 +3378,7 @@
   "Prijava — Interzero EPR": "Prijava ? Interzero EPR",
   "Uporabniško ime / email": "Korisni?ko ime / email",
   "Auth Å¡e ni vklopljen. Nastavi": "Auth Å¡e ni vklopljen. Nastavi",
-  "data/auth-config.json": "data/auth-config.json"
+  "data/auth-config.json": "data/auth-config.json",
+  "V Supabase SQL Editorju za ta email za?eni ta ukaz:": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:",
+  "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:"
 }

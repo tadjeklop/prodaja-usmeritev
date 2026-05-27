@@ -811,5 +811,10 @@
     "sl": "Profili so shranjeni v Supabase in veljajo za vse uporabnike po prijavi.",
     "hr": "Profili su spremljeni u Supabase i vrijede za sve korisnike nakon prijave.",
     "sr": "Profili su sa?uvani u Supabase i va?e za sve korisnike nakon prijave."
+  },
+  "settings.admin_sql_hint": {
+    "sl": "V Supabase SQL Editorju za ta email za?eni ta ukaz:",
+    "hr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:",
+    "sr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:"
   }
 }
