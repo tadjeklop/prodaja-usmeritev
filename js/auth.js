@@ -11,7 +11,12 @@ const Auth = {
   async init() {
     await this.loadConfig();
     this.session = Storage.get('auth-session', null);
-    if (!this.isEnabled()) return;
+    if (!this.requiresAuth()) return;
+
+    if (!this.isConfigured()) {
+      this.redirectToLoginIfNeeded();
+      return;
+    }
 
     if (!this.session?.access_token) {
       this.redirectToLoginIfNeeded();
@@ -40,6 +45,14 @@ const Auth = {
   },
 
   isEnabled() {
+    return this.isConfigured();
+  },
+
+  requiresAuth() {
+    return !!this.config.enabled;
+  },
+
+  isConfigured() {
     return !!(this.config.enabled && this.config.supabaseUrl && this.config.anonKey);
   },
 
@@ -55,7 +68,7 @@ const Auth = {
 
   async signIn(email, password) {
     await this.loadConfig();
-    if (!this.isEnabled()) throw new Error('Auth ni konfiguriran. Uredi data/auth-config.json.');
+    if (!this.isConfigured()) throw new Error('Auth ni konfiguriran. Uredi data/auth-config.json.');
     const data = await this.request(`/auth/v1/token?grant_type=password`, {
       method: 'POST',
       body: { email, password }

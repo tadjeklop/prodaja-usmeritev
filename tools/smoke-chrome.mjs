@@ -27,68 +27,23 @@ async function main() {
     '--no-default-browser-check',
     `--remote-debugging-port=${debugPort}`,
     `--user-data-dir=${profileDir}`,
-    `${base}/settings.html`
+    `${base}/index.html`
   ], { stdio: ['ignore', 'ignore', 'ignore'] });
 
-    const browser = await connectPage(debugPort, `${base}/settings.html`);
+    const browser = await connectPage(debugPort, `${base}/index.html`);
     await browser.send('Page.enable');
     await browser.send('Runtime.enable');
     await waitForReady(browser);
-    await waitForCondition(browser, `!!document.querySelector('#admin-settings .panel')`);
+    await waitForCondition(browser, `location.pathname.endsWith('/login.html')`);
 
-  let result = await evalValue(browser, `(() => ({
-    title: document.title,
-    settingsReady: !!document.querySelector('#admin-settings .panel'),
-    profileSwitcher: !!document.querySelector('.profile-switcher')
-  }))()`);
-  assert(result.settingsReady, 'settings page did not render admin panel');
-  assert(result.profileSwitcher, 'profile switcher is missing');
-  console.log(`settings.html: rendered (${result.title})`);
-
-  result = await evalValue(browser, `(() => {
-    const before = document.querySelectorAll('[data-profile-id]').length;
-    document.querySelector('#settings-add-profile').click();
-    const after = document.querySelectorAll('[data-profile-id]').length;
-    return { before, after };
-  })()`);
-  assert(result.after === result.before + 1, 'add profile click did not add a profile');
-  console.log(`settings.html: add profile click ok (${result.before} -> ${result.after})`);
-
-  await evalValue(browser, `(() => {
-    localStorage.setItem('izepr.profiles', JSON.stringify([
-      { id: 'admin', name: 'Admin', role: 'admin', defaultLanguage: 'sl', markets: ['sl','hr','sr'], enabledModules: ['index','dashboard','stranke','segmentacija','vodic','roleplay','priprava','obrazec','govori','ugovori','konkurenca','reference','kalkulacije','ponudba','proces','glosar','koledar','vsebine','zakonodaja','onboarding','kpi','asistent','zgodovina','settings'] },
-      { id: 'hr-prodaja', name: 'Hrvatska prodaja', role: 'editor', defaultLanguage: 'hr', markets: ['hr'], enabledModules: ['index','govori','ugovori','zakonodaja','settings'] }
-    ]));
-    localStorage.setItem('izepr.active-profile-id', JSON.stringify('hr-prodaja'));
-    localStorage.setItem('izepr.i18n-lang', JSON.stringify('hr'));
-    location.href = '${base}/index.html';
-  })()`);
-  await waitForReady(browser);
-
-  result = await evalValue(browser, `(() => ({
-    lang: document.documentElement.lang,
-    visibleModules: [...document.querySelectorAll('.module-card')].filter(a => !a.hidden).map(a => a.getAttribute('href')),
-    hiddenModules: [...document.querySelectorAll('.module-card')].filter(a => a.hidden).length
-  }))()`);
-  assert(result.lang === 'hr', 'HR profile did not set Croatian language');
-  assert(result.visibleModules.includes('govori.html'), 'allowed HR module is hidden');
-  assert(!result.visibleModules.includes('dashboard.html'), 'disabled module is still visible');
-  console.log(`index.html HR profile: ${result.visibleModules.length} visible, ${result.hiddenModules} hidden`);
-
-  await evalValue(browser, `location.href = '${base}/govori.html'`);
-  await waitForReady(browser);
-  await waitForCondition(browser, `!!document.querySelector('#content-editor-toggle')`);
-  result = await evalValue(browser, `(() => {
-    const toolbar = document.querySelector('#content-editor-toggle');
-    if (toolbar) toolbar.click();
-    return {
-      toolbar: !!toolbar,
-      buttons: document.querySelectorAll('.content-edit-btn').length
-    };
-  })()`);
-  assert(result.toolbar, 'HR editor toolbar is missing');
-  assert(result.buttons > 0, 'edit mode did not expose editable text buttons');
-  console.log(`govori.html HR editor: ${result.buttons} editable buttons`);
+    const result = await evalValue(browser, `(() => ({
+      title: document.title,
+      loginForm: !!document.querySelector('#login-form'),
+      setupVisible: !document.querySelector('#login-setup')?.classList.contains('hidden')
+    }))()`);
+    assert(result.loginForm, 'login form is missing');
+    assert(result.setupVisible, 'missing Supabase setup warning');
+    console.log(`auth guard: redirected to login (${result.title})`);
 
     browser.close();
   } finally {
