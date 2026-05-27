@@ -60,6 +60,17 @@ async function main() {
     assert(desktopResult.savedVisible, 'saved form is not visible');
     assert(desktopResult.answerFields > 5, 'questions were not rendered');
 
+    await evalValue(browser, `document.getElementById('complete-form').click()`);
+    await waitForCondition(browser, `document.getElementById('crm-summary')?.value.includes('Test stranka')`);
+    const crmResult = await evalValue(browser, `(() => ({
+      visible: !document.getElementById('crm-summary-panel').classList.contains('hidden'),
+      includesAnswer: document.getElementById('crm-summary').value.includes('Testni zapis'),
+      includesHeading: document.getElementById('crm-summary').value.includes('CRM ZAPISNIK')
+    }))()`);
+    assert(crmResult.visible, 'CRM summary is not visible after completion');
+    assert(crmResult.includesAnswer, 'CRM summary does not include answers');
+    assert(crmResult.includesHeading, 'CRM summary heading is missing');
+
     await browser.send('Emulation.setDeviceMetricsOverride', {
       width: 390,
       height: 844,

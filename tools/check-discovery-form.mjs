@@ -9,6 +9,9 @@ const checks = [
   ['Discovery form has editable customer input', html.includes('id="customer"')],
   ['Discovery form has save draft button', html.includes('id="save-draft"')],
   ['Discovery form has complete button', html.includes('id="complete-form"')],
+  ['Discovery form has CRM summary output', html.includes('id="crm-summary"')],
+  ['Discovery form has CRM copy button', html.includes('id="copy-crm-summary"')],
+  ['Discovery form generates CRM summary', html.includes('function buildCrmSummary')],
   ['Discovery form writes through Auth.rest', html.includes('Auth.rest(')],
   ['Discovery form renders answer textareas', html.includes('class="answer-field"')]
 ];

@@ -225,6 +225,17 @@
             <textarea id="do-different"></textarea>
           </div>
         </div>
+
+        <div id="crm-summary-panel" class="mt-8 no-print hidden">
+          <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mb-3">
+            <div>
+              <h2 class="mt-0 mb-1">CRM zapisnik</h2>
+              <p class="text-sm text-stone-600">Besedilo kopiraj v zunanji CRM po zaključenem sestanku.</p>
+            </div>
+            <button id="copy-crm-summary" type="button" class="btn btn-primary">Kopiraj za CRM</button>
+          </div>
+          <textarea id="crm-summary" readonly class="min-h-80 font-mono text-sm"></textarea>
+        </div>
       </section>
     </div>
   </main>
@@ -328,6 +339,51 @@
       };
     }
 
+    function questionLabel(key) {
+      const match = key.match(/^s(\d+)_q(\d+)$/);
+      if (!match) return key;
+      const section = discoveryData?.sklopi?.[Number(match[1])];
+      const question = section?.vprasanja?.[Number(match[2])];
+      return question ? `${section.naslov}: ${question}` : key;
+    }
+
+    function buildCrmSummary(form = collectForm('completed')) {
+      const answered = Object.entries(form.answers || {})
+        .filter(([, value]) => value)
+        .map(([key, value]) => `- ${questionLabel(key)}\n  ${value}`);
+
+      return [
+        `CRM ZAPISNIK - DISCOVERY SESTANEK`,
+        ``,
+        `Stranka: ${form.customer || '/'}`,
+        `Kontakt: ${form.contact || '/'}`,
+        `Funkcija: ${form.contact_role || '/'}`,
+        `Datum sestanka: ${form.meeting_date || '/'}`,
+        `Lokacija: ${form.location || '/'}`,
+        `Komercialist: ${form.salesperson || '/'}`,
+        ``,
+        `KLJUČNI ODGOVORI`,
+        answered.length ? answered.join('\n') : '- Ni vpisanih odgovorov.',
+        ``,
+        `NASLEDNJI KORAKI`,
+        `Naslednji korak: ${form.next_steps?.next_step || '/'}`,
+        `Datum naslednjega koraka: ${form.next_steps?.next_step_date || '/'}`,
+        `Podatki, ki jih pošlje stranka: ${form.next_steps?.customer_data || '/'}`,
+        `Vključeni v odločitev: ${form.next_steps?.decision_people || '/'}`,
+        `Naslednji sestanek: ${form.next_steps?.next_meeting_date || '/'}`,
+        ``,
+        `OCENA PO SESTANKU`,
+        `Glavne bolečine: ${form.reflection?.top_pains || '/'}`,
+        `Občutek o stranki: ${form.reflection?.customer_feeling || '/'}`,
+        `Kaj naslednjič drugače: ${form.reflection?.do_different || '/'}`
+      ].join('\n');
+    }
+
+    function showCrmSummary(form = collectForm('completed')) {
+      field('crm-summary').value = buildCrmSummary(form);
+      field('crm-summary-panel').classList.remove('hidden');
+    }
+
     async function loadSavedForms() {
       try {
         if (hasCloudStorage()) {
@@ -369,6 +425,8 @@
       ].forEach(id => field(id).value = '');
       ['meeting-date', 'next-step-date', 'next-meeting-date'].forEach(id => field(id).value = '');
       document.querySelectorAll('[data-answer]').forEach(input => input.value = '');
+      field('crm-summary').value = '';
+      field('crm-summary-panel').classList.add('hidden');
       renderSavedForms();
       setStatus('Nov obrazec je pripravljen.');
       field('customer').focus();
@@ -396,6 +454,8 @@
       field('top-pains').value = item.reflection?.top_pains || '';
       field('customer-feeling').value = item.reflection?.customer_feeling || '';
       field('do-different').value = item.reflection?.do_different || '';
+      if (item.status === 'completed') showCrmSummary(item);
+      else field('crm-summary-panel').classList.add('hidden');
       renderSavedForms();
       setStatus('Obrazec je odprt.');
     }
@@ -428,6 +488,7 @@
           Storage.set(localStorageKey, next);
         }
         await loadSavedForms();
+        if (status === 'completed') showCrmSummary({ ...payload, id: currentFormId });
         setStatus(status === 'completed' ? 'Obrazec je zaključen in shranjen.' : 'Osnutek je shranjen.');
       } catch (err) {
         console.error(err);
@@ -467,6 +528,18 @@
       field('complete-form').addEventListener('click', () => saveForm('completed'));
       field('print-form').addEventListener('click', () => window.print());
       field('refresh-forms').addEventListener('click', loadSavedForms);
+      field('copy-crm-summary').addEventListener('click', async () => {
+        const text = field('crm-summary').value || buildCrmSummary();
+        field('crm-summary').value = text;
+        field('crm-summary-panel').classList.remove('hidden');
+        try {
+          await navigator.clipboard.writeText(text);
+          setStatus('CRM zapisnik je kopiran.');
+        } catch {
+          field('crm-summary').select();
+          setStatus('Kopiranje ni uspelo. Besedilo je označeno za ročno kopiranje.');
+        }
+      });
 
       document.querySelector('.obrazec').addEventListener('input', scheduleAutosave);
       field('saved-forms').addEventListener('click', event => {
