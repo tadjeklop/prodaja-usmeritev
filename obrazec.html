@@ -115,6 +115,44 @@
       margin-right: 0.35rem;
     }
 
+    .section-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 0.75rem;
+      background: white;
+      border: 1px solid #e7e5e4;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .section-jumps a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2rem;
+      padding: 0.35rem 0.65rem;
+      border: 1px solid #d6d3d1;
+      border-radius: 9999px;
+      color: #1b5e20;
+      background: #f8faf8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section-jumps a:hover {
+      background: #f0fdf4;
+      border-color: #2e7d32;
+    }
+
+    .obrazec-sklop,
+    #basic-data,
+    #next-steps,
+    #meeting-notes,
+    #crm-summary-panel {
+      scroll-margin-top: 5rem;
+    }
+
     @media (max-width: 900px) {
       .discovery-shell { grid-template-columns: 1fr; }
       .saved-panel { position: static; }
@@ -140,6 +178,8 @@
       </div>
     </div>
 
+    <nav id="section-jumps" class="section-jumps no-print mb-4" aria-label="Sklopi obrazca"></nav>
+
     <div class="discovery-shell">
       <aside class="saved-panel no-print">
         <div class="flex items-center justify-between gap-2 mb-3">
@@ -157,7 +197,7 @@
           <input id="form-title" class="text-center text-lg font-bold mt-2" placeholder="Naslov obrazca" />
         </div>
 
-        <div class="obrazec-header">
+        <div id="basic-data" class="obrazec-header">
           <div>
             <label for="customer">Stranka</label>
             <input id="customer" autocomplete="organization" />
@@ -186,7 +226,7 @@
 
         <div id="sklopi"></div>
 
-        <h2>Naslednji koraki</h2>
+        <h2 id="next-steps">Naslednji koraki</h2>
         <div class="grid md:grid-cols-2 gap-3">
           <div>
             <label for="next-step">Konkreten naslednji korak</label>
@@ -210,7 +250,7 @@
           </div>
         </div>
 
-        <h2>Lasten zapis po sestanku</h2>
+        <h2 id="meeting-notes">Lasten zapis po sestanku</h2>
         <div class="grid md:grid-cols-3 gap-3">
           <div>
             <label for="top-pains">Glavne 3 bolečine, ki sem jih slišal</label>
@@ -271,6 +311,10 @@
       return `s${sectionIndex}_q${questionIndex}`;
     }
 
+    function sectionId(sectionIndex) {
+      return `discovery-section-${sectionIndex}`;
+    }
+
     function dateOnly(value) {
       return value ? value : null;
     }
@@ -288,8 +332,16 @@
         return;
       }
 
+      field('section-jumps').innerHTML = [
+        `<a href="#basic-data">${localText('Podatki o stranki')}</a>`,
+        ...discoveryData.sklopi.map((section, sectionIndex) => `<a href="#${sectionId(sectionIndex)}">${section.naslov}</a>`),
+        `<a href="#next-steps">${localText('Naslednji koraki')}</a>`,
+        `<a href="#meeting-notes">${localText('Lasten zapis')}</a>`,
+        `<a href="#crm-summary-panel">${localText('CRM zapisnik')}</a>`
+      ].join('');
+
       target.innerHTML = discoveryData.sklopi.map((section, sectionIndex) => `
-        <div class="obrazec-sklop">
+        <div class="obrazec-sklop" id="${sectionId(sectionIndex)}">
           <h2>${section.naslov}</h2>
           ${section.vprasanja.map((question, questionIndex) => `
             <div class="vprasanje">
@@ -339,43 +391,60 @@
       };
     }
 
-    function questionLabel(key) {
+    function questionMeta(key) {
       const match = key.match(/^s(\d+)_q(\d+)$/);
-      if (!match) return key;
+      if (!match) return { sectionTitle: localText('Drugo'), question: key };
       const section = discoveryData?.sklopi?.[Number(match[1])];
       const question = section?.vprasanja?.[Number(match[2])];
-      return question ? `${section.naslov}: ${question}` : key;
+      return question ? { sectionTitle: section.naslov, question } : { sectionTitle: localText('Drugo'), question: key };
+    }
+
+    function groupAnswersBySection(answers = {}) {
+      const groups = [];
+      Object.entries(answers).forEach(([key, value]) => {
+        if (!value) return;
+        const meta = questionMeta(key);
+        let group = groups.find(item => item.sectionTitle === meta.sectionTitle);
+        if (!group) {
+          group = { sectionTitle: meta.sectionTitle, items: [] };
+          groups.push(group);
+        }
+        group.items.push({ question: meta.question, answer: value });
+      });
+      return groups;
     }
 
     function buildCrmSummary(form = collectForm('completed')) {
-      const answered = Object.entries(form.answers || {})
-        .filter(([, value]) => value)
-        .map(([key, value]) => `- ${questionLabel(key)}\n  ${value}`);
+      const answeredGroups = groupAnswersBySection(form.answers || {});
+      const answeredText = answeredGroups.map(group => [
+        group.sectionTitle.toUpperCase(),
+        ...group.items.map(item => `- ${item.question}\n  ${item.answer}`)
+      ].join('\n')).join('\n\n');
 
       return [
-        `CRM ZAPISNIK - DISCOVERY SESTANEK`,
+        localText('CRM ZAPISNIK - DISCOVERY SESTANEK'),
         ``,
-        `Stranka: ${form.customer || '/'}`,
-        `Kontakt: ${form.contact || '/'}`,
-        `Funkcija: ${form.contact_role || '/'}`,
-        `Datum sestanka: ${form.meeting_date || '/'}`,
-        `Lokacija: ${form.location || '/'}`,
-        `Komercialist: ${form.salesperson || '/'}`,
+        `${localText('Stranka:')} ${form.customer || '/'}`,
+        `${localText('Kontakt:')} ${form.contact || '/'}`,
+        `${localText('Funkcija:')} ${form.contact_role || '/'}`,
+        `${localText('Datum sestanka:')} ${form.meeting_date || '/'}`,
+        `${localText('Lokacija:')} ${form.location || '/'}`,
+        `${localText('Komercialist:')} ${form.salesperson || '/'}`,
         ``,
-        `KLJUČNI ODGOVORI`,
-        answered.length ? answered.join('\n') : '- Ni vpisanih odgovorov.',
+        localText('KLJUČNI ODGOVORI'),
+        answeredText || `- ${localText('Ni vpisanih odgovorov.')}`,
         ``,
-        `NASLEDNJI KORAKI`,
-        `Naslednji korak: ${form.next_steps?.next_step || '/'}`,
-        `Datum naslednjega koraka: ${form.next_steps?.next_step_date || '/'}`,
-        `Podatki, ki jih pošlje stranka: ${form.next_steps?.customer_data || '/'}`,
-        `Vključeni v odločitev: ${form.next_steps?.decision_people || '/'}`,
-        `Naslednji sestanek: ${form.next_steps?.next_meeting_date || '/'}`,
+        localText('NASLEDNJI KORAKI'),
+        `${localText('Naslednji korak:')} ${form.next_steps?.next_step || '/'}`,
+        `${localText('Datum naslednjega koraka:')} ${form.next_steps?.next_step_date || '/'}`,
+        `${localText('Podatki, ki jih pošlje stranka:')} ${form.next_steps?.customer_data || '/'}`,
+        `${localText('Vključeni v odločitev:')} ${form.next_steps?.decision_people || '/'}`,
+        `${localText('Naslednji sestanek:')} ${form.next_steps?.next_meeting_date || '/'}`,
         ``,
-        `OCENA PO SESTANKU`,
-        `Glavne bolečine: ${form.reflection?.top_pains || '/'}`,
-        `Občutek o stranki: ${form.reflection?.customer_feeling || '/'}`,
-        `Kaj naslednjič drugače: ${form.reflection?.do_different || '/'}`
+        localText('OCENA PO SESTANKU'),
+        `${localText('Glavne bolečine:')} ${form.reflection?.top_pains || '/'}`,
+        `${localText('Občutek o stranki:')} ${form.reflection?.customer_feeling || '/'}`,
+        `${localText('Kaj naslednjič drugače:')} ${form.reflection?.do_different || '/'}`
       ].join('\n');
     }
 

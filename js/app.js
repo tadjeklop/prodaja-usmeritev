@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v10';
+const APP_ASSET_VERSION = 'v11';
 
 (function clearOldRuntimeCache() {
   try {
@@ -157,7 +157,10 @@ function renderNav() {
     <nav class="app-nav">
       <div class="app-nav-inner">
         <a href="index.html" class="app-nav-logo">Interzero EPR</a>
-      <div class="app-nav-links">${links}</div>
+        <details class="app-nav-menu">
+          <summary class="app-nav-menu-button" data-i18n="nav.menu">Meni</summary>
+          <div class="app-nav-links">${links}</div>
+        </details>
         ${renderAccountControl()}
       </div>
     </nav>
@@ -169,6 +172,16 @@ function renderNav() {
     if (switcher) switcher.addEventListener('change', () => ProfileManager.setActiveProfile(switcher.value));
     const logout = slot.querySelector('[data-auth-logout]');
     if (logout) logout.addEventListener('click', () => Auth.signOut());
+    slot.querySelectorAll('.app-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const menu = slot.querySelector('.app-nav-menu');
+        if (menu) menu.open = false;
+      });
+    });
+    document.addEventListener('click', event => {
+      const menu = slot.querySelector('.app-nav-menu');
+      if (menu?.open && !menu.contains(event.target)) menu.open = false;
+    });
   }
 }
 

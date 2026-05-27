@@ -2432,7 +2432,7 @@
   "Ime podjetja": "Naziv kompanije",
   ">Pobriši <div class=": ">Izbriši <div class=",
   ">Ločilo: znak „|": ">Razgraničnik: znak '|",
-  "Podatki o stranki": "Informacije o klijentima",
+  "Podatki o stranki": "Podaci o klijentu",
   "Vnesi nekaj podatkov o stranki in dobiš pripravljen brief: vprašanja, govore, ugovore in naslednje korake.": "Unesite neke podatke o klijentu i dobićete pripremljen brief: pitanja, govore, primedbe i sledeće korake.",
   ">Postavke (en odsek na vrstico: opis | cena € | enota) <textarea id=": ">Stavke (jedan odeljak po redu: opis | cena € | jedinica) <tektarea id=",
   ">🖨️ Natisni / PDF <button id=": ">🖨 Štampaj / PDF <button id=",
@@ -3432,5 +3432,9 @@
   "Supabase obrazcev ni mogo?e nalo?iti. Prikazujem lokalno shranjene obrazce iz tega brskalnika.": "Supabase obrasce nije mogu?e u?itati. Prikazujem lokalno sa?uvane obrasce iz ovog pregleda?a.",
   "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. Za shranjevanje v oblak za?eni najnovej?i supabase-schema.sql.": "Supabase ?uvanje nije uspelo, zato je obrazac privremeno sa?uvan lokalno u ovom pregleda?u. Za ?uvanje u oblaku pokreni najnoviji supabase-schema.sql.",
   "Obrazec je zaklju?en in shranjen. CRM zapisnik je pripravljen spodaj.": "Obrazac je zaklju?en i sa?uvan. CRM zapisnik je pripremljen ispod.",
-  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. CRM zapisnik je pripravljen spodaj.": "Supabase ?uvanje nije uspelo, zato je obrazac privremeno sa?uvan lokalno u ovom pregleda?u. CRM zapisnik je pripremljen ispod."
+  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. CRM zapisnik je pripravljen spodaj.": "Supabase ?uvanje nije uspelo, zato je obrazac privremeno sa?uvan lokalno u ovom pregleda?u. CRM zapisnik je pripremljen ispod.",
+  "Meni": "Meni",
+  "Lasten zapis": "Li?na bele?ka",
+  "Drugo": "Drugo",
+  "Sklopi obrazca": "Delovi obrasca"
 }

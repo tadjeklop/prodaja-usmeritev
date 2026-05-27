@@ -816,5 +816,10 @@
     "sl": "V Supabase SQL Editorju za ta email za?eni ta ukaz:",
     "hr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:",
     "sr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:"
+  },
+  "nav.menu": {
+    "sl": "Meni",
+    "hr": "Izbornik",
+    "sr": "Meni"
   }
 }

@@ -39,6 +39,7 @@ async function main() {
     });
     await waitForReady(browser);
     await waitForCondition(browser, `document.querySelectorAll('.answer-field').length > 5`);
+    await waitForCondition(browser, `document.querySelectorAll('#section-jumps a').length > 5`);
     await waitForCondition(browser, `document.getElementById('form-status').textContent.includes('Nov obrazec')`);
 
     await evalValue(browser, `
@@ -66,12 +67,17 @@ async function main() {
       visible: !document.getElementById('crm-summary-panel').classList.contains('hidden'),
       includesAnswer: document.getElementById('crm-summary').value.includes('Testni zapis'),
       includesHeading: document.getElementById('crm-summary').value.includes('CRM ZAPISNIK'),
+      repeatsSectionInBullet: document.getElementById('crm-summary').value.includes('- ' + discoveryData.sklopi[0].naslov + ':'),
       scrolledToSummary: window.scrollY > 100
     }))()`);
     assert(crmResult.visible, 'CRM summary is not visible after completion');
     assert(crmResult.includesAnswer, 'CRM summary does not include answers');
     assert(crmResult.includesHeading, 'CRM summary heading is missing');
+    assert(!crmResult.repeatsSectionInBullet, 'CRM summary repeats section names in every answer');
     assert(crmResult.scrolledToSummary, 'page did not scroll to CRM summary');
+
+    await evalValue(browser, `document.querySelector('#section-jumps a[href="#discovery-section-0"]').click()`);
+    await waitForCondition(browser, `location.hash === '#discovery-section-0'`);
 
     await browser.send('Emulation.setDeviceMetricsOverride', {
       width: 390,
