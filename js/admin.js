@@ -479,6 +479,7 @@ window.ContentEditor = ContentEditor;
 
 async function bootAdminTools() {
   await waitForI18nGlobal();
+  await waitForAuthGlobal();
   SettingsAdmin.init();
   ContentEditor.init();
 }
@@ -492,6 +493,23 @@ function waitForI18nGlobal() {
       if (typeof I18n !== 'undefined' && I18n.ready) {
         clearInterval(timer);
         I18n.ready.then(resolve).catch(resolve);
+      } else if (tries > 50) {
+        clearInterval(timer);
+        resolve();
+      }
+    }, 50);
+  });
+}
+
+function waitForAuthGlobal() {
+  if (typeof Auth !== 'undefined' && Auth.ready) return Auth.ready;
+  return new Promise(resolve => {
+    let tries = 0;
+    const timer = setInterval(() => {
+      tries++;
+      if (typeof Auth !== 'undefined' && Auth.ready) {
+        clearInterval(timer);
+        Auth.ready.then(resolve).catch(resolve);
       } else if (tries > 50) {
         clearInterval(timer);
         resolve();
