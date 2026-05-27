@@ -41,6 +41,7 @@ async function main() {
     await waitForCondition(browser, `document.querySelectorAll('.answer-field').length > 5`);
     await waitForCondition(browser, `document.querySelectorAll('#section-jumps a').length > 5`);
     await waitForCondition(browser, `document.querySelectorAll('.back-to-top').length > 5`);
+    await waitForCondition(browser, `document.querySelector('.floating-top-button')?.textContent.includes('Na vrh')`);
     await waitForCondition(browser, `document.getElementById('form-status').textContent.includes('Nov obrazec')`);
 
     await evalValue(browser, `
