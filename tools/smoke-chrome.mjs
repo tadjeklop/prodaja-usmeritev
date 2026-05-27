@@ -42,7 +42,7 @@ async function main() {
       setupVisible: !document.querySelector('#login-setup')?.classList.contains('hidden')
     }))()`);
     assert(result.loginForm, 'login form is missing');
-    assert(result.setupVisible, 'missing Supabase setup warning');
+    assert(!result.setupVisible, 'Supabase setup warning should be hidden when auth is configured');
     console.log(`auth guard: redirected to login (${result.title})`);
 
     browser.close();

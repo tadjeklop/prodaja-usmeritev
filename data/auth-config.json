@@ -1,5 +1,5 @@
 {
   "enabled": true,
-  "supabaseUrl": "",
-  "anonKey": ""
+  "supabaseUrl": "https://ebpohlnlyprxmeccwpwr.supabase.co",
+  "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVicG9obG5seXByeG1lY2N3cHdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4OTEzMzksImV4cCI6MjA5NTQ2NzMzOX0.PhKfUQWPksDNKteMxMpJRX1_pQtVzjsnwlBGRqtJtcU"
 }

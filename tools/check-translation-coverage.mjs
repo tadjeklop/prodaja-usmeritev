@@ -52,6 +52,7 @@ console.log('translation coverage checks passed');
 
 function looksLikeCode(text) {
   return /^https?:\/\//.test(text) ||
+    /^eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+$/.test(text) ||
     /^[a-z0-9-]+$/i.test(text) ||
     /^[,'"`.:\-)\]}]/.test(text) ||
     /^\d{4}-\d{2}/.test(text) ||
