@@ -384,6 +384,20 @@
       field('crm-summary-panel').classList.remove('hidden');
     }
 
+    function saveLocalForm(payload) {
+      const now = new Date().toISOString();
+      const item = {
+        ...payload,
+        id: currentFormId || crypto.randomUUID(),
+        created_at: payload.created_at || now,
+        updated_at: payload.updated_at || now
+      };
+      currentFormId = item.id;
+      const existing = Storage.get(localStorageKey, []);
+      Storage.set(localStorageKey, [item, ...existing.filter(row => row.id !== item.id)]);
+      return item;
+    }
+
     async function loadSavedForms() {
       try {
         if (hasCloudStorage()) {
@@ -395,7 +409,9 @@
         renderSavedForms();
       } catch (err) {
         console.error(err);
-        field('saved-forms').innerHTML = `<p class="text-red-700">${localText('Obrazcev ni mogoče naložiti. Preveri, ali je Supabase SQL shema posodobljena.')}</p>`;
+        savedForms = Storage.get(localStorageKey, []);
+        renderSavedForms();
+        setStatus('Supabase obrazcev ni mogoče naložiti. Prikazujem lokalno shranjene obrazce iz tega brskalnika.');
       }
     }
 
@@ -478,21 +494,29 @@
                 prefer: 'return=representation'
               });
           const saved = Array.isArray(result) ? result[0] : result;
-          currentFormId = saved?.id || currentFormId;
+          if (saved?.id) {
+            currentFormId = saved.id;
+          } else {
+            const inserted = await Auth.rest('discovery_forms', {
+              method: 'POST',
+              body: payload,
+              prefer: 'return=representation'
+            });
+            currentFormId = (Array.isArray(inserted) ? inserted[0] : inserted)?.id || currentFormId;
+          }
         } else {
-          const now = new Date().toISOString();
-          const item = { ...payload, id: currentFormId || crypto.randomUUID(), created_at: now };
-          currentFormId = item.id;
-          const existing = Storage.get(localStorageKey, []);
-          const next = [item, ...existing.filter(row => row.id !== item.id)];
-          Storage.set(localStorageKey, next);
+          saveLocalForm(payload);
         }
         await loadSavedForms();
         if (status === 'completed') showCrmSummary({ ...payload, id: currentFormId });
         setStatus(status === 'completed' ? 'Obrazec je zaključen in shranjen.' : 'Osnutek je shranjen.');
       } catch (err) {
         console.error(err);
-        setStatus('Shranjevanje ni uspelo. Preveri Supabase SQL shemo in prijavo.');
+        saveLocalForm(payload);
+        savedForms = Storage.get(localStorageKey, []);
+        renderSavedForms();
+        if (status === 'completed') showCrmSummary({ ...payload, id: currentFormId });
+        setStatus('Supabase shranjevanje ni uspelo, zato sem obrazec začasno shranil lokalno v tem brskalniku. Za shranjevanje v oblak zaženi najnovejši supabase-schema.sql.');
       }
     }
 

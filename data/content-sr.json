@@ -3428,5 +3428,7 @@
   "Kaj naslednji? druga?e:": "?ta slede?i put druga?ije:",
   "CRM zapisnik je kopiran.": "CRM zapisnik je kopiran.",
   "Kopiranje ni uspelo. Besedilo je ozna?eno za ro?no kopiranje.": "Kopiranje nije uspelo. Tekst je ozna?en za ru?no kopiranje.",
-  "Besedilo kopiraj v zunanji CRM po zaključenem sestanku.": "Tekst kopirajte u spoljni CRM nakon završenog sastanka."
+  "Besedilo kopiraj v zunanji CRM po zaključenem sestanku.": "Tekst kopirajte u spoljni CRM nakon završenog sastanka.",
+  "Supabase obrazcev ni mogo?e nalo?iti. Prikazujem lokalno shranjene obrazce iz tega brskalnika.": "Supabase obrasce nije mogu?e u?itati. Prikazujem lokalno sa?uvane obrasce iz ovog pregleda?a.",
+  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. Za shranjevanje v oblak za?eni najnovej?i supabase-schema.sql.": "Supabase ?uvanje nije uspelo, zato je obrazac privremeno sa?uvan lokalno u ovom pregleda?u. Za ?uvanje u oblaku pokreni najnoviji supabase-schema.sql."
 }

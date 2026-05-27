@@ -12,6 +12,7 @@ const checks = [
   ['Discovery form has CRM summary output', html.includes('id="crm-summary"')],
   ['Discovery form has CRM copy button', html.includes('id="copy-crm-summary"')],
   ['Discovery form generates CRM summary', html.includes('function buildCrmSummary')],
+  ['Discovery form has local save fallback', html.includes('function saveLocalForm')],
   ['Discovery form writes through Auth.rest', html.includes('Auth.rest(')],
   ['Discovery form renders answer textareas', html.includes('class="answer-field"')]
 ];
