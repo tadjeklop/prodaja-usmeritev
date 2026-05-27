@@ -65,11 +65,13 @@ async function main() {
     const crmResult = await evalValue(browser, `(() => ({
       visible: !document.getElementById('crm-summary-panel').classList.contains('hidden'),
       includesAnswer: document.getElementById('crm-summary').value.includes('Testni zapis'),
-      includesHeading: document.getElementById('crm-summary').value.includes('CRM ZAPISNIK')
+      includesHeading: document.getElementById('crm-summary').value.includes('CRM ZAPISNIK'),
+      scrolledToSummary: window.scrollY > 100
     }))()`);
     assert(crmResult.visible, 'CRM summary is not visible after completion');
     assert(crmResult.includesAnswer, 'CRM summary does not include answers');
     assert(crmResult.includesHeading, 'CRM summary heading is missing');
+    assert(crmResult.scrolledToSummary, 'page did not scroll to CRM summary');
 
     await browser.send('Emulation.setDeviceMetricsOverride', {
       width: 390,

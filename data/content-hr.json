@@ -3430,5 +3430,7 @@
   "Kopiranje ni uspelo. Besedilo je ozna?eno za ro?no kopiranje.": "Kopiranje nije uspjelo. Tekst je ozna?en za ru?no kopiranje.",
   "Besedilo kopiraj v zunanji CRM po zaključenem sestanku.": "Tekst kopirajte u vanjski CRM nakon završenog sastanka.",
   "Supabase obrazcev ni mogo?e nalo?iti. Prikazujem lokalno shranjene obrazce iz tega brskalnika.": "Supabase obrasce nije mogu?e u?itati. Prikazujem lokalno spremljene obrasce iz ovog preglednika.",
-  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. Za shranjevanje v oblak za?eni najnovej?i supabase-schema.sql.": "Supabase spremanje nije uspjelo, zato je obrazac privremeno spremljen lokalno u ovom pregledniku. Za spremanje u oblak pokreni najnoviji supabase-schema.sql."
+  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. Za shranjevanje v oblak za?eni najnovej?i supabase-schema.sql.": "Supabase spremanje nije uspjelo, zato je obrazac privremeno spremljen lokalno u ovom pregledniku. Za spremanje u oblak pokreni najnoviji supabase-schema.sql.",
+  "Obrazec je zaklju?en in shranjen. CRM zapisnik je pripravljen spodaj.": "Obrazac je zaklju?en i spremljen. CRM zapisnik je pripremljen ispod.",
+  "Supabase shranjevanje ni uspelo, zato sem obrazec za?asno shranil lokalno v tem brskalniku. CRM zapisnik je pripravljen spodaj.": "Supabase spremanje nije uspjelo, zato je obrazac privremeno spremljen lokalno u ovom pregledniku. CRM zapisnik je pripremljen ispod."
 }

@@ -379,9 +379,13 @@
       ].join('\n');
     }
 
-    function showCrmSummary(form = collectForm('completed')) {
+    function showCrmSummary(form = collectForm('completed'), shouldScroll = true) {
       field('crm-summary').value = buildCrmSummary(form);
       field('crm-summary-panel').classList.remove('hidden');
+      if (shouldScroll) {
+        field('crm-summary-panel').scrollIntoView({ behavior: 'auto', block: 'start' });
+        field('crm-summary').focus();
+      }
     }
 
     function saveLocalForm(payload) {
@@ -470,7 +474,7 @@
       field('top-pains').value = item.reflection?.top_pains || '';
       field('customer-feeling').value = item.reflection?.customer_feeling || '';
       field('do-different').value = item.reflection?.do_different || '';
-      if (item.status === 'completed') showCrmSummary(item);
+      if (item.status === 'completed') showCrmSummary(item, false);
       else field('crm-summary-panel').classList.add('hidden');
       renderSavedForms();
       setStatus('Obrazec je odprt.');
@@ -509,14 +513,16 @@
         }
         await loadSavedForms();
         if (status === 'completed') showCrmSummary({ ...payload, id: currentFormId });
-        setStatus(status === 'completed' ? 'Obrazec je zaključen in shranjen.' : 'Osnutek je shranjen.');
+        setStatus(status === 'completed' ? 'Obrazec je zaključen in shranjen. CRM zapisnik je pripravljen spodaj.' : 'Osnutek je shranjen.');
       } catch (err) {
         console.error(err);
         saveLocalForm(payload);
         savedForms = Storage.get(localStorageKey, []);
         renderSavedForms();
         if (status === 'completed') showCrmSummary({ ...payload, id: currentFormId });
-        setStatus('Supabase shranjevanje ni uspelo, zato sem obrazec začasno shranil lokalno v tem brskalniku. Za shranjevanje v oblak zaženi najnovejši supabase-schema.sql.');
+        setStatus(status === 'completed'
+          ? 'Supabase shranjevanje ni uspelo, zato sem obrazec začasno shranil lokalno v tem brskalniku. CRM zapisnik je pripravljen spodaj.'
+          : 'Supabase shranjevanje ni uspelo, zato sem obrazec začasno shranil lokalno v tem brskalniku. Za shranjevanje v oblak zaženi najnovejši supabase-schema.sql.');
       }
     }
 
