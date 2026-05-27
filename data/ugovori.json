@@ -1,0 +1,151 @@
+{
+  "_opis": "Najpogostejši ugovori in preverjeni odgovori. Vsak ugovor ima KATEGORIJO za hitro iskanje, KRATEK ODGOVOR za na sestanku, DOLGI ODGOVOR za pripravo in OPOMBO za prodajalca.",
+  "ugovori": [
+    {
+      "kategorija": "cena",
+      "ugovor": "Predragi ste.",
+      "kratek_odgovor": "V primerjavi s čim? Če pogledamo samo postavko, je primerjava enostavna. Če pogledamo, koliko časa in tveganja vam to dejansko prinese, je drugačna zgodba. Predlagam, da pogledava skupaj.",
+      "dolgi_odgovor": "Razumem, cena je vedno tema. Da pa lahko jaz reagiram pošteno, potrebujem dva podatka: prvič, s katero konkretno alternativo nas primerjate, in drugič, ali primerjate samo storitev ali tudi obseg dela, ki ga sami prevzamemo. Pri večini strank vidimo, da na koncu ni najcenejši ponudnik tisti, ki da najnižjo številko v Excel — ampak tisti, ki vam dejansko zmanjša interno delo, tveganje pri inšpekcijah in skrite stroške. Lahko narediva pošten primerjalni pregled, če mi pošljete konkurenčno ponudbo ali povzetek tega, kar plačujete danes.",
+      "opomba": "Ne padaj v past popusta brez razloga. Najprej razumi, kaj primerjajo."
+    },
+    {
+      "kategorija": "obstojeci-dobavitelj",
+      "ugovor": "To že imamo urejeno pri drugem ponudniku.",
+      "kratek_odgovor": "Razumem. Ne predlagam, da jih zamenjate. Predlagam 30 minut pogovora, kjer pogledava, ali so vsi vaši vidiki res pokriti — embalaža, EE-oprema, baterije, poročanje, ESG, regijska prisotnost. Pogosto najdemo eno ali dve področji, kjer obstaja prostor.",
+      "dolgi_odgovor": "Razumem. Sodelovanje, ki dela, ima smisel ohraniti. Naša izkušnja pa je, da imajo večja podjetja pogosto pokrito eno področje, dve pa ne. Najpogostejše vrzeli, ki jih najdemo, so: EE-oprema in baterije (če podjetje uvaža izdelke s temi komponentami), regionalna izvedba (če prodajate v več državah), ESG poročanje za B2B kupce in pomoč pri spremembah zakonodaje, ki ni del osnovne sheme. Predlagam, da 30 minut pogledava skupaj — ne, da boste menjali partnerja, ampak da vidite, kje so vaše dejanske luknje. To je za vas brez obveznosti.",
+      "opomba": "Ne napadaj obstoječega dobavitelja. Išči, kar ne pokrivajo, in nudi to."
+    },
+    {
+      "kategorija": "interna-ekipa",
+      "ugovor": "To imamo interno urejeno. Naša HSE ekipa to dela.",
+      "kratek_odgovor": "Odlično, da imate interno znanje. Vprašanje je, ali je to njihova primarna vloga ali eno od desetih področij, ki jih pokrivajo. Druga zgodba je, kaj se zgodi, če ta oseba ni na voljo en mesec.",
+      "dolgi_odgovor": "To je dobro slišati — pomeni, da imate doma znanje, kar je redko. Dve vprašanji vam pomagata oceniti, ali je to dovolj. Prvič: koliko časa na teden vaša HSE ekipa porabi za EPR in odpadke v primerjavi s ostalimi nalogami? Drugič: če ta oseba odide ali je bolna, kdo prevzame? Pri večini podjetij interno znanje obstaja, ampak je odvisno od enega ali dveh ljudi. Naša vloga ni, da nadomestimo vašo HSE ekipo — temveč da poskrbimo za stvari, ki so rutinske in dolgotrajne, da se vaša ekipa lahko ukvarja z zahtevnejšimi odločitvami.",
+      "opomba": "Pohvali interno znanje, izpostavi tveganje koncentracije."
+    },
+    {
+      "kategorija": "ni-cas",
+      "ugovor": "Trenutno nimamo časa za to.",
+      "kratek_odgovor": "Razumem. Verjetno je to ravno razlog, zakaj bi vam Interzero koristil — ker je naša naloga, da prevzamemo, kar danes požira vaš čas. Lahko se vrnem čez tri mesece, ali pa se v 15 minutah dogovoriva, ali sploh ima smisel pogovor.",
+      "dolgi_odgovor": "To je pošteno. Verjamem vam, da je danes težko. Predlagam dve poti. Prva: dogovorim si datum čez tri mesece, ko bo morda mirneje. Druga: 15 minut zdaj, kjer vam jaz povem dve do tri konkretne stvari, ki bi vam lahko sprostile čas — vi pa ocenite, ali je smiselno iti naprej. Če ni, ne izgubite ničesar. Mene zanima, kaj vam bolj ustreza.",
+      "opomba": "Ne pritiskaj. Daj jim izhod, ki ne pomeni 'ne'."
+    },
+    {
+      "kategorija": "nejasna-vrednost",
+      "ugovor": "Ne vidim, kaj točno bi mi vi naredili drugače.",
+      "kratek_odgovor": "Pošteno vprašanje. Dovolite mi 5 minut, da vam povem tri konkretne primere, kako se to izboljša pri stranki vašega tipa. Če bo še vedno megleno, sva oba boljše vedela, da nima smisla nadaljevati.",
+      "dolgi_odgovor": "To je pošten ugovor in pravzaprav moja napaka, če nisem bil dovolj konkreten. Naj poskusim drugače. Pri stranki vašega tipa se konkretna vrednost ponavadi pokaže v treh točkah: prvič, eno mesečno poročilo namesto petih ločenih virov; drugič, en partner za vse vaše lokacije in države; tretjič, podpora pri spremembah zakonodaje, ne da bi vi morali slediti sami. Če katera od teh treh točk ne nagovori vaše dejanske situacije, mi povejte — mogoče sem narobe razumel, kaj je za vas pomembno.",
+      "opomba": "Ko slišiš ta ugovor, je to znak, da je discovery bil prekratek."
+    },
+    {
+      "kategorija": "podatki",
+      "ugovor": "Nimamo zbranih podatkov o naši embalaži / odpadkih.",
+      "kratek_odgovor": "Zelo pogosto. Ravno zato delamo prvi pregled mi — vi nam date dostop do podatkov, ki obstajajo, mi pa naredimo začetno oceno. Brez teh podatkov ne morete dobiti realne ponudbe od nikogar.",
+      "dolgi_odgovor": "To je popolnoma običajno — približno dve tretjini novih strank nima zbranih podatkov na enem mestu. Naš prvi korak je, da vam pomagamo pripraviti osnovni pregled: kaj dajete na trg, v kakšnih količinah, kje nastajajo odpadki, koliko trenutno plačujete. Za to potrebujemo enostavne stvari — račune dobaviteljev, sezname izdelkov, popis lokacij. V enem do dveh tednih lahko skupaj postaviva osnovno sliko, in šele takrat ima smisel govoriti o konkretni ponudbi.",
+      "opomba": "To je dejansko priložnost — discovery je naravno opravičilo za naslednji sestanek."
+    },
+    {
+      "kategorija": "odlocitev",
+      "ugovor": "Ne morem odločiti sam, potrebujem soglasje [direktor/lastnik/centrala].",
+      "kratek_odgovor": "Razumem. Predlagam dve stvari: prvič, da skupaj pripraviva gradivo, ki je za to osebo prepričljivo; drugič, da na naslednji sestanek povabite tudi to osebo, če je le mogoče. Brez nje se odločitev ne bo zgodila.",
+      "dolgi_odgovor": "Razumem in to je pošteno. Pri tej velikosti odločitve je tako prav. Vprašanje, ki mi pomaga, je: katero gradivo bi za to osebo bilo prepričljivo? ROI tabela, primer iz primerljive panoge, kratek povzetek tveganja, izračun stroškov? Lahko vam pripravim, kar bi vam najbolj pomagalo. Druga možnost je, da na naslednji sestanek povabite tudi to osebo neposredno — pogosto je 30 minutni pogovor s pravo osebo bolj učinkovit kot tedni posrednega prepričevanja.",
+      "opomba": "Ne pošlji ponudbe v 'črno luknjo'. Ali pride odločevalec, ali pa ti pomagaš sogovorniku, da jo proda interno."
+    },
+    {
+      "kategorija": "majhno",
+      "ugovor": "Mi smo premajhno podjetje za to.",
+      "kratek_odgovor": "Velikost ni ovira — obveznosti so enake, samo količine drugačne. Pravzaprav majhna podjetja največ pridobijo, ker nimajo internih ekip za to in jih to najbolj odvrača.",
+      "dolgi_odgovor": "Razumem, da imate občutek, da je to za večja podjetja. V resnici velja obratno: zakonodaja ne razlikuje med malimi in velikimi proizvajalci ali uvozniki — obveznosti so iste, samo količine se razlikujejo. Razlika je, da majhna podjetja običajno nimajo ne časa ne osebja, da bi sami spremljali in poročali. Imamo posebej zasnovane pakete za manjše stranke, ki so cenovno dostopni in vam pri tej velikosti dejansko prihranijo več, kot stanejo.",
+      "opomba": "Ne podcenjuj malih strank — pogosto je odločitveni cikel krajši in lojalnost večja."
+    },
+    {
+      "kategorija": "zakonodaja",
+      "ugovor": "Zakonodaja se itak ves čas spreminja, nima smisla zdaj urejati.",
+      "kratek_odgovor": "Ravno zato. Če imate partnerja, ki spremljanja prevzame nase, ne kupujete trenutne rešitve — kupujete dolgoročno mirno spanje. Brez tega vi sledite vsaki spremembi sami.",
+      "dolgi_odgovor": "Zanimivo vprašanje, ker je odgovor ravno obraten. Če zakonodaja stoji, lahko vsako podjetje samo prebere zakon in se prilagodi. Ker pa se zakonodaja spreminja — in se bo zlasti v naslednjih dveh letih, ker Slovenija usklajuje s EU pravili o krožnem gospodarstvu in razširjeni odgovornosti — potrebujete nekoga, ki ima to kot primarno delo. To je natanko naša vloga: spremljamo, prevedemo v vaše konkretne obveznosti in vas vnaprej opozorimo, kaj morate prilagoditi. Brez tega skoraj zagotovo nekaj zamudite.",
+      "opomba": "Uporabi to kot razlog za prodajo, ne kot oviro."
+    },
+    {
+      "kategorija": "esg",
+      "ugovor": "ESG nam ni prioriteta.",
+      "kratek_odgovor": "Razumem. Vendar bo vaš največji kupec to verjetno zahteval prej, kot mislite. Ko vas vprašajo, je bolje, da imate odgovor pripravljen, kot pa da to delate v paniki.",
+      "dolgi_odgovor": "To je popolnoma legitimna pozicija danes. Vendar imamo zanimiv vzorec: stranke, ki so to rekle pred 18 meseci, zdaj večinoma pridejo nazaj — ne zato, ker so se sami odločili, ampak ker je njihov največji B2B kupec, banka ali velika trgovska veriga začela zahtevati ESG podatke. V tem trenutku je delo pod pritiskom in pod rokom. Naš pristop je, da osnovno strukturo postavimo zdaj, ko ni naglice, da imate, ko vas vprašajo, vse pripravljeno. Nas to ne stane veliko časa, ker je del naših rednih storitev.",
+      "opomba": "Ne moraliziraj. Govori jezik posla in pripravljenosti."
+    },
+    {
+      "kategorija": "lokalno",
+      "ugovor": "Imamo lokalnega ponudnika, ki nas pozna.",
+      "kratek_odgovor": "To je vredno. Vprašanje pa je, ali vas lokalni ponudnik lahko pokrije, ko se širite ali ko vas kupec vpraša za ESG. Lahko sodelujemo z lokalnim partnerjem ali ga dopolnimo.",
+      "dolgi_odgovor": "Lokalni odnosi so dragoceni in jih ne morete graditi prek noči — to spoštujemo. Vendar pa lokalni ponudnik tipično pokriva en del: na primer odvoz odpadkov. Stvari, kjer pridemo pogosteje v poštev, so: zahtevnejše EPR sheme (EE-oprema, baterije), regionalna izvedba pri prodaji v več državah, podpora pri ESG poročanju in pravna razlaga zakonodaje. Pogosto delamo skupaj z lokalnimi izvajalci — naša vloga je strateška in poročevalska, njihova izvedbena. Pogovor je smiseln, če ste v eni od teh situacij."
+    },
+    {
+      "kategorija": "casovni",
+      "ugovor": "To bi morda urejali drugo leto.",
+      "kratek_odgovor": "V redu, ampak EPR obveznosti tečejo neodvisno od vaše časovne pripravljenosti. Predlagam, da že zdaj pripraviva osnutek, da boste, ko se odločite, lahko hitro startali.",
+      "dolgi_odgovor": "Razumem, časovni okvir je vedno omejen. Ena majhna stvar, ki vam morda pomaga: EPR obveznosti za to leto zapadajo v poročanje na začetku naslednjega leta — torej karkoli, kar zdaj odložite, postane bolj boleče, ne lažje. Predlagam vmesni korak. Da ne izgubljate časa zdaj: brezplačno vam pripravim oceno, koliko bi pri vašem profilu znašala letna EPR obveznost. Vi to spravite v predal in se odločite, ko vam ustreza. Ko bo trenutek pravi, imate izhodišče in ne začnete od nič.",
+      "opomba": "Drži stranko 'topel', ne pritiskaj, prevzemi minimalen korak."
+    },
+    {
+      "kategorija": "pogodba",
+      "ugovor": "Z obstoječim ponudnikom imamo pogodbo do konca leta.",
+      "kratek_odgovor": "Razumem. To je pravzaprav idealen trenutek za pogovor — imate čas, da v miru ocenite alternative, brez pritiska. Predlagam, da v naslednjih 3 mesecih pripraviva analizo, da ob koncu pogodbe veste, kaj je za vas najbolj smiselno.",
+      "dolgi_odgovor": "To je pošten ugovor in dobra novica obenem. Najslabši scenarij je, da se za zamenjavo odločate pod časovnim pritiskom v zadnjem mesecu pogodbe. Predlagam pristop, ki nam koristi obema: v naslednjih 60 dneh skupaj pregledava vašo trenutno situacijo, identificirava, kaj deluje in kje so vrzeli. Če bo smiselno nadaljevati z obstoječim ponudnikom — super, imeli boste pripravljene argumente za podaljšanje. Če bo smiselna sprememba — imeli boste 6 mesecev za miren prehod, ne 6 tednov.",
+      "opomba": "Pogodbeni rok ni razlog za 'ne', je razlog za 'začniva zdaj'."
+    },
+    {
+      "kategorija": "tveganje",
+      "ugovor": "Bojim se, da bo prehod prinesel motnje v naše procese.",
+      "kratek_odgovor": "Razumem, to je legitimna skrb. Naš prehodni proces je standardiziran — paralelno tečemo z obstoječim ponudnikom 1-2 meseca, dokler ni vse pripravljeno. Stranka v tem času ne čuti razlike.",
+      "dolgi_odgovor": "Skrb je upravičena — videl sem že primere, kjer je nepravilna izvedba prehoda povzročila zamude pri poročanju ali izgubo dokumentacije. Zato imamo standardiziran proces: prvi mesec dokumentiramo trenutno stanje in pripravljamo vse, da vse poteka vzporedno z obstoječim sistemom. Drugi mesec teče paralelni sistem — torej obstoječi in naš hkrati. Šele ko je vse stabilno, izklopimo obstoječi. V tem času je vaša operativa nemotena. Lahko vam pošljem primer našega standardnega prehodnega načrta.",
+      "opomba": "Tveganje prehoda je realno — pokaži, da imaš odgovor, ne minimaliziraj."
+    },
+    {
+      "kategorija": "ne-razumem",
+      "ugovor": "Ne razumem, zakaj bi sploh potreboval to.",
+      "kratek_odgovor": "Pošteno vprašanje. To pomeni, da nisem dobro razumel vaše situacije. Lahko mi v 5 minutah razložite, kako pri vas trenutno deluje? Potem vam povem, ali bi vam Interzero res koristil ali ne.",
+      "dolgi_odgovor": "Hvala, da ste to izpostavili — to je dobro vprašanje in moja napaka, če nisem bil dovolj jasen. Naša rešitev ni univerzalna — pri nekaterih podjetjih ne bi naredila razlike. Predlagam, da pregledava tri specifične stvari: prvič, ali ste zavezanec za katero EPR shemo (embalaža, EE, baterije). Drugič, koliko časa interno porabite za poročanje in dokumentacijo. Tretjič, kakšne so zahteve vaših kupcev ali bank glede trajnosti. Če nobena od teh treh stvari ni za vas relevantna, vam bom iskreno povedal, da Interzero ni prava izbira. Brez pritiska.",
+      "opomba": "Stranka, ki tega ne razume, je morda zares neprimerna — ali pa premalo informirana. Razlikuj."
+    },
+    {
+      "kategorija": "ddv",
+      "ugovor": "Ne potrebujemo dodatne pogodbe, samo izstavite račun.",
+      "kratek_odgovor": "Razumem željo po preprostosti. Vendar EPR storitve so pogodbene — zaradi vaše varnosti in zakonske skladnosti potrebujemo pisno pogodbo. Lahko jo skrajšamo na 2 strani, brez nepotrebne pravniške navlake.",
+      "dolgi_odgovor": "Razumem, pogodbe so včasih nadležne. Vendar za EPR storitve pisna pogodba ni samo formalnost — je dokument, ki dokazuje vašo skladnost ob morebitni inšpekciji. Brez nje bi inšpektor lahko trdil, da niste izpolnili obveznosti, čeprav ste plačali. Naša standardna pogodba je 2 strani, brez 'pravniške navlake' — povzetek, kaj delamo mi, kaj vi, cena, trajanje. Lahko jo pogledava skupaj.",
+      "opomba": "Pogodba ščiti tudi stranko, ne samo nas. Razlagati moramo zakaj."
+    },
+    {
+      "kategorija": "lastnik",
+      "ugovor": "Lastnik podjetja ne mara dolgoročnih obveznosti.",
+      "kratek_odgovor": "To je razumljivo. EPR obveznosti so po zakonu, ne po naši pogodbi — torej lastnik jih ima ne glede na to, ali nas najame. Mi mu samo zmanjšamo tveganje in čas. Lahko pogodbo postavimo na 1 leto z avtomatskim podaljšanjem, da nima občutka 'zaklenjenosti'.",
+      "dolgi_odgovor": "Razumem lastnikov pristop — pri manjših podjetjih je to pogosta drža in pravzaprav razumna. Dve pomembni stvari: prvič, EPR obveznosti niso 'naša' obveznost, ampak zakonska. Lastnik jih nosi tako ali tako, ne glede na to, ali ima zunanjega partnerja ali ne. Drugič, lahko storitev začnemo z eno-letno pogodbo z avtomatskim podaljšanjem — tako da lastnik vidi vrednost in se sam odloči, ali nadaljevati. Brez 'zaklenjenosti' za 3-5 let. Bi vam ustrezalo, če pripravim tako verzijo?",
+      "opomba": "Lastniki manjših podjetij potrebujejo občutek kontrole. Daj jim ga z izhodno klavzulo."
+    },
+    {
+      "kategorija": "kakovost",
+      "ugovor": "Slišali smo, da imate težave s kakovostjo storitve.",
+      "kratek_odgovor": "Hvala, da ste to neposredno povedali — bolj kot da bi se s tem ukvarjali za hrbtom. Lahko mi poveste, kaj točno ste slišali? Da vam pošteno odgovorim.",
+      "dolgi_odgovor": "Hvala, da ste to izpostavili — to je najboljši način, da se rešimo nesporazumov. Lahko mi poveste, kaj točno ste slišali in od kogar? Razumel bom dva tipa odgovorov: če je šlo za nesporazum ali konkretno težavo pri eni stranki — povedal bom, kaj smo se naučili in kako preprečujemo ponovitev. Če gre za splošen vtis brez konkretnega vira — predlagam, da kontaktirate 2-3 naših obstoječih strank, ki vam povejo iz prve roke. Imamo dovolj zadovoljnih strank, da vam jih navedemo.",
+      "opomba": "Ne brani se. Pridobi konkretno informacijo, potem se odzovi konkretno."
+    },
+    {
+      "kategorija": "regulativna",
+      "ugovor": "PPWR / CSRD / nova regulativa nas ne zadeva, premajhni smo.",
+      "kratek_odgovor": "Razumem, vendar verjetno vaše kupce zadeva — in oni bodo to prenesli na vas. To je naša izkušnja že iz lanskega leta.",
+      "dolgi_odgovor": "Razumem ta pristop in deloma drži — PPWR ali CSRD direktno ne zadeva manjših podjetij. Vendar ima učinek 'verige': vaši veliki B2B kupci morajo poročati Scope 3 emisije, kar pomeni, da bodo zahtevali podatke od dobaviteljev. Lansko leto smo imeli 7 strank, ki so prišle z 'nujno potrebujemo to do meseca, ker so nam to zahtevali iz [velika veriga / banka / EU kupec]'. V naglici so morali plačati več, kot če bi začeli z mirnim tempom 6 mesecev prej. Predlagam, da pripraviva osnovno strukturo zdaj, ko ni pritiska. Ko vas vprašajo, imate odgovor pripravljen.",
+      "opomba": "Regulativa pride v podjetje skozi kupce, ne skozi inšpekcije. To je glavni argument."
+    },
+    {
+      "kategorija": "izgubljen-posel",
+      "ugovor": "Slišali smo, da ste izgubili tega in tega velikega kupca.",
+      "kratek_odgovor": "Hvala za to. Vsaka konkurenčna izguba se zgodi — in iskreno, vsako je za nas priložnost za učenje. Kar pa je za vas pomembno: 95 % naših strank z nami ostaja več kot 5 let. Bi vas zanimal stik s katero?",
+      "dolgi_odgovor": "Hvala, da ste to neposredno povedali. Konkurenčne izgube so del posla — še vedno smo izgubili kupca ali dva, predvsem kjer je bila cena edini kriterij in smo se odločili, da v 'cenovno vojno' ne gremo. Kar je za vas pomembna informacija: naša povprečna doba sodelovanja s strankami je [konkretna številka], odstotek strank, ki nadaljujejo več kot 5 let, je [konkretna številka]. Razlog je, ker ne prodajamo najnižje cene — prodajamo zaupanje in dolgoročno mirno spanje. Bi vas zanimalo, da se pogovorite z eno od naših obstoječih strank brez naše prisotnosti?",
+      "opomba": "Konkurenčne izgube niso katastrofa — so del posla. Glavna metrika je retention, ne win rate."
+    },
+    {
+      "kategorija": "razlikovanje",
+      "ugovor": "V čem ste boljši od konkurence?",
+      "kratek_odgovor": "Ne bi rekel 'boljši' — drugačni. Tri ključne razlike: pokrivamo več tokov hkrati (embalaža + EE + baterije + svetovanje), regionalna mreža v SI/HR/RS, in svetovalni del — ne samo izvajamo, tudi pomagamo razumeti. Kaj je za vas najpomembnejše?",
+      "dolgi_odgovor": "Pošteno vprašanje. Naj povem, v čem se RAZLIKUJEMO, ker 'boljši' ni nujno pravi izraz. Prvič, pokrivamo celoten EPR ekosistem — embalaža, EE-oprema, baterije, svetovanje — pri enem partnerju. Drugič, smo regionalni: če prodajate v Sloveniji, na Hrvaškem in v Srbiji, imate eno pogodbo, en kontakt. Tretjič, smo svetovalec ne samo izvajalec — pri spremembah zakonodaje vas opozorimo vnaprej. Drugi ponudniki imajo druge prednosti — Slopak je največji, lokalni zbiralci imajo cenovno prednost. Kaj je za vas najpomembnejše?",
+      "opomba": "Ne kritiziraj konkurente. Imenuj svoje razlike s konkretnimi primeri. Vrži žogo nazaj — kaj je za stranko najpomembnejše."
+    }
+  ]
+}

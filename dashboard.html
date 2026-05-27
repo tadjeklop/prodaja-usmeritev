@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .chart-card { background: white; border: 1px solid #e7e5e4; border-radius: 0.5rem; padding: 1.25rem; }
+    .funnel-bar { transition: all 0.3s ease; }
+    .funnel-bar:hover { opacity: 0.85; }
+    .stat-big { font-size: 2.25rem; font-weight: 700; line-height: 1; }
+    .stat-mini { font-size: 0.75rem; color: #78716c; text-transform: uppercase; letter-spacing: 0.05em; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.dashboard.title">Dashboard za vodjo</h1>
+      <p class="mt-2 text-stone-600" data-i18n="page.dashboard.subtitle">Pregled aktivnega pipeline-a iz Strank. Podatki iz tvojega brskalnika v živo.</p>
+    </header>
+
+    <!-- KPI vrh -->
+    <div id="top-kpi" class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6"></div>
+
+    <!-- Glavna mreža -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <div class="chart-card">
+        <h2 class="font-semibold mb-3">📊 Pipeline funnel — vrednost po fazah</h2>
+        <div id="chart-funnel"></div>
+      </div>
+      <div class="chart-card">
+        <h2 class="font-semibold mb-3">🎯 Razdelitev po segmentih</h2>
+        <div id="chart-segmenti"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+      <div class="chart-card">
+        <h2 class="font-semibold mb-3">🏭 Po panogah</h2>
+        <div id="chart-panoge"></div>
+      </div>
+      <div class="chart-card">
+        <h2 class="font-semibold mb-3">⚠ Razlogi izgube</h2>
+        <div id="chart-razlogi"></div>
+      </div>
+    </div>
+
+    <div class="chart-card mb-4">
+      <h2 class="font-semibold mb-3">📅 Konverzija po fazah (zmage / vse zaprte priložnosti)</h2>
+      <div id="konverzija-tabela"></div>
+    </div>
+
+    <div class="chart-card">
+      <h2 class="font-semibold mb-3">🚨 Akcijski seznam — kar zahteva tvojo pozornost</h2>
+      <div id="akcije"></div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let SEGMENTI = [], FAZE = [], PANOGE = [];
+
+    async function init() {
+      const [seg, proc, pan] = await Promise.all([loadData('segmentacija'), loadData('proces'), loadData('panoge')]);
+      SEGMENTI = seg ? seg.segmenti : [];
+      FAZE = proc ? proc.faze : [];
+      PANOGE = pan ? pan.panoge : [];
+      render();
+    }
+
+    function render() {
+      const stranke = Storage.get('stranke', []);
+      if (!stranke.length) {
+        document.getElementById('top-kpi').innerHTML = `
+          <div class="chart-card col-span-full text-center py-12">
+            <p class="text-stone-600 mb-3">Še ni vnesenih strank.</p>
+            <a href="stranke.html" class="btn btn-primary">Dodaj prvo stranko</a>
+          </div>
+        `;
+        return;
+      }
+
+      renderTopKpi(stranke);
+      renderFunnel(stranke);
+      renderSegmenti(stranke);
+      renderPanoge(stranke);
+      renderRazlogi(stranke);
+      renderKonverzija(stranke);
+      renderAkcije(stranke);
+    }
+
+    function renderTopKpi(stranke) {
+      const aktivne = stranke.filter(s => s.status === 'aktivno');
+      const zmage = stranke.filter(s => s.status === 'zmaga');
+      const izgube = stranke.filter(s => s.status === 'izguba');
+      const zaprte = zmage.length + izgube.length;
+      const winRate = zaprte ? Math.round(zmage.length / zaprte * 100) : 0;
+      const pipeline = aktivne.reduce((s, x) => s + (x.vrednost || 0), 0);
+      const weighted = aktivne.reduce((s, x) => s + (x.vrednost || 0) * (x.verjetnost || 0) / 100, 0);
+      const avgCikel = '—'; // ne moremo izračunati brez datumov stop
+
+      document.getElementById('top-kpi').innerHTML = `
+        <div class="chart-card"><div class="stat-mini">Aktivne</div><div class="stat-big">${aktivne.length}</div></div>
+        <div class="chart-card"><div class="stat-mini">Pipeline</div><div class="stat-big">${fmtEUR(pipeline).replace('€','').trim()}</div><div class="text-xs text-stone-500">EUR</div></div>
+        <div class="chart-card"><div class="stat-mini">Tehtano</div><div class="stat-big text-green-800">${fmtEUR(weighted).replace('€','').trim()}</div><div class="text-xs text-stone-500">EUR</div></div>
+        <div class="chart-card"><div class="stat-mini">Win rate</div><div class="stat-big">${winRate}%</div><div class="text-xs text-stone-500">${zmage.length}/${zaprte} zaprtih</div></div>
+        <div class="chart-card"><div class="stat-mini">Zmage / izgube</div><div class="stat-big">${zmage.length} / ${izgube.length}</div></div>
+      `;
+    }
+
+    function renderFunnel(stranke) {
+      const aktivne = stranke.filter(s => s.status === 'aktivno');
+      const counts = {};
+      FAZE.forEach(f => counts[f.stevilka] = { faza: f, st: 0, vrednost: 0 });
+      aktivne.forEach(s => {
+        if (counts[s.faza]) {
+          counts[s.faza].st++;
+          counts[s.faza].vrednost += (s.vrednost || 0);
+        }
+      });
+      const max = Math.max(1, ...Object.values(counts).map(c => c.st));
+      const html = Object.values(counts).map(c => {
+        const w = Math.round(c.st / max * 100);
+        return `
+          <div class="mb-2">
+            <div class="flex items-baseline justify-between text-sm mb-1">
+              <span><strong>F${c.faza.stevilka}</strong> ${c.faza.naziv}</span>
+              <span class="text-stone-600">${c.st} · ${fmtEUR(c.vrednost)}</span>
+            </div>
+            <div class="w-full bg-stone-100 rounded-full h-3 overflow-hidden">
+              <div class="funnel-bar bg-green-700 h-3 rounded-full" style="width: ${w}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('chart-funnel').innerHTML = html;
+    }
+
+    function renderSegmenti(stranke) {
+      const counts = {};
+      stranke.forEach(s => {
+        const key = s.segment || 'brez';
+        counts[key] = (counts[key] || 0) + 1;
+      });
+      const total = stranke.length;
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      document.getElementById('chart-segmenti').innerHTML = sorted.length ? sorted.map(([id, n]) => {
+        const seg = SEGMENTI.find(s => s.id === id);
+        const label = seg ? seg.kratko : (id === 'brez' ? '(brez segmenta)' : id);
+        const pct = Math.round(n / total * 100);
+        return `
+          <div class="mb-2">
+            <div class="flex items-baseline justify-between text-sm mb-1">
+              <span>${label}</span>
+              <span class="text-stone-600">${n} (${pct}%)</span>
+            </div>
+            <div class="w-full bg-stone-100 rounded-full h-2 overflow-hidden">
+              <div class="bg-blue-600 h-2 rounded-full" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('') : '<p class="text-stone-500 text-sm">Ni podatkov.</p>';
+    }
+
+    function renderPanoge(stranke) {
+      const counts = {};
+      stranke.forEach(s => {
+        const key = s.panoga || 'brez';
+        counts[key] = (counts[key] || 0) + 1;
+      });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
+      if (!sorted.length) { document.getElementById('chart-panoge').innerHTML = '<p class="text-stone-500 text-sm">Ni podatkov.</p>'; return; }
+      const max = Math.max(1, ...sorted.map(([_, n]) => n));
+      document.getElementById('chart-panoge').innerHTML = sorted.map(([id, n]) => {
+        const pan = PANOGE.find(p => p.id === id);
+        const label = pan ? pan.naziv.split('/')[0].trim() : (id === 'brez' ? '(brez)' : id);
+        const w = Math.round(n / max * 100);
+        return `
+          <div class="mb-2">
+            <div class="flex items-baseline justify-between text-sm mb-1">
+              <span class="truncate">${label}</span>
+              <span class="text-stone-600">${n}</span>
+            </div>
+            <div class="w-full bg-stone-100 rounded h-2">
+              <div class="bg-purple-600 h-2 rounded" style="width: ${w}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderRazlogi(stranke) {
+      const izgube = stranke.filter(s => s.status === 'izguba');
+      if (!izgube.length) { document.getElementById('chart-razlogi').innerHTML = '<p class="text-stone-500 text-sm">Še ni izgubljenih.</p>'; return; }
+      const counts = {};
+      izgube.forEach(s => { const k = s.razlog || 'neopredeljeno'; counts[k] = (counts[k] || 0) + 1; });
+      const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+      const total = izgube.length;
+      document.getElementById('chart-razlogi').innerHTML = sorted.map(([id, n]) => {
+        const pct = Math.round(n / total * 100);
+        return `
+          <div class="mb-2">
+            <div class="flex items-baseline justify-between text-sm mb-1">
+              <span class="capitalize">${id}</span>
+              <span class="text-stone-600">${n} (${pct}%)</span>
+            </div>
+            <div class="w-full bg-stone-100 rounded h-2">
+              <div class="bg-red-600 h-2 rounded" style="width: ${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderKonverzija(stranke) {
+      const zaprte = stranke.filter(s => s.status === 'zmaga' || s.status === 'izguba');
+      if (!zaprte.length) { document.getElementById('konverzija-tabela').innerHTML = '<p class="text-stone-500 text-sm">Še ni zaprtih poslov.</p>'; return; }
+      const counts = {};
+      FAZE.forEach(f => counts[f.stevilka] = { faza: f, zmage: 0, izgube: 0 });
+      zaprte.forEach(s => {
+        if (!counts[s.faza]) return;
+        if (s.status === 'zmaga') counts[s.faza].zmage++; else counts[s.faza].izgube++;
+      });
+      const rows = Object.values(counts).filter(c => c.zmage + c.izgube > 0).map(c => {
+        const total = c.zmage + c.izgube;
+        const winRate = Math.round(c.zmage / total * 100);
+        return `
+          <tr class="border-t border-stone-200">
+            <td class="p-2"><strong>F${c.faza.stevilka}</strong> ${c.faza.naziv}</td>
+            <td class="p-2 text-center text-green-800">${c.zmage}</td>
+            <td class="p-2 text-center text-red-700">${c.izgube}</td>
+            <td class="p-2 text-center">${winRate}%</td>
+          </tr>
+        `;
+      }).join('');
+      document.getElementById('konverzija-tabela').innerHTML = `
+        <table class="w-full text-sm">
+          <thead class="text-xs uppercase text-stone-500">
+            <tr><th class="p-2 text-left">Faza</th><th class="p-2">Zmage</th><th class="p-2">Izgube</th><th class="p-2">Win rate</th></tr>
+          </thead>
+          <tbody>${rows || '<tr><td colspan="4" class="p-3 text-stone-500 text-center">Ni podatkov.</td></tr>'}</tbody>
+        </table>
+      `;
+    }
+
+    function renderAkcije(stranke) {
+      const danes = new Date(new Date().toDateString());
+      const akcije = stranke.filter(s => s.status === 'aktivno').map(s => {
+        if (!s.datum) return { stranka: s, tip: 'manjka-datum', urgenca: 2 };
+        const d = new Date(s.datum);
+        const dni = Math.floor((d - danes) / 86400000);
+        if (dni < 0) return { stranka: s, tip: 'zapadlo', dni: -dni, urgenca: 3 };
+        if (dni === 0) return { stranka: s, tip: 'danes', urgenca: 3 };
+        if (dni <= 3) return { stranka: s, tip: 'kmalu', dni, urgenca: 1 };
+        return null;
+      }).filter(Boolean).sort((a, b) => b.urgenca - a.urgenca);
+
+      if (!akcije.length) {
+        document.getElementById('akcije').innerHTML = '<p class="text-green-800">✓ Vse pod kontrolo. Nobena stranka nima zapadlega koraka ali manjkajočega datuma.</p>';
+        return;
+      }
+
+      document.getElementById('akcije').innerHTML = akcije.slice(0, 15).map(a => {
+        let label;
+        if (a.tip === 'zapadlo') label = `<span class="text-red-700 font-semibold">Zapadlo ${a.dni} ${a.dni === 1 ? 'dan' : 'dni'}</span>`;
+        else if (a.tip === 'danes') label = `<span class="text-amber-700 font-semibold">Danes</span>`;
+        else if (a.tip === 'kmalu') label = `<span class="text-stone-700">Čez ${a.dni} ${a.dni === 1 ? 'dan' : 'dni'}</span>`;
+        else label = `<span class="text-stone-500">Manjka datum</span>`;
+        return `
+          <div class="flex items-center gap-3 py-2 border-b border-stone-100">
+            <div class="flex-1">
+              <div class="font-semibold">${a.stranka.podjetje}</div>
+              <div class="text-sm text-stone-600">${a.stranka.korak || '(brez naslednjega koraka)'}</div>
+            </div>
+            <div class="text-sm">${label}</div>
+            <a href="stranke.html" class="btn btn-secondary text-xs">Odpri</a>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

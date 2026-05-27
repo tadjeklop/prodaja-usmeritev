@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zakonodaja — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.zakonodaja.title">Zakonodaja</h1>
+      <p class="mt-2 text-stone-600" data-i18n="zakonodaja.subtitle">Pregled EPR in okoljske zakonodaje po državah. To je orodje za prodajalca, ne pravni vir — pred uporabo v ponudbi preveri trenutno veljavno verzijo.</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-drz="si">🇸🇮 Slovenija</button>
+      <button class="tab" data-drz="hr">🇭🇷 Hrvaška</button>
+      <button class="tab" data-drz="rs">🇷🇸 Srbija</button>
+    </div>
+
+    <div id="vsebina"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DRZ = 'si';
+    const STATUS_DRZAVE = {
+      si: { naloziti: true, datoteka: 'zakonodaja-si' },
+      hr: { naloziti: true, datoteka: 'zakonodaja-hr' },
+      rs: { naloziti: true, datoteka: 'zakonodaja-rs' }
+    };
+
+    async function init() {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.addEventListener('click', () => {
+          DRZ = t.dataset.drz;
+          document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+          t.classList.add('active');
+          render();
+        });
+      });
+      render();
+    }
+
+    async function render() {
+      const cfg = STATUS_DRZAVE[DRZ];
+      if (!cfg.naloziti) {
+        document.getElementById('vsebina').innerHTML = `
+          <div class="panel text-center py-12">
+            <div class="text-5xl mb-3">🚧</div>
+            <h2 class="text-xl font-bold mb-2">${cfg.naslov} — v pripravi</h2>
+            <p class="text-stone-600 max-w-xl mx-auto">
+              Vsebina za ta trg še ni vključena v prvo verzijo. Ko bo lokalni del ekipe pripravil vsebino,
+              jo lahko dodaš v <code>data/zakonodaja-${DRZ}.json</code> in odpre se to mesto.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      const data = await loadData(cfg.datoteka);
+      if (!data) {
+        document.getElementById('vsebina').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
+        return;
+      }
+
+      document.getElementById('vsebina').innerHTML = `
+        ${data._opozorilo ? `
+          <div class="bg-amber-50 border border-amber-200 rounded p-3 text-sm mb-6">
+            <strong>${tr('zakonodaja.opozorilo', 'Opozorilo:')}</strong> ${data._opozorilo}
+            ${data._zadnja_revizija ? `<div class="text-xs text-stone-600 mt-1">${tr('zakonodaja.zadnja_revizija', 'Zadnja revizija:')} ${data._zadnja_revizija}</div>` : ''}
+          </div>
+        ` : ''}
+
+        <div class="space-y-4">
+          ${data.sklopi.map((s, i) => `
+            <details class="panel" ${i === 0 ? 'open' : ''}>
+              <summary class="font-semibold text-lg cursor-pointer">${s.naslov}</summary>
+              <div class="mt-3 text-sm space-y-3">
+                <p>${s.vsebina}</p>
+                ${s.koga_zavezuje ? `<p><strong>Koga zavezuje:</strong> ${s.koga_zavezuje}</p>` : ''}
+                ${s.kljucne_obveznosti ? `
+                  <div>
+                    <div class="font-semibold mb-1">${tr('zakonodaja.kljucne_obveznosti', 'Ključne obveznosti')}</div>
+                    <ul class="list-disc pl-5 space-y-1">${s.kljucne_obveznosti.map(o => `<li>${o}</li>`).join('')}</ul>
+                  </div>
+                ` : ''}
+                ${s.datumi_in_pragovi ? `<p><strong>Datumi in pragovi:</strong> ${s.datumi_in_pragovi}</p>` : ''}
+              </div>
+            </details>
+          `).join('')}
+        </div>
+
+        ${data.viri ? `
+          <div class="panel mt-6">
+            <h3 class="font-semibold mb-2">${tr('zakonodaja.uradni_viri', 'Uradni viri')}</h3>
+            <ul class="space-y-1 text-sm">
+              ${data.viri.map(v => `<li>• <a href="${v.url}" target="_blank" rel="noreferrer" class="underline text-green-800">${v.naziv}</a></li>`).join('')}
+            </ul>
+          </div>
+        ` : ''}
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('i18n:changed', render);
+  </script>
+</body>
+</html>

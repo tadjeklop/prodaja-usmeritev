@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Govori in skripte — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-8">
+      <div class="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <h1 class="text-3xl font-bold" data-i18n="page.govori.title">Govori in skripte</h1>
+          <p class="mt-2 text-stone-600" data-i18n="page.govori.subtitle">Pripravljeni bloki za hladne klice, prvi sestanek, predstavitev rešitve in follow-up. Klikni „Kopiraj" za vstavitev v email ali „Beri" za poslušanje.</p>
+        </div>
+        <button id="btn-beri-scenarij" class="speech-bulk-btn no-print" data-i18n="common.beri_scenarij">🔊 Beri ves scenarij</button>
+      </div>
+    </header>
+
+    <div id="tabs" class="tabs"></div>
+    <div id="content" class="space-y-6"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let GOVORI = null;
+    let aktiven = null;
+
+    async function init() {
+      GOVORI = await loadData('govori');
+      if (!GOVORI) {
+        document.getElementById('content').innerHTML =
+          `<p class="text-red-700">${tr('common.nalaganje_error', 'Ne morem naložiti podatkov. Aplikacijo poženi prek lokalnega strežnika.')}</p>`;
+        return;
+      }
+      aktiven = qs('scenarij') || GOVORI.scenariji[0].id;
+      render();
+    }
+
+    function render() {
+      const tabsHtml = GOVORI.scenariji.map(s =>
+        `<button class="tab${s.id === aktiven ? ' active' : ''}" data-id="${s.id}">${s.naziv}</button>`
+      ).join('');
+      document.getElementById('tabs').innerHTML = tabsHtml;
+      document.querySelectorAll('#tabs .tab').forEach(t =>
+        t.addEventListener('click', () => { aktiven = t.dataset.id; render(); })
+      );
+
+      const sc = GOVORI.scenariji.find(s => s.id === aktiven);
+      const html = `
+        <div class="panel">
+          <div class="flex flex-wrap items-baseline gap-3">
+            <h2 class="text-xl font-bold">${sc.naziv}</h2>
+            ${sc.trajanje ? `<span class="badge badge-stone">${sc.trajanje}</span>` : ''}
+          </div>
+          <p class="mt-2 text-sm text-stone-600"><strong>${tr('govori.namen', 'Namen')}:</strong> ${sc.namen}</p>
+        </div>
+        ${sc.govori.map((g, i) => `
+          <div class="panel">
+            <div class="font-semibold mb-2">${i + 1}. ${g.naslov}</div>
+            <div class="script-block" id="govor-${i}">${g.tekst.replace(/\n/g, '<br>')}<button class="copy-btn" data-copy="#govor-${i}" data-i18n="common.kopiraj">Kopiraj</button></div>
+          </div>
+        `).join('')}
+      `;
+      document.getElementById('content').innerHTML = html;
+      wireCopyButtons();
+
+      const btn = document.getElementById('btn-beri-scenarij');
+      if (btn && !btn._wired) {
+        btn._wired = true;
+        btn.addEventListener('click', () => {
+          const seq = [`${sc.naziv}. Namen: ${sc.namen}.`];
+          sc.govori.forEach(g => seq.push(`${g.naslov}. ${g.tekst}`));
+          Speech.speakSequence(seq, { label: sc.naziv });
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('i18n:changed', () => { if (GOVORI) render(); });
+  </script>
+</body>
+</html>

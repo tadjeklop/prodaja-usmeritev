@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI asistent — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .ai-msg-user { background: #f5f5f4; padding: 0.75rem 1rem; border-radius: 0.75rem; margin: 0.5rem 0; }
+    .ai-msg-ai { background: #ecfdf5; padding: 0.75rem 1rem; border-radius: 0.75rem; margin: 0.5rem 0; }
+    .ai-msg-ai pre { white-space: pre-wrap; font-family: inherit; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-4xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.asistent.title">AI asistent</h1>
+      <p class="mt-2 text-stone-600 max-w-3xl">Pomoč pri pisanju emailov, brifih in odgovorih s Claude API. Zahteva API ključ Anthropic.</p>
+    </header>
+
+    <!-- API key setup -->
+    <div id="setup" class="panel mb-6 bg-amber-50 border-amber-200">
+      <h2 class="font-semibold mb-2">Prva uporaba — nastavitev</h2>
+      <p class="text-sm mb-3">Za uporabo asistenta potrebuješ <strong>Anthropic API ključ</strong> (<a href="https://console.anthropic.com" target="_blank" class="underline">console.anthropic.com</a>). Ključ ostane lokalno v tvojem brskalniku, ne pošilja se nikamor razen direktno k Anthropicu.</p>
+      <div class="flex gap-2">
+        <input id="api-key" type="password" class="input flex-1" placeholder="sk-ant-..." />
+        <button id="btn-shrani-kljuc" class="btn btn-primary">Shrani</button>
+      </div>
+      <p class="text-xs text-stone-500 mt-2">Ključ je shranjen v localStorage tega brskalnika. Klikni „Pobriši" pod nastavitvami za odstranitev.</p>
+    </div>
+
+    <!-- Prefab actions -->
+    <div id="hitre" class="panel mb-4">
+      <h2 class="font-semibold mb-3">Hitre akcije</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <button class="btn btn-secondary text-left" data-prompt="brief">📋 Pripravi brief za sestanek</button>
+        <button class="btn btn-secondary text-left" data-prompt="follow-up">✉️ Napiši follow-up email po sestanku</button>
+        <button class="btn btn-secondary text-left" data-prompt="ugovor">💬 Pomagaj z odgovorom na ugovor</button>
+        <button class="btn btn-secondary text-left" data-prompt="hr">🇭🇷 Prevedi v hrvaščino</button>
+        <button class="btn btn-secondary text-left" data-prompt="sr">🇷🇸 Prevedi v srbščino</button>
+        <button class="btn btn-secondary text-left" data-prompt="esg">📊 Sestavi ESG odgovor</button>
+      </div>
+    </div>
+
+    <!-- Pogovor -->
+    <div class="panel mb-4">
+      <div id="pogovor" class="mb-4 min-h-32 max-h-96 overflow-y-auto">
+        <p class="text-sm text-stone-500 text-center py-8">Začni s hitro akcijo ali napiši svoje sporočilo.</p>
+      </div>
+      <textarea id="vnos" class="textarea" rows="4" placeholder="Vpraša npr.: 'Napiši kratek email za novo stranko v industriji X, ki je dobila opomin ARSO...'"></textarea>
+      <div class="mt-3 flex gap-2">
+        <button id="btn-poslji" class="btn btn-primary">Pošlji</button>
+        <button id="btn-pocisti" class="btn btn-ghost">Pobriši pogovor</button>
+        <button id="btn-pobrisi-kljuc" class="btn btn-ghost text-red-700 ml-auto">Pobriši API ključ</button>
+      </div>
+    </div>
+
+    <!-- Opomba o stanju -->
+    <div class="panel bg-blue-50 border-blue-200">
+      <h3 class="font-semibold mb-2">Kontekst za AI</h3>
+      <p class="text-sm mb-2">Asistent samodejno dobi sistemski kontekst:</p>
+      <ul class="list-disc pl-5 space-y-1 text-sm">
+        <li>Si komercialist Interzero (EPR storitve, ne ERP)</li>
+        <li>Regija: Slovenija, Hrvaška, Srbija</li>
+        <li>Slog: profesionalen, konkreten, brez fluff besedila</li>
+        <li>Privzeti jezik odgovora: slovenščina (razen če eksplicitno drugače)</li>
+      </ul>
+      <p class="text-sm mt-3"><strong>Uporaba:</strong> Vnesi konkreten kontekst (stranka, panoga, situacija), nato izberi hitro akcijo ali sam napiši vprašanje.</p>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    const SYSTEM_PROMPT = `Si izkušen prodajni asistent za Interzero — podjetje za EPR storitve (Extended Producer Responsibility — razširjena odgovornost proizvajalca; NE ERP). Pomagaš slovenski/hrvaški/srbski prodajni ekipi. Tvoj slog:
+- Konkretno, brez fluffa
+- Profesionalno, vendar topel ton
+- Spoštuješ stranko, ne pretiravaš s prodajnimi trofejami
+- Vedno preverjaš pravo zakonsko regulativo, vendar opozoriš, da je pravna razlaga zadeva pravnika
+- Privzeti jezik je slovenščina, razen če uporabnik eksplicitno zahteva drugje
+
+Ko pišeš email, vedno: pozdrav, glavni del v 2-3 odstavkih, jasen naslednji korak z datumom, profesionalen zaključek.
+Ko odgovarjaš na ugovor, uporabiš formulo AVO: Acknowledge (priznaj) → Vprašaj (razjasni) → Odgovori.`;
+
+    const HITRI_PROMPTI = {
+      'brief': 'Pripravi brief za prvi sestanek z novo stranko. Najprej me prosi za: ime podjetja, panogo, velikost (mala/srednja/velika), kdo bo sogovornik in kakšen je razlog sestanka. Nato pripravi brief s strukturo: kratek opis stranke, 3 hipotezne bolečine, 5 discovery vprašanj, predlog naslednjega koraka.',
+      'follow-up': 'Pomagaj mi napisati follow-up email po sestanku. Najprej me prosi za: ime stranke, datum sestanka, kontaktno osebo, glavne bolečine, ki sem jih slišal, dogovorjen naslednji korak in podatke, ki jih bo poslala stranka. Nato napiši kratek profesionalen email v slovenščini.',
+      'ugovor': 'Pomagaj mi z odgovorom na ugovor stranke. Vprašaj me: kakšen je ugovor stranke (verbatim), v kakšnem kontekstu (panoga, faza sestanka), kakšen je moj cilj v tem pogovoru. Nato pripravi odgovor v AVO formulo: Acknowledge (priznaj) → Vprašaj (razjasni) → Odgovori (predlog).',
+      'hr': 'Naslednji tekst, ki ti ga bom poslal, prevedi v hrvaški jezik. Ne dobesedno — naredi naravno hrvaško verzijo, kot bi jo napisal rojeni hrvaški komercialist. Pokaži samo prevod, brez razlag.',
+      'sr': 'Naslednji tekst, ki ti ga bom poslal, prevedi v srbski jezik (latinica). Ne dobesedno — naredi naravno srbsko verzijo, kot bi jo napisal rojeni srbski komercialist. Pokaži samo prevod, brez razlag.',
+      'esg': 'Pomagaj mi sestaviti odgovor na ESG vprašanje, ki ga je stranka dobila od svojega B2B kupca. Vprašaj me: kakšno točno vprašanje so dobili, v katerem kontekstu (panoga, velikost), kakšne podatke že imamo na voljo. Nato pripravi profesionalen odgovor v stilu poslovne korespondence.'
+    };
+
+    let zgodovina = []; // {role, content}
+
+    function init() {
+      const kljuc = Storage.get('claude-api-key', '');
+      document.getElementById('api-key').value = kljuc;
+      if (kljuc) document.getElementById('setup').classList.add('hidden');
+
+      document.getElementById('btn-shrani-kljuc').addEventListener('click', () => {
+        const k = document.getElementById('api-key').value.trim();
+        if (!k.startsWith('sk-ant-')) { alert('Ključ se mora začeti z sk-ant-'); return; }
+        Storage.set('claude-api-key', k);
+        document.getElementById('setup').classList.add('hidden');
+      });
+
+      document.getElementById('btn-pobrisi-kljuc').addEventListener('click', () => {
+        if (!confirm('Pobrišem API ključ?')) return;
+        Storage.remove('claude-api-key');
+        document.getElementById('setup').classList.remove('hidden');
+        document.getElementById('api-key').value = '';
+      });
+
+      document.querySelectorAll('[data-prompt]').forEach(b => {
+        b.addEventListener('click', () => {
+          const t = HITRI_PROMPTI[b.dataset.prompt];
+          document.getElementById('vnos').value = t;
+          document.getElementById('vnos').focus();
+        });
+      });
+
+      document.getElementById('btn-poslji').addEventListener('click', poslji);
+      document.getElementById('btn-pocisti').addEventListener('click', () => {
+        zgodovina = [];
+        renderPogovor();
+      });
+    }
+
+    async function poslji() {
+      const kljuc = Storage.get('claude-api-key', '');
+      if (!kljuc) { alert('Najprej shrani API ključ.'); return; }
+      const tekst = document.getElementById('vnos').value.trim();
+      if (!tekst) return;
+
+      zgodovina.push({ role: 'user', content: tekst });
+      document.getElementById('vnos').value = '';
+      renderPogovor(true);
+
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': kljuc,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-6',
+            max_tokens: 2000,
+            system: SYSTEM_PROMPT,
+            messages: zgodovina
+          })
+        });
+        if (!res.ok) {
+          const err = await res.text();
+          throw new Error(`HTTP ${res.status}: ${err.slice(0, 200)}`);
+        }
+        const data = await res.json();
+        const odgovor = data.content[0]?.text || '(prazen odgovor)';
+        zgodovina.push({ role: 'assistant', content: odgovor });
+        renderPogovor();
+      } catch (e) {
+        zgodovina.push({ role: 'assistant', content: `⚠ Napaka: ${e.message}\n\nMogoča vzrok: napačen ključ, CORS omejitev, ali Claude API ni dostopen iz brskalnika brez backenda.\n\nZa produkcijsko uporabo priporočamo postaviti Cloudflare Worker, ki naredi proxy za API klice.` });
+        renderPogovor();
+      }
+    }
+
+    function renderPogovor(misli = false) {
+      const slot = document.getElementById('pogovor');
+      if (!zgodovina.length) {
+        slot.innerHTML = '<p class="text-sm text-stone-500 text-center py-8">Začni s hitro akcijo ali napiši svoje sporočilo.</p>';
+        return;
+      }
+      slot.innerHTML = zgodovina.map(m => `
+        <div class="${m.role === 'user' ? 'ai-msg-user' : 'ai-msg-ai'}">
+          <div class="text-xs uppercase text-stone-500 mb-1">${m.role === 'user' ? 'Ti' : 'Asistent'}</div>
+          <pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(m.content)}</pre>
+        </div>
+      `).join('') + (misli ? '<div class="ai-msg-ai opacity-60">Razmišljam…</div>' : '');
+      slot.scrollTop = slot.scrollHeight;
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prijava — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-card">
+      <h1 class="text-2xl font-bold text-green-900">Interzero EPR</h1>
+      <p class="text-sm text-stone-600 mt-1 mb-5">Prijava v prodajni portal</p>
+
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="label" for="login-email">Uporabniško ime / email</label>
+          <input class="input" id="login-email" type="email" autocomplete="username" required>
+        </div>
+        <div>
+          <label class="label" for="login-password">Geslo</label>
+          <input class="input" id="login-password" type="password" autocomplete="current-password" required>
+        </div>
+        <div id="login-error" class="login-error hidden"></div>
+        <button class="btn btn-primary w-full justify-center" type="submit">Prijava</button>
+      </form>
+
+      <div id="login-setup" class="hidden mt-5 text-sm text-stone-600 border-t border-stone-200 pt-4">
+        Auth Å¡e ni vklopljen. Nastavi <code>data/auth-config.json</code> s Supabase URL in anon key.
+      </div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    const form = document.getElementById('login-form');
+    const errorBox = document.getElementById('login-error');
+    const setup = document.getElementById('login-setup');
+
+    Auth.ready.then(() => {
+      if (!Auth.isEnabled()) setup.classList.remove('hidden');
+      if (Auth.isEnabled() && Auth.session?.access_token) {
+        location.href = new URLSearchParams(location.search).get('next') || 'index.html';
+      }
+    });
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      errorBox.classList.add('hidden');
+      const button = form.querySelector('button');
+      button.disabled = true;
+      button.textContent = 'Prijavljam...';
+      try {
+        await Auth.signIn(
+          document.getElementById('login-email').value,
+          document.getElementById('login-password').value
+        );
+        location.href = new URLSearchParams(location.search).get('next') || 'index.html';
+      } catch (err) {
+        errorBox.textContent = err.message || 'Prijava ni uspela.';
+        errorBox.classList.remove('hidden');
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Prijava';
+      }
+    });
+  </script>
+</body>
+</html>

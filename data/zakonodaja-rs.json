@@ -1,0 +1,80 @@
+{
+  "_opis": "Pregled ključne EPR in okoljske zakonodaje v Srbiji. Datumi in določila se spreminjajo — pred uporabo v ponudbi PREVERI veljavno verzijo na ekologija.gov.rs. To je orodje za prodajalca, ne pravni vir.",
+  "_zadnja_revizija": "2026-05",
+  "_opozorilo": "Pred pomembnimi odločitvami preveri trenutno veljavne predpise pri Ministarstvu zaštite životne sredine in Agenciji za zaštitu životne sredine (SEPA). Srbija ni članica EU, vendar usklajuje predpise z EU pravnim okvirom v okviru pristopnih pogajanj.",
+  "sklopi": [
+    {
+      "naslov": "EPR — splošno",
+      "vsebina": "EPR (proširena odgovornost proizvođača) v Srbiji ureja Zakon o upravljanju otpadom (Sl. glasnik RS 36/2009 z dopolnitvami) in vrsta podzakonskih uredb. Sistem izvaja in nadzira Agencija za zaštitu životne sredine (SEPA) in pristojni resor v Ministarstvu zaštite životne sredine.",
+      "koga_zavezuje": "Proizvajalce in uvoznike izdelkov v zadevnih tokovih (embalaža, EE-oprema, baterije, gume, vozila).",
+      "kljucne_obveznosti": [
+        "Vpis v register proizvajalcev pri SEPA pred dajanjem izdelkov na trg.",
+        "Vključitev v licenciran sistem upravljanja (operater).",
+        "Plačilo prispevkov skladno z uredbo o znesku prispevkov.",
+        "Letno poročanje količin po posameznih tokovih."
+      ]
+    },
+    {
+      "naslov": "Embalaža in odpadna embalaža",
+      "vsebina": "Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema upravljanja odpadno embalažo.",
+      "koga_zavezuje": "Vsi, ki dajejo embalirane izdelke prvič na srbski trg (proizvajalci, uvozniki, distributerji).",
+      "kljucne_obveznosti": [
+        "Vključitev v sistem upravljanja embalažo prek licenciranega operaterja.",
+        "Mesečno ali letno poročanje količin embalaže po materialih.",
+        "Plačilo prispevkov, ki se izračunajo na kg/material.",
+        "Stopnje recikliranja postopno naraščajo skladno z EU usklajevanjem."
+      ],
+      "datumi_in_pragovi": "Manjši proizvajalci pod določenimi količinami imajo nekatere oprostitve. Preveri trenutno veljavno verzijo Uredbe."
+    },
+    {
+      "naslov": "EE-oprema (e-otpad)",
+      "vsebina": "Pravilnik o listi električnih i elektronskih proizvoda i uredba o ravnanju z e-odpadkom. Velja za vso EE opremo v 10 kategorijah.",
+      "koga_zavezuje": "Proizvajalce in uvoznike EE-opreme v Srbiji. Tudi spletne prodajalce (B2C).",
+      "kljucne_obveznosti": [
+        "Vpis v register proizvajalcev EE-opreme pri SEPA.",
+        "Vključitev v shemo upravljanja oziroma individualni načrt.",
+        "Označevanje izdelkov (simbol prečrtanega zabojnika).",
+        "Letno poročanje količin po kategorijah."
+      ]
+    },
+    {
+      "naslov": "Baterije in akumulatorji",
+      "vsebina": "Pravilnik o ravnanju z odpadnimi baterijami in akumulatorji. Pokriva prenosne, industrijske in avtomobilske baterije.",
+      "koga_zavezuje": "Proizvajalce in uvoznike baterij ali izdelkov z baterijami.",
+      "kljucne_obveznosti": [
+        "Registracija proizvajalca baterij pri SEPA.",
+        "Vključitev v sistem prevzema.",
+        "Označevanje baterij.",
+        "Letno poročanje količin."
+      ]
+    },
+    {
+      "naslov": "Druge EPR sheme",
+      "vsebina": "V Srbiji obstajajo EPR sheme za odpadne gume, izrabljena vozila, odpadna olja, odpadna zdravila."
+    },
+    {
+      "naslov": "Letno poročanje",
+      "vsebina": "Zavezanci morajo do 31. marca naslednjega leta oddati letna poročila o ravnanju z odpadki in/ali količinah, danih na trg, prek SEPA.",
+      "datumi_in_pragovi": "31. marec za prejšnje koledarsko leto. Preveri vsako leto."
+    },
+    {
+      "naslov": "Made for Recycling — Srbija",
+      "vsebina": "Srbski trg postopoma sledi EU trendom — veliki kupci že zahtevajo Made for Recycling certifikate od dobaviteljev, predvsem za izvoz v EU.",
+      "koga_zavezuje": "Posredno tudi srbske proizvajalce, ki izvažajo v EU ali dobavljajo večjim trgovskim verigam."
+    },
+    {
+      "naslov": "EU usklajevanje (pristopni proces)",
+      "vsebina": "Srbija usklajuje okoljsko zakonodajo z EU acquis communautaire. To pomeni postopne spremembe: višje stopnje recikliranja, strožja pravila označevanja, postopen vstop v EU EPR okvir.",
+      "koga_zavezuje": "Vse podjetnike. Pričakuj postopno naraščanje zahtev v naslednjih 5-10 letih."
+    },
+    {
+      "naslov": "PPWR vpliv na Srbijo",
+      "vsebina": "Čeprav PPWR (EU Uredba 2025/40 o embalaži) ni neposredno zavezujoča v Srbiji, bo močno vplivala na izvoznike v EU in na podjetja, ki sodelujejo z mednarodnimi blagovnimi znamkami."
+    }
+  ],
+  "viri": [
+    { "naziv": "Ministarstvo zaštite životne sredine", "url": "https://www.ekologija.gov.rs" },
+    { "naziv": "SEPA — Agencija za zaštitu životne sredine", "url": "http://www.sepa.gov.rs" },
+    { "naziv": "Interzero PAK Srbija", "url": "https://interzero.rs" }
+  ]
+}

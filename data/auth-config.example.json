@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "supabaseUrl": "https://YOUR-PROJECT.supabase.co",
+  "anonKey": "YOUR-SUPABASE-ANON-KEY"
+}

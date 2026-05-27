@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vodič po prodajnem razgovoru — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .toc {
+      position: sticky;
+      top: 4.5rem;
+      max-height: calc(100vh - 6rem);
+      overflow-y: auto;
+    }
+    .toc a {
+      display: block;
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      color: #57534e;
+      text-decoration: none;
+      border-left: 2px solid transparent;
+    }
+    .toc a:hover { background: #f5f5f4; color: #1b5e20; }
+    .toc a.active { background: #e8f5e9; color: #1b5e20; border-left-color: #2e7d32; font-weight: 600; }
+    .faza-block { scroll-margin-top: 5rem; }
+    .branch-card { background: #fffbeb; border: 1px solid #fde68a; border-radius: 0.5rem; padding: 0.75rem 1rem; }
+    .napaka-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.5rem; padding: 0.75rem 1rem; }
+    .signal-card { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 0.5rem; padding: 0.75rem 1rem; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <header class="mb-8">
+      <div class="flex items-start justify-between gap-3 flex-wrap">
+        <div>
+          <h1 class="text-3xl font-bold" data-i18n="page.vodic.title">Vodič po prodajnem razgovoru</h1>
+          <p class="mt-2 text-stone-600 max-w-3xl" id="uvod-tekst">Nalagam…</p>
+        </div>
+        <button id="btn-beri-vse" class="speech-bulk-btn no-print">🔊 Beri ves vodič</button>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-8">
+      <!-- TOC -->
+      <aside class="toc no-print">
+        <div class="text-xs font-semibold uppercase text-stone-500 mb-2 px-3">Faze</div>
+        <nav id="toc"></nav>
+        <div class="text-xs font-semibold uppercase text-stone-500 mt-6 mb-2 px-3">Načela</div>
+        <a href="#principi" class="toc-link">7 ključnih načel</a>
+      </aside>
+
+      <!-- Vsebina -->
+      <div id="vsebina" class="space-y-8"></div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    async function init() {
+      const data = await loadData('vodic');
+      if (!data) {
+        document.getElementById('vsebina').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov. Aplikacijo poženi prek lokalnega strežnika.</p>';
+        return;
+      }
+
+      document.getElementById('uvod-tekst').textContent = data.uvod;
+
+      // TOC
+      const tocHtml = data.faze.map((f, i) =>
+        `<a href="#${f.id}" class="toc-link"><span class="text-stone-400 mr-1">${i + 1}.</span>${f.ikona} ${f.naziv.split(' (')[0]}</a>`
+      ).join('');
+      document.getElementById('toc').innerHTML = tocHtml;
+
+      // Vsebina
+      const fazeHtml = data.faze.map((f, i) => renderFaza(f, i + 1)).join('');
+      const principiHtml = renderPrincipi(data.principi);
+      document.getElementById('vsebina').innerHTML = fazeHtml + principiHtml;
+
+      wireCopyButtons();
+      wireScrollSpy();
+
+      document.getElementById('btn-beri-vse').addEventListener('click', () => {
+        // Sestavi sekvenco vseh faz: naslov + cilj + ključne točke + govori + signal konca
+        const seq = [];
+        seq.push(data.uvod);
+        data.faze.forEach((f, i) => {
+          seq.push(`Faza ${i + 1}: ${f.naziv}.`);
+          seq.push(`Cilj: ${f.cilj}`);
+          if (f.kljucne_tocke && f.kljucne_tocke.length) {
+            seq.push('Ključne točke. ' + f.kljucne_tocke.join(' '));
+          }
+          if (f.govori && f.govori.length) {
+            f.govori.forEach(g => seq.push(`${g.kdaj}. ${g.tekst}`));
+          }
+          if (f.signal_konca) seq.push(`Signal konca faze: ${f.signal_konca}`);
+        });
+        seq.push('Sedem ključnih načel.');
+        data.principi.forEach((p, i) => seq.push(`${i + 1}. ${p.naslov}. ${p.vsebina}`));
+        Speech.speakSequence(seq, { label: 'Vodič' });
+      });
+    }
+
+    function renderFaza(f, stevilka) {
+      return `
+        <section id="${f.id}" class="faza-block panel">
+          <div class="flex items-baseline gap-3 flex-wrap mb-3">
+            <span class="text-3xl">${f.ikona}</span>
+            <div>
+              <div class="text-xs uppercase tracking-wider text-stone-500">Faza ${stevilka} · ${f.trajanje}</div>
+              <h2 class="text-2xl font-bold">${f.naziv}</h2>
+            </div>
+          </div>
+
+          <div class="mb-5 p-3 bg-stone-50 rounded border border-stone-200">
+            <div class="text-xs font-semibold uppercase text-stone-500 mb-1">Cilj te faze</div>
+            <div class="text-sm">${f.cilj}</div>
+          </div>
+
+          ${f.kljucne_tocke && f.kljucne_tocke.length ? `
+            <div class="mb-5">
+              <h3 class="font-semibold mb-2">Ključne točke</h3>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                ${f.kljucne_tocke.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+
+          ${f.govori && f.govori.length ? `
+            <div class="mb-5">
+              <h3 class="font-semibold mb-2">🗣️ Dobesedni govori</h3>
+              <div class="space-y-3">
+                ${f.govori.map((g, j) => `
+                  <div>
+                    <div class="text-xs text-stone-500 mb-1">${g.kdaj}</div>
+                    <div class="script-block" id="govor-${f.id}-${j}">${g.tekst.replace(/\n/g, '<br>')}<button class="copy-btn" data-copy="#govor-${f.id}-${j}">Kopiraj</button></div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          ${f.branche && f.branche.length ? `
+            <div class="mb-5">
+              <h3 class="font-semibold mb-2">🔀 Kaj narediti, če stranka reagira drugače</h3>
+              <div class="space-y-2">
+                ${f.branche.map(b => `
+                  <div class="branch-card">
+                    <div class="text-sm"><strong>Če stranka:</strong> ${b.ce_stranka}</div>
+                    <div class="text-sm mt-1"><strong>Ti narediš:</strong> ${b.ti_naredi}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          ${f.tipicne_napake && f.tipicne_napake.length ? `
+            <div class="mb-5">
+              <h3 class="font-semibold mb-2">⚠️ Tipične napake</h3>
+              <div class="napaka-card">
+                <ul class="list-disc pl-5 space-y-1 text-sm">
+                  ${f.tipicne_napake.map(n => `<li>${n}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          ` : ''}
+
+          ${f.signal_konca ? `
+            <div class="signal-card">
+              <div class="text-xs font-semibold uppercase text-green-800 mb-1">✓ Signal, da je faza končana</div>
+              <div class="text-sm">${f.signal_konca}</div>
+            </div>
+          ` : ''}
+        </section>
+      `;
+    }
+
+    function renderPrincipi(principi) {
+      if (!principi || !principi.length) return '';
+      return `
+        <section id="principi" class="faza-block panel bg-green-50 border-green-200">
+          <h2 class="text-2xl font-bold mb-4">⭐ Sedem ključnih načel</h2>
+          <p class="text-sm text-stone-600 mb-4">Če si pozabil vse drugo, pomni teh sedem stvari.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            ${principi.map((p, i) => `
+              <div class="bg-white p-4 rounded border border-stone-200">
+                <div class="text-xs font-semibold text-green-800 uppercase mb-1">Načelo ${i + 1}</div>
+                <div class="font-semibold mb-1">${p.naslov}</div>
+                <div class="text-sm text-stone-700">${p.vsebina}</div>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function wireScrollSpy() {
+      const links = document.querySelectorAll('.toc-link');
+      const sections = document.querySelectorAll('.faza-block');
+      const setActive = id => {
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      };
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      sections.forEach(s => observer.observe(s));
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

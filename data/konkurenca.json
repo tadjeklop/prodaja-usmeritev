@@ -1,0 +1,138 @@
+{
+  "_opis": "Battlecards po konkurentu. POMEMBNO: te kartice so PRAGMATIČNI OKVIR. Pred uporabo pri stranki preveri konkretne podatke — cene, obseg, certifikati se spreminjajo. Ne uporabljaj kot 'napad' na konkurenta, ampak kot okvir za predstavitev naše razlike.",
+  "_pravila": [
+    "NIKOLI ne kritiziraj konkurenta direktno. Reci 'razlika je v...', ne 'oni nimajo...'.",
+    "Drži se preverljivih dejstev. Če nisi prepričan, vprašaj stranko.",
+    "Stranka pogosto ne ve, kdo so njihovi trenutni partnerji. Najprej vprašaj.",
+    "Konkurent ni napadalec — je referenca. Če stranka že sodeluje z njim, ima razlog. Spoštuj ga."
+  ],
+  "_kako_pridobiti_intel": [
+    "Vprašaj nove stranke, ki so prišle h Interzero: zakaj so zamenjale?",
+    "Spremljaj javne objave: spletne strani, LinkedIn, sejmi.",
+    "Z lastno ekipo redno deli, kaj sliši na sestankih (mesečni sales meeting).",
+    "Pravno: ne uporabljaj informacij, ki si jih dobil pod NDA ali zaupno."
+  ],
+  "konkurenti": [
+    {
+      "id": "slopak",
+      "naziv": "Slopak",
+      "tip": "Skupna EPR shema (embalaža)",
+      "trg": "Slovenija",
+      "njihove_prednosti": [
+        "Eden najstarejših in največjih operaterjev na trgu (od 2003).",
+        "Dolgoletne pogodbene relacije s številnimi velikimi proizvajalci.",
+        "Stabilna mreža za prevzem in obdelavo embalaže.",
+        "Široko prepoznavna blagovna znamka."
+      ],
+      "nase_razlike": [
+        "Mednarodna mreža — Interzero deluje v desetih evropskih državah, kar je ključno za podjetja s prodajo v več državah.",
+        "Pokrivamo več tokov: poleg embalaže tudi EE-oprema, baterije, svetovanje, ESG, ravnanje z odpadki.",
+        "Strokovni dialog ne samo kot operater sheme, ampak kot svetovalec za EPR strategijo.",
+        "Modulardna ponudba — stranka lahko vzame samo to, kar potrebuje."
+      ],
+      "tipicni_argumenti_stranke_za_njih": [
+        "Smo z njimi že 15 let, vse deluje.",
+        "Njihov sistem poznamo, ne želimo menjati."
+      ],
+      "kako_odgovoriti": "Spoštujemo dolgoletno sodelovanje. Naš pristop ni 'zamenjajte vse'. Predlagamo, da pogledava, kje so morda vrzeli — npr. EE-oprema, mednarodni trgi, ESG poročanje, svetovanje. Tam, kjer Slopak ni dejaven, smo komplementarni.",
+      "kdaj_zmagamo": [
+        "Stranka prodaja v več EU državah.",
+        "Stranka ima EE-opremo ali baterije.",
+        "Stranka potrebuje svetovanje, ne samo shemo.",
+        "Stranka ima zahteve velikih B2B kupcev (ESG, recyclability)."
+      ],
+      "kdaj_zgubimo": [
+        "Stranka samo z embalažo, lokalno, dolgoletna pogodba.",
+        "Cena je edini kriterij in stranka ne ceni dodatne vrednosti."
+      ]
+    },
+    {
+      "id": "interseroh-zeos",
+      "naziv": "ZEOS (in podobni operaterji EE-opreme)",
+      "tip": "Skupna EPR shema (EE-oprema, baterije)",
+      "trg": "Slovenija",
+      "njihove_prednosti": [
+        "Specializirani za EE-opremo in baterije.",
+        "Močna prepoznavnost v segmentu EE-opreme.",
+        "Razvita zbiralna mreža za EE-opremo."
+      ],
+      "nase_razlike": [
+        "Pokrivamo VSE EPR tokove na enem mestu — embalaža + EE + baterije + svetovanje.",
+        "Stranke ne potrebujejo več operaterjev za različne tokove.",
+        "Mednarodna mreža za podjetja, ki prodajajo izven SI."
+      ],
+      "tipicni_argumenti_stranke_za_njih": [
+        "Imamo samo EE-opremo, oni so specializirani.",
+        "Že leta sodelujemo, sistem poznajo."
+      ],
+      "kako_odgovoriti": "Specializacija ima vrednost. Vendar imajo večja podjetja običajno več tokov: ko se odpre vprašanje embalaže ali ESG, ima en partner več smisla. Pogosto delamo skupaj z lokalnimi specializiranimi operaterji, kjer je to v interesu stranke."
+    },
+    {
+      "id": "lokalni-zbiralci",
+      "naziv": "Lokalni zbiralci odpadkov (Saubermacher, Surovina, Dinos, lokalna komunalna podjetja)",
+      "tip": "Operativni zbiralci, ravnanje z odpadki",
+      "trg": "Slovenija, regija",
+      "njihove_prednosti": [
+        "Lokalna prisotnost, hiter odziv.",
+        "Nizki transportni stroški.",
+        "Osebne relacije, ki gradijo zaupanje.",
+        "Pogosto fleksibilni pri urnikih in posebnih zahtevah."
+      ],
+      "nase_razlike": [
+        "Lokalni zbiralec ureja ODVOZ, ne pa EPR obveznosti, poročanja, strategije.",
+        "Interzero in lokalni zbiralec sta KOMPLEMENTARNA, ne konkurenca.",
+        "Stranke pogosto zmotijo dve plasti: zbiranje + EPR shema. Z nami imajo eno celostno sliko."
+      ],
+      "tipicni_argumenti_stranke_za_njih": [
+        "Imamo lokalnega, ki nam vse odvaža.",
+        "Z njimi delamo deset let."
+      ],
+      "kako_odgovoriti": "Razumem, lokalni odnos je vreden. Vendar lokalni zbiralec običajno pokriva ODVOZ, ne pa EPR obveznosti, letnih poročil ali ESG zahtev. To sta dve različni področji. Pri večini strank dela najbolje kombinacija: lokalni zbiralec za izvedbo + Interzero za EPR, poročanje in strateški del. Lahko mirno sodelujeta."
+    },
+    {
+      "id": "interno",
+      "naziv": "Notranja ekipa stranke (HSE, sustainability)",
+      "tip": "Stranka ureja sama, brez zunanjega partnerja",
+      "trg": "Vse",
+      "njihove_prednosti": [
+        "Brez stroška zunanjega partnerja (na papirju).",
+        "Polna kontrola, neposreden dostop do podatkov.",
+        "Notranje znanje, prilagojeno specifiki podjetja."
+      ],
+      "nase_razlike": [
+        "EPR ni del 'core business' večine podjetij — odjeda fokus.",
+        "Tveganje koncentracije znanja v eni osebi (kaj se zgodi, če odide?).",
+        "Spremembe zakonodaje so kompleksne in časovno zahtevne — težko sledimo, če to ni glavna naloga.",
+        "Stroški interne ekipe so 'skriti' (plača + obveznosti + izobraževanja + IT)."
+      ],
+      "tipicni_argumenti_stranke_za_njih": [
+        "Naša HSE oseba je odlična, vse pokriva.",
+        "Imamo notranje znanje, ne potrebujemo zunanjega svetovalca."
+      ],
+      "kako_odgovoriti": "To je redko in vredno spoštovanja. Naša naloga ni nadomestiti vašo HSE ekipo, ampak prevzeti dolgotrajne rutinske naloge (poročila, spremljanje zakonodaje, dokumentacija), da se vaša ekipa lahko ukvarja z zahtevnejšimi odločitvami. Eden ali dva primera, kako lahko pomagamo, lahko ocenimo skupaj v 30 minutah."
+    },
+    {
+      "id": "individualna-shema",
+      "naziv": "Individualni načrt (stranka kot svoj 'operater')",
+      "tip": "Stranka izpolnjuje EPR obveznosti sama, brez skupne sheme",
+      "trg": "Vse",
+      "njihove_prednosti": [
+        "Polna kontrola nad procesom.",
+        "Možnost optimizacije za specifiko podjetja.",
+        "Brez 'pavšalov' skupne sheme."
+      ],
+      "nase_razlike": [
+        "Individualni načrt je administrativno izjemno zahteven — potrebna lastna evidenca prevzemov, mreža partnerjev, dokazila o reciklaži.",
+        "Praviloma se splača le pri zelo velikih količinah in specifični embalaži.",
+        "Tveganje napak in inšpekcij je večje.",
+        "Pri skupni shemi je strošek predvidljiv in obveznosti so prenesene na operaterja."
+      ],
+      "tipicni_argumenti_stranke_za_njih": [
+        "Imamo zelo specifično embalažo, splošna shema ne ustreza.",
+        "Količine so velike, ekonomika individualnega načrta deluje."
+      ],
+      "kako_odgovoriti": "Razumem. Včasih je individualni načrt pravi izbor, vendar pogosto šele po analizi. Naša izkušnja: 80 % podjetij, ki so razmišljala o individualnem načrtu, je na koncu izbrala skupno shemo, ker je administrativni teret prenizko cenjen. Lahko skupaj naredimo primerjavo: kaj bi vas dejansko stalo eno in drugo?"
+    }
+  ],
+  "_dopolnjevanje": "Tabelo dopolni z dejanskimi konkurenti, ki jih srečaš. Zapiši: njihovo glavno prednost, kako stranka utemelji izbor zanje, kako se ti odzoveš. Po dveh do treh ponovitvah se naučiš vzorca."
+}

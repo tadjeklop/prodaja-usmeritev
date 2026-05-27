@@ -1,0 +1,540 @@
+{
+  "_opis": "Koledar vsebinskih predlogov za LinkedIn objave Interzero ekipe. 40 tem, 12 tednov, 7 avtorjev, 4 teme. Hooki napisani za vsak trg posebej (ne dobesedni prevodi).",
+  "_ritem": "Pon, tor, sre, pet — dnevi z največjim B2B engagementom.",
+  "_uporaba": "Koordinator predlaga, avtor potrdi, Interzero pravna služba preveri, objavi se v dogovoru.",
+  "avtorji": {
+    "lead-si": { "ime": "Country lead SI", "drzava": "SI", "barva": "blue" },
+    "lead-hr": { "ime": "Country lead HR", "drzava": "HR", "barva": "purple" },
+    "lead-rs": { "ime": "Country lead RS", "drzava": "RS", "barva": "amber" },
+    "senior-si": { "ime": "Senior prodajalec SI", "drzava": "SI", "barva": "stone" },
+    "senior-hr": { "ime": "Senior prodajalec HR", "drzava": "HR", "barva": "stone" },
+    "regulator": { "ime": "Regulatorni ekspert", "drzava": "regional", "barva": "green" },
+    "koord": { "ime": "Koordinator", "drzava": "regional", "barva": "green" }
+  },
+  "teme": {
+    "ppwr": { "naziv": "PPWR", "barva": "blue", "opis": "EU Uredba 2025/40 o embalaži" },
+    "regulator": { "naziv": "Regulatorni update", "barva": "amber", "opis": "Spremembe SI/HR/RS/EU pravnega okvira" },
+    "praksa": { "naziv": "Primer iz prakse", "barva": "green", "opis": "Anonimiziran primer ali izkušnja" },
+    "ekodizajn": { "naziv": "Eco-design", "barva": "purple", "opis": "Recyclability, Made for Recycling, materiali" },
+    "komunikacija": { "naziv": "Komunikacija s stranko", "barva": "pink", "opis": "Skripte, email predloge, vodila za pogovor s strankami" }
+  },
+  "statusi": {
+    "objavljeno": { "naziv": "Objavljeno", "barva": "stone" },
+    "nacrtovano": { "naziv": "Načrtovano", "barva": "blue" },
+    "osnutek": { "naziv": "Osnutek", "barva": "amber" }
+  },
+  "predlogi": [
+    {
+      "id": "01", "teden": 20, "datum": "2026-05-11", "dan": "ponedeljek",
+      "status": "objavljeno", "tema": "ppwr", "avtor": "regulator", "drzava": "regional",
+      "naslov": "PPWR cutoff 2027: kaj se zares spreminja",
+      "hook_si": "Veliko podjetij misli, da PPWR začne veljati 'nekje 2030'. V resnici prvi cutoff datumi padejo že v 2027 — in pripravljen moraš biti prej, ne takrat. Spodaj tabela ključnih datumov.",
+      "hook_hr": "Tvrtke često misle da PPWR počinje 'negdje 2030'. Stvarnost: prvi rokovi padaju već 2027 — i pripremiti se trebaš ranije, ne tada. Donosim tablicu ključnih datuma.",
+      "hook_sr": "Kompanije često misle da PPWR počinje „negde 2030”. Realnost: prvi rokovi padaju već 2027 — pripremiti se moraš ranije, ne tada. U tabeli ključni datumi."
+    },
+    {
+      "id": "02", "teden": 20, "datum": "2026-05-13", "dan": "sreda",
+      "status": "objavljeno", "tema": "praksa", "avtor": "senior-si", "drzava": "SI",
+      "naslov": "Slovenska pivovarna in problem barvane etikete",
+      "hook_si": "Pri pivovarni s 5 ključnimi produkti smo letos srečali nepričakovan problem: PET steklenica je bila tehnično recyclable, etiketa pa je vse pokvarila. 3 mesece dela, en rešen problem. Kaj smo se naučili.",
+      "hook_hr": "Kod jedne pivovare s 5 glavnih proizvoda ove godine naišli smo na neočekivan problem: PET boca tehnički recyclable, etiketa sve pokvarila. 3 mjeseca rada, jedan riješen problem. Što smo naučili.",
+      "hook_sr": "Kod jedne pivare sa 5 glavnih proizvoda ove godine smo naišli na neočekivan problem: PET flaša tehnički recyclable, etiketa sve pokvarila. 3 meseca rada, jedan rešen problem. Šta smo naučili."
+    },
+    {
+      "id": "03", "teden": 21, "datum": "2026-05-19", "dan": "torek",
+      "status": "objavljeno", "tema": "regulator", "avtor": "lead-hr", "drzava": "HR",
+      "naslov": "Zakon o gospodarenju otpadom 84/2021: kaj se je spremenilo v zadnjem letu",
+      "hook_si": "Hrvaška zakonodaja za odpadke je v zadnjem letu doživela 3 manjše dopolnitve. Za slovenske podjetnike, ki prodajajo v HR, je relevantnih predvsem ena — e-ONTO obveznosti. Pojasnjujem.",
+      "hook_hr": "Zakon o gospodarenju otpadom 84/2021 imao je u zadnju godinu 3 manje izmjene. Najvažnija za većinu tvrtki: dodatne e-ONTO obveze. Objašnjavam što to znači u praksi.",
+      "hook_sr": "Hrvatski Zakon o upravljanju otpadom je u poslednjoj godini dobio 3 manje izmene. Za srpske kompanije koje izvoze u HR relevantna je e-ONTO obaveza. Razjašnjavam."
+    },
+    {
+      "id": "04", "teden": 21, "datum": "2026-05-22", "dan": "petek",
+      "status": "objavljeno", "tema": "ekodizajn", "avtor": "senior-hr", "drzava": "HR",
+      "naslov": "Made for Recycling: 5 najpogostejših napak v procesu",
+      "hook_si": "Letos smo opravili več kot 40 Made for Recycling analiz. Pet vzorcev se ponavlja — in vse petih bi lahko proizvajalci preprečili, če bi tako razmišljali ŽE pri načrtovanju, ne šele po prvi proizvodnji.",
+      "hook_hr": "Ove godine smo proveli više od 40 Made for Recycling analiza. Pet uzoraka se ponavlja — i sve ih je proizvođač mogao spriječiti da je razmišljao već u fazi dizajna, ne nakon prve proizvodnje.",
+      "hook_sr": "Ove godine smo uradili više od 40 Made for Recycling analiza. Pet obrazaca se ponavlja — i sve ih je proizvođač mogao sprečiti da je razmišljao već u fazi dizajna, ne nakon prve proizvodnje."
+    },
+    {
+      "id": "05", "teden": 22, "datum": "2026-05-26", "dan": "torek",
+      "status": "nacrtovano", "tema": "ppwr", "avtor": "regulator", "drzava": "regional",
+      "naslov": "PPWR delegated acts: kaj NE vemo (in zakaj je to pomembno)",
+      "hook_si": "Vsak teden dobimo vprašanje 'kaj točno bo PPWR zahteval'. Iskren odgovor: ne vemo še vsega. Delegated acts EU komisije, ki bodo dali konkretne tehnične zahteve, prihajajo postopno. Tukaj je seznam, kaj še manjka.",
+      "hook_hr": "Svakog tjedna dobivamo pitanje 'što točno PPWR zahtijeva'. Iskren odgovor: ne znamo sve. Delegated acts Europske komisije s tehničkim detaljima dolaze postupno. Donosim popis onoga što još nedostaje.",
+      "hook_sr": "Svake nedelje dobijamo pitanje „šta tačno PPWR zahteva”. Iskren odgovor: ne znamo sve. Delegated acts Evropske komisije sa tehničkim detaljima dolaze postepeno. Donosim spisak onoga što još nedostaje."
+    },
+    {
+      "id": "06", "teden": 22, "datum": "2026-05-27", "dan": "sreda",
+      "status": "nacrtovano", "tema": "praksa", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "Kako je slovenski srednji proizvajalec sprostil 30 % časa HSE oddelka",
+      "hook_si": "Pred letom dni je njihova HSE oseba porabila 40 % časa za poročanje in usklajevanje z izvajalci. Danes porabi 10 %. Tu je, kaj smo skupaj naredili — in česa nismo.",
+      "hook_hr": "Prije godinu dana njihova HSE osoba je trošila 40 % vremena na izvještavanje i koordinaciju s izvođačima. Danas troši 10 %. Donosim što smo zajedno učinili — i što nismo.",
+      "hook_sr": "Pre godinu dana njihov HSE čovek je trošio 40 % vremena na izveštavanje i koordinaciju sa izvođačima. Danas troši 10 %. Donosim šta smo zajedno uradili — i šta nismo."
+    },
+    {
+      "id": "07", "teden": 22, "datum": "2026-05-29", "dan": "petek",
+      "status": "nacrtovano", "tema": "regulator", "avtor": "lead-rs", "drzava": "RS",
+      "naslov": "Srbska EPR tranzicija: kako berem zadnjih 6 mesecev",
+      "hook_si": "Srbija ni v EU, ampak usklajuje. V zadnjih 6 mesecih je naredila več sprememb, ki imajo neposreden vpliv na podjetja, ki uvažajo ali prodajajo v RS. Tu je pregled za prodajne in marketinške ekipe.",
+      "hook_hr": "Srbija nije u EU, ali se usklađuje. U zadnjih 6 mjeseci napravila je više promjena s neposrednim utjecajem na tvrtke koje uvoze ili prodaju u RS. Pregled za prodajne i marketinške ekipe.",
+      "hook_sr": "Srbija nije u EU, ali se usklađuje. U poslednjih 6 meseci napravljeno je više izmena sa direktnim uticajem na kompanije koje uvoze ili prodaju u RS. Pregled za prodajne i marketing timove."
+    },
+    {
+      "id": "08", "teden": 23, "datum": "2026-06-01", "dan": "ponedeljek",
+      "status": "nacrtovano", "tema": "ppwr", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "PPWR vs slovenska Uredba o embalaži: kje se razlikujeta",
+      "hook_si": "Ko PPWR začne veljati neposredno (kot EU uredba), bo del nadomestil slovensko Uredbo o embalaži. Drugi del bo soobstajal. Konkretna primerjava — kar moraš vedeti, če si zavezanec v SI.",
+      "hook_hr": "Kad PPWR započne važiti neposredno, dio će zamijeniti slovensku Uredbu o embalaži. Drugi dio će suegzistirati. Konkretna usporedba — što trebaš znati ako prodaješ u SI.",
+      "hook_sr": "Kada PPWR počne da važi neposredno, deo će zameniti slovensku Uredbu o ambalaži. Drugi deo će koegzistirati. Konkretno poređenje — šta moraš da znaš ako prodaješ u SI."
+    },
+    {
+      "id": "09", "teden": 23, "datum": "2026-06-03", "dan": "sreda",
+      "status": "nacrtovano", "tema": "ekodizajn", "avtor": "senior-si", "drzava": "regional",
+      "naslov": "ROI eco-designa: kako pokazati nabavi, da se splača",
+      "hook_si": "Marketing želi trajnostno embalažo. Nabava želi nižjo ceno. Trajnost se na koncu vedno izgubi, ker nima 'številke'. Tu je okvir, kako eco-design pretvoriti v ROI, ki nabavo zares prepriča.",
+      "hook_hr": "Marketing želi održivu ambalažu. Nabava želi nižu cijenu. Održivost na kraju uvijek izgubi, jer nema 'broja'. Donosim okvir kako eco-design pretvoriti u ROI koji nabavu zaista uvjeri.",
+      "hook_sr": "Marketing želi održivu ambalažu. Nabavka želi nižu cenu. Održivost na kraju uvek izgubi, jer nema „broja”. Donosim okvir kako eco-design pretvoriti u ROI koji nabavku stvarno ubedi."
+    },
+    {
+      "id": "10", "teden": 23, "datum": "2026-06-05", "dan": "petek",
+      "status": "nacrtovano", "tema": "praksa", "avtor": "koord", "drzava": "regional",
+      "naslov": "Multi-Adria pogodba: kako en kontakt pokrije vse tri trge",
+      "hook_si": "Imamo stranko s prisotnostjo v SI, HR in RS. Pred letom dni: trije ločeni partnerji, trije računi, tri poročila. Danes: ena pogodba. Kako je to videti v praksi in zakaj — kljub dodatnim vrstam dela — je stranka zadovoljna.",
+      "hook_hr": "Imamo klijenta s prisutnošću u SI, HR i RS. Prije godinu dana: tri odvojena partnera, tri računa, tri izvješća. Danas: jedan ugovor. Kako to izgleda u praksi i zašto je klijent — unatoč dodatnom radu — zadovoljan.",
+      "hook_sr": "Imamo klijenta sa prisustvom u SI, HR i RS. Pre godinu dana: tri odvojena partnera, tri računa, tri izveštaja. Danas: jedan ugovor. Kako to izgleda u praksi i zašto je klijent — uprkos dodatnom radu — zadovoljan."
+    },
+    {
+      "id": "11", "teden": 24, "datum": "2026-06-08", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "regulator", "drzava": "regional",
+      "naslov": "Article 7 PPWR: recyclability v praksi",
+      "hook_si": "Article 7 PPWR uvaja A-do-E klasifikacijo recyclabilityja embalaže. Po cutoffu 2030 lahko embalaža razred D ali E sploh ne bo več dovoljena na trgu. Tu je, kako sploh ugotoviš, v katerem razredu si.",
+      "hook_hr": "Article 7 PPWR uvodi A-do-E klasifikaciju recyclabilityja ambalaže. Nakon cutoffa 2030 ambalaža razreda D ili E možda više neće biti dopuštena na tržištu. Kako uopće saznati u kojem si razredu.",
+      "hook_sr": "Article 7 PPWR uvodi A-do-E klasifikaciju recyclabilityja ambalaže. Posle cutoffa 2030 ambalaža razreda D ili E možda više neće biti dozvoljena na tržištu. Kako uopšte saznati u kojem si razredu."
+    },
+    {
+      "id": "12", "teden": 24, "datum": "2026-06-09", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "lead-hr", "drzava": "HR",
+      "naslov": "Kozmetika in 200+ SKU-jev: kako voditi recyclability analizo",
+      "hook_si": "Pri hrvaški kozmetiki s 200+ SKU-ji smo začeli analizo recyclabilityja brez sistema. Po tednu dni je bilo jasno: pristop je napačen. Pristopili smo drugače in v 6 tednih pokrili vse. Tu je pristop.",
+      "hook_hr": "Kod hrvatske kozmetike s 200+ SKU-ova počeli smo analizu recyclabilityja bez sistema. Nakon tjedan dana bilo je jasno: pristup je krivi. Promijenili smo i u 6 tjedana pokrili sve. Donosim metodu.",
+      "hook_sr": "Kod hrvatske kozmetike sa 200+ SKU-ova krenuli smo analizu recyclabilityja bez sistema. Posle nedelju dana bilo je jasno: pristup je pogrešan. Promenili smo i u 6 nedelja pokrili sve. Donosim metodu."
+    },
+    {
+      "id": "13", "teden": 24, "datum": "2026-06-10", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "Slovenska Uredba o embalaži 2026: kaj se obeta",
+      "hook_si": "Slovenska uredba je pred prenovo. V zadnjih mesecih sem v razgovoru z resorjem zbral nekaj signalov — niso uradni, vendar nakazujejo smer. Tu je, na kaj se velja pripravljati.",
+      "hook_hr": "Slovenska uredba je pred obnovom. U zadnjim mjesecima u razgovoru s nadležnima sam prikupio neke signale — nisu službeni, ali ukazuju na smjer. Što bi tvrtke u SI trebale spremiti.",
+      "hook_sr": "Slovenska uredba je pred obnovom. U poslednjim mesecima u razgovoru sa nadležnima sam prikupio neke signale — nisu zvanični, ali ukazuju na pravac. Šta kompanije u SI treba da pripreme."
+    },
+    {
+      "id": "14", "teden": 24, "datum": "2026-06-12", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "senior-hr", "drzava": "regional",
+      "naslov": "Barvana PET steklenica: zakaj jo recikler ne mara",
+      "hook_si": "Industrijska barvanja PET steklenice (zelena, modra, opacna) so vizualno všeč, vendar so recyclability nočna mora. Pojasnjujem, zakaj — in kaj naredijo eco-design ekipe, ki to razumejo.",
+      "hook_hr": "Industrijska bojanja PET boca (zelena, plava, neprozirna) vizualno se sviđaju, ali su recyclability noćna mora. Objašnjavam zašto — i što rade eco-design tim koji to razumiju.",
+      "hook_sr": "Industrijska bojenja PET flaše (zelena, plava, neprozirna) vizuelno se sviđaju, ali su recyclability noćna mora. Objašnjavam zašto — i šta rade eco-design timovi koji to razumeju."
+    },
+    {
+      "id": "15", "teden": 25, "datum": "2026-06-15", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "lead-hr", "drzava": "HR",
+      "naslov": "PPWR vs hrvaška uredba: praktična primerjava",
+      "hook_si": "Tako kot v Sloveniji se bo tudi v Hrvaški PPWR neposredno uveljavil. Vendar so razlike pri uveljavitvi: Hrvaška ima e-ONTO, depozitni sustav, in svoje specifike. Tu je primerjava.",
+      "hook_hr": "Kao i u Sloveniji, i u Hrvatskoj će se PPWR neposredno primjenjivati. Ali postoje razlike u provedbi: e-ONTO, depozitni sustav, lokalne specifičnosti. Donosim usporedbu.",
+      "hook_sr": "Kao i u Sloveniji, i u Hrvatskoj će se PPWR neposredno primenjivati. Postoje razlike u sprovođenju: e-ONTO, depozitni sustav, lokalne specifičnosti. Donosim poređenje."
+    },
+    {
+      "id": "16", "teden": 25, "datum": "2026-06-16", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "lead-rs", "drzava": "RS",
+      "naslov": "Konsolidacija embalaže pri srbski stranki",
+      "hook_si": "Srbski klient z 8 SKU-ji je imel 6 različnih embalažnih dobaviteljev. V 4 mesecih smo to znižali na 2 dobavitelja in 3 enotne materiale. Marže navzgor, recyclability navzgor. Kako smo to naredili.",
+      "hook_hr": "Srpski klijent s 8 SKU-ova imao je 6 različitih dobavljača ambalaže. U 4 mjeseca smo to spustili na 2 dobavljača i 3 jedinstvena materijala. Marže gore, recyclability gore. Kako smo to napravili.",
+      "hook_sr": "Srpski klijent sa 8 SKU-ova imao je 6 različitih dobavljača ambalaže. U 4 meseca smo to sveli na 2 dobavljača i 3 jedinstvena materijala. Marže gore, recyclability gore. Kako smo to uradili."
+    },
+    {
+      "id": "17", "teden": 25, "datum": "2026-06-17", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "regulator", "drzava": "regional",
+      "naslov": "EU pooblaščeni zastopnik (Authorized Representative): koga zares zadeva",
+      "hook_si": "Številna podjetja iz tretjih držav, ki prodajajo v EU prek spletnih platform, ne vedo, da potrebujejo EU pooblaščenega zastopnika za EPR namene. Tu je pregled: koga to zadeva, kdaj, in kakšne so kazni.",
+      "hook_hr": "Mnoge tvrtke iz trećih zemalja koje prodaju u EU putem online platformi ne znaju da trebaju EU ovlaštenog zastupnika za EPR. Pregled: koga to pogađa, kada, i koliko su kazne.",
+      "hook_sr": "Mnoge kompanije iz trećih zemalja koje prodaju u EU preko online platformi ne znaju da im je potreban EU ovlašćeni zastupnik za EPR. Pregled: koga to zadira, kada, i koliko su kazne."
+    },
+    {
+      "id": "18", "teden": 25, "datum": "2026-06-19", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "koord", "drzava": "regional",
+      "naslov": "Kompoziti: kdaj odpovedati, kdaj poiskati alternativo",
+      "hook_si": "Kompozitna embalaža (tube, multi-layer) je za nekatere izdelke nepogrešljiva, za druge pa lenost iz preteklosti. Tu je odločitveni okvir, kdaj iskati alternativo in kdaj sprejeti, da je kompozit pravi izbor.",
+      "hook_hr": "Kompozitna ambalaža (tube, multi-layer) je za neke proizvode nezamjenjiva, za druge lijenost iz prošlosti. Donosim odlučni okvir kada tražiti alternativu i kada prihvatiti da je kompozit pravi izbor.",
+      "hook_sr": "Kompozitna ambalaža (tube, multi-layer) je za neke proizvode nezamenljiva, za druge lenjost iz prošlosti. Donosim odlučni okvir kada tražiti alternativu i kada prihvatiti da je kompozit pravi izbor."
+    },
+    {
+      "id": "19", "teden": 26, "datum": "2026-06-22", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "regulator", "drzava": "regional",
+      "naslov": "5 mitov o PPWR, ki krožijo na sestankih",
+      "hook_si": "Vsak teden slišim iste napačne predstave o PPWR. 'Velja samo za velike.' 'Ne zadeva Srbije.' 'Cutoff je 2030, mirne še 4 leta.' Tu je top 5 mitov — in resnica zadaj.",
+      "hook_hr": "Svakog tjedna čujem iste pogrešne predstave o PPWR. 'Vrijedi samo za velike.' 'Ne tiče se Srbije.' 'Cutoff je 2030, mirni smo još 4 godine.' Top 5 mitova — i istina iza njih.",
+      "hook_sr": "Svake nedelje čujem iste pogrešne predstave o PPWR. „Važi samo za velike.” „Ne tiče se Srbije.” „Cutoff je 2030, mirni smo još 4 godine.” Top 5 mitova — i istina iza njih."
+    },
+    {
+      "id": "20", "teden": 26, "datum": "2026-06-23", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "senior-si", "drzava": "SI",
+      "naslov": "Najtežji razgovor leta: stranka v zamudi 3 leta",
+      "hook_si": "Letos sem imel razgovor, ki ga ne pozabim. Stranka, ki je 3 leta zamujala s poročanjem, je dobila opomin ARSO. Klicali so v paniki. Tu je, kako smo to pripeljali do prijaznega zaključka — z lekcijo, ki velja za vse.",
+      "hook_hr": "Ove godine sam imao razgovor koji ne zaboravljam. Klijent koji je 3 godine kasnio s izvještavanjem dobio je opomenu. Zvali su u panici. Kako smo to doveli do mirnog kraja — s lekcijom koja vrijedi za sve.",
+      "hook_sr": "Ove godine sam imao razgovor koji ne zaboravljam. Klijent koji je 3 godine kasnio sa izveštavanjem dobio je opomenu. Zvali su u panici. Kako smo to doveli do mirnog kraja — sa lekcijom koja važi za sve."
+    },
+    {
+      "id": "21", "teden": 26, "datum": "2026-06-24", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "lead-rs", "drzava": "RS",
+      "naslov": "CSRD za srbska podjetja: posredni vpliv, ki ga večina podcenjuje",
+      "hook_si": "CSRD direktno ne zadeva srbskih podjetij. Njihovi EU kupci pa morajo zbirati Scope 3 podatke — torej tudi od srbskih dobaviteljev. Tu je, kaj se obeta in kako se pripraviti.",
+      "hook_hr": "CSRD izravno ne pogađa srpske tvrtke. Njihovi EU kupci moraju prikupljati Scope 3 podatke — dakle i od srpskih dobavljača. Što se nadolazi i kako se pripremiti.",
+      "hook_sr": "CSRD direktno ne pogađa srpske kompanije. Njihovi EU kupci moraju prikupljati Scope 3 podatke — dakle i od srpskih dobavljača. Šta sledi i kako se pripremiti."
+    },
+    {
+      "id": "22", "teden": 26, "datum": "2026-06-26", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "senior-hr", "drzava": "HR",
+      "naslov": "Made for Recycling: kaj točno preverjamo (tehnično)",
+      "hook_si": "'Made for Recycling' je marketinški certifikat za nekatere, tehnični proces za nas. Tu je seznam vsega, kar preverimo pri analizi — od materialov do lepil, od barv do velikosti. Brez magije, samo tehnika.",
+      "hook_hr": "'Made for Recycling' je za neke marketinški certifikat, za nas tehnički proces. Popis svega što provjeravamo u analizi — od materijala do ljepila, od boja do veličina. Bez magije, samo tehnika.",
+      "hook_sr": "„Made for Recycling” je za neke marketinški sertifikat, za nas tehnički proces. Spisak svega što proveravamo u analizi — od materijala do lepila, od boja do veličina. Bez magije, samo tehnika."
+    },
+    {
+      "id": "23", "teden": 27, "datum": "2026-06-29", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "lead-rs", "drzava": "RS",
+      "naslov": "PPWR in spletna prodaja: kdo je odgovoren v Adria regiji",
+      "hook_si": "Spletna prodaja prinaša dodatno EPR zmedo: kdo je 'proizvajalec'? Spletna platforma, prodajalec, ali kupec, ki uvozi? PPWR daje jasen odgovor, vendar je v SI, HR in RS implementacija drugačna. Pregled.",
+      "hook_hr": "Online prodaja donosi dodatnu EPR zbrku: tko je 'proizvođač'? Platforma, prodavač, ili kupac koji uvozi? PPWR daje jasan odgovor, ali u SI, HR i RS implementacija je različita. Pregled.",
+      "hook_sr": "Online prodaja donosi dodatnu EPR zbrku: ko je „proizvođač”? Platforma, prodavac, ili kupac koji uvozi? PPWR daje jasan odgovor, ali u SI, HR i RS implementacija je različita. Pregled."
+    },
+    {
+      "id": "24", "teden": 27, "datum": "2026-06-30", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "ESG vprašalnik v 5 dneh: kako odgovorimo",
+      "hook_si": "Slovenska stranka je dobila ESG vprašalnik velikega nemškega kupca s 5-dnevnim rokom. Brez priprave bi to vzelo 3 tedne. Kako smo to spravili v okvir — in kako se na to pripravlja smiselno vnaprej.",
+      "hook_hr": "Slovenski klijent dobio je ESG upitnik velikog njemačkog kupca s rokom od 5 dana. Bez pripreme to bi trajalo 3 tjedna. Kako smo to spakirali u okvir — i kako se na to priprema unaprijed.",
+      "hook_sr": "Slovenački klijent je dobio ESG upitnik velikog nemačkog kupca sa rokom od 5 dana. Bez pripreme to bi trajalo 3 nedelje. Kako smo to spakovali u okvir — i kako se na to priprema unapred."
+    },
+    {
+      "id": "25", "teden": 27, "datum": "2026-07-01", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "koord", "drzava": "regional",
+      "naslov": "Italijanski CONAI: primer dobre prakse za regijo",
+      "hook_si": "Italijanski CONAI sistem upravljanja embalažo je v Evropi pogosto naveden kot primer dobre prakse. Kaj točno delajo drugače in kaj bi se Slovenija, Hrvaška in Srbija lahko naučile? Spodaj 4 točke.",
+      "hook_hr": "Talijanski CONAI sistem upravljanja ambalažom često se navodi kao primjer dobre prakse u Europi. Što točno rade drugačije i što bi se SI, HR i RS mogli naučiti? 4 točke.",
+      "hook_sr": "Italijanski CONAI sistem upravljanja ambalažom često se navodi kao primer dobre prakse u Evropi. Šta tačno rade drugačije i šta bi SI, HR i RS mogli da nauče? 4 tačke."
+    },
+    {
+      "id": "26", "teden": 27, "datum": "2026-07-03", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "senior-si", "drzava": "SI",
+      "naslov": "Reciklabilnost po PPWR cutoffu: minimalne stopnje, ki jih boš moral doseči",
+      "hook_si": "Po 2030 bo PPWR zahteval določene minimalne deleže recikliranega vsebka. Tu je tabela: kateri material, koliko %, kdaj. Brez tega podatka ne moreš resno načrtovati embalaže za naslednjih 5 let.",
+      "hook_hr": "Nakon 2030 PPWR će zahtijevati određene minimalne udjele recikliranog sadržaja. Tablica: koji materijal, koliko %, kada. Bez tog podatka ne možeš ozbiljno planirati ambalažu za sljedećih 5 godina.",
+      "hook_sr": "Posle 2030 PPWR će zahtevati određene minimalne udele recikliranog sadržaja. Tabela: koji materijal, koliko %, kada. Bez tog podatka ne možeš ozbiljno planirati ambalažu za narednih 5 godina."
+    },
+    {
+      "id": "27", "teden": 28, "datum": "2026-07-06", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "PPWR in mali proizvajalci: ali sploh velja zame?",
+      "hook_si": "Najpogostejše vprašanje malih proizvajalcev: 'PPWR ima oprostitve za male, ne?' Odgovor je niansiran. Določene zahteve veljajo neodvisno od velikosti. Tu je pregled — z mejnimi vrednostmi in datumi.",
+      "hook_hr": "Najčešće pitanje malih proizvođača: 'PPWR ima izuzeća za male, zar ne?' Odgovor je nijansiran. Određene zahteve vrijede neovisno o veličini. Pregled — s pragovima i datumima.",
+      "hook_sr": "Najčešće pitanje malih proizvođača: „PPWR ima izuzeća za male, zar ne?” Odgovor je nijansiran. Određeni zahtevi važe nezavisno od veličine. Pregled — sa pragovima i datumima."
+    },
+    {
+      "id": "28", "teden": 28, "datum": "2026-07-07", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "koord", "drzava": "regional",
+      "naslov": "Tonaže vs PRO neujemanje: najpogostejša napaka v poročilih",
+      "hook_si": "Ko pregledujem poročila novih strank, vidim eno napako spet in spet: deklarirane tonaže ne sovpadajo z dejansko proizvodnjo/uvozom. Razlika med 20 in 35 % je običajna. Tu je, kako jo najti.",
+      "hook_hr": "Kad pregledavam izvještaje novih klijenata, vidim jednu grešku iznova i iznova: deklarirane tonaže ne odgovaraju stvarnoj proizvodnji/uvozu. Razlika 20–35 % je uobičajena. Kako je naći.",
+      "hook_sr": "Kad pregledam izveštaje novih klijenata, vidim jednu grešku iznova i iznova: deklarisane tonaže ne odgovaraju stvarnoj proizvodnji/uvozu. Razlika 20–35 % je uobičajena. Kako je naći."
+    },
+    {
+      "id": "29", "teden": 28, "datum": "2026-07-08", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "lead-hr", "drzava": "HR",
+      "naslov": "Gradbeni odpadki: nova pravila in priložnosti",
+      "hook_si": "Gradbeništvo proizvede največji volumen odpadkov v regiji, pa je EPR pristop tu šibko razvit. Hrvaška je sprejela nova pravila — kaj se obeta v SI in RS? Pregled, kjer so priložnosti za podjetja.",
+      "hook_hr": "Graditeljstvo proizvodi najveći volumen otpada u regiji, ali EPR pristup je tu slabo razvijen. Hrvatska je donijela nova pravila — što se nadolazi u SI i RS? Pregled, gdje su prilike za tvrtke.",
+      "hook_sr": "Građevinarstvo proizvodi najveći obim otpada u regionu, ali EPR pristup je tu slabo razvijen. Hrvatska je donela nova pravila — šta sledi u SI i RS? Pregled, gde su prilike za kompanije."
+    },
+    {
+      "id": "30", "teden": 28, "datum": "2026-07-10", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "lead-rs", "drzava": "RS",
+      "naslov": "Embalaža kot del blagovne znamke: sodelovanje z marketingom",
+      "hook_si": "Eco-design ne sme biti samo HSE / sustainability tema. Najboljši primeri so tisti, kjer marketing in dizajn aktivno sodelujeta. Tu je, kako postaviti tak proces — in česa se izogniti.",
+      "hook_hr": "Eco-design ne smije biti samo HSE / sustainability tema. Najbolji primjeri su gdje marketing i dizajn aktivno surađuju. Kako postaviti takav proces — i čega se izbjeći.",
+      "hook_sr": "Eco-design ne sme biti samo HSE / sustainability tema. Najbolji primeri su gde marketing i dizajn aktivno sarađuju. Kako postaviti takav proces — i čega se kloniti."
+    },
+    {
+      "id": "31", "teden": 29, "datum": "2026-07-13", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "regulator", "drzava": "regional",
+      "naslov": "Vsebnost recyclata pri plastiki: kako pripraviti dobavno verigo",
+      "hook_si": "PPWR določa minimalne deleže recyclata v plastični embalaži. To ni samo eco-design vprašanje — to je sourcing izziv. Kje dobiš recyclate, kakšne kakovosti, in kako se to dogovori s dobavitelji.",
+      "hook_hr": "PPWR određuje minimalne udjele recyclata u plastičnoj ambalaži. To nije samo eco-design pitanje — to je sourcing izazov. Gdje dobiš recyclate, koje kvalitete, i kako to dogovoriti s dobavljačima.",
+      "hook_sr": "PPWR određuje minimalne udele recyclata u plastičnoj ambalaži. To nije samo eco-design pitanje — to je sourcing izazov. Gde dobijaš recyclate, kog kvaliteta, i kako to dogovoriti sa dobavljačima."
+    },
+    {
+      "id": "32", "teden": 29, "datum": "2026-07-14", "dan": "torek",
+      "status": "osnutek", "tema": "praksa", "avtor": "senior-hr", "drzava": "HR",
+      "naslov": "Avstrijsko podjetje, ki je dobilo opomin — in kaj smo se naučili",
+      "hook_si": "Avstrijska oblast je lani izrekla opomin podjetju, ki je dajalo izdelke na avstrijski trg, ne da bi vedelo, da potrebuje lokalno EPR registracijo. Prek nemškega kupca smo bili vključeni v reševanje. Lekcija za vsako podjetje, ki izvaža.",
+      "hook_hr": "Austrijska vlast prošle godine izrekla je opomenu tvrtki koja je stavljala proizvode na austrijsko tržište bez znanja da treba lokalnu EPR registraciju. Preko njemačkog kupca bili smo uključeni u rješenje. Lekcija za svaku tvrtku koja izvozi.",
+      "hook_sr": "Austrijska vlast prošle godine izrekla je opomenu kompaniji koja je plasirala proizvode na austrijsko tržište ne znajući da je potrebna lokalna EPR registracija. Preko nemačkog kupca smo bili uključeni u rešenje. Lekcija za svaku kompaniju koja izvozi."
+    },
+    {
+      "id": "33", "teden": 29, "datum": "2026-07-15", "dan": "sreda",
+      "status": "osnutek", "tema": "regulator", "avtor": "regulator", "drzava": "regional",
+      "naslov": "Nemški VerpackG: kaj se spreminja in zakaj nas to zanima",
+      "hook_si": "Nemški VerpackG je za regijo pomemben, ker veliko naših strank prodaja v Nemčiji. V 2026 prihajajo dopolnitve, ki bodo zahtevale dodatne podatke od dobaviteljev. Tu je, kaj se obeta.",
+      "hook_hr": "Njemački VerpackG je za regiju važan, jer mnogo naših klijenata prodaje u Njemačku. U 2026 dolaze izmjene koje će tražiti dodatne podatke od dobavljača. Što se nadolazi.",
+      "hook_sr": "Nemački VerpackG je za region važan, jer mnogo naših klijenata prodaje u Nemačku. U 2026 dolaze izmene koje će tražiti dodatne podatke od dobavljača. Šta sledi."
+    },
+    {
+      "id": "34", "teden": 29, "datum": "2026-07-17", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "koord", "drzava": "regional",
+      "naslov": "Mono-materiali vs multi-layer: kaj izbrati?",
+      "hook_si": "Recyclability zagovorniki rečejo: 'vedno mono-material'. Marketing reče: 'multi-layer zadrži aromo'. Resnica je niansirana. Tu je odločitveni okvir — kdaj je mono pravi, kdaj je multi sprejemljiv.",
+      "hook_hr": "Zagovornici recyclabilityja kažu: 'uvijek mono-material'. Marketing kaže: 'multi-layer zadržava aromu'. Istina je nijansirana. Odlučni okvir — kada je mono pravi, kada je multi prihvatljiv.",
+      "hook_sr": "Zagovornici recyclabilityja kažu: „uvek mono-materijal”. Marketing kaže: „multi-layer zadržava aromu”. Istina je nijansirana. Odlučni okvir — kada je mono pravi, kada je multi prihvatljiv."
+    },
+    {
+      "id": "35", "teden": 30, "datum": "2026-07-20", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "lead-hr", "drzava": "HR",
+      "naslov": "PPWR in dataset Article: kako pripraviti podatke",
+      "hook_si": "PPWR zahteva, da podjetja zbirajo specifične podatke o embalaži (Article 12+). Brez teh podatkov ne moreš poročati. Tu je seznam, kaj zbrati ZDAJ, da ne boš v zadnji minuti.",
+      "hook_hr": "PPWR zahtijeva da tvrtke prikupljaju specifične podatke o ambalaži (Article 12+). Bez tih podataka ne možeš izvještavati. Popis, što prikupiti SADA, da ne budeš u zadnji čas.",
+      "hook_sr": "PPWR zahteva da kompanije prikupljaju specifične podatke o ambalaži (Article 12+). Bez tih podataka ne možeš izveštavati. Spisak, šta prikupiti SADA, da ne budeš u zadnjem trenutku."
+    },
+    {
+      "id": "36", "teden": 30, "datum": "2026-07-22", "dan": "sreda",
+      "status": "osnutek", "tema": "praksa", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "Inšpekcija ARSO: kako se pripravimo (in kako ne)",
+      "hook_si": "Prejšnji teden je ena naših strank imela inšpekcijo ARSO. 4 ure, brez ugotovitev. Pred 3 leti, ko še niso bili stranka, je bila inšpekcija manjša katastrofa. Kaj smo skupaj naredili med tem.",
+      "hook_hr": "Prošli tjedan jedan naš klijent imao je inspekciju ARSO. 4 sata, bez nalaza. Prije 3 godine, kad još nisu bili klijent, inspekcija je bila manja katastrofa. Što smo zajedno učinili u međuvremenu.",
+      "hook_sr": "Prošle nedelje jedan naš klijent imao je inspekciju ARSO. 4 sata, bez nalaza. Pre 3 godine, kad još nisu bili klijent, inspekcija je bila manja katastrofa. Šta smo zajedno uradili u međuvremenu."
+    },
+    {
+      "id": "37", "teden": 30, "datum": "2026-07-24", "dan": "petek",
+      "status": "osnutek", "tema": "ekodizajn", "avtor": "senior-si", "drzava": "regional",
+      "naslov": "Najpogostejše napake v eco-designu: 7 vzorcev iz prakse",
+      "hook_si": "Po 100+ analizah embalaže smo identificirali 7 napak, ki se ponavljajo, ne glede na panogo ali velikost. Niso tehnične — so organizacijske. Tu so, in kako jih ekipa preprečuje pri sebi.",
+      "hook_hr": "Nakon 100+ analiza ambalaže identificirali smo 7 grešaka koje se ponavljaju, neovisno o industriji ili veličini. Nisu tehničke — organizacijske su. Donosim ih, i kako ih ekipe sprječavaju.",
+      "hook_sr": "Posle 100+ analiza ambalaže identifikovali smo 7 grešaka koje se ponavljaju, nezavisno od industrije ili veličine. Nisu tehničke — organizacione su. Donosim ih, i kako ih timovi sprečavaju."
+    },
+    {
+      "id": "38", "teden": 31, "datum": "2026-07-27", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "ppwr", "avtor": "koord", "drzava": "regional",
+      "naslov": "Kdo bo na črni listi PPWR — in zakaj ne želiš biti tam",
+      "hook_si": "PPWR ne grozi z denarnimi kaznimi v prvi vrsti. Hujše je: prepoved dajanja na trg. Tu je profil podjetij, ki tvegajo, da pristanejo na 'črni listi' — in kako se temu izogniti.",
+      "hook_hr": "PPWR ne prijeti novčanim kaznama u prvom redu. Gore je: zabrana stavljanja na tržište. Profil tvrtki koje riskiraju 'crnu listu' — i kako to izbjeći.",
+      "hook_sr": "PPWR ne preti novčanim kaznama u prvom redu. Gore je: zabrana stavljanja na tržište. Profil kompanija koje rizikuju „crnu listu” — i kako to izbeći."
+    },
+    {
+      "id": "39", "teden": 31, "datum": "2026-07-29", "dan": "sreda",
+      "status": "osnutek", "tema": "praksa", "avtor": "koord", "drzava": "regional",
+      "naslov": "Sekundarne surovine: kako iz odpadka postane surovina",
+      "hook_si": "En klient je letos prodal 200 ton folije, ki bi sicer šla v sežig, kot sekundarno surovino. Cena: 80 EUR/tono. Strošek pred tem: 30 EUR/tono. Razlika je 110 EUR/tono v korist. Kako smo to organizirali.",
+      "hook_hr": "Jedan klijent ove godine prodao je 200 tona folije koja bi inače išla u spalionicu, kao sekundarnu sirovinu. Cijena: 80 EUR/t. Trošak prije: 30 EUR/t. Razlika 110 EUR/t u korist. Kako smo to organizirali.",
+      "hook_sr": "Jedan klijent ove godine prodao je 200 tona folije koja bi inače išla u spalionicu, kao sekundarnu sirovinu. Cena: 80 EUR/t. Trošak ranije: 30 EUR/t. Razlika 110 EUR/t u korist. Kako smo to organizovali."
+    },
+    {
+      "id": "40", "teden": 31, "datum": "2026-07-31", "dan": "petek",
+      "status": "osnutek", "tema": "regulator", "avtor": "regulator", "drzava": "regional",
+      "naslov": "Mercator pristop: kako veliki trgovci pritiskajo na embalažo dobaviteljev",
+      "hook_si": "Veliki trgovci v regiji (Mercator, Konzum, Maxi) so začeli sistematično pritiskati na dobavitelje glede recyclabilityja in trajnosti. Tu je, kaj zahtevajo — in kako pripraviti odgovor, ki velja za vsega trgovca.",
+      "hook_hr": "Veliki trgovci u regiji (Mercator, Konzum, Maxi) sistematski pritišću dobavljače glede recyclabilityja i održivosti. Što zahtijevaju — i kako pripremiti odgovor koji vrijedi za sve trgovce.",
+      "hook_sr": "Veliki trgovci u regionu (Mercator, Konzum, Maxi) sistemski pritiskaju dobavljače oko recyclabilityja i održivosti. Šta zahtevaju — i kako pripremiti odgovor koji važi za sve trgovce."
+    },
+    {
+      "id": "41", "teden": 32, "datum": "2026-08-03", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Skripta: ko stranka prvič sliši za PPWR",
+      "hook_si": "Stranka pogleda v vas, ko prvič rečete 'PPWR'. Tri stavki, ki delujejo: kaj je, koga zadeva, kdaj. Ne začnite s členi uredbe — začnite s posledico za njihovo embalažo.",
+      "hook_hr": "Klijent vas pogleda kad prvi put kažete 'PPWR'. Tri rečenice koje funkcioniraju: što je, koga se tiče, kada. Ne počnite s člancima uredbe — počnite s posljedicom za njihovu ambalažu.",
+      "hook_sr": "Klijent vas pogleda kad prvi put kažete „PPWR”. Tri rečenice koje rade: šta je, koga se tiče, kada. Ne počnite članovima uredbe — počnite posledicom za njihovu ambalažu."
+    },
+    {
+      "id": "42", "teden": 32, "datum": "2026-08-04", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-si", "drzava": "regional",
+      "naslov": "Email predloga: napoved spremembe zakonodaje",
+      "hook_si": "Ko se zakonodaja spremeni, stranke pričakujejo, da jih obvestimo PRVI. Tu je predloga emaila, ki ga uporabljamo: kratek, konkreten, z jasnim 'kaj to pomeni za vas' in 'kaj naredimo s tem'.",
+      "hook_hr": "Kad se zakonodaja promijeni, klijenti očekuju da ih obavijestimo PRVI. Predloga maila koju koristimo: kratak, konkretan, s jasnim 'što to znači za vas' i 'što radimo s tim'.",
+      "hook_sr": "Kad se zakonodaja promeni, klijenti očekuju da ih obavestimo PRVI. Predlog mejla koji koristimo: kratak, konkretan, sa jasnim „šta to znači za vas” i „šta radimo sa tim”."
+    },
+    {
+      "id": "43", "teden": 32, "datum": "2026-08-05", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-si", "drzava": "SI",
+      "naslov": "Klic stranki po ARSO opominu: prvih 60 sekund",
+      "hook_si": "Stranka, ki dobi ARSO opomin, je v panični fazi. Vaš prvi klic odloča, ali ostanete partner ali postanete krivec. Tu so prvih 60 sekund, ki postavijo ton — in zakaj NE začnite z 'razložite mi'.",
+      "hook_hr": "Klijent koji dobije inspekcijsku opomenu u panici je. Vaš prvi poziv odlučuje hoćete li ostati partner ili postati krivac. Prvih 60 sekundi koje postavljaju ton — i zašto NE počnite s 'objasnite mi'.",
+      "hook_sr": "Klijent koji dobije opomenu inspekcije u panici je. Vaš prvi poziv odlučuje da li ostajete partner ili postajete krivac. Prvih 60 sekundi koje postavljaju ton — i zašto NE počnite sa „objasnite mi”."
+    },
+    {
+      "id": "44", "teden": 32, "datum": "2026-08-07", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Kako komunicirati povišanje cene (brez izgovorov)",
+      "hook_si": "Povišanje cene je za vsako podjetje neprijeten pogovor. Najslabše je opravičevanje. Tu je struktura, ki deluje: jasno povemo, koliko, zakaj, kdaj — in ponudimo eno alternativo. Stranka spoštuje direktnost, ne izgovorov.",
+      "hook_hr": "Povećanje cijene je za svaku tvrtku neugodan razgovor. Najgore je opravdavanje. Struktura koja radi: jasno kažemo koliko, zašto, kada — i ponudimo jednu alternativu. Klijent poštuje direktnost, ne izgovore.",
+      "hook_sr": "Povećanje cene je za svaku kompaniju neprijatan razgovor. Najgore je opravdavanje. Struktura koja radi: jasno kažemo koliko, zašto, kada — i ponudimo jednu alternativu. Klijent poštuje direktnost, ne izgovore."
+    },
+    {
+      "id": "45", "teden": 33, "datum": "2026-08-10", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Newsletter za bazo strank: 12 idej, ki delujejo",
+      "hook_si": "Mesečni newsletter strankam je premalo izkoriščen kanal. Ne sme biti samoreklama. Tu je 12 tem, ki dobijo odzive: regulatorne novice, anonimne lekcije, tipi za HSE, kratke 'a ste vedeli, da...' opomine.",
+      "hook_hr": "Mjesečni newsletter klijentima je premalo iskorišten kanal. Ne smije biti samoreklama. Donosim 12 tema koje dobijaju odgovore: regulatorne vijesti, anonimne lekcije, savjeti za HSE, kratke 'znate li da...' opomene.",
+      "hook_sr": "Mesečni newsletter klijentima je nedovoljno iskorišćen kanal. Ne sme biti samoreklama. Donosim 12 tema koje dobijaju odgovore: regulatorne vesti, anonimne lekcije, saveti za HSE, kratke „da li znate da...” podsetnike."
+    },
+    {
+      "id": "46", "teden": 33, "datum": "2026-08-11", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-hr", "drzava": "regional",
+      "naslov": "Onboarding sekvenca: 5 emailov v prvih 30 dneh nove stranke",
+      "hook_si": "Nova stranka v prvih 30 dneh oblikuje občutek, koliko je naše storitve vredno. Tu je 5 emailov, ki zaporedoma dostavijo vrednost — dobrodošlica, prva orientacija, prvi quick-win, prvo poročilo, prvi check-in.",
+      "hook_hr": "Novi klijent u prvih 30 dana formira osjećaj o vrijednosti naše usluge. 5 mailova koji uzastopno dostavljaju vrijednost — dobrodošlica, prva orijentacija, prvi quick-win, prvo izvješće, prvi check-in.",
+      "hook_sr": "Novi klijent u prvih 30 dana formira osećaj o vrednosti naše usluge. 5 mejlova koji uzastopno donose vrednost — dobrodošlica, prva orijentacija, prvi quick-win, prvi izveštaj, prvi check-in."
+    },
+    {
+      "id": "47", "teden": 33, "datum": "2026-08-12", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-hr", "drzava": "HR",
+      "naslov": "Year-end review s stranko: agenda, ki uvede prihodnje leto",
+      "hook_si": "Decembrski pregled s stranko ne sme biti 'pregled računov'. Mora biti pogovor o lanskem letu in nastavitev za naslednje. Tu je 6-točkovni okvir, ki vsako leto odpre dve do tri nove priložnosti za sodelovanje.",
+      "hook_hr": "Prosinački pregled s klijentom ne smije biti 'pregled računa'. Mora biti razgovor o prošloj godini i postavka za sljedeću. 6-točkovni okvir koji svake godine otvori 2-3 nove prilike za suradnju.",
+      "hook_sr": "Decembarski pregled sa klijentom ne sme biti „pregled računa”. Mora biti razgovor o prošloj godini i postavka za narednu. 6-tačkovni okvir koji svake godine otvori 2-3 nove prilike za saradnju."
+    },
+    {
+      "id": "48", "teden": 33, "datum": "2026-08-14", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-si", "drzava": "regional",
+      "naslov": "Made for Recycling: kako komunicirati negativen rezultat",
+      "hook_si": "MfR analiza je dala 'D' razred. Stranka je pričakovala 'A'. Tu je, kako tak razgovor pripeljati od slabe novice do akcijskega plana, ki stranko opolnomoči, ne sramuje. (Spoiler: ne začni s 'žal mi je'.)",
+      "hook_hr": "MfR analiza dala je 'D' razred. Klijent je očekivao 'A'. Kako takav razgovor dovesti od loše vijesti do akcijskog plana koji klijenta osnažuje, ne sramoti. (Ne počinjite s 'žao mi je'.)",
+      "hook_sr": "MfR analiza dala je „D” razred. Klijent je očekivao „A”. Kako takav razgovor pretvoriti od loše vesti u akcioni plan koji klijenta osnažuje, ne sramoti. (Nemojte početi sa „žao mi je”.)"
+    },
+    {
+      "id": "49", "teden": 34, "datum": "2026-08-17", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-si", "drzava": "regional",
+      "naslov": "Made for Recycling: kako komunicirati pozitiven rezultat (kupcu stranke)",
+      "hook_si": "Stranka je dobila MfR razred 'A'. Zdaj to mora prodati svojim B2B kupcem in trgovskim verigam. Tu je predloga komunikacije — kaj povedati, kaj odpustiti, in kako to vključiti v ESG poročilo.",
+      "hook_hr": "Klijent je dobio MfR razred 'A'. Sad to mora prodati svojim B2B kupcima i trgovačkim lancima. Predloga komunikacije — što reći, što izostaviti, kako uključiti u ESG izvješće.",
+      "hook_sr": "Klijent je dobio MfR razred „A”. Sad to mora prodati svojim B2B kupcima i trgovačkim lancima. Predlog komunikacije — šta reći, šta izostaviti, kako uključiti u ESG izveštaj."
+    },
+    {
+      "id": "50", "teden": 34, "datum": "2026-08-18", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-rs", "drzava": "regional",
+      "naslov": "Email: 'konkurent vas je ponudil 30 % ceneje' — kako odgovoriti",
+      "hook_si": "Stranka pošlje email s tem stavkom. Refleks je padec v popust ali obramba. Oba sta napačna. Tu je predloga odgovora, ki obrne pogovor v razlogovanje o vrednosti — in pridobi sestanek, ne popusta.",
+      "hook_hr": "Klijent šalje mail s tom rečenicom. Refleks je pad u popust ili obrana. Oba su pogrešna. Predloga odgovora koja okreće razgovor u razlučivanje vrijednosti — i dobiva sastanak, ne popust.",
+      "hook_sr": "Klijent šalje mejl sa tom rečenicom. Refleks je pad u popust ili odbrana. Oba su pogrešna. Predlog odgovora koji okreće razgovor u razlučivanje vrednosti — i dobija sastanak, ne popust."
+    },
+    {
+      "id": "51", "teden": 34, "datum": "2026-08-19", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Kako vprašati stranko za referenco — brez nelagodja",
+      "hook_si": "Reference so najboljši prodajni kanal, vendar jih večina komercialistov ne vpraša, ker se 'zdi vsiljivo'. Tu je formula, ki odpravi nelagodje: kdaj vprašati, kako vprašati, kaj točno ponuditi v zameno.",
+      "hook_hr": "Reference su najbolji prodajni kanal, a većina komercijalista ih ne traži jer 'djeluje nametljivo'. Formula koja uklanja neugodu: kada pitati, kako pitati, što točno ponuditi zauzvrat.",
+      "hook_sr": "Reference su najbolji prodajni kanal, a većina komercijalista ih ne traži jer „deluje nametljivo”. Formula koja uklanja neugodu: kada pitati, kako pitati, šta tačno ponuditi zauzvrat."
+    },
+    {
+      "id": "52", "teden": 34, "datum": "2026-08-21", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-si", "drzava": "regional",
+      "naslov": "Crisis communication: ko se kaj zalomi na NAŠI strani",
+      "hook_si": "Vsako podjetje občasno zamuja, naredi napako ali ima izpad. Razlika med profesionalcem in amaterjem je odziv. Tu je struktura, ki ohrani stranko: priznaj v 4 urah, pojasni v 24 urah, popravi v dogovorjenem roku.",
+      "hook_hr": "Svaka tvrtka povremeno kasni, pogriješi ili ima ispad. Razlika između profesionalca i amatera je odgovor. Struktura koja zadržava klijenta: priznaj u 4 sata, objasni u 24 sata, popravi u dogovorenom roku.",
+      "hook_sr": "Svaka kompanija povremeno kasni, pogreši ili ima ispad. Razlika između profesionalca i amatera je odgovor. Struktura koja zadržava klijenta: priznaj za 4 sata, objasni za 24 sata, popravi u dogovorenom roku."
+    },
+    {
+      "id": "53", "teden": 35, "datum": "2026-08-24", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-si", "drzava": "regional",
+      "naslov": "Pogovor o podaljšanju pogodbe: kdaj odpreti, kaj povedati",
+      "hook_si": "Stranka, ki ima 3 mesece do izteka pogodbe, je v najobčutljivejši fazi. Konkurenca prihaja po njih. Tu je odpiranje pogovora, ki spremeni 'razmišljali bomo' v 'kakšne so možnosti'.",
+      "hook_hr": "Klijent kojem 3 mjeseca do isteka ugovora najosjetljivija je faza. Konkurencija dolazi po njega. Otvaranje razgovora koje pretvara 'razmišljat ćemo' u 'kakve su mogućnosti'.",
+      "hook_sr": "Klijent kojem 3 meseca do isteka ugovora najosetljivija je faza. Konkurencija dolazi po njega. Otvaranje razgovora koje pretvara „razmišljaćemo” u „kakve su mogućnosti”."
+    },
+    {
+      "id": "54", "teden": 35, "datum": "2026-08-25", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-hr", "drzava": "regional",
+      "naslov": "Cross-sell: ko opazimo priložnost za dodatno storitev",
+      "hook_si": "Stranka, ki ima samo EPR shemo, mimogrede omeni, da uvaža izdelke s baterijami. Cross-sell priložnost je tukaj — ampak ne sme delovati pohlepno. Tu je 3-stavčni pristop, ki postavi vprašanje, ne ponudbe.",
+      "hook_hr": "Klijent koji ima samo EPR shemu usput spomene da uvozi proizvode s baterijama. Cross-sell prilika je tu — ali ne smije djelovati pohlepno. 3-rečenski pristup koji postavlja pitanje, ne ponudu.",
+      "hook_sr": "Klijent koji ima samo EPR shemu usput pomene da uvozi proizvode sa baterijama. Cross-sell prilika je tu — ali ne sme delovati pohlepno. 3-rečenski pristup koji postavlja pitanje, ne ponudu."
+    },
+    {
+      "id": "55", "teden": 35, "datum": "2026-08-26", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-hr", "drzava": "regional",
+      "naslov": "Tihi klient: 3 koraki, da se obrnete brez pritiska",
+      "hook_si": "Stranka, ki tri mesece ne odgovori, je psihološki test za komercialista. Pošljete? Pokličete? Ne naredite nič? Tu je 3-korakovni pristop, ki ohrani odnos in razkrije resnico — brez pritiska.",
+      "hook_hr": "Klijent koji tri mjeseca ne odgovara psihološki je test za komercijalista. Šaljete? Zovete? Ne radite ništa? 3-korakovni pristup koji čuva odnos i otkriva istinu — bez pritiska.",
+      "hook_sr": "Klijent koji tri meseca ne odgovara psihološki je test za komercijalistu. Šaljete? Zovete? Ne radite ništa? 3-korakovni pristup koji čuva odnos i otkriva istinu — bez pritiska."
+    },
+    {
+      "id": "56", "teden": 35, "datum": "2026-08-28", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Letno poročilo strankam: kako paketirati, da ga preberejo",
+      "hook_si": "Letno poročilo o EPR je za mnoge stranke neprijetno branje. Tu je pristop, kako ga paketirati v 2-stranski 'executive summary', ki ga prebere tudi CFO — in ki naša služba spremeni iz 'stroška' v 'partnerstvo'.",
+      "hook_hr": "Godišnji izvještaj o EPR-u je za mnoge klijente neugodno štivo. Pristup kako ga zapakirati u 2-stranski 'executive summary' koji čita i CFO — i koji našu uslugu pretvara iz 'troška' u 'partnerstvo'.",
+      "hook_sr": "Godišnji izveštaj o EPR-u je za mnoge klijente neprijatno štivo. Pristup kako ga zapakovati u 2-stranski „executive summary” koji čita i CFO — i koji naš servis pretvara od „troška” u „partnerstvo”."
+    },
+    {
+      "id": "57", "teden": 36, "datum": "2026-08-31", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-rs", "drzava": "regional",
+      "naslov": "Profesionalen zaključek sodelovanja: ko stranka odide",
+      "hook_si": "Stranka je odpovedala. Naravna reakcija: jeza, pasivna agresija, izginotje. Vsi trije so napake. Profesionalen zaključek pomeni jasen prehod, čista dokumentacija, in — pogosto — pot nazaj v 12 mesecih.",
+      "hook_hr": "Klijent je otkazao. Prirodna reakcija: ljutnja, pasivna agresija, nestanak. Sva tri su pogreška. Profesionalan kraj znači jasan prijelaz, čista dokumentacija — i često, put natrag za 12 mjeseci.",
+      "hook_sr": "Klijent je otkazao. Prirodna reakcija: ljutnja, pasivna agresija, nestanak. Sve tri su greška. Profesionalan kraj znači jasan prelaz, čista dokumentacija — i često, put nazad za 12 meseci."
+    },
+    {
+      "id": "58", "teden": 36, "datum": "2026-09-01", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-si", "drzava": "regional",
+      "naslov": "Stranka ne razume računa: 5-stavčna predloga pojasnila",
+      "hook_si": "Klic stranke: 'zakaj je račun višji od dogovora?' Najslabši odgovor: 'tako pač je, povišanje materialov.' Tu je 5-stavčna predloga, ki razloži strukturo, postavi kontekst in zapre vprašanje brez nadaljnjega klica.",
+      "hook_hr": "Poziv klijenta: 'zašto je račun viši od dogovora?' Najgori odgovor: 'tako je, poskupljenje materijala.' 5-rečenska predloga koja objašnjava strukturu, postavlja kontekst i zatvara pitanje bez ponovnog poziva.",
+      "hook_sr": "Poziv klijenta: „zašto je račun veći od dogovora?” Najgori odgovor: „tako je, poskupljenje materijala.” 5-rečenski šablon koji objašnjava strukturu, postavlja kontekst i zatvara pitanje bez ponovnog poziva."
+    },
+    {
+      "id": "59", "teden": 36, "datum": "2026-09-02", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-hr", "drzava": "regional",
+      "naslov": "Stranka želi spremembo obsega: pogajalska struktura",
+      "hook_si": "Stranka vmes pogodbenega obdobja prosi za drugačen obseg — manj ali več. Pogosta napaka: takoj reči 'pripravim ponudbo'. Boljši pristop: 3 vprašanja, ki razkrijejo, kaj se je spremenilo, in postavijo realno izhodišče.",
+      "hook_hr": "Klijent usred ugovornog razdoblja traži drugačiji opseg — manje ili više. Česta greška: odmah reći 'pripremam ponudu'. Bolji pristup: 3 pitanja koja otkrivaju što se promijenilo i postavljaju realno polazište.",
+      "hook_sr": "Klijent usred ugovornog perioda traži drugačiji obim — manje ili više. Česta greška: odmah reći „pripremam ponudu”. Bolji pristup: 3 pitanja koja otkrivaju šta se promenilo i postavljaju realnu osnovu."
+    },
+    {
+      "id": "60", "teden": 36, "datum": "2026-09-04", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "regulator", "drzava": "regional",
+      "naslov": "Prvi sestanek z novim CFO stranke: kako se predstaviti",
+      "hook_si": "Novi CFO pri stranki je hkrati priložnost in tveganje. Pogosto želijo dokazati, da 'optimizirajo stroške' — kar pomeni revizijo pogodb. Tu je 10-minutna predstavitev, ki nas iz 'strošek' postavi v 'partner za skladnost'.",
+      "hook_hr": "Novi CFO kod klijenta istovremeno je prilika i rizik. Često žele dokazati da 'optimiziraju troškove' — što znači reviziju ugovora. 10-minutna prezentacija koja nas iz 'troška' postavlja u 'partnera za usklađenost'.",
+      "hook_sr": "Novi CFO kod klijenta istovremeno je prilika i rizik. Često žele dokazati da „optimizuju troškove” — što znači reviziju ugovora. 10-minutna prezentacija koja nas iz „troška” postavlja u „partnera za usklađenost”."
+    },
+    {
+      "id": "61", "teden": 37, "datum": "2026-09-07", "dan": "ponedeljek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Sprememba naših pravil / tarif: kako objaviti, da stranke ne odidejo",
+      "hook_si": "Vsako pomembno podjetje občasno spremeni pravila — minimalne količine, fakturiranje, nove storitve. Slabo objavljena sprememba povzroči odhode. Dobro objavljena okrepi odnos. Tu je struktura objave, ki deluje.",
+      "hook_hr": "Svaka ozbiljna tvrtka povremeno mijenja pravila — minimalne količine, fakturiranje, nove usluge. Loše objavljena promjena vodi u odlaske. Dobra objava ojača odnos. Struktura koja radi.",
+      "hook_sr": "Svaka ozbiljna kompanija povremeno menja pravila — minimalne količine, fakturisanje, nove usluge. Loše objavljena promena vodi u odlaske. Dobra objava jača odnos. Struktura koja radi."
+    },
+    {
+      "id": "62", "teden": 37, "datum": "2026-09-08", "dan": "torek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "senior-hr", "drzava": "regional",
+      "naslov": "ESG response template: kratka in dolga verzija",
+      "hook_si": "ESG vprašalniki velikih kupcev prihajajo z dvema rokoma: 'do petka' ali 'v 3 tednih'. Tu sta dve verziji odgovora — kratka za rok 'do petka', dolga za 3 tedne. Razlika ni v vsebini, ampak v gostoti.",
+      "hook_hr": "ESG upitnici velikih kupaca dolaze s dva roka: 'do petka' ili 'za 3 tjedna'. Dvije verzije odgovora — kratka za rok 'do petka', duga za 3 tjedna. Razlika nije u sadržaju, nego u gustoći.",
+      "hook_sr": "ESG upitnici velikih kupaca dolaze sa dva roka: „do petka” ili „za 3 nedelje”. Dve verzije odgovora — kratka za rok „do petka”, duga za 3 nedelje. Razlika nije u sadržaju, nego u gustini."
+    },
+    {
+      "id": "63", "teden": 37, "datum": "2026-09-09", "dan": "sreda",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "lead-si", "drzava": "SI",
+      "naslov": "Klic v vročini ARSO inšpekcije: kako pomagati v živo",
+      "hook_si": "Stranka kliče med inšpekcijo. ARSO inšpektor stoji pri njih. Kaj povedati v 60 sekundah? Tu je protokol, ki ga uporabljamo: tri stavki za inšpektorja (ki jih stranka prebere), tri za stranko po klicu.",
+      "hook_hr": "Klijent zove tijekom inspekcije. Inspektor stoji kod njih. Što reći u 60 sekundi? Protokol koji koristimo: tri rečenice za inspektora (koje klijent pročita), tri za klijenta nakon poziva.",
+      "hook_sr": "Klijent zove tokom inspekcije. Inspektor stoji kod njih. Šta reći za 60 sekundi? Protokol koji koristimo: tri rečenice za inspektora (koje klijent pročita), tri za klijenta posle poziva."
+    },
+    {
+      "id": "64", "teden": 37, "datum": "2026-09-11", "dan": "petek",
+      "status": "osnutek", "tema": "komunikacija", "avtor": "koord", "drzava": "regional",
+      "naslov": "Quarterly Business Review (QBR) s stranko: struktura, ki odpre nove posle",
+      "hook_si": "QBR ni samo 'pregled metrik'. Pravi QBR vsake 3 mesece odpre dva pogovora: kaj smo skupaj dosegli (priznanje) in kaj se obeta (priložnost). Tu je 60-minutna agenda, ki je standard za naše top stranke.",
+      "hook_hr": "QBR nije samo 'pregled metrika'. Pravi QBR svaka 3 mjeseca otvara dva razgovora: što smo zajedno postigli (priznanje) i što slijedi (prilika). 60-minutna agenda, standard za naše top klijente.",
+      "hook_sr": "QBR nije samo „pregled metrika”. Pravi QBR svaka 3 meseca otvara dva razgovora: šta smo zajedno postigli (priznanje) i šta sledi (prilika). 60-minutna agenda, standard za naše top klijente."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+.claude/
+.tmp-chrome-smoke-*/
+server-*.log
+*.log

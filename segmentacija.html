@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Segmentacija strank — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .seg-card { border-left: 6px solid var(--c, #57534e); }
+    .seg-blue { --c: #2563eb; }
+    .seg-amber { --c: #d97706; }
+    .seg-green { --c: #15803d; }
+    .seg-purple { --c: #7c3aed; }
+    .seg-stone { --c: #57534e; }
+    .kviz-rezultat { background: #ecfdf5; border: 2px solid #2e7d32; }
+    .seg-link-pill {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.125rem 0.5rem;
+      background: #f5f5f4;
+      border: 1px solid #d6d3d1;
+      border-radius: 9999px;
+      text-decoration: none;
+      color: #1b5e20;
+      margin: 0.125rem;
+    }
+    .seg-link-pill:hover { background: #e8f5e9; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.segmentacija.title">Segmentacija strank</h1>
+      <p class="mt-2 text-stone-600 max-w-3xl" id="filozofija">Nalagam…</p>
+    </header>
+
+    <div id="kviz-card" class="panel mb-6 bg-amber-50 border-amber-200">
+      <h2 class="text-lg font-bold mb-2">🎯 Hitri kviz — kateri segment je ta stranka?</h2>
+      <p class="text-sm text-stone-600 mb-3">4 vprašanja, ki ti dajo hipotezo segmenta. Uporabno na prvem klicu ali sestanku.</p>
+      <button id="btn-kviz-start" class="btn btn-primary">Začni kviz</button>
+    </div>
+
+    <!-- KVIZ -->
+    <div id="kviz" class="hidden panel mb-6">
+      <div id="kviz-vprasanje"></div>
+      <div class="mt-4 flex justify-between">
+        <button id="btn-kviz-prekini" class="btn btn-ghost">Prekini</button>
+        <div id="kviz-napredek" class="text-sm text-stone-500"></div>
+      </div>
+    </div>
+
+    <!-- KVIZ REZULTAT -->
+    <div id="kviz-rezultat" class="hidden panel mb-6 kviz-rezultat"></div>
+
+    <!-- KAKO UPORABITI -->
+    <div class="panel mb-6 bg-blue-50 border-blue-200">
+      <h2 class="font-semibold mb-2">Kako uporabiti segmente</h2>
+      <ul id="kako-uporabiti" class="list-disc pl-5 space-y-1 text-sm"></ul>
+    </div>
+
+    <!-- SEZNAM SEGMENTOV -->
+    <h2 class="text-xl font-bold mb-4">Vsi segmenti</h2>
+    <div id="segmenti" class="space-y-4"></div>
+
+    <!-- DIMENZIJE -->
+    <div class="panel mt-8">
+      <h2 class="font-semibold mb-3">Dodatne dimenzije za uvrstitev</h2>
+      <p class="text-sm text-stone-600 mb-3">Poleg segmenta (motivacije) lahko stranko opišeš tudi z naslednjimi dimenzijami:</p>
+      <div id="dimenzije" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"></div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null;
+    let kvizState = { idx: 0, rezultati: {} };
+
+    async function init() {
+      DATA = await loadData('segmentacija');
+      if (!DATA) {
+        document.getElementById('segmenti').innerHTML = '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
+        return;
+      }
+
+      document.getElementById('filozofija').textContent = DATA._filozofija;
+      document.getElementById('kako-uporabiti').innerHTML =
+        DATA._kako_uporabiti.map(x => `<li>${x}</li>`).join('');
+      document.getElementById('dimenzije').innerHTML =
+        Object.entries(DATA.dimenzije).map(([k, v]) =>
+          `<div class="bg-stone-50 p-3 rounded border border-stone-200">
+            <div class="font-semibold capitalize">${k}</div>
+            <div class="text-xs text-stone-600 mt-1">${v.join(', ')}</div>
+          </div>`
+        ).join('');
+
+      renderSegmenti();
+      povezaviKviz();
+    }
+
+    function renderSegmenti() {
+      document.getElementById('segmenti').innerHTML = DATA.segmenti.map(s => `
+        <div class="panel seg-card seg-${s.barva}">
+          <div class="flex items-baseline gap-3 flex-wrap mb-2">
+            <h3 class="text-xl font-bold">${s.kratko}</h3>
+            <span class="text-sm text-stone-500">${s.polni_naziv}</span>
+            <button class="ml-auto speech-bulk-btn no-print" onclick='beriSegment("${s.id}")'>🔊 Beri</button>
+          </div>
+          <p class="text-sm mb-3 script-block" data-speech-lang="sl-SI" data-id="opis-${s.id}">${s.opis}<button class="copy-btn" data-copy='#${"opis-" + s.id}'>Kopiraj</button></p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+            <div>
+              <div class="text-xs font-semibold uppercase text-stone-500 mb-1">Indikatorji (kako prepoznaš)</div>
+              <ul class="list-disc pl-5 space-y-1 text-sm">${s.indikatorji.map(i => `<li>${i}</li>`).join('')}</ul>
+            </div>
+            <div>
+              <div class="text-xs font-semibold uppercase text-stone-500 mb-1">Pristop</div>
+              <p class="text-sm">${s.ce_je_to_segment}</p>
+              <div class="text-xs font-semibold uppercase text-stone-500 mt-3 mb-1">Ko ni ta segment</div>
+              <p class="text-sm text-stone-700">${s.ce_ni_ta_segment}</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm pt-3 border-t border-stone-200 mb-3">
+            <div><span class="text-stone-500">Tipičen odločevalec:</span> ${s.tipicni_odlocevalec}</div>
+            <div><span class="text-stone-500">Tipičen cikel:</span> ${s.tipicen_cikel}</div>
+          </div>
+
+          <div class="pt-3 border-t border-stone-200">
+            <div class="text-xs font-semibold uppercase text-stone-500 mb-2">Povezani viri</div>
+            <div class="space-y-2">
+              ${s.povezave.paketi ? `<div><strong>Paket:</strong> ${s.povezave.paketi.map(p => `<a href="ponudba.html" class="seg-link-pill">${p}</a>`).join('')}</div>` : ''}
+              ${s.povezave.govori_id ? `<div><strong>Govori:</strong> ${s.povezave.govori_id.map(g => `<a href="govori.html?scenarij=${g}" class="seg-link-pill">${g}</a>`).join('')}</div>` : ''}
+              ${s.povezave.ugovori_kategorije ? `<div><strong>Tipični ugovori:</strong> ${s.povezave.ugovori_kategorije.map(u => `<a href="ugovori.html" class="seg-link-pill">${u}</a>`).join('')}</div>` : ''}
+              ${s.povezave.reference_id ? `<div><strong>Reference:</strong> ${s.povezave.reference_id.map(r => `<a href="reference.html" class="seg-link-pill">${r}</a>`).join('')}</div>` : ''}
+              ${s.povezave.vsebine_teme ? `<div><strong>Vsebine za to stranko:</strong> ${s.povezave.vsebine_teme.map(v => `<a href="vsebine.html" class="seg-link-pill">${v}</a>`).join('')}</div>` : ''}
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      wireCopyButtons();
+    }
+
+    function beriSegment(id) {
+      const s = DATA.segmenti.find(x => x.id === id);
+      if (!s) return;
+      const tekst = `${s.kratko}. ${s.polni_naziv}. ${s.opis} Indikatorji: ${s.indikatorji.join(' ')} Pristop: ${s.ce_je_to_segment}`;
+      Speech.speakSequence([{ text: tekst, lang: 'sl-SI' }], { label: s.kratko });
+    }
+
+    function povezaviKviz() {
+      document.getElementById('btn-kviz-start').addEventListener('click', kvizStart);
+      document.getElementById('btn-kviz-prekini').addEventListener('click', kvizPrekini);
+    }
+
+    function kvizStart() {
+      kvizState = { idx: 0, rezultati: {} };
+      document.getElementById('kviz-card').classList.add('hidden');
+      document.getElementById('kviz').classList.remove('hidden');
+      document.getElementById('kviz-rezultat').classList.add('hidden');
+      kvizRender();
+    }
+
+    function kvizPrekini() {
+      document.getElementById('kviz').classList.add('hidden');
+      document.getElementById('kviz-card').classList.remove('hidden');
+    }
+
+    function kvizRender() {
+      const v = DATA.kvalifikacija.vprasanja[kvizState.idx];
+      document.getElementById('kviz-napredek').textContent = `${kvizState.idx + 1} / ${DATA.kvalifikacija.vprasanja.length}`;
+      document.getElementById('kviz-vprasanje').innerHTML = `
+        <h3 class="font-bold text-lg mb-3">${v.vprasanje}</h3>
+        <div class="space-y-2">
+          ${v.moznosti.map((m, i) => `
+            <button class="w-full text-left p-3 rounded border border-stone-200 hover:bg-green-50 hover:border-green-500" onclick="kvizOdgovor('${v.id}', ${i})">
+              ${m.odgovor}
+            </button>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function kvizOdgovor(vId, mIdx) {
+      const v = DATA.kvalifikacija.vprasanja.find(x => x.id === vId);
+      const tezi = v.moznosti[mIdx].tezi;
+      tezi.forEach(t => kvizState.rezultati[t] = (kvizState.rezultati[t] || 0) + 1);
+      kvizState.idx++;
+      if (kvizState.idx >= DATA.kvalifikacija.vprasanja.length) {
+        kvizPrikaziRezultat();
+      } else {
+        kvizRender();
+      }
+    }
+
+    function kvizPrikaziRezultat() {
+      document.getElementById('kviz').classList.add('hidden');
+      const sorted = Object.entries(kvizState.rezultati).sort((a, b) => b[1] - a[1]);
+      const topId = sorted[0] ? sorted[0][0] : 'compliance';
+      const top = DATA.segmenti.find(s => s.id === topId);
+      const slot = document.getElementById('kviz-rezultat');
+      slot.classList.remove('hidden');
+      slot.innerHTML = `
+        <div class="text-xs uppercase text-green-800 font-semibold mb-1">Hipoteza segmenta</div>
+        <h2 class="text-2xl font-bold mb-2">${top.kratko}</h2>
+        <p class="text-sm mb-3">${top.polni_naziv}</p>
+        <p class="text-sm mb-4"><strong>Pristop:</strong> ${top.ce_je_to_segment}</p>
+        ${sorted.length > 1 ? `<div class="text-xs text-stone-600 mb-3">Druge možnosti: ${sorted.slice(1).map(([id, score]) => {
+          const s = DATA.segmenti.find(x => x.id === id);
+          return s ? `${s.kratko} (${score})` : '';
+        }).filter(Boolean).join(', ')}</div>` : ''}
+        <div class="flex gap-2 flex-wrap">
+          <button class="btn btn-primary" onclick='kvizStart()'>↻ Ponovi kviz</button>
+          <button class="btn btn-secondary" onclick='document.getElementById("kviz-rezultat").classList.add("hidden"); document.getElementById("kviz-card").classList.remove("hidden");'>Zapri</button>
+          <a href="stranke.html" class="btn btn-secondary">→ Vpiši stranko</a>
+        </div>
+      `;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

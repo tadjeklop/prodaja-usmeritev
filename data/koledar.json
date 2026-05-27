@@ -1,0 +1,197 @@
+{
+  "_opis": "Pomembni EPR in okoljski datumi v letu. Preveri vsako leto, ker se uradni roki občasno spremenijo.",
+  "_zadnja_revizija": "2026-05",
+  "_opozorilo": "Datumi so okvirni. Pred uporabo pri stranki preveri aktualni rok na ARSO ali pristojnem organu.",
+  "letni_cikel": [
+    {
+      "mesec": 1,
+      "naziv": "Januar",
+      "dogodki": [
+        {
+          "rok": "Skozi cel mesec",
+          "naslov": "Priprava letnih poročil",
+          "kdo": "Vsi EPR zavezanci",
+          "kaj": "Zbiranje podatkov za letno poročilo za preteklo leto: količine embalaže/EE/baterij po materialih in kategorijah.",
+          "interzero_vloga": "Stranke s skupno shemo prejmejo pripravljen osnutek, ki ga le še potrdijo. To je velika vrednost storitve."
+        }
+      ]
+    },
+    {
+      "mesec": 2,
+      "naziv": "Februar",
+      "dogodki": [
+        {
+          "rok": "Konec februarja",
+          "naslov": "Notranji rok za pripravo letnih poročil",
+          "kdo": "Zavezanci",
+          "kaj": "Interzero ekipa do tega datuma pripravi vse osnutke poročil za stranke. Stranke imajo cel marec za pregled in potrditev.",
+          "interzero_vloga": "Pomembno: če je stranka 'nova', mora podatke poslati do konca februarja. Prepozno = stres marca."
+        }
+      ]
+    },
+    {
+      "mesec": 3,
+      "naziv": "Marec",
+      "dogodki": [
+        {
+          "rok": "31. marec",
+          "naslov": "ROK: Letna poročila ARSO",
+          "kdo": "Vsi EPR zavezanci (embalaža, EE-oprema, baterije, drugi tokovi)",
+          "kaj": "Oddaja letnih poročil v sistem ARSO za preteklo koledarsko leto. Velja za vse, ki so dali izdelke ali embalažo na trg.",
+          "interzero_vloga": "Glavna obveznost leta. Zamudniki kaznovani. To je največja prodajna sezona — stranke, ki so v zamudi, iščejo partnerja.",
+          "kritisticnost": "visoka"
+        }
+      ]
+    },
+    {
+      "mesec": 4,
+      "naziv": "April",
+      "dogodki": [
+        {
+          "rok": "Konec aprila",
+          "naslov": "Prvi kvartalni obračun",
+          "kdo": "Zavezanci v skupni shemi",
+          "kaj": "Skupne sheme običajno obračunajo prispevke za Q1 (januar-marec).",
+          "interzero_vloga": "Priložnost za pogovor o letnih trendih in optimizaciji."
+        }
+      ]
+    },
+    {
+      "mesec": 5,
+      "naziv": "Maj",
+      "dogodki": [
+        {
+          "rok": "Sproti",
+          "naslov": "Letni pregledi pri strankah",
+          "kdo": "Account managerji",
+          "kaj": "Pregled poslovanja po pomladi: kako se gibljejo količine, ali so spremembe v izdelkih, kaj načrtujejo do konca leta.",
+          "interzero_vloga": "Iskanje priložnosti za nadgradnjo paketa, dodatne storitve."
+        }
+      ]
+    },
+    {
+      "mesec": 6,
+      "naziv": "Junij",
+      "dogodki": [
+        {
+          "rok": "Pred poletjem",
+          "naslov": "Priprava na zakonodajne spremembe",
+          "kdo": "Vsi zavezanci",
+          "kaj": "Veliko zakonodajnih sprememb v EU velja od 1. januarja naslednjega leta. Junij je čas, da se preveri, kaj se bo spremenilo.",
+          "interzero_vloga": "Komuniciraj strankam kvartalna obvestila o spremembah, ki jih čakajo."
+        }
+      ]
+    },
+    {
+      "mesec": 7,
+      "naziv": "Julij",
+      "dogodki": [
+        {
+          "rok": "Polletni pregled",
+          "naslov": "Polletni obračun za skupne sheme",
+          "kdo": "Zavezanci v skupni shemi",
+          "kaj": "Polletni obračun prispevkov in pregled količin.",
+          "interzero_vloga": "Pogovor o gibanju količin — če so višje od napovedi, je čas za prilagoditev."
+        }
+      ]
+    },
+    {
+      "mesec": 8,
+      "naziv": "Avgust",
+      "dogodki": [
+        {
+          "rok": "Sproti",
+          "naslov": "Tihi mesec — priložnost za pripravo",
+          "kdo": "Komercialisti",
+          "kaj": "Manj sestankov, čas za pripravo materialov, izboljšave procesov, kalkulacij za jesen.",
+          "interzero_vloga": "Investiraj v pripravo. Septembra se vse zažene."
+        }
+      ]
+    },
+    {
+      "mesec": 9,
+      "naziv": "September",
+      "dogodki": [
+        {
+          "rok": "Skozi mesec",
+          "naslov": "Začetek jesenske prodajne sezone",
+          "kdo": "Komercialisti",
+          "kaj": "Najboljši čas za nove pogovore — podjetja se po poletju vrnejo, načrtujejo proračune za prihodnje leto.",
+          "interzero_vloga": "Intenzivna prospektacija. Stranke odprejo proračun za naslednje leto."
+        }
+      ]
+    },
+    {
+      "mesec": 10,
+      "naziv": "Oktober",
+      "dogodki": [
+        {
+          "rok": "Pred ESG sezono",
+          "naslov": "Priprava na ESG vprašanja",
+          "kdo": "Zavezanci",
+          "kaj": "Veliki B2B kupci običajno pošljejo SAQ in EcoVadis vprašalnike v Q4. Stranke pridejo z 'kako odgovorim?'.",
+          "interzero_vloga": "Priložnost za svetovalni paket. Stranke pod pritiskom kupcev so motivirane."
+        },
+        {
+          "rok": "Tretji kvartalni obračun",
+          "naslov": "Q3 obračun in pregled",
+          "kdo": "Zavezanci",
+          "kaj": "Kvartalni obračun in projekcija celotnega leta.",
+          "interzero_vloga": "Priložnost za prodajo dodatnih storitev pred koncem leta."
+        }
+      ]
+    },
+    {
+      "mesec": 11,
+      "naziv": "November",
+      "dogodki": [
+        {
+          "rok": "Pred koncem leta",
+          "naslov": "Sklenitev novih pogodb",
+          "kdo": "Komercialisti",
+          "kaj": "Stranke želijo pogodbe sklenjene do 1. januarja, da se prične z novim letom. November je rok za podpis.",
+          "interzero_vloga": "Pospeš še aktivne priložnosti. Po decembru se odločanja zamaknejo."
+        }
+      ]
+    },
+    {
+      "mesec": 12,
+      "naziv": "December",
+      "dogodki": [
+        {
+          "rok": "Skozi mesec",
+          "naslov": "Letni pregled in priprava na januar",
+          "kdo": "Vsi",
+          "kaj": "Pregled leta, priprava sistemov in komunikacije strankam za januarsko zbiranje podatkov.",
+          "interzero_vloga": "Pošlji strankam obvestilo o pristopu k zbiranju podatkov za letno poročilo."
+        }
+      ]
+    }
+  ],
+  "vecletni_horizont": [
+    {
+      "datum": "Postopno 2026-2030",
+      "naslov": "PPWR — Uredba o embalaži",
+      "kaj": "Postopno uveljavljanje EU uredbe 2025/40 o embalaži in odpadni embalaži. Zahteve: zmanjšanje embalaže, recyclability, vsebnost recyclata, ponovna uporaba.",
+      "vpliv_na_stranke": "Vse, ki dajejo embalirane izdelke na trg, bodo morale prilagoditi embalažo, dobavne verige in dokumentacijo."
+    },
+    {
+      "datum": "Postopno 2025-2028",
+      "naslov": "CSRD — Trajnostno poročanje",
+      "kaj": "Postopno se uvajajo zahteve za poročanje o trajnosti. Najprej velika javna podjetja, potem srednja.",
+      "vpliv_na_stranke": "Tudi manjši dobavitelji bodo posredno prizadeti, ker bodo kupci zahtevali podatke."
+    },
+    {
+      "datum": "2025-2027",
+      "naslov": "EU Uredba o baterijah (2023/1542)",
+      "kaj": "Nove zahteve za proizvajalce baterij: digital passport, due diligence, vsebnost recikliranih materialov.",
+      "vpliv_na_stranke": "Proizvajalci/uvozniki baterij ali izdelkov z baterijami morajo prilagoditi procese."
+    },
+    {
+      "datum": "Pričakovano 2026-2030",
+      "naslov": "Digital Product Passport razširitev",
+      "kaj": "Po baterijah se DPP razširja na tekstilo, gradbene materiale, elektroniko.",
+      "vpliv_na_stranke": "Nove zahteve za sledljivost in podatke v dobavnih verigah."
+    }
+  ]
+}

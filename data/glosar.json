@@ -1,0 +1,154 @@
+{
+  "_opis": "Slovar EPR in okoljskih pojmov za komercialiste. Namenjen novim komercialistom in razjasnitvi s strankami, ki uporabljajo napačne izraze.",
+  "kategorije": [
+    {
+      "id": "osnovni",
+      "naziv": "Osnovni pojmi",
+      "pojmi": [
+        {
+          "izraz": "EPR (Extended Producer Responsibility)",
+          "razlaga": "Razširjena odgovornost proizvajalca. Načelo, da je proizvajalec ali uvoznik odgovoren za izdelek tudi po koncu njegove življenjske dobe — predvsem za zbiranje, ponovno uporabo in recikliranje.",
+          "v_praksi": "V Sloveniji EPR obstaja za embalažo, EE-opremo, baterije, gume, izrabljena vozila, odpadna olja, zdravila."
+        },
+        {
+          "izraz": "ERP (Enterprise Resource Planning)",
+          "razlaga": "Programska oprema za vodenje poslovnih procesov — SAP, Oracle, Microsoft Dynamics. NI povezano z EPR.",
+          "v_praksi": "Če stranka uporabi 'ERP' v kontekstu okoljskih obveznosti, takoj razloži razliko. Zameglitev pojmov je pogosta."
+        },
+        {
+          "izraz": "Skupna shema",
+          "razlaga": "Organizacija (kot Interzero), ki za skupino proizvajalcev/uvoznikov skupno izpolnjuje EPR obveznosti — zbira, sortira, reciklira odpadke, pripravi poročila.",
+          "v_praksi": "Stranke postanejo članice sheme in plačujejo letni prispevek. Vodi se kot operater sheme, vpisan v ARSO."
+        },
+        {
+          "izraz": "Individualni načrt",
+          "razlaga": "Alternativa skupni shemi — stranka sama izpolnjuje EPR obveznosti, brez vključitve v operaterja. Potrebne lastne evidence, lastna mreža partnerjev, dokazila.",
+          "v_praksi": "Smiselno le pri specifični embalaži in velikih količinah. Za večino strank administrativno preveč zahtevno."
+        },
+        {
+          "izraz": "Proizvajalec / uvoznik",
+          "razlaga": "Subjekt, ki PRVI da izdelek ali embalažo na slovenski trg. Lahko je proizvajalec, uvoznik, distributer ali tudi spletni prodajalec (če prodaja končnemu potrošniku v SI).",
+          "v_praksi": "Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in dobava si pošilja odgovornost. Razjasni v discoveryju."
+        },
+        {
+          "izraz": "Dati na trg",
+          "razlaga": "Trenutek, ko izdelek prvič preide v gospodarsko verigo v Sloveniji (proizvedeno + prodano ali uvoženo + sproščeno v prodajo).",
+          "v_praksi": "Ne pomeni nujno fizičnega gibanja blaga. Tudi izdelek iz uvoznega skladišča, ki je sproščen v prodajo, je 'dan na trg'."
+        }
+      ]
+    },
+    {
+      "id": "tokovi",
+      "naziv": "Tokovi odpadkov in materialov",
+      "pojmi": [
+        {
+          "izraz": "Embalaža",
+          "razlaga": "Vse, kar služi za zaščito, transport ali predstavitev izdelka. Primarna (neposredno okrog izdelka), sekundarna (skupinska), terciarna (transportna).",
+          "v_praksi": "Pri discoveryju vprašaj, ali stranka razlikuje med vrstami — pogosto poročajo samo eno raven."
+        },
+        {
+          "izraz": "EE-oprema (OEEO)",
+          "razlaga": "Električna in elektronska oprema. Po slovenski zakonodaji v 6 kategorijah (gospodinjska, IT, razsvetljava, mali, veliki, medicinski/profesionalni aparati).",
+          "v_praksi": "Tudi izdelek z LED lučko ali baterijo lahko padete v EPR za EE-opremo, ne le 'klasične' aparati."
+        },
+        {
+          "izraz": "Baterije in akumulatorji",
+          "razlaga": "Prenosne (gospodinjske), industrijske, avtomobilske. Vsaka kategorija ima svoje pravice in zahteve.",
+          "v_praksi": "EU Uredba 2023/1542 prinaša nove zahteve (digital passport, due diligence) — kompleksnost narašča."
+        },
+        {
+          "izraz": "Sekundarna surovina",
+          "razlaga": "Material, pridobljen iz odpadkov, ki je ponovno uporaben v proizvodnji (npr. reciklirana plastika, papir, kovine).",
+          "v_praksi": "Interzero kupuje in prodaja sekundarne surovine — tudi prodajni argument za proizvajalce, ki želijo dokazati krožno gospodarstvo."
+        },
+        {
+          "izraz": "Recyclate",
+          "razlaga": "Reciklirana surovina, vgrajena v nov izdelek. EU Uredba PPWR določa minimalne deleže recyclata v embalaži.",
+          "v_praksi": "Kupci od dobaviteljev vedno bolj zahtevajo dokazila o vsebnosti recyclata."
+        },
+        {
+          "izraz": "Made for Recycling",
+          "razlaga": "Certifikat za embalažo, ki dokazuje, da je oblikovana tako, da se da dobro reciklirati. Izdaja ga Interzero (in nekateri drugi).",
+          "v_praksi": "Velike trgovske verige in B2B kupci ga vse pogosteje zahtevajo. Dober vstop pri stranki s pomembnimi kupci."
+        }
+      ]
+    },
+    {
+      "id": "regulativa",
+      "naziv": "Regulativa in poročanje",
+      "pojmi": [
+        {
+          "izraz": "ARSO",
+          "razlaga": "Agencija Republike Slovenije za okolje. Vodi registre EPR zavezancev, sprejema letna poročila, izvaja nadzor.",
+          "v_praksi": "Stranke kot zavezanci poročajo prek ARSO portala. Ker je portal kompleksen, je to del naše storitve."
+        },
+        {
+          "izraz": "ZVO-2",
+          "razlaga": "Zakon o varstvu okolja (2022, nadomestil ZVO-1). Krovni zakon, ki ureja EPR načelo.",
+          "v_praksi": "Detajli so v podzakonskih aktih — uredbah za posamezne tokove (embalaža, EE-oprema, baterije...)."
+        },
+        {
+          "izraz": "Uredba o embalaži",
+          "razlaga": "Slovenski podzakonski akt, ki ureja EPR za embalažo. Vsebuje prag obvezne vključitve, stopnje recikliranja, način poročanja.",
+          "v_praksi": "Pred razlago stranki preveri zadnjo verzijo — uredbe se posodabljajo."
+        },
+        {
+          "izraz": "Letno poročilo",
+          "razlaga": "Obvezno poročilo, ki ga zavezanci oddajo do 31. marca za prejšnje leto. Vsebuje količine danih izdelkov in dosežene stopnje recikliranja.",
+          "v_praksi": "Kdor zamudi rok, je v prekršku — kazni so resne. Avtomatski opomnik je ena od vrednosti Interzero."
+        },
+        {
+          "izraz": "PPWR",
+          "razlaga": "Packaging and Packaging Waste Regulation — EU uredba 2025/40 (sprejeta 2024). Postopno se uveljavlja od 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, recyclability, minimalni delež recyclata, ponovna uporaba.",
+          "v_praksi": "To je velika tema za naslednja leta. Stranke z embalažo morajo začeti razmišljati zdaj."
+        },
+        {
+          "izraz": "CSRD",
+          "razlaga": "Corporate Sustainability Reporting Directive — EU direktiva o trajnostnem poročanju podjetij. Postopno se uvaja za velika in srednja podjetja.",
+          "v_praksi": "Tudi mala podjetja so prizadeta posredno — ker njihovi B2B kupci morajo poročati."
+        },
+        {
+          "izraz": "ESPR",
+          "razlaga": "Ecodesign for Sustainable Products Regulation — EU uredba o trajnostnem oblikovanju izdelkov. Zahteva, da so izdelki načrtovani z mislijo na celoten življenjski cikel.",
+          "v_praksi": "Dolgoročno bo vplivala na način, kako se izdelki načrtujejo in pakirajo."
+        },
+        {
+          "izraz": "Digital Product Passport",
+          "razlaga": "Digitalna izkaznica izdelka z informacijami o materialih, sledljivosti, recikliranju. Najprej za baterije, potem za druge kategorije.",
+          "v_praksi": "Postopno se uvaja. Pomeni nove zahteve za podatke, ki jih morajo proizvajalci zbirati."
+        }
+      ]
+    },
+    {
+      "id": "esg",
+      "naziv": "ESG in trajnost",
+      "pojmi": [
+        {
+          "izraz": "ESG",
+          "razlaga": "Environmental, Social, Governance. Okvir za ocenjevanje, kako podjetje upravlja s vplivom na okolje, družbeno odgovornostjo in vodenjem.",
+          "v_praksi": "Banke in veliki B2B kupci uporabljajo ESG ocene pri odločanju o partnerjih."
+        },
+        {
+          "izraz": "Scope 1 / 2 / 3",
+          "razlaga": "Kategorije emisij toplogrednih plinov. Scope 1 = lastne emisije, Scope 2 = energija, Scope 3 = celotna vrednostna veriga (vključno z odpadki).",
+          "v_praksi": "Ravnanje z odpadki spada pod Scope 3 — Interzero lahko prispeva k zmanjšanju."
+        },
+        {
+          "izraz": "EcoVadis",
+          "razlaga": "Mednarodna platforma za ocenjevanje trajnostnih praks dobaviteljev. Mnogi veliki kupci to zahtevajo.",
+          "v_praksi": "Interzero lahko pomaga pri pripravi odgovorov za EcoVadis vprašalnik."
+        },
+        {
+          "izraz": "SAQ (Self-Assessment Questionnaire)",
+          "razlaga": "Vprašalnik o trajnosti, ki ga kupec pošlje dobavitelju. Pogosto vsebuje vprašanja o EPR, ravnanju z odpadki, embalaži.",
+          "v_praksi": "Ko stranka pove, da je dobila SAQ — to je TVOJA priložnost. Vstopi z 'pomagamo vam odgovoriti'."
+        },
+        {
+          "izraz": "Krožno gospodarstvo",
+          "razlaga": "Gospodarski model, kjer materiali ostajajo v uporabi čim dlje (popravilo, ponovna uporaba, recikliranje), namesto enkratne uporabe.",
+          "v_praksi": "EU pravi okvir vse bolj sili podjetja v krožne modele. Interzero pomaga pri prehodu."
+        }
+      ]
+    }
+  ]
+}

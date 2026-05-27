@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding 30/60/90 — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .kat-znanje { background: #dbeafe; color: #1e40af; }
+    .kat-praksa { background: #dcfce7; color: #166534; }
+    .kat-produkt { background: #fef3c7; color: #92400e; }
+    .kat-ljudje { background: #fce7f3; color: #9d174d; }
+    .kat-primer { background: #e0e7ff; color: #4338ca; }
+    .kat-vaja { background: #ccfbf1; color: #115e59; }
+    .kat-disciplina { background: #fed7aa; color: #9a3412; }
+    .kat-ocena { background: #f3e8ff; color: #6b21a8; }
+    .kat-nacrt { background: #d1fae5; color: #065f46; }
+    .kat-razmislek { background: #ffe4e6; color: #be123c; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6 flex items-end justify-between flex-wrap gap-3">
+      <div>
+        <h1 class="text-3xl font-bold" data-i18n="page.onboarding.title">Onboarding 30/60/90</h1>
+        <p class="mt-2 text-stone-600 max-w-3xl" id="filozofija">Nalagam…</p>
+      </div>
+      <button id="btn-reset" class="btn btn-ghost">↺ Ponastavi opravljeno</button>
+    </header>
+
+    <div id="napredek" class="panel mb-6"></div>
+    <div id="obdobja" class="space-y-4"></div>
+    <div id="podpora" class="panel mt-6"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null;
+
+    async function init() {
+      DATA = await loadData('onboarding');
+      if (!DATA) {
+        document.getElementById('obdobja').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
+        return;
+      }
+      document.getElementById('filozofija').textContent = DATA._filozofija;
+      document.getElementById('btn-reset').addEventListener('click', resetVse);
+      render();
+    }
+
+    function getOpravljene() {
+      return Storage.get('onboarding-opravljene', {});
+    }
+
+    function setOpravljen(id, val) {
+      const o = getOpravljene();
+      if (val) o[id] = true; else delete o[id];
+      Storage.set('onboarding-opravljene', o);
+    }
+
+    function resetVse() {
+      if (!confirm('Pobrišem vse oznake opravljenih nalog?')) return;
+      Storage.set('onboarding-opravljene', {});
+      render();
+    }
+
+    function render() {
+      const op = getOpravljene();
+      const vseNaloge = DATA.obdobja.flatMap(o => o.naloge);
+      const opravljeno = vseNaloge.filter(n => op[n.id]).length;
+      const pct = vseNaloge.length ? Math.round(opravljeno / vseNaloge.length * 100) : 0;
+
+      document.getElementById('napredek').innerHTML = `
+        <div class="flex items-baseline justify-between mb-2">
+          <div><strong>Napredek</strong> ${opravljeno} / ${vseNaloge.length} nalog</div>
+          <div class="text-2xl font-bold text-green-800">${pct}%</div>
+        </div>
+        <div class="w-full bg-stone-200 rounded-full h-2">
+          <div class="bg-green-700 h-2 rounded-full transition-all" style="width: ${pct}%"></div>
+        </div>
+      `;
+
+      document.getElementById('obdobja').innerHTML = DATA.obdobja.map((o, idx) => {
+        const opravljeneNaloge = o.naloge.filter(n => op[n.id]).length;
+        const obdobjePct = o.naloge.length ? Math.round(opravljeneNaloge / o.naloge.length * 100) : 0;
+        return `
+          <details class="panel" ${idx < 2 ? 'open' : ''}>
+            <summary class="cursor-pointer">
+              <div class="flex items-baseline gap-3 flex-wrap">
+                <span class="font-bold text-lg">${o.naziv}</span>
+                <span class="text-sm text-stone-500">${o.trajanje}</span>
+                <span class="ml-auto text-sm ${obdobjePct === 100 ? 'text-green-800 font-semibold' : 'text-stone-600'}">${opravljeneNaloge}/${o.naloge.length}</span>
+              </div>
+            </summary>
+            <div class="mt-3">
+              <p class="text-sm text-stone-700 mb-3"><strong>Cilj:</strong> ${o.cilj}</p>
+              <ul class="space-y-2">
+                ${o.naloge.map(n => `
+                  <li class="flex items-start gap-2">
+                    <input type="checkbox" data-id="${n.id}" ${op[n.id] ? 'checked' : ''} class="mt-1 cursor-pointer" />
+                    <div class="flex-1 ${op[n.id] ? 'line-through text-stone-500' : ''}">
+                      <span class="badge kat-${n.kategorija || 'znanje'} mr-2">${n.kategorija || ''}</span>
+                      ${n.naziv}
+                    </div>
+                  </li>
+                `).join('')}
+              </ul>
+              ${o.preverljiv_rezultat ? `
+                <div class="mt-4 p-3 bg-green-50 border border-green-200 rounded text-sm">
+                  <strong>Preverljiv rezultat:</strong> ${o.preverljiv_rezultat}
+                </div>
+              ` : ''}
+            </div>
+          </details>
+        `;
+      }).join('');
+
+      document.querySelectorAll('input[type=checkbox][data-id]').forEach(cb => {
+        cb.addEventListener('change', () => { setOpravljen(cb.dataset.id, cb.checked); render(); });
+      });
+
+      document.getElementById('podpora').innerHTML = `
+        <h2 class="text-lg font-bold mb-3">Podporne aktivnosti vzdolž 90 dni</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          ${DATA.podporne_aktivnosti.map(p => `
+            <div class="p-3 bg-stone-50 rounded border border-stone-200">
+              <div class="font-semibold">${p.naziv}</div>
+              <div class="text-xs text-stone-500 mt-1">${p.ritem}</div>
+              <div class="text-sm mt-2">${p.kaj}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "_opis": "Pregled ključne EPR in okoljske zakonodaje v Sloveniji. Datumi in določila se spreminjajo — pred uporabo v ponudbi PREVERI veljavno verzijo na pisrs.si in arso.gov.si. To je orodje za prodajalca, ne pravni vir.",
+  "_zadnja_revizija": "2026-05",
+  "_opozorilo": "Pred pomembnimi odločitvami preveri trenutno veljavne predpise. Zakonodaja se spreminja, zlasti zaradi EU usklajevanja (PPWR, ESPR, CSRD).",
+  "sklopi": [
+    {
+      "naslov": "Razširjena odgovornost proizvajalca — splošno",
+      "vsebina": "EPR (Extended Producer Responsibility) v Sloveniji ureja Zakon o varstvu okolja (ZVO-2) in podzakonski akti za posamezne tokove (embalaža, EE-oprema, baterije, izrabljena vozila, gume, olja, zdravila). Proizvajalci in uvozniki so dolžni poskrbeti za prevzem in ravnanje z odpadki, ki nastanejo iz izdelkov, ki so jih dali na trg.",
+      "koga_zavezuje": "Proizvajalce in uvoznike izdelkov v zadevnih tokovih. Tudi spletni prodajalci, ki prodajajo končnim potrošnikom v SI.",
+      "kljucne_obveznosti": [
+        "Vpis v evidenco oz. register pri pristojnem organu (ARSO).",
+        "Vključitev v skupno shemo ali individualni načrt.",
+        "Letno poročanje količin, danih na trg.",
+        "Plačilo prispevkov za ravnanje z odpadno embalažo / odpadki."
+      ]
+    },
+    {
+      "naslov": "Embalaža in odpadna embalaža",
+      "vsebina": "Področje ureja Uredba o ravnanju z embalažo in odpadno embalažo. Proizvajalci in uvozniki morajo zagotoviti, da se embalaža, dana na trg, prevzame in obdela skladno s ciljnimi stopnjami recikliranja.",
+      "koga_zavezuje": "Vse, ki dajejo embalirane izdelke prvič na slovenski trg (proizvajalci, uvozniki, spletni prodajalci v SI).",
+      "kljucne_obveznosti": [
+        "Vključitev v skupno shemo (npr. Interzero, Slopak, Recoss, Surovina, Embakom, Unirec) ali izpolnjevanje individualnega načrta.",
+        "Mesečno ali letno poročanje količin embalaže po materialih.",
+        "Plačilo prispevkov, ki se izračunajo na kg/material.",
+        "Možna obveznost označevanja embalaže (recyclability)."
+      ],
+      "datumi_in_pragovi": "Manjši proizvajalci pod določenim pragom imajo nekatere oprostitve — preveri trenutni prag (zadnja sprememba ga je gibala pri 15 ton letno za določene materiale, prosim preveri aktualno verzijo)."
+    },
+    {
+      "naslov": "Elektronska in električna oprema (EE-oprema)",
+      "vsebina": "Uredba o odpadni električni in elektronski opremi (OEEO). Velja za skoraj vso EE opremo — gospodinjske aparate, IT, telekomunikacije, razsvetljavo, igrače z elektroniko, medicinsko opremo itd.",
+      "koga_zavezuje": "Proizvajalce in uvoznike EE-opreme v Sloveniji. Tudi tiste, ki prodajajo prek spleta (B2C).",
+      "kljucne_obveznosti": [
+        "Vpis v register proizvajalcev EE-opreme pri ARSO.",
+        "Vključitev v skupno shemo (npr. ZEOS, Slopak, Interzero) ali individualni načrt.",
+        "Označevanje izdelkov (prečrtan zabojnik).",
+        "Letno poročanje količin po kategorijah."
+      ]
+    },
+    {
+      "naslov": "Baterije in akumulatorji",
+      "vsebina": "Uredba o ravnanju z baterijami in akumulatorji ter odpadnimi baterijami in akumulatorji. Pokriva prenosne, industrijske in avtomobilske baterije. EU sprejela novo Uredbo o baterijah (2023/1542), ki uvaja dodatne zahteve (digital passport, due diligence).",
+      "koga_zavezuje": "Proizvajalce in uvoznike baterij ali izdelkov s baterijami.",
+      "kljucne_obveznosti": [
+        "Registracija proizvajalca baterij.",
+        "Vključitev v shemo prevzema (npr. Interzero, SLOPAK).",
+        "Označevanje baterij.",
+        "Letno poročanje količin."
+      ]
+    },
+    {
+      "naslov": "Druge EPR sheme",
+      "vsebina": "V Sloveniji obstajajo še EPR sheme za odpadne gume, izrabljena vozila, odpadna olja, odpadna zdravila, sveče.",
+      "koga_zavezuje": "Vsakega proizvajalca/uvoznika v zadevnih kategorijah."
+    },
+    {
+      "naslov": "Letno poročanje (ARSO)",
+      "vsebina": "Zavezanci morajo do 31. marca naslednjega leta oddati letna poročila o ravnanju z odpadki in/ali količinah, danih na trg, prek ARSO portala.",
+      "datumi_in_pragovi": "31. marec za prejšnje koledarsko leto. Datum preveri vsako leto, ker se občasno spreminja."
+    },
+    {
+      "naslov": "ESG in CSRD",
+      "vsebina": "EU direktiva o trajnostnem poročanju podjetij (CSRD) postopno uvaja obvezno poročanje za večja podjetja. V SI velja za podjetja, ki izpolnjujejo merila (število zaposlenih, prihodki, bilanca). Manjši dobavitelji bodo posredno prizadeti, ker bodo morali poročati svojim B2B kupcem.",
+      "koga_zavezuje": "Najprej velika javna in nato velika podjetja, postopno tudi srednja. Manjši posredno prek dobaviteljskih verig."
+    },
+    {
+      "naslov": "PPWR — nova EU Uredba o embalaži (2024/1781)",
+      "vsebina": "Uredba o embalaži in odpadni embalaži, sprejeta v 2024, uvaja nove zahteve: zmanjšanje pakiranja, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov, jasna pravila označevanja. Začetek uporabe v fazah od 2026 naprej.",
+      "koga_zavezuje": "Vse, ki dajejo embalirane izdelke na trg EU, vključno s Slovenijo."
+    }
+  ],
+  "viri": [
+    { "naziv": "Predpisi (PISRS)", "url": "https://pisrs.si" },
+    { "naziv": "ARSO — Agencija RS za okolje", "url": "https://www.arso.gov.si" },
+    { "naziv": "Ministrstvo za naravne vire in prostor", "url": "https://www.gov.si/drzavni-organi/ministrstva/ministrstvo-za-naravne-vire-in-prostor/" },
+    { "naziv": "Interzero Slovenija", "url": "https://interzero.si" }
+  ]
+}

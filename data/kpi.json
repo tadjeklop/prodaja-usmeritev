@@ -1,0 +1,113 @@
+{
+  "_opis": "KPI-ji za vodjo prodaje. Vsak ima definicijo, normo (okvirno), coaching vprašanja in tipično napako pri uporabi.",
+  "kpi": [
+    {
+      "id": "novi-leadi",
+      "naziv": "Novi lead-i (mesečno)",
+      "meri": "Aktivnost in dotok priložnosti.",
+      "norma": "Odvisno od trga in profila prodajalca. Junior 20-30/mesec, senior 10-15/mesec (večji posli).",
+      "coaching_vprasanja": [
+        "Kje danes dobiš največ lead-ov in kateri vir najbolje konvertira?",
+        "Če imamo malo lead-ov, je problem v aktivnosti ali v marketingu?",
+        "Katere panoge / segmenti so trenutno najbolj odprti?"
+      ],
+      "tipicna_napaka": "Šteti vse, kar pride v inbox, kot lead. Brez kvalifikacije številka nima pomena."
+    },
+    {
+      "id": "kvalificirani",
+      "naziv": "Kvalificirane priložnosti",
+      "meri": "Kakovost lead-ov in disciplina kvalifikacije.",
+      "norma": "30-50 % lead-ov se kvalificira naprej. Pod 20 % pomeni, da lovimo napačne stranke.",
+      "coaching_vprasanja": [
+        "Katere lead-e najpogosteje 'pohabiš' brez kvalifikacije?",
+        "Ali poznaš ICP do te mere, da v 5 minutah veš, ali iti naprej?",
+        "Katera vprašanja v kvalifikaciji ti zmanjkajo?"
+      ],
+      "tipicna_napaka": "Predolgo držati priložnosti, ki ne izpolnjujejo osnovnih kriterijev."
+    },
+    {
+      "id": "konverzija-faza",
+      "naziv": "Konverzija po fazah",
+      "meri": "Kje posli odpadajo v prodajnem lijaku.",
+      "norma": "Lead → Kvalifikacija: 40 %; Kvalifikacija → Prvi sestanek: 60 %; Prvi sestanek → Ponudba: 50 %; Ponudba → Zmaga: 25-40 %.",
+      "coaching_vprasanja": [
+        "V kateri fazi ti posli najpogosteje odpadejo?",
+        "Če odpadajo po prvem sestanku, je problem v discoveryju ali v vrednostni zgodbi?",
+        "Če odpadajo po ponudbi, je problem v ceni, v predstavitvi ali v odločevalcih?"
+      ],
+      "tipicna_napaka": "Gledati samo končno konverzijo, ne pa razdelitev po fazah."
+    },
+    {
+      "id": "povp-vrednost",
+      "naziv": "Povprečna vrednost priložnosti",
+      "meri": "Velikost poslov, ki jih ekipa lovi.",
+      "norma": "Določiti glede na trg. Cilj je rasti — od posameznih storitev k paketom.",
+      "coaching_vprasanja": [
+        "Ali tipično prodajaš eno storitev ali paket?",
+        "Kdaj v procesu vprašaš za dodatne potrebe stranke?",
+        "Katere stranke so dober kandidat za nadgradnjo paketa?"
+      ],
+      "tipicna_napaka": "Prodaja samo tistega, kar je stranka prvotno omenila, brez kvalitetnega cross-sella."
+    },
+    {
+      "id": "cikel",
+      "naziv": "Dolžina prodajnega cikla",
+      "meri": "Hitrost odločanja in vodenje pipeline-a.",
+      "norma": "EPR storitve: 2-6 mesecev za nove stranke, 1-3 mesece za obstoječe.",
+      "coaching_vprasanja": [
+        "Pri katerih priložnostih cikel se vleče? Zakaj?",
+        "Ali imaš pri vsaki priložnosti dogovorjen naslednji konkretni korak z datumom?",
+        "Ali si govoril s pravim odločevalcem, ali samo s posrednikom?"
+      ],
+      "tipicna_napaka": "Sprejeti 'še se nismo odločili' brez naslednjega koraka."
+    },
+    {
+      "id": "razlogi-izgube",
+      "naziv": "Razlogi za izgubljene posle",
+      "meri": "Realne vzroke izgub — za izboljšave, ne za kaznovanje.",
+      "norma": "Vsak izgubljen posel mora imeti kategorijo razloga.",
+      "coaching_vprasanja": [
+        "Kateri razlog izgube se ponavlja in kaj se da iz tega naučiti?",
+        "Ali izgubljamo zaradi cene ali zaradi nezmožnosti dokazati vrednost?",
+        "Kateri konkurent nas premaguje in s čim?"
+      ],
+      "tipicna_napaka": "Splošno 'cena' brez konteksta. Cena ni razlog — cena pri zaznani vrednosti X."
+    },
+    {
+      "id": "aktivnost",
+      "naziv": "Aktivnost po prodajalcu",
+      "meri": "Klici, sestanki, follow-upi.",
+      "norma": "Odvisno od profila. Junior več aktivnosti, senior manj a večji posli.",
+      "coaching_vprasanja": [
+        "Ali je aktivnost konsistentna ali skoki?",
+        "Kje aktivnost ne prinaša rezultatov?",
+        "Kakšno razmerje aktivnosti je pri tvojih najboljših prodajalcih?"
+      ],
+      "tipicna_napaka": "Šteti aktivnost kot cilj, ne kot sredstvo. Več klicev brez rezultata ni boljše."
+    },
+    {
+      "id": "next-step",
+      "naziv": "Delež priložnosti z naslednjo aktivnostjo",
+      "meri": "Kakovost vodenja pipeline-a.",
+      "norma": "100 % odprtih priložnosti mora imeti datum in konkretno aktivnost.",
+      "coaching_vprasanja": [
+        "Kdaj v sestanku se z stranko dogovoriš za naslednji korak?",
+        "Kaj narediš, če stranka ne želi določiti datuma?",
+        "Katere priložnosti so 'mrtve' v CRM, čeprav so označene kot odprte?"
+      ],
+      "tipicna_napaka": "Priložnost je 'odprta', a datum naslednjega koraka je v preteklosti."
+    },
+    {
+      "id": "crm-kakovost",
+      "naziv": "Kakovost CRM zapisov",
+      "meri": "Ali so podatki uporabni za vodenje in napoved.",
+      "norma": "Vsi obvezni zapisi v fazi prisotni. Povzetki sestankov dolžine vsaj 5 vrstic.",
+      "coaching_vprasanja": [
+        "Bi nekdo drug iz tvojih CRM zapisov razumel, kje je posel in kaj naprej?",
+        "Ali bi po dveh tednih sam razumel svoje zapise?",
+        "Ali zapisuješ povzetke takoj ali šele ob koncu tedna?"
+      ],
+      "tipicna_napaka": "Zapisi se delajo retroaktivno, polna polovica polj prazna, povzetki niso uporabni."
+    }
+  ]
+}

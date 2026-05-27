@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moja zgodovina — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.zgodovina.title">Moja zgodovina</h1>
+      <p class="mt-2 text-stone-600">Shranjeni pripravljeni sestanki in izračuni. Vse je shranjeno samo v tem brskalniku.</p>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-vrsta="sestanki">Sestanki</button>
+      <button class="tab" data-vrsta="izracuni">Izračuni</button>
+      <button class="tab" data-vrsta="ponudbe">Ponudbe</button>
+    </div>
+
+    <div id="vsebina"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let vrsta = 'sestanki';
+
+    function init() {
+      document.querySelectorAll('.tab').forEach(t => {
+        t.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
+          t.classList.add('active');
+          vrsta = t.dataset.vrsta;
+          render();
+        });
+      });
+      render();
+    }
+
+    function render() {
+      const data = Storage.get(vrsta, []);
+      const slot = document.getElementById('vsebina');
+      if (!data.length) {
+        slot.innerHTML = `
+          <div class="panel text-center py-12 text-stone-600">
+            <div class="text-4xl mb-3">📂</div>
+            <p>Še ni shranjenih ${vrsta === 'sestanki' ? 'sestankov' : 'izračunov'}.</p>
+            <p class="text-sm mt-2">
+              ${vrsta === 'sestanki'
+                ? 'Pripravi sestanek v modulu <a class="underline" href="priprava.html">Priprava</a> in klikni "Shrani v zgodovino".'
+                : vrsta === 'izracuni'
+                ? 'Naredi izračun v modulu <a class="underline" href="kalkulacije.html">Kalkulacije</a> in klikni "Shrani v zgodovino".'
+                : 'Generiraj ponudbo v modulu <a class="underline" href="ponudba.html">Ponudba</a> in klikni "Shrani v zgodovino".'}
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      slot.innerHTML = `
+        <div class="space-y-3">
+          ${data.map(x => renderItem(x)).join('')}
+        </div>
+      `;
+    }
+
+    function renderItem(x) {
+      if (vrsta === 'sestanki') {
+        return `
+          <div class="panel">
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold">${x.podjetje || '(brez imena)'}</div>
+                <div class="text-sm text-stone-600">${x.kontakt || ''}</div>
+                <div class="text-xs text-stone-500 mt-1">Shranjeno: ${Storage.formatDate(x._created)}</div>
+                ${x.opombe ? `<div class="mt-2 text-sm bg-stone-50 p-2 rounded">${x.opombe.replace(/\n/g,'<br>')}</div>` : ''}
+              </div>
+              <div class="flex gap-2">
+                <a href="priprava.html?id=${x._id}" class="btn btn-secondary">Odpri</a>
+                <button class="btn btn-ghost" onclick="izbrisi('${x._id}')">Izbriši</button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (vrsta === 'ponudbe') {
+        return `
+          <div class="panel">
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline gap-2 flex-wrap">
+                  <span class="badge badge-green">Ponudba</span>
+                  ${x.stevilka ? `<span class="text-sm text-stone-500">${x.stevilka}</span>` : ''}
+                </div>
+                <div class="font-semibold mt-1">${x.naziv || '(brez stranke)'}</div>
+                <div class="text-sm text-stone-600">${x['ponudba-naslov'] || ''}</div>
+                <div class="text-xs text-stone-500 mt-1">Shranjeno: ${Storage.formatDate(x._created)}</div>
+              </div>
+              <div class="flex gap-2">
+                <a href="ponudba.html?id=${x._id}" class="btn btn-secondary">Odpri</a>
+                <button class="btn btn-ghost" onclick="izbrisi('${x._id}')">Izbriši</button>
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const detail = x.tip === 'epr' ? `Skupaj: ${x.skupaj}` :
+                       x.tip === 'predpo' ? `Razlika: ${x.razlika}` :
+                       x.tip === 'roi' ? `Neto: ${x.neto}` :
+                       x.tip === 'paketi' ? `Skupaj: ${x.skupaj}, paketi: ${(x.izbrani||[]).join(', ')}` : '';
+        return `
+          <div class="panel">
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div class="flex-1 min-w-0">
+                <div class="flex items-baseline gap-2">
+                  <span class="badge badge-blue">${x.naslov}</span>
+                  ${x.opomba ? `<span class="font-semibold">${x.opomba}</span>` : ''}
+                </div>
+                <div class="text-sm mt-1">${detail}</div>
+                <div class="text-xs text-stone-500 mt-1">Shranjeno: ${Storage.formatDate(x._created)}</div>
+              </div>
+              <button class="btn btn-ghost" onclick="izbrisi('${x._id}')">Izbriši</button>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function izbrisi(id) {
+      if (!confirm('Izbrišem ta zapis?')) return;
+      Storage.removeFromList(vrsta, id);
+      render();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

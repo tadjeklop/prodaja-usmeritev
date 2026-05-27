@@ -1,0 +1,92 @@
+{
+  "_opis": "Discovery vprašanja po sklopih. Na sestanku ne sprašuj vseh — izberi 8-12 najboljših glede na panogo in odločevalca.",
+  "sklopi": [
+    {
+      "naslov": "Kontekst podjetja",
+      "namen": "Razumeti velikost, panogo, regionalno prisotnost.",
+      "vprasanja": [
+        "Kaj točno daje vaše podjetje na slovenski trg — lastni izdelki, uvoz, distribucija?",
+        "V katerih drugih državah ste še prisotni? (SI, HR, RS, druge EU)",
+        "Koliko lokacij imate v Sloveniji?",
+        "Približne letne količine: koliko ton ali kosov izdelkov daste letno na trg?",
+        "Kako se je obseg spremenil v zadnjih 12 mesecih?"
+      ]
+    },
+    {
+      "naslov": "Embalaža",
+      "namen": "Razumeti EPR obveznost za embalažo.",
+      "vprasanja": [
+        "Katere vrste embalaže uporabljate — papir/karton, plastika, steklo, kovina, les, kompoziti?",
+        "Ali poznate okvirne letne količine po posamezni vrsti?",
+        "Kdo trenutno pripravlja letno poročilo o embalaži?",
+        "Imate kakšno specifično embalažo, ki vas skrbi (kompoziti, problematični materiali)?",
+        "Ali so vas kupci spraševali po Made for Recycling ali podobnih certifikatih?"
+      ]
+    },
+    {
+      "naslov": "Druge EPR sheme",
+      "namen": "Preveriti, ali ima stranka obveznosti, ki jih morda ne pozna.",
+      "vprasanja": [
+        "Ali uvažate ali dajete na trg elektronske naprave? (EE-oprema)",
+        "Ali so v vaših izdelkih baterije ali akumulatorji?",
+        "Ali se srečujete z odpadnimi olji, gumami, vozili?",
+        "Kakšne odpadke iz proizvodnje danes oddajate?"
+      ]
+    },
+    {
+      "naslov": "Ravnanje z odpadki na lokaciji",
+      "namen": "Razumeti operativno sliko.",
+      "vprasanja": [
+        "Kateri so glavni tokovi odpadkov pri vas? (papir, folija, mešani, bio, nevarni)",
+        "Kdo trenutno opravlja odvoze?",
+        "Imate več izvajalcev ali enega?",
+        "Kje vas zatakne — prostor, pogostost odvoza, dokumentacija, cena?",
+        "Kakšne so vaše izkušnje z dosedanjimi izvajalci?",
+        "Ali bi želeli kakšen del oddati v upravljanje (npr. na ključ)?"
+      ]
+    },
+    {
+      "naslov": "Zakonodaja in poročanje",
+      "namen": "Preveriti tveganje skladnosti.",
+      "vprasanja": [
+        "Kdo pri vas spremlja spremembe okoljske zakonodaje?",
+        "Kdaj ste imeli zadnjo inšpekcijo in kakšne so bile ugotovitve?",
+        "Imate dokumentacijo zbrano na enem mestu?",
+        "Ali pravočasno oddajate vsa letna poročila (ARSO, evidence, EPR)?",
+        "Kakšne tveganje vidite v naslednjih 12 mesecih?"
+      ]
+    },
+    {
+      "naslov": "ESG in trajnost",
+      "namen": "Razumeti zunanje pritiske.",
+      "vprasanja": [
+        "Ali vam kupci ali banke že zahtevajo ESG podatke ali poročila?",
+        "Imate trajnostno strategijo ali cilje?",
+        "Kdo pri vas pokriva ESG / trajnost?",
+        "Katere certifikate, standardi ali sheme uporabljate? (ISO 14001, EMAS, BCorp, Made for Recycling)"
+      ]
+    },
+    {
+      "naslov": "Stroški in cena",
+      "namen": "Postaviti realno izhodišče za ponudbo.",
+      "vprasanja": [
+        "Imate predstavo o letnem strošku trenutnega ravnanja z odpadki?",
+        "Koliko plačujete za EPR shemo?",
+        "Kje vas trenutno boli najbolj — pavšali, transport, kazni, presežki?",
+        "Kakšen je vaš pričakovan proračun za tovrstne storitve?",
+        "Ali iščete prihranek, predvidljivost ali samo skladnost?"
+      ]
+    },
+    {
+      "naslov": "Odločitveni proces",
+      "namen": "Razumeti, kdo, kako in kdaj odloča.",
+      "vprasanja": [
+        "Kdo pri vas mora dati zeleno luč za tako odločitev?",
+        "Kako poteka pri vas izbor dobaviteljev — javno povabilo, primerjava, neformalno?",
+        "Kakšen je vaš pričakovan rok za odločitev?",
+        "Imate trenutno pogodbo z drugim izvajalcem in do kdaj velja?",
+        "Kaj bi za vas pomenilo, da je projekt uspešen po 12 mesecih?"
+      ]
+    }
+  ]
+}

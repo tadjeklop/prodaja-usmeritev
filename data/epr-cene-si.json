@@ -1,0 +1,67 @@
+{
+  "_opis": "Okvirne stopnje prispevka za skupno shemo ravnanja z odpadno embalažo v Sloveniji, po vrsti materiala. POMEMBNO: To so PLACEHOLDER vrednosti za demo kalkulacije. Pred uporabo v ponudbi za stranko nujno zamenjaj z aktualnimi Interzero cenami.",
+  "_opozorilo": "Te številke morajo biti zamenjane s pravimi Interzero cenovniki.",
+  "_zadnja_revizija": "2026-05 (placeholder)",
+  "_enota": "EUR / kg embalaže, dane na trg",
+  "materiali": [
+    { "id": "papir-karton", "naziv": "Papir in karton",       "cena_eur_kg": 0.045, "opomba": "Najnižja stopnja, ker se dobro reciklira." },
+    { "id": "plastika",     "naziv": "Plastika (skupna)",     "cena_eur_kg": 0.180, "opomba": "Stopnja se razlikuje glede na vrsto plastike (PET, HDPE, PP, PS, druga)." },
+    { "id": "plastika-pet", "naziv": "Plastika — PET",        "cena_eur_kg": 0.150 },
+    { "id": "plastika-pp",  "naziv": "Plastika — PP/HDPE",    "cena_eur_kg": 0.190 },
+    { "id": "plastika-druga","naziv": "Plastika — druga",     "cena_eur_kg": 0.250, "opomba": "Slabše recikljiva plastika ima višjo stopnjo." },
+    { "id": "steklo",       "naziv": "Steklo",                "cena_eur_kg": 0.030 },
+    { "id": "kovina-fe",    "naziv": "Kovina — železo/jeklo", "cena_eur_kg": 0.060 },
+    { "id": "kovina-al",    "naziv": "Kovina — aluminij",     "cena_eur_kg": 0.080 },
+    { "id": "les",          "naziv": "Les",                   "cena_eur_kg": 0.020 },
+    { "id": "kompozit",     "naziv": "Kompozitna embalaža",   "cena_eur_kg": 0.220, "opomba": "Težje recikljiva, višja stopnja." }
+  ],
+  "paketi_storitev": [
+    {
+      "id": "osnovni",
+      "naziv": "Osnovni paket EPR",
+      "vsebina": [
+        "Vključitev v skupno shemo ravnanja z odpadno embalažo.",
+        "Letno poročanje količin v ARSO.",
+        "Obvestila o spremembah zakonodaje (kvartalno).",
+        "Telefonska in email podpora med delovnim časom."
+      ],
+      "primeren_za": "Manjši proizvajalci/uvozniki, do okvirno 50 ton embalaže letno.",
+      "okvirna_cena_letno": "od 1.200 EUR"
+    },
+    {
+      "id": "razsirjeni",
+      "naziv": "Razširjeni paket EPR + odpadki",
+      "vsebina": [
+        "Vse iz osnovnega paketa.",
+        "Operativno ravnanje z odpadki na lokaciji (odvozi, ločevanje, dokumentacija).",
+        "Kvartalni pregled stroškov in priložnosti.",
+        "Podpora pri inšpekcijah."
+      ],
+      "primeren_za": "Srednje stranke z 1-3 lokacijami in mešanimi odpadki.",
+      "okvirna_cena_letno": "od 6.000 EUR"
+    },
+    {
+      "id": "regionalni",
+      "naziv": "Regionalni paket (SI + HR + RS)",
+      "vsebina": [
+        "Vse iz razširjenega paketa za vse 3 države.",
+        "En kontakt, ena pogodba, koordinacija obveznosti v vseh državah.",
+        "Polletni pregled regionalnih sprememb zakonodaje."
+      ],
+      "primeren_za": "Podjetja, ki prodajajo v več državah Adria regije.",
+      "okvirna_cena_letno": "od 15.000 EUR"
+    },
+    {
+      "id": "svetovalni",
+      "naziv": "Svetovalni paket (ESG / strategija)",
+      "vsebina": [
+        "Analiza embalaže in priporočila (recyclability, Made for Recycling).",
+        "Podpora pri ESG vprašalnikih in CSRD pripravi.",
+        "Strategija krožnega gospodarstva za podjetje.",
+        "Periodični strokovni delavnice z vašo HSE / trajnostno ekipo."
+      ],
+      "primeren_za": "Podjetja z naprednimi trajnostnimi cilji ali zahtevami kupcev.",
+      "okvirna_cena_letno": "od 8.000 EUR (dodatek k osnovnim paketom)"
+    }
+  ]
+}

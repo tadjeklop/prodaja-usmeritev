@@ -1,0 +1,93 @@
+{
+  "_opis": "Govori in skripte po scenariju. Vsak govor je samostojen blok, ki ga lahko prodajalec kopira in prilagodi.",
+  "scenariji": [
+    {
+      "id": "hladen-klic",
+      "naziv": "Hladen klic / prvi telefonski stik",
+      "namen": "Dobiti 20-minutni sestanek, ne prodati storitve po telefonu.",
+      "trajanje": "60–90 sekund",
+      "govori": [
+        {
+          "naslov": "Standardni uvod",
+          "tekst": "Dober dan, [ime stranke]. Tukaj [vaše ime] iz Interzero Slovenija. Kličem zato, ker delamo s podjetji, ki dajejo izdelke ali embalažo na trg, in jim urejamo EPR obveznosti, ravnanje z odpadki in poročanje na enem mestu. Pri večini podjetij vašega tipa vidimo, da se to danes razprši med različne dobavitelje in oddelke, kar prinese več dela in večje tveganje. Imate 10 minut, da preverim, ali bi tudi za vas imelo smisel pogovor?"
+        },
+        {
+          "naslov": "Če reče: 'To že imamo urejeno'",
+          "tekst": "Razumem, večina podjetij ima nekaj urejenega. Mene zanima samo eno vprašanje: če vas jutri pokliče inšpektor in vpraša za zadnje poročilo o embalaži in odpadkih, kdo bi mu lahko v 24 urah dal vse, kar potrebuje? Če imate to brez težav, super. Če pa je odgovor 'odvisno, koga ujamem v pisarni', mislim, da bi 20-minutni pogovor lahko bil koristen."
+        },
+        {
+          "naslov": "Če reče: 'Pošljite mi gradivo'",
+          "tekst": "Lahko, ampak iskreno: splošno gradivo vam ne bo veliko povedalo, ker je vsako podjetje drugačno glede na embalažo, lokacije in obveznosti. Lažje vam je, če 15 minut pogledava skupaj, kaj velja za vas konkretno. Potem vam pošljem samo tisto, kar je za vas relevantno. Kdaj v naslednjih dveh tednih bi imeli 15 minut?"
+        }
+      ]
+    },
+    {
+      "id": "prvi-sestanek",
+      "naziv": "Prvi sestanek pri stranki",
+      "namen": "Razumeti kontekst, vzpostaviti zaupanje, dogovoriti naslednji korak.",
+      "trajanje": "45–60 minut, struktura: 5 + 25 + 10 + 10",
+      "govori": [
+        {
+          "naslov": "Uvod (5 minut)",
+          "tekst": "Hvala za čas. Predlagam, da delava takole: jaz vam v dveh minutah razložim, kdo smo in s kakšnimi podjetji delamo, potem pa bi rad razumel vašo situacijo — kaj imate trenutno urejeno, kje vas zatika in kaj bi želeli izboljšati. Na koncu se bova dogovorila, ali je smiselno iti naprej, in če ja, kako. Vam to ustreza?"
+        },
+        {
+          "naslov": "Kdo smo (1 minuta)",
+          "tekst": "Interzero je del evropske skupine za okoljske storitve. V Sloveniji urejamo EPR obveznosti, ravnanje z odpadki, embalažo, sekundarne surovine, poročanje in svetovanje — torej celoten krog od trenutka, ko izdelek pristane na trgu, do trenutka, ko se materiali vrnejo v gospodarstvo. V regiji delujemo v Sloveniji, na Hrvaškem in v Srbiji, kar je pomembno za stranke, ki prodajajo na več trgih."
+        },
+        {
+          "naslov": "Prehod v discovery",
+          "tekst": "Da bi vam lahko jaz danes res nekaj koristnega povedal, bi rad najprej razumel, kako vi to danes urejate. Predlagam, da gremo skozi nekaj kratkih vprašanj — ne tehničnih, bolj poslovnih. Nato vam povem, kaj bi pri vašem primeru imelo smisel."
+        },
+        {
+          "naslov": "Po discoveryju, prehod v predstavitev",
+          "tekst": "Na podlagi tega, kar ste povedali, vidim tri glavne stvari, ki bi jih lahko skupaj uredili: [naštej tri konkretne]. Predlagam, da vam zdaj v 10 minutah pokažem, kako bi to izgledalo v praksi. Če bo vmes kaj nejasnega, me kar ustavite."
+        },
+        {
+          "naslov": "Zaključek in naslednji korak",
+          "tekst": "Da bi šli korak naprej, predlagam tole: pošljite mi [konkreten podatek — količine embalaže, lokacije, kontakt operative], jaz vam pripravim oceno in se naslednji teden vidimo še za 30 minut, da pregleva. Vam to deluje? Lahko vam ta datum že rezerviram?"
+        }
+      ]
+    },
+    {
+      "id": "predstavitev",
+      "naziv": "Predstavitev rešitve",
+      "namen": "Povezati bolečine z Interzero rešitvijo, ne predstaviti kataloga.",
+      "trajanje": "10–20 minut",
+      "govori": [
+        {
+          "naslov": "Splošni okvir",
+          "tekst": "Tipično pri stranki vašega profila imamo tri sklope storitev, ki delujejo skupaj. Prvi je urejanje EPR obveznosti — torej da kot proizvajalec ali uvoznik izpolnite zakonske zahteve glede embalaže, EE-opreme ali baterij. Drugi je operativno ravnanje z odpadki na lokaciji — odvozi, ločevanje, dokumentacija. Tretji je poročanje in podpora — letna poročila, ESG vprašalniki, podpora pri inšpekcijah in spremembah zakonodaje. Kateri od teh sklopov je za vas trenutno najbolj boleč?"
+        },
+        {
+          "naslov": "Kratka prodajna zgodba (iz strateškega dokumenta)",
+          "tekst": "Pri večini podjetij se ravnanje z odpadki, embalaža, poročanje in zakonodajne obveznosti razvijajo po delih. Nekaj ureja operativa, nekaj računovodstvo, nekaj HSE, nekaj zunanji izvajalci. Težava nastane, ko se spremeni zakonodaja, ko se odpre nova lokacija ali ko vodstvo vpraša, koliko nas to dejansko stane in kje imamo tveganja. Naš pristop je, da najprej pregledamo trenutno stanje, potem pa uredimo model, ki je pravilen za lokalni trg in dovolj pregleden za vodstvo. Cilj ni prodati čim več posameznih storitev, ampak postaviti rešitev, ki podjetju zmanjša delo, tveganje in nepotrebne stroške."
+        }
+      ]
+    },
+    {
+      "id": "follow-up",
+      "naziv": "Follow-up emaili",
+      "namen": "Vzdrževati moment in dokumentirati dogovore.",
+      "trajanje": "—",
+      "govori": [
+        {
+          "naslov": "Po prvem sestanku",
+          "tekst": "Pozdravljeni [ime],\n\nhvala za današnji čas. Da povzamem, o čemer sva se dogovorila:\n\n• Glavne teme, ki ste jih izpostavili: [seznam].\n• Predlagana rešitev z naše strani: [kratek opis].\n• Naslednji korak: [konkreten korak, datum].\n• Podatki, ki jih pošljete: [konkreten seznam].\n\nČe sem kaj pomembnega izpustil, mi prosim sporočite. Sicer računam, da se slišiva [datum].\n\nLep pozdrav,\n[ime]"
+        },
+        {
+          "naslov": "Po poslani ponudbi",
+          "tekst": "Pozdravljeni [ime],\n\npriložena je ponudba za [obseg]. Glavna logika je naslednja:\n\n• [Točka 1 — ključna vrednost]\n• [Točka 2 — ključna vrednost]\n• [Točka 3 — ključna vrednost]\n\nVeljavnost ponudbe je [datum]. Predlagam, da se v začetku prihodnjega tedna slišiva za 15 minut, da odgovorim na morebitna vprašanja. Vam ustreza [datum/ura]?\n\nLep pozdrav,\n[ime]"
+        },
+        {
+          "naslov": "Po neodzivnosti (po 7–10 dneh)",
+          "tekst": "Pozdravljeni [ime],\n\nse vam oglašam, ker še nisem prejel povratne informacije glede ponudbe za [obseg]. Razumem, da je obdobje pri vas verjetno polno. Mene v tem trenutku zanima samo eno: ali še ima smisel, da pričakujem odgovor, ali je trenutno tema premaknjena na kasneje? Oba odgovora sta zame koristna.\n\nLep pozdrav,\n[ime]"
+        },
+        {
+          "naslov": "Po neodzivnosti — drugi poskus (po 3 tednih)",
+          "tekst": "Pozdravljeni [ime],\n\ngrem mimo z eno preprosto možnostjo: če se v naslednjem tednu ne slišiva, bom to temo zaprl iz svojega aktivnega seznama in se vrnem čez tri mesece. Če pa želite, da nadaljujeva že zdaj, mi prosim odgovorite na to sporočilo z 'da' — tudi brez razlage. Razumem, da je tih signal lahko tudi odgovor.\n\nLep pozdrav,\n[ime]"
+        }
+      ]
+    }
+  ]
+}

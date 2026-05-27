@@ -1,0 +1,88 @@
+{
+  "_opis": "Pregled ključne EPR in okoljske zakonodaje na Hrvaškem. Datumi in določila se spreminjajo — pred uporabo v ponudbi PREVERI veljavno verzijo na zakon.hr in mingor.gov.hr. To je orodje za prodajalca, ne pravni vir.",
+  "_zadnja_revizija": "2026-05",
+  "_opozorilo": "Pred pomembnimi odločitvami preveri trenutno veljavne predpise pri Ministarstvu gospodarstva i održivog razvoja (MINGOR) ali Fondu za zaštitu okoliša i energetsku učinkovitost (FZOEU).",
+  "sklopi": [
+    {
+      "naslov": "EPR — splošno",
+      "vsebina": "EPR (proširena odgovornost proizvođača) na Hrvaškem ureja Zakon o gospodarenju otpadom (NN 84/2021 z dopolnitvami) in vrsta podzakonskih pravilnikov. Sistem upravljanja izvaja FZOEU — Fond za zaštitu okoliša i energetsku učinkovitost, ki je državni javni sklad.",
+      "koga_zavezuje": "Proizvajalce in uvoznike izdelkov v zadevnih tokovih (embalaža, EE-oprema, baterije, gume, vozila, olja). Tudi spletni prodajalci, ki prodajajo končnim potrošnikom v HR.",
+      "kljucne_obveznosti": [
+        "Vpis v register FZOEU pred dajanjem izdelkov na trg.",
+        "Letno poročanje količin (Obrazac PL-PROIZ).",
+        "Plačilo prispevkov v FZOEU oziroma vključitev v operaterja sheme.",
+        "Označevanje izdelkov skladno z določili posameznih tokov."
+      ]
+    },
+    {
+      "naslov": "Embalaža in odpadna embalaža",
+      "vsebina": "Pravilnik o ambalaži i otpadnoj ambalaži (NN 88/2015 z dopolnitvami). Hrvaška ima sistem povratne kavcije za PET, Al, steklene boče (depozitni sustav).",
+      "koga_zavezuje": "Vsi, ki dajejo embalirane izdelke prvič na hrvaški trg.",
+      "kljucne_obveznosti": [
+        "Vključitev v sistem upravljanja embalažo (FZOEU ali licencirani operater).",
+        "Pri pijačah pod določenimi pogoji: vključitev v sistem povratne kavcije.",
+        "Mesečno ali letno poročanje količin embalaže po materialih.",
+        "Plačilo prispevkov (naknada) FZOEU oziroma operaterju."
+      ],
+      "datumi_in_pragovi": "Manjši proizvajalci pod določenimi količinami imajo nekatere oprostitve — preveri trenutno veljavno verzijo Pravilnika."
+    },
+    {
+      "naslov": "EE-oprema (EE otpad)",
+      "vsebina": "Pravilnik o gospodarenju otpadnom električnom i elektroničkom opremom. Velja za skoraj vso EE opremo v 6 kategorijah.",
+      "koga_zavezuje": "Proizvajalce in uvoznike EE-opreme na Hrvaškem. Tudi spletne prodajalce (B2C).",
+      "kljucne_obveznosti": [
+        "Vpis v register proizvajalcev EE-opreme pri FZOEU.",
+        "Vključitev v shemo upravljanja oziroma individualni načrt.",
+        "Označevanje izdelkov (simbol prečrtanega zabojnika).",
+        "Letno poročanje količin po kategorijah."
+      ]
+    },
+    {
+      "naslov": "Baterije in akumulatorji",
+      "vsebina": "Pravilnik o gospodarenju otpadnim baterijama i akumulatorima. Pokriva prenosne, industrijske in avtomobilske baterije. EU Uredba 2023/1542 prinaša nove zahteve, ki se postopno uveljavljajo tudi v HR.",
+      "koga_zavezuje": "Proizvajalce in uvoznike baterij ali izdelkov z baterijami.",
+      "kljucne_obveznosti": [
+        "Registracija proizvajalca baterij pri FZOEU.",
+        "Vključitev v shemo prevzema.",
+        "Označevanje baterij.",
+        "Letno poročanje količin."
+      ]
+    },
+    {
+      "naslov": "Druge EPR sheme",
+      "vsebina": "Na Hrvaškem obstajajo še EPR sheme za odpadne gume, izrabljena vozila, odpadna olja, odpadna zdravila, odpadne sveče.",
+      "koga_zavezuje": "Vsakega proizvajalca/uvoznika v zadevnih kategorijah."
+    },
+    {
+      "naslov": "Letno poročanje",
+      "vsebina": "Zavezanci morajo do 1. marca naslednjega leta oddati letna poročila o ravnanju z odpadki in/ali količinah, danih na trg, prek FZOEU portala.",
+      "datumi_in_pragovi": "1. marec za prejšnje koledarsko leto. Preveri vsako leto — datumi se občasno spreminjajo."
+    },
+    {
+      "naslov": "e-ONTO sistem",
+      "vsebina": "Hrvaška ima poseben elektronski sistem za sledenje odpadkov v gospodarstvu — e-ONTO (Očevidnik nastanka, prijevoza i obrade otpada). Vsi proizvajalci odpadkov in prevozniki morajo biti vključeni.",
+      "koga_zavezuje": "Podjetja, ki proizvajajo, prevažajo ali obdelujejo odpadke.",
+      "kljucne_obveznosti": [
+        "Registracija v e-ONTO sistem.",
+        "Sprotno evidentiranje gibanja odpadkov v sistemu.",
+        "Vsaka oddaja odpadkov mora biti dokumentirana z elektronskim PROO obrazcem."
+      ],
+      "datumi_in_pragovi": "e-ONTO je obvezen — neuporaba je sankcionirana."
+    },
+    {
+      "naslov": "PPWR — nova EU Uredba o embalaži",
+      "vsebina": "Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi v Hrvaški od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.",
+      "koga_zavezuje": "Vse, ki dajejo embalirane izdelke na trg EU, vključno s Hrvaško."
+    },
+    {
+      "naslov": "ESG in CSRD",
+      "vsebina": "EU direktiva o trajnostnem poročanju (CSRD) postopno uvaja obvezno poročanje. V Hrvaški velja za podjetja, ki izpolnjujejo merila (število zaposlenih, prihodki, bilanca). Manjši dobavitelji bodo posredno prizadeti prek dobaviteljskih verig."
+    }
+  ],
+  "viri": [
+    { "naziv": "Zakon.hr — predpisi", "url": "https://zakon.hr" },
+    { "naziv": "FZOEU — Fond za zaštitu okoliša", "url": "https://www.fzoeu.hr" },
+    { "naziv": "MINGOR — Ministarstvo gospodarstva", "url": "https://mingor.gov.hr" },
+    { "naziv": "Interzero Hrvaška", "url": "https://interzero.hr" }
+  ]
+}

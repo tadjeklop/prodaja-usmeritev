@@ -1,0 +1,241 @@
+{
+  "_opis": "Predloge za hitro generiranje ponudbe. Uredi podatke o podjetju in privzete tekste, da ti ne bo treba pisati od nič.",
+  "ponudnik": {
+    "naziv": "Interzero d.o.o.",
+    "naslov": "Linhartova cesta 6, 1000 Ljubljana, Slovenija",
+    "kontakt_email": "info@interzero.si",
+    "kontakt_telefon": "+386 (0)1 560 35 50",
+    "web": "interzero.si",
+    "ddv": "SI XXXXXXXX"
+  },
+  "veljavnost_dni": 30,
+  "splosni_pogoji": "Cene so v EUR brez DDV, razen kjer je drugače navedeno. Ponudba ne predstavlja zavezujoče ponudbe v smislu OZ. Pogodba začne veljati s podpisom obeh strank. Stranka je odgovorna za pravočasno posredovanje vseh podatkov, ki so potrebni za izvajanje storitev. Za točnost podatkov, posredovanih s strani naročnika, jamči naročnik.",
+  "uvodno_pismo": "Spoštovani,\n\nzahvaljujemo se za zaupanje in zanimanje za sodelovanje z Interzero. V nadaljevanju vam predstavljamo predlog rešitve, pripravljen na podlagi pogovora in podatkov, ki ste nam jih posredovali.\n\nNamen te ponudbe ni le predstaviti ceno, ampak pokazati, kako lahko skupaj uredimo vaše obveznosti, zmanjšamo administracijo in postavimo dolgoročno trajen model. Veseli bomo, če bomo lahko podrobnosti predstavili tudi osebno.",
+  "predloge": [
+    {
+      "id": "epr-osnovni",
+      "naslov": "EPR osnovni paket",
+      "povzetek_resitve": "Vključitev v skupno shemo ravnanja z odpadno embalažo, letno poročanje in podpora pri zakonodaji. Vse vaše EPR obveznosti pokrije Interzero, brez dodatne administracije z vaše strani.",
+      "obseg_storitev": [
+        "Vpis stranke v skupno shemo Interzero.",
+        "Mesečno/kvartalno poročanje količin embalaže, dane na trg.",
+        "Letno poročilo o ravnanju z odpadno embalažo (oddaja v ARSO).",
+        "Obvestila o spremembah zakonodaje (kvartalno).",
+        "Telefonska in email podpora med delovnim časom."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Mesečni ali kvartalni podatki o količinah embalaže po materialih.",
+        "Letni promet izdelkov za potrebe izračuna stopnje recikliranja.",
+        "Pravočasno obveščanje o spremembah v asortimanu."
+      ]
+    },
+    {
+      "id": "epr-razsirjen",
+      "naslov": "EPR razširjeni paket + ravnanje z odpadki",
+      "povzetek_resitve": "Celovita rešitev, ki združuje EPR obveznosti z operativnim ravnanjem z odpadki na vaših lokacijah. En partner za vse — ena pogodba, en kontakt, en račun.",
+      "obseg_storitev": [
+        "Vse iz osnovnega paketa EPR.",
+        "Operativno ravnanje z odpadki na lokaciji (odvozi, ločevanje, dokumentacija).",
+        "Periodična optimizacija pretokov odpadkov in stroškov.",
+        "Kvartalni pregled stroškov in priložnosti za prihranek.",
+        "Podpora pri inšpekcijah, audit pripravljenost, vodenje dokumentacije."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Dostop do lokacij za pregled (en ali dva dni).",
+        "Trenutne pogodbe z dosedanjimi izvajalci.",
+        "Kontaktna oseba za operativno usklajevanje."
+      ]
+    },
+    {
+      "id": "regionalni",
+      "naslov": "Regionalni paket (SI + HR + RS)",
+      "povzetek_resitve": "Enotna rešitev za podjetja, ki prodajajo v več državah Adria regije. En partner skrbi za zakonodajne razlike, lokalne sheme in poročanje v vseh treh državah.",
+      "obseg_storitev": [
+        "Vse iz razširjenega paketa za vse tri države (Slovenija, Hrvaška, Srbija).",
+        "Koordinacija obveznosti v vseh državah, kjer ste prisotni.",
+        "En kontakt za vse tri trge, ena pogodba.",
+        "Polletni pregled regionalnih sprememb zakonodaje.",
+        "Pomoč pri ESG poročanju za B2B kupce in dobavne verige."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Pregled prodaje po državah (vrednostno in količinsko).",
+        "Trenutni statusi vključitve v sheme (če obstajajo).",
+        "Lokalne kontaktne osebe v vsaki državi (operativa)."
+      ]
+    },
+    {
+      "id": "svetovalni",
+      "naslov": "Svetovalni paket (ESG / trajnost / strategija)",
+      "povzetek_resitve": "Za podjetja z naprednimi trajnostnimi cilji ali zahtevami velikih B2B kupcev. Strokovna podpora pri ESG, analizi embalaže in trajnostni strategiji.",
+      "obseg_storitev": [
+        "Analiza embalaže s priporočili (recyclability, Made for Recycling).",
+        "Podpora pri ESG vprašalnikih in CSRD pripravi.",
+        "Strategija krožnega gospodarstva za podjetje.",
+        "Periodični strokovni delavnice z vašo HSE / trajnostno ekipo.",
+        "Dostop do mreže strokovnjakov za specifična vprašanja."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Trenutne trajnostne dokumente in poročila.",
+        "Specifikacijo zahtev vaših kupcev (npr. SAQ, EcoVadis).",
+        "Določeno kontaktno osebo (npr. ESG manager, HSE lead)."
+      ]
+    },
+    {
+      "id": "sektor-fmcg",
+      "sektor": true,
+      "naslov": "FMCG paket — proizvodnja hitro premikajočega blaga",
+      "povzetek_resitve": "Specializiran paket za FMCG proizvajalce in distributerje: velik volumen embalaže, pogoste menjave izdelkov, zahteve trgovskih verig po Made for Recycling, ESG poročanje za B2B kupce. Vse na enem mestu.",
+      "obseg_storitev": [
+        "Vključitev v skupno EPR shemo za embalažo (vse materiali).",
+        "Mesečno poročanje količin po SKU in materialu.",
+        "Made for Recycling analiza za top 20 SKU-jev letno.",
+        "ESG paket: pripravljeni odgovori za EcoVadis in SAQ velikih trgovskih verig.",
+        "Kvartalni pregled stroškov in priložnosti za optimizacijo embalaže.",
+        "Podpora pri PPWR pripravah (cutoff 2027 in 2030)."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "SKU katalog z opisi embalaže.",
+        "Mesečne količine po izdelku.",
+        "Trenutne ESG zahteve vaših top 5 kupcev.",
+        "Kontaktna oseba v marketingu / sustainability."
+      ],
+      "okvirna_cena_letno": "od 18.000 EUR",
+      "primeren_za": "Srednji do veliki FMCG proizvajalci z 20+ SKU-jev"
+    },
+    {
+      "id": "sektor-ecommerce",
+      "sektor": true,
+      "naslov": "E-commerce paket — spletna prodaja",
+      "povzetek_resitve": "Za spletne trgovce, ki prodajajo v več državah. Pokriva EPR obveznosti v SI/HR/RS, transportno embalažo, reusable packaging trend, ESG izjave za B2B kupce.",
+      "obseg_storitev": [
+        "Registracija in EPR shema v vseh državah prodaje.",
+        "EU pooblaščeni zastopnik (Authorized Representative), kjer je potreben.",
+        "Sistematizacija transportne embalaže (karton, folija, vrečke).",
+        "Predloga ESG izjave za B2B kupce.",
+        "Opozorila o spremembah lokalne zakonodaje v vseh državah prodaje."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Seznam držav prodaje in pričakovanih količin.",
+        "Trenutni dobavitelji embalaže.",
+        "Volumen po B2C in B2B kanalu."
+      ],
+      "okvirna_cena_letno": "od 9.000 EUR",
+      "primeren_za": "Spletne trgovine s prodajo v 2+ državah ali pričakovanim hitra rastjo"
+    },
+    {
+      "id": "sektor-kozmetika",
+      "sektor": true,
+      "naslov": "Kozmetika paket — nega in lepota",
+      "povzetek_resitve": "Specializiran paket za kozmetiko: kompozitna embalaža, hitre menjave SKU-jev, sezonske promocije, PPWR pritisk velikih verig na recyclability.",
+      "obseg_storitev": [
+        "EPR shema za embalažo (vse materiali, vključno s kompoziti).",
+        "Made for Recycling analiza vseh SKU-jev z letnim pregledom.",
+        "Svetovanje pri prehodu na bolj recikljive materiale (mono-material, recyclate).",
+        "Priprava na PPWR cutoff 2027 in 2030 (recyclability razredi A-E).",
+        "Podpora pri zahtevah verig (Müller, dm, Spar) glede embalaže."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Katalog izdelkov s tehničnimi specifikacijami embalaže.",
+        "Letne količine po SKU.",
+        "Zahteve vaših glavnih kupcev (verige, izvoz)."
+      ],
+      "okvirna_cena_letno": "od 14.000 EUR",
+      "primeren_za": "Kozmetični proizvajalci z 50+ SKU-jev ali izvoznim deležem"
+    },
+    {
+      "id": "sektor-elektronika",
+      "sektor": true,
+      "naslov": "Elektronika paket — EE-oprema in baterije",
+      "povzetek_resitve": "Za uvoznike in proizvajalce elektronike: EPR sheme za EE-opremo IN baterije IN embalažo na enem mestu. Posebna podpora pri novi EU Uredbi o baterijah (2023/1542).",
+      "obseg_storitev": [
+        "Vključitev v 3 sheme: embalaža, EE-oprema, baterije.",
+        "Letno poročanje v vseh treh sistemih.",
+        "Označevanje izdelkov skladno z zakonodajo.",
+        "Priprava na Digital Product Passport (najprej baterije, kasneje EE).",
+        "Podpora pri inšpekcijah in komunikaciji z ARSO."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Katalog uvoženih izdelkov s tehničnimi specifikacijami.",
+        "Letne količine po kategoriji.",
+        "Informacije o baterijah v izdelkih (vrsta, kapaciteta)."
+      ],
+      "okvirna_cena_letno": "od 11.000 EUR",
+      "primeren_za": "Uvozniki ali proizvajalci EE-opreme oziroma izdelkov z baterijami"
+    },
+    {
+      "id": "sektor-industrija",
+      "sektor": true,
+      "naslov": "Industrija paket — proizvodne lokacije",
+      "povzetek_resitve": "Za industrijske proizvajalce z velikimi količinami mešanih odpadkov: operativno ravnanje + EPR + sekundarne surovine (potencialni prihranek).",
+      "obseg_storitev": [
+        "Pregled vseh tokov odpadkov in identifikacija sekundarnih surovin.",
+        "Operativno ravnanje z odpadki (odvozi, ločevanje, dokumentacija).",
+        "Vključitev v EPR sheme za embalažo (transportna).",
+        "ESG poročanje za B2B kupce in matično podjetje (Scope 3).",
+        "Kvartalna optimizacija — manj odpadkov, več sekundarnih surovin."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Pregled trenutnih odvozov in izvajalcev.",
+        "Lokacije in tipi odpadkov.",
+        "Trenutni stroški ravnanja z odpadki."
+      ],
+      "okvirna_cena_letno": "od 22.000 EUR",
+      "primeren_za": "Industrijski proizvajalci z 1+ lokacijo in mešanimi tokovi odpadkov"
+    },
+    {
+      "id": "sektor-gradbenistvo",
+      "sektor": true,
+      "naslov": "Gradbeništvo paket — gradnja in proizvodnja gradbenih materialov",
+      "povzetek_resitve": "Za gradbena podjetja in proizvajalce gradbenih materialov: posebna zakonodaja za gradbene odpadke, embalaža materialov (palete, folije, vreče), nova pravila o ravnanju.",
+      "obseg_storitev": [
+        "Razumevanje gradbenih odpadkov in zakonskih zahtev po lokacijah.",
+        "EPR za embalažo gradbenih materialov.",
+        "Sodelovanje z lokalnimi izvajalci na gradbiščih.",
+        "Dokumentacija primerna za javna naročila in inšpekcije.",
+        "Svetovanje pri sekundarnih surovinah (gradbeni odpadki, ki postanejo surovina)."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Pregled lokacij in tipov projektov.",
+        "Letni promet gradbenih materialov.",
+        "Trenutni pristop k ravnanju z gradbenimi odpadki."
+      ],
+      "okvirna_cena_letno": "od 16.000 EUR",
+      "primeren_za": "Gradbena podjetja in proizvajalci gradbenih materialov"
+    },
+    {
+      "id": "sektor-horeca",
+      "sektor": true,
+      "naslov": "HoReCa paket — hoteli, restavracije, catering",
+      "povzetek_resitve": "Za gostinske obrate in hotelske verige: bio odpadki, embalaža iz hrane, steklo, sezonska nihanja. Več lokacij pod isto znamko.",
+      "obseg_storitev": [
+        "Operativno ravnanje z odpadki za vse lokacije.",
+        "EPR za embalažo živil in pijač.",
+        "Sodelovanje z lokalnimi izvajalci (komunalna podjetja).",
+        "Sezonska prilagoditev urnikov odvozov.",
+        "ESG poročanje za hotelske verige z B2B kupci (poslovni gostje, agencije)."
+      ],
+      "kaj_potrebujemo_od_stranke": [
+        "Seznam lokacij in sezonske obremenitve.",
+        "Trenutni izvajalci po lokacijah.",
+        "Letni promet hrane in pijač (za EPR oceno)."
+      ],
+      "okvirna_cena_letno": "od 7.500 EUR",
+      "primeren_za": "Hotelske in restavracijske verige z 2+ lokacijama"
+    }
+  ],
+  "tipicna_resitev_blocks": {
+    "kaj_dobite": [
+      "Manj administrativnega dela vaše ekipe.",
+      "Predvidljive mesečne stroške brez nenadnih nihanj.",
+      "Profesionalno podporo pri spremembah zakonodaje.",
+      "Pripravljenost na inšpekcijo v vsakem trenutku.",
+      "En kontakt za vse vaše obveznosti."
+    ],
+    "zakaj_interzero": [
+      "Več kot 30 let izkušenj v Evropi, lokalna prisotnost v Sloveniji.",
+      "Pokrivamo celoten krog: zakonodaja, ravnanje, poročanje, surovine.",
+      "Mednarodna mreža za podjetja s prodajo v več državah.",
+      "Stabilen partner z dolgoročnim sodelovanjem s strankami."
+    ]
+  }
+}

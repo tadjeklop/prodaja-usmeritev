@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalkulacije — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.kalkulacije.title">Kalkulacije</h1>
+      <p class="mt-2 text-stone-600">Štirje kalkulatorji za pripravo ponudbe. Cene so okvirne in jih ureja <code>data/epr-cene-si.json</code>.</p>
+    </header>
+
+    <div class="bg-amber-50 border border-amber-200 rounded p-3 text-sm mb-6">
+      <strong>Pozor:</strong> Vse cene so trenutno <em>placeholder</em> vrednosti za demo. Pred uporabo v pravi ponudbi zamenjaj številke v <code>data/epr-cene-si.json</code> z aktualnimi Interzero cenovniki.
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="epr">EPR taksa</button>
+      <button class="tab" data-tab="predpo">Pred / po</button>
+      <button class="tab" data-tab="roi">ROI / business case</button>
+      <button class="tab" data-tab="paketi">Paketi storitev</button>
+    </div>
+
+    <!-- TAB: EPR TAKSA -->
+    <section data-panel="epr">
+      <div class="panel">
+        <h2 class="text-lg font-semibold mb-2">EPR taksa po vrsti embalaže</h2>
+        <p class="text-sm text-stone-600 mb-4">Vnesi okvirne letne količine po materialu. Dobiš oceno letne EPR obveznosti.</p>
+        <div id="epr-materiali" class="space-y-2"></div>
+        <div class="mt-6 p-4 bg-stone-100 rounded">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold">Skupna ocena letne EPR takse</div>
+            <div class="text-2xl font-bold text-green-800" id="epr-skupaj">—</div>
+          </div>
+          <div class="text-xs text-stone-600 mt-1" id="epr-skupaj-detail"></div>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button class="btn btn-secondary" onclick="shraniIzracun('epr')">💾 Shrani v zgodovino</button>
+          <button class="btn btn-ghost" onclick="window.print()">🖨️ Natisni</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: PRED PO -->
+    <section data-panel="predpo" class="hidden">
+      <div class="panel">
+        <h2 class="text-lg font-semibold mb-2">Primerjava pred / po</h2>
+        <p class="text-sm text-stone-600 mb-4">Trenutni letni stroški stranke vs. ocena z Interzero rešitvijo.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold mb-2">Trenutno stanje (letno)</h3>
+            <div class="space-y-2">
+              <div><label class="label">Plačila za ravnanje z odpadki</label><input id="pred-odpadki" type="number" class="input" placeholder="0" /></div>
+              <div><label class="label">EPR shema / prispevki</label><input id="pred-epr" type="number" class="input" placeholder="0" /></div>
+              <div><label class="label">Interno delo (ure × cena ure)</label><input id="pred-delo" type="number" class="input" placeholder="0" /></div>
+              <div><label class="label">Drugi stroški (kazni, presežki, druga svetovanja)</label><input id="pred-drugo" type="number" class="input" placeholder="0" /></div>
+            </div>
+            <div class="mt-3 p-3 bg-stone-100 rounded font-semibold">Skupaj danes: <span id="pred-skupaj">—</span></div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Z Interzero rešitvijo (letno)</h3>
+            <div class="space-y-2">
+              <div><label class="label">Interzero paket</label><input id="po-paket" type="number" class="input" placeholder="0" /></div>
+              <div><label class="label">Preostali zunanji stroški</label><input id="po-zunanji" type="number" class="input" placeholder="0" /></div>
+              <div><label class="label">Interno delo (manjše)</label><input id="po-delo" type="number" class="input" placeholder="0" /></div>
+            </div>
+            <div class="mt-3 p-3 bg-green-50 border border-green-200 rounded font-semibold">Skupaj po: <span id="po-skupaj">—</span></div>
+          </div>
+        </div>
+        <div class="mt-6 p-4 bg-stone-100 rounded">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold">Razlika (potencialni prihranek)</div>
+            <div class="text-2xl font-bold" id="razlika">—</div>
+          </div>
+          <div class="text-sm text-stone-600 mt-1" id="razlika-pct"></div>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button class="btn btn-secondary" onclick="shraniIzracun('predpo')">💾 Shrani v zgodovino</button>
+          <button class="btn btn-ghost" onclick="window.print()">🖨️ Natisni</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: ROI -->
+    <section data-panel="roi" class="hidden">
+      <div class="panel">
+        <h2 class="text-lg font-semibold mb-2">ROI / business case</h2>
+        <p class="text-sm text-stone-600 mb-4">Pogled na celoten učinek za vodstvo: prihranek, čas, manj tveganja.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div><label class="label">Letni strošek Interzero rešitve</label><input id="roi-cena" type="number" class="input" placeholder="0" /></div>
+          <div><label class="label">Letni prihranek na stroških</label><input id="roi-prihranek" type="number" class="input" placeholder="0" /></div>
+          <div><label class="label">Prihranek interne ekipe (€)</label><input id="roi-cas" type="number" class="input" placeholder="0" /></div>
+          <div><label class="label">Vrednost zmanjšanja tveganja (€)</label><input id="roi-tveganje" type="number" class="input" placeholder="0" /></div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="p-4 bg-stone-100 rounded text-center">
+            <div class="text-xs uppercase text-stone-500">Neto letni učinek</div>
+            <div class="text-2xl font-bold mt-1" id="roi-neto">—</div>
+          </div>
+          <div class="p-4 bg-stone-100 rounded text-center">
+            <div class="text-xs uppercase text-stone-500">ROI</div>
+            <div class="text-2xl font-bold mt-1" id="roi-pct">—</div>
+          </div>
+          <div class="p-4 bg-stone-100 rounded text-center">
+            <div class="text-xs uppercase text-stone-500">Doba povračila</div>
+            <div class="text-2xl font-bold mt-1" id="roi-povracilo">—</div>
+          </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-blue-50 border border-blue-200 rounded text-sm">
+          <strong>Kako uporabiti pri stranki:</strong> ne začni s tabelo. Najprej razloži, kaj sploh upoštevamo (in česa ne — npr. blagovne znamke, manj stresa pri inšpekciji). Številke imajo pomen šele, ko stranka razume, kaj predstavljajo.
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button class="btn btn-secondary" onclick="shraniIzracun('roi')">💾 Shrani v zgodovino</button>
+          <button class="btn btn-ghost" onclick="window.print()">🖨️ Natisni</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB: PAKETI -->
+    <section data-panel="paketi" class="hidden">
+      <div class="panel">
+        <h2 class="text-lg font-semibold mb-4">Paketi storitev</h2>
+        <p class="text-sm text-stone-600 mb-4">Izberi kombinacijo paketov za to stranko. Cene so izhodišča, ne končne.</p>
+        <div id="paketi-seznam" class="space-y-3"></div>
+        <div class="mt-6 p-4 bg-stone-100 rounded">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold">Skupna ocena (letno, izhodišče)</div>
+            <div class="text-2xl font-bold text-green-800" id="paketi-skupaj">—</div>
+          </div>
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button class="btn btn-secondary" onclick="shraniIzracun('paketi')">💾 Shrani v zgodovino</button>
+          <button class="btn btn-ghost" onclick="window.print()">🖨️ Natisni</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/kalkulacije.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+{
+  "_opis": "Segmentacija strank po MOTIVACIJI in ŽIVLJENJSKI FAZI ODNOSA — ne samo po velikosti ali panogi. Vsak segment zahteva drugačno komunikacijo, drugačno ponudbo in drugačen scenarij.",
+  "_filozofija": "Stranka ni 'mala', 'srednja' ali 'velika'. Stranka je 'tisto, kar jo žene'. Eno podjetje istih dimenzij lahko spada v dva različna segmenta — odvisno od tega, zakaj nas potrebuje danes.",
+  "_kako_uporabiti": [
+    "Vsako aktivno stranko označi z enim segmentom v modulu Stranke.",
+    "Pred prvim sestankom hipotiziraj segment iz panoge in velikosti. Na sestanku potrdi ali popravi.",
+    "Vsak segment ima priporočene govore, ugovore, pakete in case studies — preusmerimo te na te vire.",
+    "Stranka lahko migrira med segmenti. Kriza-driven stranka po enem letu pogosto postane Compliance pragmatist."
+  ],
+  "dimenzije": {
+    "velikost": ["malo", "srednje", "veliko"],
+    "panoga": ["FMCG", "ecommerce", "industrija", "trgovina", "kozmetika", "elektronika", "farmacija", "HoReCa", "tekstil", "gradbenistvo", "agrarno", "logistika"],
+    "geografija": ["SI", "HR", "RS", "multi-Adria", "EU export"],
+    "faza_odnosa": ["prospekt", "novi (do 1 leta)", "uveljavljen (1-3 leta)", "strateški partner (3+ let)"]
+  },
+  "segmenti": [
+    {
+      "id": "compliance",
+      "kratko": "Compliance pragmatik",
+      "barva": "blue",
+      "polni_naziv": "Pragmatik, ki želi biti skladen s čim manj truda",
+      "opis": "Pozna EPR obveznosti, ne želi se z njimi ukvarjati. Cilj: 'plačam, vi vse uredite'. Cena pomembna, vendar ne najpomembnejša — pomembnejša je preprostost.",
+      "indikatorji": [
+        "Sami pravijo: 'kar pač moramo, da nas pustijo na miru'.",
+        "Niso aktivno trajnostno angažirani, nimajo ESG strategije.",
+        "Imajo HSE / pravno osebo, ki to vodi 'med drugim'.",
+        "Pričakujejo, da partner pošlje pripravljen obrazec — ne diskutirajo o filozofiji."
+      ],
+      "tipicni_odlocevalec": "operativa, finance",
+      "tipicen_cikel": "1-3 mesece (kratki, jasni)",
+      "ce_je_to_segment": "Govori jezik OPRAVIČIL pred zakonom. Ne začni z ESG ali trajnostjo. Začni z 'naj uredim, ti pa se ukvarjaj s tem, kar znaš najbolje'.",
+      "ce_ni_ta_segment": "Če stranka ima sustainability ekipo ali aktiven ESG vprašalnik — to NI compliance pragmatik. Premakni v ESG-driven.",
+      "povezave": {
+        "paketi": ["osnovni"],
+        "govori_id": ["hladen-klic", "prvi-sestanek"],
+        "ugovori_kategorije": ["cena", "ni-cas", "podatki"],
+        "reference_id": ["mala-pavsal", "fmcg-srednje"],
+        "vsebine_teme": ["regulator", "praksa"]
+      }
+    },
+    {
+      "id": "cost-optimizer",
+      "kratko": "Optimizator stroškov",
+      "barva": "amber",
+      "polni_naziv": "Finančno usmerjen — pričakuje prihranek, ne 'dodano vrednost'",
+      "opis": "CFO ali nabavni vodja odloča. Vsaka storitev je merjena z 'koliko nas to stane'. Pripravljen je menjati partnerja za nižjo ceno, vendar ceni stabilnost.",
+      "indikatorji": [
+        "Prvo vprašanje: 'koliko stane?'",
+        "Primerjajo več ponudb hkrati.",
+        "Imajo natančno mesečno predračunavanje.",
+        "Sodelovanje so začeli zaradi cene, ne odnosa."
+      ],
+      "tipicni_odlocevalec": "finance, nabava, CFO",
+      "tipicen_cikel": "3-6 mesecev (potrebujejo natančne primerjave)",
+      "ce_je_to_segment": "Pripravi ROI tabelo, primerjavo pred/po, total cost of ownership. Ne začni z 'mi smo strateški partner'. Začni z 'mi vam pokažemo, koliko in zakaj'.",
+      "ce_ni_ta_segment": "Če odločevalec ni iz financ ali jih cena ne zanima toliko kot rezultat — to ni cost-optimizer.",
+      "povezave": {
+        "paketi": ["osnovni", "razsirjeni"],
+        "govori_id": ["predstavitev"],
+        "ugovori_kategorije": ["cena", "obstojeci-dobavitelj", "razlikovanje"],
+        "reference_id": ["industrija-velika", "trgovina-veriga", "mala-pavsal"],
+        "vsebine_teme": ["praksa", "komunikacija"]
+      }
+    },
+    {
+      "id": "esg",
+      "kratko": "ESG-driven",
+      "barva": "green",
+      "polni_naziv": "Pod pritiskom kupcev, bank ali matičnega podjetja",
+      "opis": "Glavni voznik ni notranja motivacija — je B2B kupec, banka, javni naročnik ali matično podjetje. Stranke pridejo z 'morali bomo dokazati X'. Hitrost odločanja je visoka, ker imajo rok.",
+      "indikatorji": [
+        "Omenjajo SAQ, EcoVadis, CSRD, Scope 3, Made for Recycling.",
+        "Imajo sustainability manager ali ESG poročilo v pripravi.",
+        "Pritiska gre od njihovih kupcev, ne od regulative.",
+        "Pripravljeni so plačati premium, če to reši njihov B2B problem."
+      ],
+      "tipicni_odlocevalec": "sustainability, vodstvo, marketing",
+      "tipicen_cikel": "1-4 mesece (rok od kupca = rok pri njih)",
+      "ce_je_to_segment": "Začni z 'mi vam pomagamo odgovoriti na X'. Pokaži referenco s podobnim primerom. Made for Recycling certifikat je glavni 'wedge' za vstop.",
+      "ce_ni_ta_segment": "Če omenijo ESG kot 'lepo bi bilo', ne pa kot 'moramo' — to še ni ESG-driven. To je še compliance ali cost-optimizer.",
+      "povezave": {
+        "paketi": ["svetovalni", "regionalni"],
+        "govori_id": ["predstavitev", "prvi-sestanek"],
+        "ugovori_kategorije": ["esg", "nejasna-vrednost", "regulativna"],
+        "reference_id": ["ecommerce-regionalno", "kozmetika-ppwr", "farmacija-skladnost"],
+        "vsebine_teme": ["ekodizajn", "ppwr"]
+      }
+    },
+    {
+      "id": "regional",
+      "kratko": "Multi-Adria igralec",
+      "barva": "purple",
+      "polni_naziv": "Prodaja v vsaj 2 državah Adria regije ali ima EU izvoz",
+      "opis": "Kompleksnost regulative v več državah je glavna bolečina. En partner, ena pogodba je glavna prodajna prednost. Cenovna občutljivost je manjša, ker je 'organizacijska bolečina' večja.",
+      "indikatorji": [
+        "Spletna stran v več jezikih.",
+        "Skladišča/podružnice v vsaj 2 državah.",
+        "Imajo lokalne EPR pogodbe v vsaki državi posebej (kar je trenutno boleče).",
+        "Vodstvo razmišlja regionalno, ne lokalno."
+      ],
+      "tipicni_odlocevalec": "vodstvo, nabava na centrali",
+      "tipicen_cikel": "4-9 mesecev (več notranjih odločevalcev v različnih državah)",
+      "ce_je_to_segment": "Začni s 'koliko držav, koliko različnih pogodb, koliko različnih kontaktov'. Slika konsolidacije pove več kot številke.",
+      "ce_ni_ta_segment": "Če prodajajo samo v eni državi — pomakni v ustrezen segment glede na motivacijo (compliance/cost/ESG).",
+      "povezave": {
+        "paketi": ["regionalni"],
+        "govori_id": ["predstavitev"],
+        "ugovori_kategorije": ["razlikovanje", "obstojeci-dobavitelj", "tveganje"],
+        "reference_id": ["ecommerce-regionalno"],
+        "vsebine_teme": ["regulator", "praksa"]
+      }
+    },
+    {
+      "id": "kriza",
+      "kratko": "Kriza-driven",
+      "barva": "stone",
+      "polni_naziv": "Pod inšpekcijskim ali kupcev pritiskom — potrebujejo TAKOJ",
+      "opis": "Stranka je v težavah: opomin ARSO, izgubljen velik kupec, retroaktivno poročanje. Cikel je hiter, vrednost ponudbe višja, vendar je odnos krhek — če rešimo problem, postanejo dolgoročni; če ne, izginejo.",
+      "indikatorji": [
+        "Klic 'imamo težavo, lahko pomagate?'",
+        "Konkretne časovne stiske — dnevi, ne meseci.",
+        "Pripravljeni plačati 'kar je treba', dokler je rešeno.",
+        "Lahko pridejo prek konkurenta, ki ni zmogel rešiti."
+      ],
+      "tipicni_odlocevalec": "vodstvo, pravna služba, HSE",
+      "tipicen_cikel": "1-4 tedne (urgentno)",
+      "ce_je_to_segment": "Najprej preveri obseg težave, šele potem pakete. Ne začni s prodajo — začni s 'kaj točno se je zgodilo'. Eksperti morajo biti v 24 urah na zvezi.",
+      "ce_ni_ta_segment": "Po rešitvi problema (3-6 mesecev) postanejo običajno compliance pragmatik ali cost-optimizer. Migracija segmenta.",
+      "povezave": {
+        "paketi": ["razsirjeni", "svetovalni"],
+        "govori_id": ["prvi-sestanek"],
+        "ugovori_kategorije": ["zakonodaja", "tveganje", "kakovost"],
+        "reference_id": ["farmacija-skladnost", "elektronika-baterije"],
+        "vsebine_teme": ["komunikacija", "praksa"]
+      }
+    },
+    {
+      "id": "strateski",
+      "kratko": "Strateški partner",
+      "barva": "blue",
+      "polni_naziv": "Veliki, dolgoročni, trajnostni voditelj v svoji panogi",
+      "opis": "Najbolj zahteven in najbolj donosen segment. Pričakujejo strateški dialog, ne 'pošljite ponudbo'. Cena je instrument, ne kriterij. Pričakujejo deljenje znanja, prisotnost na njihovih dogodkih, skupne projekte.",
+      "indikatorji": [
+        "Javno objavljajo trajnostne cilje (Net Zero, krožno gospodarstvo).",
+        "Vodstvo aktivno govori o ESG.",
+        "Sodelujejo z univerzami, javnimi inštitucijami.",
+        "Pričakujejo, da bomo predlagali, ne le izvajali."
+      ],
+      "tipicni_odlocevalec": "vodstvo, sustainability lead, board",
+      "tipicen_cikel": "6-18 mesecev (počasni, vendar najtrdnejši)",
+      "ce_je_to_segment": "Govori v jeziku strategije, ne taktike. Pripravi 3-letno vizijo, ne ponudbe za eno leto. Predlagaj skupne projekte, ki krepijo njihovo blagovno znamko.",
+      "ce_ni_ta_segment": "Tudi velika podjetja niso vedno strateški partnerji. Če je nakup zgolj prek nabave brez vodstvene angažiranosti — to je le 'veliki cost-optimizer'.",
+      "povezave": {
+        "paketi": ["regionalni", "svetovalni"],
+        "govori_id": ["predstavitev"],
+        "ugovori_kategorije": ["razlikovanje", "nejasna-vrednost"],
+        "reference_id": ["industrija-velika", "kozmetika-ppwr"],
+        "vsebine_teme": ["ppwr", "ekodizajn"]
+      }
+    },
+    {
+      "id": "novi",
+      "kratko": "Novi začetnik",
+      "barva": "amber",
+      "polni_naziv": "Šele odkriva, da ima EPR obveznosti — potrebuje izobraževanje",
+      "opis": "Pogosto starter, e-commerce, hitra rast. Niso vedeli, da so zavezanci. Trenutek odkritja je hkrati strah in priložnost. Najprej potrebujejo razumevanje — šele nato ponudbo.",
+      "indikatorji": [
+        "Vprašanja so osnovna: 'kaj sploh je EPR?'",
+        "Mladi tim, marketing-driven podjetje.",
+        "Pred kratkim začeli z izvozom v EU ali rasli prek pragov.",
+        "Pogosto pridejo prek priporočila ali web search."
+      ],
+      "tipicni_odlocevalec": "lastnik, vodstvo (1-2 osebi)",
+      "tipicen_cikel": "2-4 mesece (zaupanje je glavna ovira, ne cena)",
+      "ce_je_to_segment": "Glosar je tvoj prijatelj. Onboarding pristop. Začni z izobraževanjem, šele nato s ponudbo. Pošlji jih na vodič in glosar.",
+      "ce_ni_ta_segment": "Če podjetje že ima EPR pogodbo z drugim — niso 'novi začetnik', so v drugem segmentu.",
+      "povezave": {
+        "paketi": ["osnovni"],
+        "govori_id": ["hladen-klic", "prvi-sestanek"],
+        "ugovori_kategorije": ["ne-razumem", "podatki", "majhno"],
+        "reference_id": ["mala-pavsal", "elektronika-baterije"],
+        "vsebine_teme": ["regulator", "komunikacija"]
+      }
+    }
+  ],
+  "kvalifikacija": {
+    "_opis": "Hitri kvalifikacijski vprašalnik za segmentacijo. Vprašaj 4 vprašanja na prvem stiku, dobiš hipotezo segmenta.",
+    "vprasanja": [
+      {
+        "id": "motivacija",
+        "vprasanje": "Kaj je glavni razlog, da o tem zdaj razmišljate?",
+        "moznosti": [
+          { "odgovor": "Zakonska obveznost, nič več, nič manj", "tezi": ["compliance"] },
+          { "odgovor": "Optimizacija stroškov, ki jih trenutno imamo", "tezi": ["cost-optimizer"] },
+          { "odgovor": "Kupec/banka/centrala je zahtevala podatke", "tezi": ["esg"] },
+          { "odgovor": "Prodajamo v več državah, potrebujemo skupno rešitev", "tezi": ["regional"] },
+          { "odgovor": "Imamo konkretno težavo, ki jo moramo rešiti hitro", "tezi": ["kriza"] },
+          { "odgovor": "Dolgoročna strategija trajnosti", "tezi": ["strateski"] },
+          { "odgovor": "Nismo vedeli, da to potrebujemo", "tezi": ["novi"] }
+        ]
+      },
+      {
+        "id": "casovni-okvir",
+        "vprasanje": "V kakšnem časovnem okviru bi morali to imeti urejeno?",
+        "moznosti": [
+          { "odgovor": "Včeraj (urgentno)", "tezi": ["kriza"] },
+          { "odgovor": "1-3 mesece", "tezi": ["compliance", "esg"] },
+          { "odgovor": "3-6 mesecev", "tezi": ["cost-optimizer", "novi"] },
+          { "odgovor": "6+ mesecev, strateški projekt", "tezi": ["strateski", "regional"] }
+        ]
+      },
+      {
+        "id": "odlocevalec",
+        "vprasanje": "Kdo bo pri vas odločal?",
+        "moznosti": [
+          { "odgovor": "Operativa / HSE", "tezi": ["compliance"] },
+          { "odgovor": "Finance / CFO / nabava", "tezi": ["cost-optimizer"] },
+          { "odgovor": "Sustainability / ESG vodja", "tezi": ["esg"] },
+          { "odgovor": "Vodstvo / lastnik", "tezi": ["strateski", "novi"] },
+          { "odgovor": "Pravna služba", "tezi": ["kriza", "compliance"] }
+        ]
+      },
+      {
+        "id": "kontekst",
+        "vprasanje": "V kolikih državah ste prisotni s prodajo?",
+        "moznosti": [
+          { "odgovor": "Samo Slovenija", "tezi": [] },
+          { "odgovor": "Slovenija + ena soseda", "tezi": ["regional"] },
+          { "odgovor": "Več Adria držav", "tezi": ["regional"] },
+          { "odgovor": "Izvažamo v EU", "tezi": ["regional", "esg"] }
+        ]
+      }
+    ]
+  }
+}

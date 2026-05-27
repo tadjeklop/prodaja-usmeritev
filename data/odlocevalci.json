@@ -1,0 +1,73 @@
+{
+  "_opis": "Tipi odločevalcev / sogovornikov pri stranki. Vsak želi slišati drugačno zgodbo.",
+  "odlocevalci": [
+    {
+      "id": "operativa",
+      "naziv": "Operativa / vodja proizvodnje / vodja logistike",
+      "kaj_jih_skrbi": "Manj težav v vsakdanjem delu, manj prekinitev, manj prostora za odpadke, jasne odgovornosti, zanesljivi izvajalci.",
+      "ne_govori_jim_o": ["abstraktnih ESG trendih", "kompleksnih pravnih razlagah"],
+      "pravi_argumenti": [
+        "Manj klicev z izvajalci in zbiralci.",
+        "Jasno določene odgovornosti in roki odvozov.",
+        "En kontakt namesto več dobaviteljev.",
+        "Praktične rešitve za prostor in pretok odpadkov."
+      ],
+      "kljucna_vprasanja": [
+        "Kdo pri vas dnevno skrbi za odpadke?",
+        "Kje vas največkrat zatakne — prostor, odvoz, dokumentacija?",
+        "Kdo vas pokliče, ko gre kaj narobe?"
+      ]
+    },
+    {
+      "id": "finance",
+      "naziv": "Finance / kontroling / nabava",
+      "kaj_jih_skrbi": "Nadzor stroškov, predvidljivost, pogodbene jasnosti, primerljive ponudbe, neto učinek na bilanco.",
+      "ne_govori_jim_o": ["operativnih detajlih, ki jih ne zanimajo", "neformalnih dogovorih"],
+      "pravi_argumenti": [
+        "Predvidljivi mesečni stroški namesto skokov.",
+        "En račun, ena pogodba, en nasprotni stranek.",
+        "Možnost paketov in popustov pri večletnih dogovorih.",
+        "Manj skritih stroškov zaradi napačnega ravnanja ali kazni."
+      ],
+      "kljucna_vprasanja": [
+        "Kako trenutno predvidite letne stroške ravnanja z odpadki in EPR taksami?",
+        "Ali imate jasen pregled, koliko plačujete kateremu izvajalcu?",
+        "Kateri del trenutno najbolj niha?"
+      ]
+    },
+    {
+      "id": "vodstvo",
+      "naziv": "Vodstvo / direktor / lastnik",
+      "kaj_jih_skrbi": "Manj tveganja, zunanji ugled, skladnost, da ne pride do težav, dobro ime, regionalni nastop.",
+      "ne_govori_jim_o": ["detajlih operative", "tehničnih specifikacijah"],
+      "pravi_argumenti": [
+        "Manj tveganja pri inšpekcijah in spremembah zakonodaje.",
+        "Profesionalen partner z znanimi referencami.",
+        "Pomoč pri ESG poročanju za kupce in banke.",
+        "Ena rešitev za vse trge, kjer ste prisotni."
+      ],
+      "kljucna_vprasanja": [
+        "Kje vidite največja tveganja v naslednjem letu?",
+        "Ali kupci že zahtevajo trajnostna poročila?",
+        "Kdo pri vas spremlja spremembe zakonodaje?"
+      ]
+    },
+    {
+      "id": "hse",
+      "naziv": "HSE / sustainability / pravna služba",
+      "kaj_jih_skrbi": "Skladnost, pravilna dokumentacija, sledljivost, podpora pri spremembah zakonodaje, strokoven partner.",
+      "ne_govori_jim_o": ["zgolj o ceni", "improvizaciji"],
+      "pravi_argumenti": [
+        "Točna in pravočasna poročila.",
+        "Spremljanje zakonodaje in opozarjanje na spremembe.",
+        "Dokumentacija primerna za inšpekcijo in revizijo.",
+        "Pomoč pri Made for Recycling, recyclability, ESG vprašalnikih."
+      ],
+      "kljucna_vprasanja": [
+        "Kateri zakonski okvir vas trenutno najbolj obremenjuje?",
+        "Kako spremljate spremembe zakonodaje?",
+        "Kakšna dokumentacija vam manjka, ko pride inšpektor?"
+      ]
+    }
+  ]
+}

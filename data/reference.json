@@ -1,0 +1,168 @@
+{
+  "_opis": "Knjižnica referenc in primerov uporabe. Vse so ANONIMIZIRANE oblike (ne pravo ime stranke) — uporabne kot okvir prodajne zgodbe. Pred uporabo s konkretnim imenom potrebuješ pisno dovoljenje stranke.",
+  "_filozofija": "Referenca ni 'mi smo veliki in cool'. Referenca je 'tvoja zgodba je podobna tej zgodbi'. Vedno prilagodi panogi in velikosti stranke, ki te posluša.",
+  "_kako_uporabiti": [
+    "V predstavitvi vstavi 2-3 specifične reference, ne kataloga.",
+    "Vedno povej kontekst: 'Pri primerljivem podjetju iz vaše panoge...' Stranka mora videti vzporednico.",
+    "Po sestanku predlagaj pisno verzijo case study — to je dober follow-up.",
+    "Reference, kjer stranka dovoli ime, so vedno močnejše. Sproti pridobivaj dovoljenja."
+  ],
+  "primeri": [
+    {
+      "id": "fmcg-srednje",
+      "panoga": "FMCG / proizvodnja",
+      "velikost": "Srednje (200 zaposlenih, 8 SKU-jev)",
+      "izziv": "Tri različni dobavitelji za odpadke, ena interna oseba je 30 % časa porabila za EPR poročanje, vsako leto težave z marčevskim rokom.",
+      "kaj_smo_naredili": [
+        "Vključitev v skupno EPR shemo (embalaža + EE-oprema za promocijska darila).",
+        "Konsolidacija ravnanja z odpadki na enega izvajalca prek Interzero.",
+        "Avtomatizirano kvartalno poročanje s podatki iz njihovega ERP-a."
+      ],
+      "rezultat": [
+        "Notranja oseba sprostila 80 % časa za druge naloge.",
+        "Marčevski rok ni več stresen — poročilo se pripravi v 2 dneh.",
+        "15 % nižji skupni letni stroški (z upoštevanjem stroška interne ekipe)."
+      ],
+      "trajanje": "Implementacija 3 mesece, polni učinek po 6 mesecih.",
+      "ki_je_uporabna_za": "Stranke z 1-2 lokacijama, srednje velike, ki imajo interno HSE/admin osebo."
+    },
+    {
+      "id": "ecommerce-regionalno",
+      "panoga": "E-commerce",
+      "velikost": "Hitra rast — 50 zaposlenih, 3 trgi (SI, HR, RS)",
+      "izziv": "Mednarodna prodaja, različne EPR zahteve v vsaki državi, nihče v podjetju ni razumel polnega obsega obveznosti. Kupci iz Nemčije so zahtevali ESG izjavo.",
+      "kaj_smo_naredili": [
+        "Pregled obveznosti v vseh treh državah.",
+        "Vključitev v lokalne sheme prek Interzero mreže.",
+        "Centraliziran sistem poročanja, en kontakt za vse tri države.",
+        "Priprava ESG izjave za nemške B2B kupce."
+      ],
+      "rezultat": [
+        "Vse tri trge skladne z 6 meseci.",
+        "Pridobili pogodbo z nemškim kupcem, ki je zahteval ESG dokazila.",
+        "Brez koncentracije znanja v eni interni osebi."
+      ],
+      "trajanje": "4 meseci do polne implementacije.",
+      "ki_je_uporabna_za": "Stranke, ki prodajajo v več državah ali so pod pritiskom velikih B2B kupcev."
+    },
+    {
+      "id": "industrija-velika",
+      "panoga": "Industrijska proizvodnja",
+      "velikost": "500+ zaposlenih, 3 lokacije v SI",
+      "izziv": "Več kot 12 različnih tokov odpadkov, 5 različnih izvajalcev za odvoze, HSE oddelek poročal, da porabi 40 % časa za 'dokumentiranje preteklosti' namesto za izboljšave.",
+      "kaj_smo_naredili": [
+        "Pregled vseh tokov odpadkov, kategorizacija.",
+        "Optimizacija — del odpadkov reklasificiran v sekundarne surovine (Interzero ih je odkupil).",
+        "Ena pogodba, en kontakt, mesečna konsolidirana fakturacija.",
+        "Kvartalna analiza priložnosti za prihranek."
+      ],
+      "rezultat": [
+        "Iz 5 izvajalcev na 1 + lokalni partnerji pod našim okriljem.",
+        "Letni prihranek 90.000 EUR (sekundarne surovine + manjši stroški administracije).",
+        "HSE oddelek sprostil 30 % časa za projekte izboljšav."
+      ],
+      "trajanje": "6 mesecev priprave + 3 mesece prehoda.",
+      "ki_je_uporabna_za": "Velika podjetja z mešanimi tokovi in več lokacijami."
+    },
+    {
+      "id": "farmacija-skladnost",
+      "panoga": "Farmacija / zdravstvo",
+      "velikost": "Distributer, 80 zaposlenih",
+      "izziv": "Po inšpekciji ugotovili pomanjkljivosti pri ravnanju z odpadno embalažo zdravil. Manjkala dokumentacija, tveganje kazni.",
+      "kaj_smo_naredili": [
+        "Audit dokumentacije, identifikacija vrzeli.",
+        "Vključitev v specializirano shemo za farmacevtsko embalažo.",
+        "Postavitev internih procesov za sledljivost.",
+        "Priprava na ponovno inšpekcijo."
+      ],
+      "rezultat": [
+        "Vse vrzeli odpravljene v 4 mesecih.",
+        "Ponovna inšpekcija brez ugotovitev.",
+        "Vzpostavljen sistem, ki obstoji tudi pri menjavi kadra."
+      ],
+      "trajanje": "4 mesece intenzivnega dela, nato redno vzdrževanje.",
+      "ki_je_uporabna_za": "Stranke v reguliranih panogah, ki so po inšpekciji ali pred njo."
+    },
+    {
+      "id": "trgovina-veriga",
+      "panoga": "Trgovina / veriga",
+      "velikost": "30 trgovin, 200+ zaposlenih",
+      "izziv": "Vsaka trgovina je imela svojega lokalnega zbiralca odpadkov. Ni bilo centralnega pregleda. Stroški so se vlekli, brez podatkov, ki bi pojasnili razlike.",
+      "kaj_smo_naredili": [
+        "Pregled vseh 30 lokacij, mapiranje izvajalcev in cen.",
+        "Konsolidacija — kjer je smiselno, en izvajalec za regionalne grupe trgovin.",
+        "Centralni pregled stroškov v real-time dashboardu.",
+        "Lokalni zbiralci so ostali pri pogodbi prek Interzero (kjer so dobri)."
+      ],
+      "rezultat": [
+        "11 % nižji povprečni strošek na trgovino.",
+        "Centralna nabava ima podatke za pogajanja s pogodbenimi partnerji.",
+        "Manjše trgovine niso več 'izgubljene' v pavšalnih pogodbah."
+      ],
+      "trajanje": "Faznega zagona 9 mesecev.",
+      "ki_je_uporabna_za": "Verige z več lokacijami in lokalnim zbiranjem odpadkov."
+    },
+    {
+      "id": "elektronika-baterije",
+      "panoga": "Elektronika / uvoz",
+      "velikost": "Manjši uvoznik, 25 zaposlenih",
+      "izziv": "Uvozili izdelke z baterijami, nezavedajoč se EPR obveznosti. Po prijavi konkurenta dobili klic ARSO.",
+      "kaj_smo_naredili": [
+        "Hitra registracija v sistem proizvajalcev baterij in EE-opreme.",
+        "Retroaktivno poročanje za zadnja 3 leta.",
+        "Vključitev v skupno shemo za naprej.",
+        "Pravna podpora pri komunikaciji z ARSO."
+      ],
+      "rezultat": [
+        "Kazen omiljena zaradi 'aktivnega sodelovanja' — namesto najvišje kategorije najnižja.",
+        "Vse retroaktivno urejeno v 6 tednih.",
+        "Stranka zdaj ima sistem, ki preprečuje, da se zgodi ponovno."
+      ],
+      "trajanje": "6 tednov urgentne faze, redno vzdrževanje naprej.",
+      "ki_je_uporabna_za": "Manjši uvozniki, ki niso vedeli za obveznosti — tipično prvi sestanek z ARSO klicem v rokavu."
+    },
+    {
+      "id": "kozmetika-ppwr",
+      "panoga": "Kozmetika / lepota",
+      "velikost": "Srednje podjetje, ena blagovna znamka, izvoz v 8 držav",
+      "izziv": "Veliko kompozitne embalaže (tube, multi-layer), zahteva velikih trgovskih verig po Made for Recycling oz. recyclability.",
+      "kaj_smo_naredili": [
+        "Analiza vseh SKU embalaž z vidika recyclability.",
+        "Priporočila za menjavo materialov pri najbolj problematičnih izdelkih.",
+        "Made for Recycling certifikat za 70 % asortimana.",
+        "Strategija prilagoditve na PPWR za naslednja 3 leta."
+      ],
+      "rezultat": [
+        "Pridobili pogodbo z verigo, ki je zahtevala MfR.",
+        "30 % manj kompozitne embalaže — manjši EPR strošek.",
+        "Stranka ima pripravljen načrt za PPWR uveljavitev."
+      ],
+      "trajanje": "12 mesecev (analiza + spremembe embalaže potrebujejo čas).",
+      "ki_je_uporabna_za": "Stranke z embalažo, ki je pod pritiskom velikih kupcev ali EU regulative."
+    },
+    {
+      "id": "mala-pavsal",
+      "panoga": "Manjši proizvajalec",
+      "velikost": "12 zaposlenih, do 20 ton embalaže letno",
+      "izziv": "Lastnik je sam vodil EPR poročanje, izgubljal ure na vsako trimesečje, ni bil prepričan, ali dela pravilno.",
+      "kaj_smo_naredili": [
+        "Vključitev v osnovni paket EPR.",
+        "30-minutni začetni intervju za pridobitev podatkov.",
+        "Avtomatizirano kvartalno poročanje na podlagi enostavnega Excel obrazca."
+      ],
+      "rezultat": [
+        "Lastnik sprostil 40 ur letno (kar je 1 delovni teden).",
+        "Pavšalni letni strošek storitve je nižji od vrednosti lastnikovega časa.",
+        "Brez skrbi pri inšpekciji."
+      ],
+      "trajanje": "Implementacija 2 tedna.",
+      "ki_je_uporabna_za": "Mala podjetja, ki mislijo, da so 'premajhna' za naše storitve."
+    }
+  ],
+  "kako_pridobiti_reference": [
+    "Po uspešnem prvem letu — vprašaj stranko za referenco. To je naravni trenutek.",
+    "Ponudi konkreten format: 1-stranski case study, ki ga ti pripraviš, stranka samo potrdi.",
+    "V zameno ponudi: nekaj manjšega (analiza embalaže brezplačno, kvartalni pregled).",
+    "Stranka, ki je dala referenco, bo verjetneje ostala dolgoročno (psihološki commitment)."
+  ]
+}

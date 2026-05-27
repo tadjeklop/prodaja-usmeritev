@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prodajni proces — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-6xl mx-auto px-6 py-10">
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold" data-i18n="page.proces.title">Prodajni proces — 10 faz</h1>
+      <p class="mt-2 text-stone-600">Skupen okvir za vse trge. Klikni fazo za podrobnosti: cilj, vprašanja, izhodi, CRM polja in tipičen rok.</p>
+    </header>
+
+    <div class="mb-6">
+      <ol id="faze-pregled" class="grid grid-cols-2 md:grid-cols-5 gap-2"></ol>
+    </div>
+
+    <div id="faza-detajli"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let PROCES = null;
+    let aktivna = 1;
+
+    async function init() {
+      PROCES = await loadData('proces');
+      if (!PROCES) {
+        document.getElementById('faza-detajli').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov. Aplikacijo poženi prek lokalnega strežnika.</p>';
+        return;
+      }
+      render();
+    }
+
+    function render() {
+      const pregled = PROCES.faze.map(f => `
+        <li>
+          <button class="w-full p-2 rounded text-left text-sm border ${f.stevilka === aktivna ? 'bg-green-50 border-green-600' : 'bg-white border-stone-200 hover:border-green-400'}"
+                  data-st="${f.stevilka}">
+            <div class="text-xs text-stone-500">Faza ${f.stevilka}</div>
+            <div class="font-semibold leading-tight">${f.naziv}</div>
+          </button>
+        </li>
+      `).join('');
+      document.getElementById('faze-pregled').innerHTML = pregled;
+
+      document.querySelectorAll('#faze-pregled button').forEach(b => {
+        b.addEventListener('click', () => { aktivna = parseInt(b.dataset.st); render(); window.scrollTo({ top: 200, behavior: 'smooth' }); });
+      });
+
+      const f = PROCES.faze.find(x => x.stevilka === aktivna);
+      document.getElementById('faza-detajli').innerHTML = `
+        <div class="panel">
+          <div class="flex items-baseline gap-3 mb-3">
+            <span class="badge badge-green">Faza ${f.stevilka}</span>
+            <h2 class="text-2xl font-bold">${f.naziv}</h2>
+          </div>
+          <p class="text-stone-700 mb-6"><strong>Cilj:</strong> ${f.cilj}</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 class="font-semibold mb-2">Ključna vprašanja</h3>
+              <ul class="list-disc pl-5 space-y-1 text-sm">
+                ${f.kljucna_vprasanja.map(v => `<li>${v}</li>`).join('')}
+              </ul>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-2">Obvezen izhod</h3>
+              <p class="text-sm bg-green-50 border border-green-200 rounded p-3">${f.obvezen_izhod}</p>
+
+              <h3 class="font-semibold mt-4 mb-2">Odgovoren</h3>
+              <p class="text-sm">${f.odgovoren}</p>
+
+              <h3 class="font-semibold mt-4 mb-2">Tipičen rok</h3>
+              <p class="text-sm">${f.tipicen_rok}</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h3 class="font-semibold mb-2">CRM polja</h3>
+            <div class="flex flex-wrap gap-2">
+              ${f.crm_polja.map(p => `<span class="badge badge-blue">${p}</span>`).join('')}
+            </div>
+          </div>
+
+          ${f.anti_vzorec ? `
+            <div class="mt-6 p-4 bg-red-50 border border-red-200 rounded">
+              <div class="text-xs font-semibold uppercase text-red-800 mb-1">Anti-vzorec (kaj se ne sme zgoditi)</div>
+              <div class="text-sm">${f.anti_vzorec}</div>
+            </div>
+          ` : ''}
+
+          <div class="mt-6 flex justify-between no-print">
+            <button class="btn btn-ghost" ${aktivna === 1 ? 'disabled' : ''} onclick="prejsnja()">← Prejšnja faza</button>
+            <button class="btn btn-primary" ${aktivna === PROCES.faze.length ? 'disabled' : ''} onclick="naslednja()">Naslednja faza →</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function prejsnja() { if (aktivna > 1) { aktivna--; render(); window.scrollTo({ top: 200, behavior: 'smooth' }); } }
+    function naslednja() { if (aktivna < PROCES.faze.length) { aktivna++; render(); window.scrollTo({ top: 200, behavior: 'smooth' }); } }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koledar vsebin — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .tema-ppwr { background: #dbeafe; color: #1e40af; }
+    .tema-regulator { background: #fef3c7; color: #92400e; }
+    .tema-praksa { background: #dcfce7; color: #166534; }
+    .tema-ekodizajn { background: #f3e8ff; color: #6b21a8; }
+    .tema-komunikacija { background: #fce7f3; color: #9d174d; }
+
+    .status-objavljeno { background: #e7e5e4; color: #44403c; }
+    .status-nacrtovano { background: #dbeafe; color: #1e40af; }
+    .status-osnutek { background: #fef3c7; color: #92400e; }
+
+    .drz-si { background: #dbeafe; color: #1e40af; }
+    .drz-hr { background: #f3e8ff; color: #6b21a8; }
+    .drz-rs { background: #fef3c7; color: #92400e; }
+    .drz-regional { background: #dcfce7; color: #166534; }
+
+    .teden-block { scroll-margin-top: 5rem; }
+    .teden-now { background: #ecfdf5; border-color: #2e7d32; }
+    .jezik-tabs { display: flex; gap: 0.25rem; margin-top: 0.5rem; }
+    .jezik-tab {
+      font-size: 0.7rem; padding: 0.125rem 0.5rem; border: 1px solid #d6d3d1;
+      background: white; border-radius: 0.25rem; cursor: pointer;
+    }
+    .jezik-tab.active { background: #1b5e20; color: white; border-color: #1b5e20; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <header class="mb-6 flex items-start justify-between gap-3 flex-wrap">
+      <div>
+        <h1 class="text-3xl font-bold" data-i18n="page.vsebine.title">Koledar vsebin</h1>
+        <p class="mt-2 text-stone-600 max-w-3xl">Predlogi LinkedIn objav z hooki za vsak trg posebej. Vsak hook prebere <strong>native speaker</strong> svojega jezika (sl/hr/sr).</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <button id="btn-beri-vse" class="speech-bulk-btn no-print" title="Bere vsako kartico v jeziku, ki je trenutno aktiven na njej">🔊 Beri vse prikazane</button>
+        <button id="btn-beri-si" class="speech-bulk-btn no-print" title="Vse v slovenščini">🇸🇮 Vse SI</button>
+        <button id="btn-beri-hr" class="speech-bulk-btn no-print" title="Vse v hrvaščini">🇭🇷 Vse HR</button>
+        <button id="btn-beri-sr" class="speech-bulk-btn no-print" title="Vse v srbščini">🇷🇸 Vse SR</button>
+      </div>
+    </header>
+
+    <!-- Statistike -->
+    <div id="stats" class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6"></div>
+
+    <!-- Filtri -->
+    <div class="panel mb-4">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div>
+          <label class="label">Status</label>
+          <select id="filter-status" class="select"><option value="">Vsi</option></select>
+        </div>
+        <div>
+          <label class="label">Tema</label>
+          <select id="filter-tema" class="select"><option value="">Vse</option></select>
+        </div>
+        <div>
+          <label class="label">Avtor</label>
+          <select id="filter-avtor" class="select"><option value="">Vsi</option></select>
+        </div>
+        <div>
+          <label class="label">Trg</label>
+          <select id="filter-drzava" class="select">
+            <option value="">Vsi</option>
+            <option value="SI">🇸🇮 Slovenija</option>
+            <option value="HR">🇭🇷 Hrvaška</option>
+            <option value="RS">🇷🇸 Srbija</option>
+            <option value="regional">🌍 Regionalno</option>
+          </select>
+        </div>
+        <div>
+          <label class="label">Pogled</label>
+          <select id="filter-pogled" class="select">
+            <option value="tedni">Po tednih</option>
+            <option value="seznam">Seznam</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vsebina -->
+    <div id="vsebina"></div>
+
+    <!-- Legenda na koncu -->
+    <div id="legenda" class="panel mt-8 text-sm"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null;
+    let aktivnaJezika = {}; // id → 'si'|'hr'|'sr'
+
+    async function init() {
+      DATA = await loadData('vsebine');
+      if (!DATA) {
+        document.getElementById('vsebina').innerHTML = '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
+        return;
+      }
+      napolniFiltre();
+      ['filter-status','filter-tema','filter-avtor','filter-drzava','filter-pogled'].forEach(id =>
+        document.getElementById(id).addEventListener('change', render)
+      );
+      document.getElementById('btn-beri-vse').addEventListener('click', () => beriVsePrikazane());
+      document.getElementById('btn-beri-si').addEventListener('click', () => beriVsePrikazane('si'));
+      document.getElementById('btn-beri-hr').addEventListener('click', () => beriVsePrikazane('hr'));
+      document.getElementById('btn-beri-sr').addEventListener('click', () => beriVsePrikazane('sr'));
+      renderLegenda();
+      render();
+    }
+
+    function napolniFiltre() {
+      const sS = document.getElementById('filter-status');
+      Object.entries(DATA.statusi).forEach(([k, v]) => sS.innerHTML += `<option value="${k}">${v.naziv}</option>`);
+      const sT = document.getElementById('filter-tema');
+      Object.entries(DATA.teme).forEach(([k, v]) => sT.innerHTML += `<option value="${k}">${v.naziv}</option>`);
+      const sA = document.getElementById('filter-avtor');
+      Object.entries(DATA.avtorji).forEach(([k, v]) => sA.innerHTML += `<option value="${k}">${v.ime}</option>`);
+    }
+
+    function trenutniTeden() {
+      const d = new Date();
+      const start = new Date(d.getFullYear(), 0, 1);
+      const diff = (d - start) / 86400000;
+      return Math.ceil((diff + start.getDay() + 1) / 7);
+    }
+
+    function filtriraj() {
+      const s = document.getElementById('filter-status').value;
+      const t = document.getElementById('filter-tema').value;
+      const a = document.getElementById('filter-avtor').value;
+      const d = document.getElementById('filter-drzava').value;
+      return DATA.predlogi.filter(p =>
+        (!s || p.status === s) &&
+        (!t || p.tema === t) &&
+        (!a || p.avtor === a) &&
+        (!d || p.drzava === d)
+      );
+    }
+
+    function render() {
+      const items = filtriraj();
+      renderStats(items);
+      const pogled = document.getElementById('filter-pogled').value;
+      if (pogled === 'tedni') renderPoTednih(items);
+      else renderSeznam(items);
+    }
+
+    function renderStats(items) {
+      const all = DATA.predlogi;
+      const counts = (key) => {
+        const map = {};
+        all.forEach(p => map[p[key]] = (map[p[key]] || 0) + 1);
+        return map;
+      };
+      const cS = counts('status');
+      const cT = counts('tema');
+      const cD = counts('drzava');
+
+      document.getElementById('stats').innerHTML = `
+        <div class="panel">
+          <div class="text-xs uppercase text-stone-500 mb-1">Skupaj predlogov</div>
+          <div class="text-2xl font-bold">${all.length}</div>
+          <div class="text-xs text-stone-500 mt-1">prikazano: ${items.length}</div>
+        </div>
+        <div class="panel">
+          <div class="text-xs uppercase text-stone-500 mb-1">Status</div>
+          <div class="space-y-1 mt-1 text-sm">
+            <div><span class="badge status-objavljeno">Objavljeno</span> <strong>${cS.objavljeno || 0}</strong></div>
+            <div><span class="badge status-nacrtovano">Načrtovano</span> <strong>${cS.nacrtovano || 0}</strong></div>
+            <div><span class="badge status-osnutek">Osnutek</span> <strong>${cS.osnutek || 0}</strong></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="text-xs uppercase text-stone-500 mb-1">Tema</div>
+          <div class="space-y-1 mt-1 text-sm">
+            ${Object.entries(DATA.teme).map(([k, v]) => `<div><span class="badge tema-${k}">${v.naziv}</span> <strong>${cT[k] || 0}</strong></div>`).join('')}
+          </div>
+        </div>
+        <div class="panel">
+          <div class="text-xs uppercase text-stone-500 mb-1">Trg</div>
+          <div class="space-y-1 mt-1 text-sm">
+            <div><span class="badge drz-si">🇸🇮 SI</span> <strong>${cD.SI || 0}</strong></div>
+            <div><span class="badge drz-hr">🇭🇷 HR</span> <strong>${cD.HR || 0}</strong></div>
+            <div><span class="badge drz-rs">🇷🇸 RS</span> <strong>${cD.RS || 0}</strong></div>
+            <div><span class="badge drz-regional">🌍 Regionalno</span> <strong>${cD.regional || 0}</strong></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderPoTednih(items) {
+      const trenuten = trenutniTeden();
+      const tedni = {};
+      items.forEach(p => { tedni[p.teden] = tedni[p.teden] || []; tedni[p.teden].push(p); });
+      const tediniSorted = Object.keys(tedni).sort((a, b) => +a - +b);
+
+      const html = tediniSorted.map(t => {
+        const isNow = +t === trenuten;
+        const datumi = tedni[t].map(p => fmtDanIzDatuma(p.datum));
+        const minD = tedni[t].reduce((a, b) => a.datum < b.datum ? a : b).datum;
+        const maxD = tedni[t].reduce((a, b) => a.datum > b.datum ? a : b).datum;
+        return `
+          <section class="teden-block ${isNow ? 'panel teden-now' : 'panel'} mb-4" id="teden-${t}">
+            <div class="flex items-baseline gap-3 mb-3 flex-wrap">
+              <span class="badge ${isNow ? 'badge-green' : 'badge-stone'}">Teden ${t}</span>
+              <div class="text-sm text-stone-600">${fmtRange(minD, maxD)}</div>
+              <div class="ml-auto text-xs text-stone-500">${tedni[t].length} ${tedni[t].length === 1 ? 'predlog' : 'predlogov'}</div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+              ${tedni[t].map(renderKartica).join('')}
+            </div>
+          </section>
+        `;
+      }).join('');
+      document.getElementById('vsebina').innerHTML = html || '<p class="text-stone-600 text-center py-8">Ni predlogov za izbrane filtre.</p>';
+      povezavaJezikov();
+    }
+
+    function renderSeznam(items) {
+      const sorted = [...items].sort((a, b) => a.datum.localeCompare(b.datum));
+      document.getElementById('vsebina').innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          ${sorted.map(renderKartica).join('')}
+        </div>
+      `;
+      povezavaJezikov();
+    }
+
+    const LANG_MAP = { si: 'sl-SI', hr: 'hr-HR', sr: 'sr-RS' };
+
+    function renderKartica(p) {
+      const tema = DATA.teme[p.tema];
+      const status = DATA.statusi[p.status];
+      const avtor = DATA.avtorji[p.avtor];
+      aktivnaJezika[p.id] = aktivnaJezika[p.id] || 'si';
+      const aktJez = aktivnaJezika[p.id];
+      const hook = p['hook_' + aktJez] || p.hook_si;
+      const drzavaLabel = p.drzava === 'regional' ? '🌍 Regional' :
+                          p.drzava === 'SI' ? '🇸🇮 SI' :
+                          p.drzava === 'HR' ? '🇭🇷 HR' :
+                          p.drzava === 'RS' ? '🇷🇸 RS' : p.drzava;
+
+      return `
+        <div class="bg-white border border-stone-200 rounded-lg p-4">
+          <div class="flex items-baseline gap-2 flex-wrap mb-2">
+            <span class="badge status-${p.status}">${status.naziv}</span>
+            <span class="badge tema-${p.tema}">${tema.naziv}</span>
+            <span class="badge drz-${p.drzava === 'regional' ? 'regional' : p.drzava.toLowerCase()}">${drzavaLabel}</span>
+          </div>
+          <div class="text-xs text-stone-500 mb-1">${p.dan} · ${fmtDatum(p.datum)} · <strong>${avtor.ime}</strong></div>
+          <h3 class="font-semibold text-base mb-2">${p.naslov}</h3>
+          <div class="script-block" id="hook-${p.id}" data-id="${p.id}" data-speech-lang="${LANG_MAP[aktJez]}">${hook}<button class="copy-btn" data-copy="#hook-${p.id}">Kopiraj</button></div>
+          <div class="jezik-tabs">
+            <button class="jezik-tab ${aktJez==='si'?'active':''}" data-id="${p.id}" data-jez="si">🇸🇮 SI</button>
+            <button class="jezik-tab ${aktJez==='hr'?'active':''}" data-id="${p.id}" data-jez="hr">🇭🇷 HR</button>
+            <button class="jezik-tab ${aktJez==='sr'?'active':''}" data-id="${p.id}" data-jez="sr">🇷🇸 SR</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function trenutniPrikazani() {
+      return filtriraj();
+    }
+
+    function beriVsePrikazane(vsiljenJezik = null) {
+      const items = trenutniPrikazani();
+      if (!items.length) return;
+      const seq = items.map(p => {
+        const jez = vsiljenJezik || aktivnaJezika[p.id] || 'si';
+        const text = `${p.naslov}. ${p['hook_' + jez] || p.hook_si}`;
+        return { text, lang: LANG_MAP[jez] };
+      });
+      Speech.speakSequence(seq, { label: 'Koledar vsebin' });
+    }
+
+    function povezavaJezikov() {
+      document.querySelectorAll('.jezik-tab').forEach(t => {
+        t.onclick = () => {
+          aktivnaJezika[t.dataset.id] = t.dataset.jez;
+          render();
+        };
+      });
+      wireCopyButtons();
+    }
+
+    function renderLegenda() {
+      document.getElementById('legenda').innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h3 class="font-semibold mb-2">Avtorji</h3>
+            <ul class="space-y-1">
+              ${Object.entries(DATA.avtorji).map(([k, v]) => `<li><strong>${v.ime}</strong> — ${v.drzava === 'regional' ? 'regionalno' : v.drzava}</li>`).join('')}
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Teme</h3>
+            <ul class="space-y-1">
+              ${Object.entries(DATA.teme).map(([k, v]) => `<li><span class="badge tema-${k}">${v.naziv}</span> ${v.opis}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+        <div class="mt-4 text-stone-600">${DATA._opis}</div>
+        <div class="mt-2 text-xs text-stone-500"><strong>Ritem:</strong> ${DATA._ritem}</div>
+        <div class="mt-1 text-xs text-stone-500"><strong>Uporaba:</strong> ${DATA._uporaba}</div>
+      `;
+    }
+
+    function fmtDatum(iso) {
+      const d = new Date(iso);
+      return `${d.getDate()}. ${d.getMonth() + 1}. ${d.getFullYear()}`;
+    }
+    function fmtDanIzDatuma(iso) {
+      const d = new Date(iso);
+      return d.getDate() + '.' + (d.getMonth() + 1) + '.';
+    }
+    function fmtRange(start, end) {
+      if (start === end) return fmtDatum(start);
+      return `${fmtDanIzDatuma(start)} – ${fmtDatum(end)}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

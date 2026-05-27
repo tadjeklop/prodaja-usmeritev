@@ -1,0 +1,125 @@
+{
+  "_opis": "Scenariji za vajo s simuliranim sogovornikom. Sistem ti ponudi situacijo, ti odgovoriš (tipkaš ali poveš ustno), nato dobiš oceno z gledišča Vodiča: ali si uporabil AVO formulo, ali si pridobil naslednji korak z datumom, ali si izpostavil tri stvari ne deset.",
+  "_kako_uporabiti": "Nov komercialist naj vaji vsak teden 2-3 scenarije. Senior naj se občasno preizkuša s 'težkimi' scenariji za vzdrževanje forme. Vodja lahko opazuje in komentira.",
+  "scenariji": [
+    {
+      "id": "sc-01",
+      "segment": "compliance",
+      "tezavnost": "lahko",
+      "situacija": "Prvi telefonski klic. Slovenski srednji proizvajalec embalaže za kozmetiko. Kontakt: gospa Marija, operativna vodja.",
+      "stranka_pravi": "Dober dan. Slišala sem, da ste klicali. Imamo precej dela, kaj točno ponujate?",
+      "kaj_iskati": [
+        { "kriterij": "Predstaviš sebe in podjetje v 2 stavkih, ne v 5", "tezi": "kratko"},
+        { "kriterij": "Ne začneš s katalogom storitev — začneš z vprašanjem o njihovi situaciji", "tezi": "vprašanje" },
+        { "kriterij": "Predlagaš konkretno trajanje sestanka (15 ali 20 minut)", "tezi": "minut" },
+        { "kriterij": "Ponudiš jasen razlog, zakaj naj sploh govorita — koristen za njih, ne za tebe", "tezi": "koristn" }
+      ],
+      "namig": "Cilj klica ni prodati storitev. Cilj je dobiti 15-minutni pogovor. Stranka je v pasivnem načinu — odpiraš jo, ne zalivaš."
+    },
+    {
+      "id": "sc-02",
+      "segment": "cost-optimizer",
+      "tezavnost": "srednje",
+      "situacija": "Drugi sestanek, CFO velikega podjetja. Že si pokazal rešitev. CFO odpira pogovor:",
+      "stranka_pravi": "Smo dobili konkurenčno ponudbo, ki je 25 % cenejša od vaše. V čem je razlika? Mi smo predvsem stroškovno usmerjeni.",
+      "kaj_iskati": [
+        { "kriterij": "NE padeš v popust, NE braniš se", "tezi": "primerj" },
+        { "kriterij": "Vprašaš: 'V primerjavi s čim točno?' — primerjava jabolk in hrušek", "tezi": "primerj" },
+        { "kriterij": "Predlagaš transparentno primerjavo (TCO, ne samo cena)", "tezi": "celot" },
+        { "kriterij": "Postaviš vprašanje, kaj je za CFO pomembnejše: nižja začetna cena ali nižje skupno stanje stroškov v 3 letih", "tezi": "tri let" }
+      ],
+      "namig": "Ne dovoli, da pogovor postane bitka cen. Spremeni okvir iz 'cena' v 'skupni strošek lastništva' ali 'tveganje'."
+    },
+    {
+      "id": "sc-03",
+      "segment": "esg",
+      "tezavnost": "srednje",
+      "situacija": "Discovery sestanek. Sustainability lead velikega e-commerce podjetja:",
+      "stranka_pravi": "Naš največji nemški kupec nam je poslal 80-vprašalni ESG vprašalnik z rokom 5 dni. Smo v paniki. Lahko vi to rešite?",
+      "kaj_iskati": [
+        { "kriterij": "Ne obljubiš takoj 'da, brez problema'. Vprašaš za kontekst.", "tezi": "vprašan" },
+        { "kriterij": "Vprašaš, kateri kupec, katera kategorija vprašanj, kakšna je kazen ob neizpolnitvi", "tezi": "kuper" },
+        { "kriterij": "Vprašaš, koliko podatkov že imajo zbranih", "tezi": "podatk" },
+        { "kriterij": "Pokažeš referenco (anonimizirano) podobnega primera — daš upanje, ne praznih obljub", "tezi": "primer" }
+      ],
+      "namig": "Stranka pod časovnim pritiskom potrebuje strukturo, ne navdušenja. Pokaži, da znaš to izvesti, ne samo prodati."
+    },
+    {
+      "id": "sc-04",
+      "segment": "compliance",
+      "tezavnost": "tezko",
+      "situacija": "Pred sestankom je stranka po e-pošti zahtevala ponudbo brez sestanka. Pišejo:",
+      "stranka_pravi": "Pošljite mi vaš cenik. Če nam ustreza, podpišemo. Sestanek ni potreben.",
+      "kaj_iskati": [
+        { "kriterij": "Ne pošlješ generičnega cenika takoj — to bi pomenilo izgubljen posel ali napačno ceno", "tezi": "ne pošlj" },
+        { "kriterij": "Pojasniš, zakaj generičen cenik ni primeren (njihova specifika)", "tezi": "specifik" },
+        { "kriterij": "Predlagaš minimum: 15-minutni klic, da pravilno oceniš obseg", "tezi": "klic" },
+        { "kriterij": "Ponudiš alternativo: če zares ne želijo klica, jim pošlješ STRUKTURO ponudbe brez cen, da vidijo, kaj bi vključeno", "tezi": "strukt" }
+      ],
+      "namig": "Pošljati cenik brez razgovora je past. Pridobi minimum interakcije ali pripravljen kontekstualen dokument."
+    },
+    {
+      "id": "sc-05",
+      "segment": "kriza",
+      "tezavnost": "tezko",
+      "situacija": "Stranka kliče. Lastnik manjšega podjetja, hitro govori, vidno nervozen:",
+      "stranka_pravi": "ARSO nas je poklical. Pravijo, da nimamo prijavljeno EPR shemo. Prijava je 3 leta nazaj. Lahko nam pomagate, da nas ne kaznujejo?",
+      "kaj_iskati": [
+        { "kriterij": "Pomiriš stranko v prvih stavkih — ni panika, ima rešitev", "tezi": "pomiri" },
+        { "kriterij": "Vprašaš za KONKRETNE podatke: rok ARSO, vrsta inšpekcije, kakšna kazen", "tezi": "konkretn" },
+        { "kriterij": "Zagotoviš, da boste v 24 urah na zvezi z strokovnjakom", "tezi": "24 ur" },
+        { "kriterij": "Vzpostaviš jasen naslednji korak v naslednjih dveh urah", "tezi": "korak" }
+      ],
+      "namig": "Stranka v krizi potrebuje občutek kontrole. Tvoj prvi vtis je, ali si profesionalec ali še en prodajalec, ki išče priložnost."
+    },
+    {
+      "id": "sc-06",
+      "segment": "strateski",
+      "tezavnost": "tezko",
+      "situacija": "Sestanek z direktorjem velikega zavezanca, ki ima javno deklarirane Net Zero cilje:",
+      "stranka_pravi": "Imamo veliko ponudnikov, ki nam pošiljajo enake stvari. V čem ste vi drugačni? Zakaj naj bi z vami šel v dolgoročno strateško partnerstvo?",
+      "kaj_iskati": [
+        { "kriterij": "Ne govoriš o storitvah ali cenah — govoriš o viziji in skupnem cilju", "tezi": "vizij" },
+        { "kriterij": "Konkretiziraš: kaj točno bi skupaj naredila v 12 mesecih?", "tezi": "mesec" },
+        { "kriterij": "Vprašaš o NJIHOVI strategiji, ne predstaviš svoje", "tezi": "vašo" },
+        { "kriterij": "Predlagaš majhen prvi korak (pilot projekt, skupna delavnica) namesto velikega kontrakta", "tezi": "pilot" }
+      ],
+      "namig": "Strateški partnerji ne odgovarjajo na 'ponudbo'. Odgovorijo na 'vizijo'. Govori tri leta vnaprej, ne tri mesece."
+    },
+    {
+      "id": "sc-07",
+      "segment": "novi",
+      "tezavnost": "lahko",
+      "situacija": "Mladi lastnik startupa, ki nedavno odkril, da je EPR zavezanec. Ima zelo malo znanja:",
+      "stranka_pravi": "Ne razumem zakaj sploh moram to plačati. Mi smo majhni, naredimo nekaj 100 izdelkov mesečno. To je za velike, ne za nas, ne?",
+      "kaj_iskati": [
+        { "kriterij": "Ne uporabljaš pravniškega jezika ali kratic brez razlage", "tezi": "razlož" },
+        { "kriterij": "Pojasniš preprosto: 'če daš izdelek na trg, postaneš odgovoren za embalažo'", "tezi": "odgovor" },
+        { "kriterij": "Ne moraliziraš ali šokiraš s kaznimi", "tezi": "razum" },
+        { "kriterij": "Ponudiš majhen prvi korak: 15-minutni klic, kjer mu razložiš osnove brez prodajnega pritiska", "tezi": "razlož" }
+      ],
+      "namig": "Začetnik najprej potrebuje razumevanje, šele nato ponudbo. Bodi učitelj, ne prodajalec."
+    },
+    {
+      "id": "sc-08",
+      "segment": "regional",
+      "tezavnost": "srednje",
+      "situacija": "Nabavni vodja srednje slovenske kozmetike, ki prodaja v SI, HR, RS in v EU:",
+      "stranka_pravi": "Imamo trenutno 3 različne EPR pogodbe — eno v vsaki državi. Vsak mesec dobimo 3 različne račune. Kako bi to skoncentrirali pri vas?",
+      "kaj_iskati": [
+        { "kriterij": "Vprašaš o KONKRETNI bolečini: ali je problem v računih, v komunikaciji, v razlikah med poročanjem?", "tezi": "bole" },
+        { "kriterij": "Predlagaš strukturiran prehod, ne 'jutri smo vse pri nas'", "tezi": "prehod" },
+        { "kriterij": "Vprašaš za podatke: trenutni stroški v vsaki državi, ali so pogodbe vezane", "tezi": "trenut" },
+        { "kriterij": "Naslednji korak: pregled trenutnih pogodb, ne 'naša ponudba'", "tezi": "pregled" }
+      ],
+      "namig": "Multi-Adria stranke potrebujejo občutek 'manj kompleksnosti'. Vsaka beseda 'enostavno' deluje. A ne smeš obljubljati prehoda 'jutri'."
+    }
+  ],
+  "kriteriji_ocene": {
+    "5": "Odličen — uporabil si vse ključne pristope (AVO, postavljanje vprašanj, ne pajdanje, jasen naslednji korak).",
+    "4": "Dobro — večinoma pravilen pristop, manjkala je ena ključna stvar.",
+    "3": "Solidno — pravilna smer, vendar nekaj pomembnih elementov manjka.",
+    "2": "Še potrebno delo — uporabil si nekatere napačne refleksne odzive (ekzplicit popust, prazne obljube, dolg monolog).",
+    "1": "Vrni se k Vodiču po ponovitev formule pred naslednjim sestankom."
+  }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reference / Case studies — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.reference.title">Reference / Case studies</h1>
+      <p class="mt-2 text-stone-600 max-w-3xl" id="filozofija">Nalagam…</p>
+    </header>
+
+    <div id="kako-uporabiti" class="panel mb-6 bg-blue-50 border-blue-200"></div>
+
+    <div class="panel mb-4">
+      <input id="iskanje" class="input" placeholder="Iskaj po panogi, izzivu, rezultatu..." />
+    </div>
+
+    <div id="seznam" class="space-y-4"></div>
+
+    <div id="pridobivanje" class="panel mt-8 bg-stone-100"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null;
+
+    async function init() {
+      DATA = await loadData('reference');
+      if (!DATA) {
+        document.getElementById('seznam').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
+        return;
+      }
+
+      document.getElementById('filozofija').textContent = DATA._filozofija;
+
+      document.getElementById('kako-uporabiti').innerHTML = `
+        <h3 class="font-semibold mb-2">Kako uporabiti reference</h3>
+        <ul class="list-disc pl-5 space-y-1 text-sm">
+          ${DATA._kako_uporabiti.map(x => `<li>${x}</li>`).join('')}
+        </ul>
+      `;
+
+      document.getElementById('pridobivanje').innerHTML = `
+        <h3 class="font-semibold mb-2">Kako pridobiš nove reference</h3>
+        <ul class="list-disc pl-5 space-y-1 text-sm">
+          ${DATA.kako_pridobiti_reference.map(x => `<li>${x}</li>`).join('')}
+        </ul>
+      `;
+
+      document.getElementById('iskanje').addEventListener('input', render);
+      render();
+    }
+
+    function render() {
+      const q = document.getElementById('iskanje').value.toLowerCase().trim();
+      let items = DATA.primeri;
+      if (q) items = items.filter(p =>
+        JSON.stringify(p).toLowerCase().includes(q)
+      );
+
+      if (!items.length) {
+        document.getElementById('seznam').innerHTML = '<p class="text-stone-600 text-center py-8">Ni najdenih referenc.</p>';
+        return;
+      }
+
+      document.getElementById('seznam').innerHTML = items.map(p => `
+        <div class="panel">
+          <div class="flex items-baseline gap-2 flex-wrap mb-3">
+            <span class="badge badge-green">${p.panoga}</span>
+            <span class="text-sm text-stone-600">${p.velikost}</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
+            <div>
+              <div class="text-xs font-semibold text-red-700 uppercase mb-1">⚠️ Izziv stranke</div>
+              <p class="text-sm">${p.izziv}</p>
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-green-800 uppercase mb-1">✓ Rezultat</div>
+              <ul class="list-disc pl-5 text-sm space-y-1">${p.rezultat.map(r => `<li>${r}</li>`).join('')}</ul>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="text-xs font-semibold text-stone-500 uppercase mb-1">Kaj smo naredili</div>
+            <ul class="list-disc pl-5 text-sm space-y-1">${p.kaj_smo_naredili.map(x => `<li>${x}</li>`).join('')}</ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm pt-3 border-t border-stone-200">
+            <div><span class="text-stone-500">Trajanje:</span> ${p.trajanje}</div>
+            <div><span class="text-stone-500">Primerno za:</span> ${p.ki_je_uporabna_za}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

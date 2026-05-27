@@ -1,0 +1,166 @@
+{
+  "_opis": "Panoge / segmenti strank. Vsaka panoga ima tipične bolečine, sogovornika in storitve, ki jih najbolj zanimajo.",
+  "panoge": [
+    {
+      "id": "fmcg",
+      "naziv": "FMCG / proizvodnja hitro premikajočega blaga",
+      "tipicna_velikost": "Srednje do veliko podjetje, več SKU-jev, večina embalaže potrošniška.",
+      "bolecine": [
+        "Veliki letni stroški EPR takse zaradi obsega embalaže.",
+        "Pogoste spremembe v izdelkih → ponovno klasificiranje embalaže.",
+        "ESG zahteve trgovskih verig (Made for Recycling, recyclability)."
+      ],
+      "tipicni_odlocevalci": ["nabava", "vodstvo", "sustainability", "operativa"],
+      "kljucne_storitve": ["EPR shema", "analiza embalaže", "Made for Recycling certifikat", "poročanje", "ESG podpora"]
+    },
+    {
+      "id": "trgovina",
+      "naziv": "Trgovina / distribucija",
+      "tipicna_velikost": "Velik volumen transportne embalaže, več lokacij.",
+      "bolecine": [
+        "Velike količine kartona in folije iz dobavnih verig.",
+        "Logistika odpadkov med skladišči in trgovinami.",
+        "Različni dobavitelji odpadkov na različnih lokacijah."
+      ],
+      "tipicni_odlocevalci": ["operativa", "nabava", "finance"],
+      "kljucne_storitve": ["ravnanje z odpadki", "odkup sekundarnih surovin", "EPR shema", "regionalna izvedba"]
+    },
+    {
+      "id": "ecommerce",
+      "naziv": "E-commerce / spletna trgovina",
+      "tipicna_velikost": "Hitro rastoča, veliko različnih embalažnih materialov, mednarodna prodaja.",
+      "bolecine": [
+        "Obveznosti v več državah hkrati (SI/HR/RS in EU).",
+        "Stranke pričakujejo trajnostne pristope.",
+        "Zapleten obračun po vrstah embalaže."
+      ],
+      "tipicni_odlocevalci": ["finance", "vodstvo", "operativa"],
+      "kljucne_storitve": ["EPR v več državah", "regionalna izvedba", "poročanje", "optimizacija embalaže"]
+    },
+    {
+      "id": "elektronika",
+      "naziv": "Elektronika in elektronske naprave",
+      "tipicna_velikost": "Uvozniki ali distributerji, obveznosti za EE-opremo in baterije.",
+      "bolecine": [
+        "Več hkratnih EPR shem: embalaža, EE-oprema, baterije.",
+        "Stroga zakonodaja in inšpekcije.",
+        "Poročanje v različnih bazah."
+      ],
+      "tipicni_odlocevalci": ["vodstvo", "pravna služba", "finance"],
+      "kljucne_storitve": ["EPR za EE-opremo", "EPR za baterije", "celovito poročanje", "svetovanje"]
+    },
+    {
+      "id": "farmacija",
+      "naziv": "Farmacija / zdravstvo",
+      "tipicna_velikost": "Visoko regulirano okolje, stroge zahteve po sledljivosti.",
+      "bolecine": [
+        "Posebna ravnanja z nekaterimi odpadki (zdravila, embalaža od zdravil).",
+        "Tveganje pri inšpekcijah.",
+        "Več tipov embalaže — primarna, sekundarna, transportna."
+      ],
+      "tipicni_odlocevalci": ["pravna služba", "HSE", "vodstvo"],
+      "kljucne_storitve": ["svetovanje", "EPR shema", "poročanje", "skladnost"]
+    },
+    {
+      "id": "industrija",
+      "naziv": "Industrijska proizvodnja",
+      "tipicna_velikost": "Velike količine odpadkov, kompleksni tokovi, lastne lokacije.",
+      "bolecine": [
+        "Mešani tokovi odpadkov (lesa, kovin, plastike, papirja).",
+        "Stroški ravnanja in skladiščenja.",
+        "ESG poročanje za matično podjetje ali B2B kupce."
+      ],
+      "tipicni_odlocevalci": ["operativa", "HSE", "finance"],
+      "kljucne_storitve": ["ravnanje z odpadki", "odkup sekundarnih surovin", "ESG poročanje", "stroji za odpadke"]
+    },
+    {
+      "id": "avto",
+      "naziv": "Avtomobilska industrija / dobavitelji",
+      "tipicna_velikost": "Tier 1/2 dobavitelji, visoke zahteve velikih OEM-ov.",
+      "bolecine": [
+        "Stroge zahteve OEM kupcev po trajnosti in poročanju.",
+        "Specifični materiali (kovine, kompoziti).",
+        "Regionalna prisotnost dobaviteljev."
+      ],
+      "tipicni_odlocevalci": ["HSE", "operativa", "vodstvo"],
+      "kljucne_storitve": ["ravnanje z odpadki", "ESG poročanje", "sekundarne surovine", "regionalna izvedba"]
+    },
+    {
+      "id": "hotel",
+      "naziv": "HoReCa / hoteli, restavracije, catering",
+      "tipicna_velikost": "Sezonska nihanja, omejen prostor za odpadke.",
+      "bolecine": [
+        "Bio odpadki, embalaža iz hrane, steklo.",
+        "Omejen prostor v kuhinji ali pri vhodu.",
+        "Več lokacij pod isto blagovno znamko."
+      ],
+      "tipicni_odlocevalci": ["vodstvo", "operativa"],
+      "kljucne_storitve": ["ravnanje z odpadki", "EPR shema", "svetovanje"]
+    },
+    {
+      "id": "kozmetika",
+      "naziv": "Kozmetika / nega / lepota",
+      "tipicna_velikost": "Manjše do srednje podjetje, veliko število SKU-jev, izvoz v EU.",
+      "bolecine": [
+        "Kompozitna embalaža (tube, multi-layer), problematična za recikliranje.",
+        "Pritisk velikih trgovskih verig in EU regulative (PPWR) po recyclabilityju.",
+        "Made for Recycling certifikat vse pogosteje zahtevan.",
+        "Veliko sezonskih in promocijskih embalaž."
+      ],
+      "tipicni_odlocevalci": ["vodstvo", "sustainability", "marketing"],
+      "kljucne_storitve": ["analiza embalaže", "Made for Recycling", "PPWR svetovanje", "EPR shema"]
+    },
+    {
+      "id": "tekstil",
+      "naziv": "Tekstil / oblačila / moda",
+      "tipicna_velikost": "Različno — od majhnih neodvisnih do srednje velikih verig.",
+      "bolecine": [
+        "Prihaja EU direktiva za EPR tekstila (od 2025-2026 postopno).",
+        "Negativna javna podoba 'fast fashion' — pritisk po krožnih modelih.",
+        "Veliko embalaže pri spletni prodaji (folija, vrečke).",
+        "Stranke zahtevajo informacije o izvoru in trajnosti."
+      ],
+      "tipicni_odlocevalci": ["vodstvo", "sustainability", "nabava"],
+      "kljucne_storitve": ["EPR shema embalaže", "krožni modeli", "ESG svetovanje", "ravnanje z odpadnim tekstilom"]
+    },
+    {
+      "id": "gradbenistvo",
+      "naziv": "Gradbeništvo / proizvodnja gradbenih materialov",
+      "tipicna_velikost": "Velike količine odpadkov, mešani materiali, gradbišča kot začasne lokacije.",
+      "bolecine": [
+        "Gradbene odpadke ureja posebna zakonodaja, pogosto nejasna.",
+        "Embalaža gradbenih materialov (palete, folije, vreče) — pogosto pozabljena EPR obveznost.",
+        "Sezonska nihanja v količinah.",
+        "Tehnične zahteve za reciklabilnost (npr. izolacija, panel)."
+      ],
+      "tipicni_odlocevalci": ["operativa", "HSE", "vodstvo"],
+      "kljucne_storitve": ["ravnanje z odpadki", "EPR shema embalaže", "svetovanje", "sekundarne surovine"]
+    },
+    {
+      "id": "agrarno",
+      "naziv": "Živilska industrija / agrarno predelovalstvo",
+      "tipicna_velikost": "Različno — od družinskih obratov do industrijskih predelovalcev.",
+      "bolecine": [
+        "Veliko embalaže za živila — strogi predpisi varnosti hrane.",
+        "Bio odpadki iz proizvodnje.",
+        "Trgovske verige zahtevajo Made for Recycling, manj plastike.",
+        "Sezonska nihanja in pokvarljivost izdelkov vplivajo na embalažo."
+      ],
+      "tipicni_odlocevalci": ["operativa", "vodstvo", "kakovost"],
+      "kljucne_storitve": ["analiza embalaže", "EPR shema", "ravnanje z bio odpadki", "Made for Recycling"]
+    },
+    {
+      "id": "logistika",
+      "naziv": "Logistika / dostava / kurirske storitve",
+      "tipicna_velikost": "Hitra rast (e-commerce), velika količina transportne embalaže.",
+      "bolecine": [
+        "Veliko kartonske embalaže in plastičnih folij.",
+        "Reusable packaging — zahteva velikih kupcev.",
+        "Sledljivost dobavne verige (CSRD pritisk).",
+        "Pakiranje za varen transport vs. minimiziranje materiala."
+      ],
+      "tipicni_odlocevalci": ["operativa", "sustainability", "nabava"],
+      "kljucne_storitve": ["EPR embalaža", "sekundarne surovine (karton)", "ESG poročanje", "krožni modeli"]
+    }
+  ]
+}

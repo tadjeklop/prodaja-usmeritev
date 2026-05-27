@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glosar EPR pojmov — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.glosar.title">Glosar EPR pojmov</h1>
+      <p class="mt-2 text-stone-600">Za nove komercialiste in razjasnitev s strankami, ki uporabljajo napačne izraze. Iskaj ali pojdi po kategorijah.</p>
+    </header>
+
+    <div class="panel mb-6">
+      <input id="iskanje" class="input" type="text" placeholder="Iskaj pojem (npr. PPWR, sekundarna surovina, ARSO...)" />
+    </div>
+
+    <div id="vsebina"></div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null;
+
+    async function init() {
+      DATA = await loadData('glosar');
+      if (!DATA) {
+        document.getElementById('vsebina').innerHTML =
+          '<p class="text-red-700">Ne morem naložiti podatkov. Aplikacijo poženi prek lokalnega strežnika.</p>';
+        return;
+      }
+      document.getElementById('iskanje').addEventListener('input', render);
+      render();
+    }
+
+    function render() {
+      const q = document.getElementById('iskanje').value.toLowerCase().trim();
+      const html = DATA.kategorije.map(kat => {
+        const filtered = q ? kat.pojmi.filter(p =>
+          (p.izraz + ' ' + p.razlaga + ' ' + (p.v_praksi || '')).toLowerCase().includes(q)
+        ) : kat.pojmi;
+        if (!filtered.length) return '';
+        return `
+          <section class="mb-8">
+            <h2 class="text-lg font-bold mb-3 text-stone-800 border-b border-stone-300 pb-1">${kat.naziv}</h2>
+            <div class="space-y-3">
+              ${filtered.map(p => `
+                <div class="panel">
+                  <div class="font-semibold text-lg" style="color: #1b5e20">${p.izraz}</div>
+                  <div class="text-sm mt-2">${p.razlaga}</div>
+                  ${p.v_praksi ? `<div class="mt-2 text-sm bg-stone-50 p-2 rounded border-l-2 border-green-500"><strong>V praksi:</strong> ${p.v_praksi}</div>` : ''}
+                </div>
+              `).join('')}
+            </div>
+          </section>
+        `;
+      }).join('');
+      document.getElementById('vsebina').innerHTML = html || '<p class="text-stone-600 text-center py-8">Ni najdenih pojmov za to iskanje.</p>';
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

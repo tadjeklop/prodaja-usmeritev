@@ -1,0 +1,815 @@
+{
+  "_opis": "Prevodi za UI elemente. Vsebina (govori, ugovori, vsebine itd.) ima svoje JSON-e — to so samo UI nalepke. Trenutno prevedeni so: navigacija, naslovi strani, glavni gumbi.",
+  "_jeziki": [
+    "sl",
+    "hr",
+    "sr"
+  ],
+  "_privzeti": "sl",
+  "_status": "UI prevedeno. Vsebina ostaja v slovenščini v tej verziji.",
+  "nav.domov": {
+    "sl": "Domov",
+    "hr": "Početna",
+    "sr": "Početna"
+  },
+  "nav.dashboard": {
+    "sl": "Dashboard",
+    "hr": "Dashboard",
+    "sr": "Dashboard"
+  },
+  "nav.stranke": {
+    "sl": "Stranke",
+    "hr": "Klijenti",
+    "sr": "Klijenti"
+  },
+  "nav.segmenti": {
+    "sl": "Segmenti",
+    "hr": "Segmenti",
+    "sr": "Segmenti"
+  },
+  "nav.vodic": {
+    "sl": "Vodič",
+    "hr": "Vodič",
+    "sr": "Vodič"
+  },
+  "nav.roleplay": {
+    "sl": "Vaja",
+    "hr": "Vježba",
+    "sr": "Vežba"
+  },
+  "nav.priprava": {
+    "sl": "Priprava",
+    "hr": "Priprema",
+    "sr": "Priprema"
+  },
+  "nav.obrazec": {
+    "sl": "Obrazec",
+    "hr": "Obrazac",
+    "sr": "Obrazac"
+  },
+  "nav.govori": {
+    "sl": "Govori",
+    "hr": "Govori",
+    "sr": "Govori"
+  },
+  "nav.ugovori": {
+    "sl": "Ugovori",
+    "hr": "Prigovori",
+    "sr": "Prigovori"
+  },
+  "nav.konkurenca": {
+    "sl": "Konkurenca",
+    "hr": "Konkurencija",
+    "sr": "Konkurencija"
+  },
+  "nav.reference": {
+    "sl": "Reference",
+    "hr": "Reference",
+    "sr": "Reference"
+  },
+  "nav.kalkulacije": {
+    "sl": "Kalkulacije",
+    "hr": "Kalkulacije",
+    "sr": "Kalkulacije"
+  },
+  "nav.ponudba": {
+    "sl": "Ponudba",
+    "hr": "Ponuda",
+    "sr": "Ponuda"
+  },
+  "nav.proces": {
+    "sl": "Proces",
+    "hr": "Proces",
+    "sr": "Proces"
+  },
+  "nav.glosar": {
+    "sl": "Glosar",
+    "hr": "Pojmovnik",
+    "sr": "Pojmovnik"
+  },
+  "nav.koledar": {
+    "sl": "Koledar",
+    "hr": "Kalendar",
+    "sr": "Kalendar"
+  },
+  "nav.vsebine": {
+    "sl": "Vsebine",
+    "hr": "Sadržaj",
+    "sr": "Sadržaj"
+  },
+  "nav.zakonodaja": {
+    "sl": "Zakonodaja",
+    "hr": "Zakonodavstvo",
+    "sr": "Zakonodavstvo"
+  },
+  "nav.onboarding": {
+    "sl": "Onboarding",
+    "hr": "Onboarding",
+    "sr": "Onboarding"
+  },
+  "nav.kpi": {
+    "sl": "KPI",
+    "hr": "KPI",
+    "sr": "KPI"
+  },
+  "nav.asistent": {
+    "sl": "AI",
+    "hr": "AI",
+    "sr": "AI"
+  },
+  "nav.zgodovina": {
+    "sl": "Zgodovina",
+    "hr": "Povijest",
+    "sr": "Istorija"
+  },
+  "page.index.title": {
+    "sl": "Prodajno orodje — Interzero EPR",
+    "hr": "Prodajni alat — Interzero EPR",
+    "sr": "Prodajni alat — Interzero EPR"
+  },
+  "page.index.subtitle": {
+    "sl": "Hitra priprava na sestanke, govori, ugovori, kalkulacije in zakonodaja. Namenjeno terenskim komercialistom, novim komercialistom in vodji prodaje.",
+    "hr": "Brza priprema za sastanke, govori, prigovori, kalkulacije i zakonodavstvo. Za terenske komercijaliste, nove komercijaliste i voditelja prodaje.",
+    "sr": "Brza priprema za sastanke, govori, prigovori, kalkulacije i zakonodavstvo. Za terenske komercijaliste, nove komercijaliste i menadžera prodaje."
+  },
+  "page.index.hitri": {
+    "sl": "Hitri začetek",
+    "hr": "Brzi početak",
+    "sr": "Brzi početak"
+  },
+  "page.index.moduli": {
+    "sl": "Moduli",
+    "hr": "Moduli",
+    "sr": "Moduli"
+  },
+  "page.dashboard.title": {
+    "sl": "Dashboard za vodjo",
+    "hr": "Dashboard za voditelja",
+    "sr": "Dashboard za menadžera"
+  },
+  "page.dashboard.subtitle": {
+    "sl": "Pregled aktivnega pipeline-a iz Strank. Podatki iz tvojega brskalnika v živo.",
+    "hr": "Pregled aktivnog pipeline-a iz Klijenata. Podaci iz tvojeg preglednika u stvarnom vremenu.",
+    "sr": "Pregled aktivnog pipeline-a iz Klijenata. Podaci iz tvog browser-a u realnom vremenu."
+  },
+  "page.stranke.title": {
+    "sl": "Stranke v mojem pipelinu",
+    "hr": "Klijenti u mojem pipelinu",
+    "sr": "Klijenti u mom pipeline-u"
+  },
+  "page.stranke.subtitle": {
+    "sl": "Aktivne priložnosti — kdo, kje je v procesu, naslednji korak. Lokalno v tem brskalniku.",
+    "hr": "Aktivne prilike — tko, gdje je u procesu, sljedeći korak. Lokalno u ovom pregledniku.",
+    "sr": "Aktivne prilike — ko, gde je u procesu, sledeći korak. Lokalno u ovom browser-u."
+  },
+  "page.segmentacija.title": {
+    "sl": "Segmentacija strank",
+    "hr": "Segmentacija klijenata",
+    "sr": "Segmentacija klijenata"
+  },
+  "page.vodic.title": {
+    "sl": "Vodič po prodajnem razgovoru",
+    "hr": "Vodič kroz prodajni razgovor",
+    "sr": "Vodič kroz prodajni razgovor"
+  },
+  "page.priprava.title": {
+    "sl": "Priprava na sestanek",
+    "hr": "Priprema za sastanak",
+    "sr": "Priprema za sastanak"
+  },
+  "page.obrazec.title": {
+    "sl": "Discovery obrazec za sestanek",
+    "hr": "Discovery obrazac za sastanak",
+    "sr": "Discovery obrazac za sastanak"
+  },
+  "page.govori.title": {
+    "sl": "Govori in skripte",
+    "hr": "Govori i skripte",
+    "sr": "Govori i skripte"
+  },
+  "page.govori.subtitle": {
+    "sl": "Pripravljeni bloki za hladne klice, prvi sestanek, predstavitev rešitve in follow-up. Klikni \"Kopiraj\" za vstavitev v email ali \"Beri\" za poslušanje.",
+    "hr": "Pripremljeni blokovi za hladne pozive, prvi sastanak, predstavljanje rješenja i follow-up. Klikni \"Kopiraj\" za umetanje u email ili \"Čitaj\" za slušanje.",
+    "sr": "Pripremljeni blokovi za hladne pozive, prvi sastanak, predstavljanje rešenja i follow-up. Klikni \"Kopiraj\" za umetanje u mejl ili \"Čitaj\" za slušanje."
+  },
+  "govori.namen": {
+    "sl": "Namen",
+    "hr": "Svrha",
+    "sr": "Svrha"
+  },
+  "page.ugovori.title": {
+    "sl": "Ugovori in odgovori",
+    "hr": "Prigovori i odgovori",
+    "sr": "Prigovori i odgovori"
+  },
+  "page.ugovori.subtitle": {
+    "sl": "Iskaj po ključni besedi ali filtriraj po kategoriji. Vsak ugovor ima kratek odgovor za na sestanku in daljši za pripravo.",
+    "hr": "Pretraži po ključnoj riječi ili filtriraj po kategoriji. Svaki prigovor ima kratak odgovor za sastanak i duži za pripremu.",
+    "sr": "Pretraži po ključnoj reči ili filtriraj po kategoriji. Svaki prigovor ima kratak odgovor za sastanak i duži za pripremu."
+  },
+  "page.konkurenca.title": {
+    "sl": "Battlecard za konkurenco",
+    "hr": "Battlecard za konkurenciju",
+    "sr": "Battlecard za konkurenciju"
+  },
+  "page.reference.title": {
+    "sl": "Reference / Case studies",
+    "hr": "Reference / Case studies",
+    "sr": "Reference / Case studies"
+  },
+  "page.kalkulacije.title": {
+    "sl": "Kalkulacije",
+    "hr": "Kalkulacije",
+    "sr": "Kalkulacije"
+  },
+  "page.ponudba.title": {
+    "sl": "Predloga ponudbe",
+    "hr": "Predložak ponude",
+    "sr": "Šablon ponude"
+  },
+  "page.proces.title": {
+    "sl": "Prodajni proces — 10 faz",
+    "hr": "Prodajni proces — 10 faza",
+    "sr": "Prodajni proces — 10 faza"
+  },
+  "page.glosar.title": {
+    "sl": "Glosar EPR pojmov",
+    "hr": "Pojmovnik EPR pojmova",
+    "sr": "Pojmovnik EPR pojmova"
+  },
+  "page.koledar.title": {
+    "sl": "Koledar EPR datumov",
+    "hr": "Kalendar EPR datuma",
+    "sr": "Kalendar EPR datuma"
+  },
+  "page.vsebine.title": {
+    "sl": "Koledar vsebin",
+    "hr": "Kalendar sadržaja",
+    "sr": "Kalendar sadržaja"
+  },
+  "page.zakonodaja.title": {
+    "sl": "Zakonodaja",
+    "hr": "Zakonodavstvo",
+    "sr": "Zakonodavstvo"
+  },
+  "page.onboarding.title": {
+    "sl": "Onboarding 30/60/90",
+    "hr": "Onboarding 30/60/90",
+    "sr": "Onboarding 30/60/90"
+  },
+  "page.kpi.title": {
+    "sl": "KPI in vodenje ekipe",
+    "hr": "KPI i vođenje tima",
+    "sr": "KPI i vođenje tima"
+  },
+  "page.asistent.title": {
+    "sl": "AI asistent",
+    "hr": "AI asistent",
+    "sr": "AI asistent"
+  },
+  "page.zgodovina.title": {
+    "sl": "Moja zgodovina",
+    "hr": "Moja povijest",
+    "sr": "Moja istorija"
+  },
+  "page.roleplay.title": {
+    "sl": "Roleplay vaja",
+    "hr": "Roleplay vježba",
+    "sr": "Roleplay vežba"
+  },
+  "common.shrani": {
+    "sl": "Shrani",
+    "hr": "Spremi",
+    "sr": "Sačuvaj"
+  },
+  "common.prekini": {
+    "sl": "Prekini",
+    "hr": "Otkaži",
+    "sr": "Otkaži"
+  },
+  "common.izbrisi": {
+    "sl": "Izbriši",
+    "hr": "Obriši",
+    "sr": "Obriši"
+  },
+  "common.kopiraj": {
+    "sl": "Kopiraj",
+    "hr": "Kopiraj",
+    "sr": "Kopiraj"
+  },
+  "common.kopirano": {
+    "sl": "✓ Kopirano",
+    "hr": "✓ Kopirano",
+    "sr": "✓ Kopirano"
+  },
+  "common.copy_error": {
+    "sl": "Kopiranje ni uspelo. Označi tekst ročno.",
+    "hr": "Kopiranje nije uspjelo. Označi tekst ručno.",
+    "sr": "Kopiranje nije uspelo. Označi tekst ručno."
+  },
+  "common.beri": {
+    "sl": "Beri",
+    "hr": "Čitaj",
+    "sr": "Čitaj"
+  },
+  "common.beri_scenarij": {
+    "sl": "🔊 Beri ves scenarij",
+    "hr": "🔊 Čitaj cijeli scenarij",
+    "sr": "🔊 Čitaj ceo scenario"
+  },
+  "common.beri_prikazane": {
+    "sl": "🔊 Beri prikazane",
+    "hr": "🔊 Čitaj prikazane",
+    "sr": "🔊 Čitaj prikazane"
+  },
+  "common.natisni": {
+    "sl": "Natisni",
+    "hr": "Ispiši",
+    "sr": "Štampaj"
+  },
+  "common.iskanje": {
+    "sl": "Iskanje",
+    "hr": "Pretraga",
+    "sr": "Pretraga"
+  },
+  "common.kategorija": {
+    "sl": "Kategorija",
+    "hr": "Kategorija",
+    "sr": "Kategorija"
+  },
+  "common.kratek_odgovor": {
+    "sl": "Kratek odgovor (za na sestanku)",
+    "hr": "Kratak odgovor (za sastanak)",
+    "sr": "Kratak odgovor (za sastanak)"
+  },
+  "common.daljsi_odgovor": {
+    "sl": "Daljši odgovor in opomba",
+    "hr": "Duži odgovor i napomena",
+    "sr": "Duži odgovor i napomena"
+  },
+  "common.opomba_prodajalcu": {
+    "sl": "Opomba prodajalcu:",
+    "hr": "Napomena prodavaču:",
+    "sr": "Napomena prodavcu:"
+  },
+  "common.vse_kategorije": {
+    "sl": "Vse kategorije",
+    "hr": "Sve kategorije",
+    "sr": "Sve kategorije"
+  },
+  "common.nalaganje_error": {
+    "sl": "Ne morem naložiti podatkov. Aplikacijo poženi prek lokalnega strežnika.",
+    "hr": "Ne mogu učitati podatke. Pokreni aplikaciju preko lokalnog servera.",
+    "sr": "Ne mogu da učitam podatke. Pokreni aplikaciju preko lokalnog servera."
+  },
+  "common.filtri": {
+    "sl": "Filtri",
+    "hr": "Filtri",
+    "sr": "Filteri"
+  },
+  "common.vsi": {
+    "sl": "Vsi",
+    "hr": "Svi",
+    "sr": "Svi"
+  },
+  "common.vse": {
+    "sl": "Vse",
+    "hr": "Sve",
+    "sr": "Sve"
+  },
+  "common.dodaj": {
+    "sl": "Dodaj",
+    "hr": "Dodaj",
+    "sr": "Dodaj"
+  },
+  "common.uredi": {
+    "sl": "Uredi",
+    "hr": "Uredi",
+    "sr": "Izmeni"
+  },
+  "common.zapri": {
+    "sl": "Zapri",
+    "hr": "Zatvori",
+    "sr": "Zatvori"
+  },
+  "common.nazaj": {
+    "sl": "Nazaj",
+    "hr": "Natrag",
+    "sr": "Nazad"
+  },
+  "common.naprej": {
+    "sl": "Naprej",
+    "hr": "Naprijed",
+    "sr": "Napred"
+  },
+  "common.danes": {
+    "sl": "Danes",
+    "hr": "Danas",
+    "sr": "Danas"
+  },
+  "common.poslji": {
+    "sl": "Pošlji",
+    "hr": "Pošalji",
+    "sr": "Pošalji"
+  },
+  "common.nadaljuj": {
+    "sl": "Nadaljuj",
+    "hr": "Nastavi",
+    "sr": "Nastavi"
+  },
+  "common.ponovi": {
+    "sl": "Ponovi",
+    "hr": "Ponovi",
+    "sr": "Ponovi"
+  },
+  "common.izberi": {
+    "sl": "Izberi",
+    "hr": "Odaberi",
+    "sr": "Izaberi"
+  },
+  "common.izvozi": {
+    "sl": "Izvozi",
+    "hr": "Izvezi",
+    "sr": "Izvezi"
+  },
+  "common.uvozi": {
+    "sl": "Uvozi",
+    "hr": "Uvezi",
+    "sr": "Uvezi"
+  },
+  "common.nalagam": {
+    "sl": "Nalagam…",
+    "hr": "Učitavam…",
+    "sr": "Učitavam…"
+  },
+  "common.napaka": {
+    "sl": "Napaka",
+    "hr": "Greška",
+    "sr": "Greška"
+  },
+  "common.ni_podatkov": {
+    "sl": "Ni podatkov.",
+    "hr": "Nema podataka.",
+    "sr": "Nema podataka."
+  },
+  "stranke.nova": {
+    "sl": "+ Nova stranka",
+    "hr": "+ Novi klijent",
+    "sr": "+ Novi klijent"
+  },
+  "stranke.audit": {
+    "sl": "Audit log",
+    "hr": "Audit log",
+    "sr": "Audit log"
+  },
+  "stranke.prazno": {
+    "sl": "Še ni strank. Klikni \"+ Nova stranka\".",
+    "hr": "Još nema klijenata. Klikni \"+ Novi klijent\".",
+    "sr": "Još nema klijenata. Klikni \"+ Novi klijent\"."
+  },
+  "stranke.alarm_hint": {
+    "sl": "Stranke v rdečem imajo zapadel naslednji korak ali manjkajoč datum.",
+    "hr": "Klijenti označeni crveno imaju zakašnjeli sljedeći korak ili im nedostaje datum.",
+    "sr": "Klijenti označeni crveno imaju zakasneli sledeći korak ili im nedostaje datum."
+  },
+  "stranke.podjetje": {
+    "sl": "Podjetje",
+    "hr": "Tvrtka",
+    "sr": "Kompanija"
+  },
+  "stranke.panoga": {
+    "sl": "Panoga",
+    "hr": "Djelatnost",
+    "sr": "Delatnost"
+  },
+  "stranke.kontakt": {
+    "sl": "Kontaktna oseba",
+    "hr": "Kontakt osoba",
+    "sr": "Kontakt osoba"
+  },
+  "stranke.funkcija": {
+    "sl": "Funkcija / vloga",
+    "hr": "Funkcija / uloga",
+    "sr": "Funkcija / uloga"
+  },
+  "stranke.segment": {
+    "sl": "Segment",
+    "hr": "Segment",
+    "sr": "Segment"
+  },
+  "stranke.faza": {
+    "sl": "Faza",
+    "hr": "Faza",
+    "sr": "Faza"
+  },
+  "stranke.vrednost": {
+    "sl": "Vrednost",
+    "hr": "Vrijednost",
+    "sr": "Vrednost"
+  },
+  "stranke.verjetnost": {
+    "sl": "Verjetnost (%)",
+    "hr": "Vjerojatnost (%)",
+    "sr": "Verovatnoća (%)"
+  },
+  "stranke.korak": {
+    "sl": "Naslednji korak",
+    "hr": "Sljedeći korak",
+    "sr": "Sledeći korak"
+  },
+  "stranke.datum_koraka": {
+    "sl": "Datum naslednjega koraka",
+    "hr": "Datum sljedećeg koraka",
+    "sr": "Datum sledećeg koraka"
+  },
+  "stranke.bolecine": {
+    "sl": "Bolečine (ena vrstica na bolečino)",
+    "hr": "Bolne točke (jedan redak po točki)",
+    "sr": "Bolne tačke (jedan red po tački)"
+  },
+  "stranke.opombe": {
+    "sl": "Opombe",
+    "hr": "Napomene",
+    "sr": "Napomene"
+  },
+  "stranke.razlog_izgube": {
+    "sl": "Razlog izgube",
+    "hr": "Razlog gubitka",
+    "sr": "Razlog gubitka"
+  },
+  "stranke.datum": {
+    "sl": "Datum",
+    "hr": "Datum",
+    "sr": "Datum"
+  },
+  "stranke.status": {
+    "sl": "Status",
+    "hr": "Status",
+    "sr": "Status"
+  },
+  "stranke.aktivne": {
+    "sl": "Aktivne",
+    "hr": "Aktivni",
+    "sr": "Aktivni"
+  },
+  "stranke.aktivno": {
+    "sl": "Aktivno",
+    "hr": "Aktivno",
+    "sr": "Aktivno"
+  },
+  "stranke.zmaga": {
+    "sl": "Zmaga",
+    "hr": "Pobjeda",
+    "sr": "Pobeda"
+  },
+  "stranke.izguba": {
+    "sl": "Izguba",
+    "hr": "Gubitak",
+    "sr": "Gubitak"
+  },
+  "stranke.samo_zmage": {
+    "sl": "Samo zmage",
+    "hr": "Samo pobjede",
+    "sr": "Samo pobede"
+  },
+  "stranke.samo_izgube": {
+    "sl": "Samo izgube",
+    "hr": "Samo gubitci",
+    "sr": "Samo gubici"
+  },
+  "stranke.nova_modal": {
+    "sl": "Nova stranka",
+    "hr": "Novi klijent",
+    "sr": "Novi klijent"
+  },
+  "stranke.zmage": {
+    "sl": "Zmage",
+    "hr": "Pobjede",
+    "sr": "Pobede"
+  },
+  "stranke.izgube": {
+    "sl": "Izgube",
+    "hr": "Gubitci",
+    "sr": "Gubici"
+  },
+  "stranke.pipeline": {
+    "sl": "Pipeline",
+    "hr": "Pipeline",
+    "sr": "Pipeline"
+  },
+  "stranke.tehtano": {
+    "sl": "Tehtano",
+    "hr": "Ponderirano",
+    "sr": "Ponderisano"
+  },
+  "stranke.alarm": {
+    "sl": "Alarm",
+    "hr": "Alarm",
+    "sr": "Alarm"
+  },
+  "ph.iskaj": {
+    "sl": "Iskaj…",
+    "hr": "Pretraži…",
+    "sr": "Pretraži…"
+  },
+  "ph.iskaj_stranke": {
+    "sl": "podjetje, kontakt…",
+    "hr": "tvrtka, kontakt…",
+    "sr": "kompanija, kontakt…"
+  },
+  "ph.ugovori": {
+    "sl": "npr. cena, ESG, lokalni…",
+    "hr": "npr. cijena, ESG, lokalni…",
+    "sr": "npr. cena, ESG, lokalni…"
+  },
+  "zakonodaja.subtitle": {
+    "sl": "Pregled EPR in okoljske zakonodaje po državah. To je orodje za prodajalca, ne pravni vir — pred uporabo v ponudbi preveri trenutno veljavno verzijo.",
+    "hr": "Pregled EPR i okolišnog zakonodavstva po državama. Ovo je alat za prodaju, ne pravni izvor — prije korištenja u ponudi provjeri trenutno važeću verziju.",
+    "sr": "Pregled EPR i ekološkog zakonodavstva po državama. Ovo je prodajni alat, ne pravni izvor — pre korišćenja u ponudi proveri trenutno važeću verziju."
+  },
+  "zakonodaja.opozorilo": {
+    "sl": "Opozorilo:",
+    "hr": "Upozorenje:",
+    "sr": "Upozorenje:"
+  },
+  "zakonodaja.zadnja_revizija": {
+    "sl": "Zadnja revizija:",
+    "hr": "Zadnja revizija:",
+    "sr": "Poslednja revizija:"
+  },
+  "zakonodaja.kljucne_obveznosti": {
+    "sl": "Ključne obveznosti",
+    "hr": "Ključne obveze",
+    "sr": "Ključne obaveze"
+  },
+  "zakonodaja.uradni_viri": {
+    "sl": "Uradni viri",
+    "hr": "Službeni izvori",
+    "sr": "Zvanični izvori"
+  },
+  "i18n.note": {
+    "sl": "UI je preveden. Vsebina (govori, ugovori, primeri) ostaja v slovenščini v tej verziji.",
+    "hr": "UI je preveden. Sadržaj (govori, prigovori, primjeri) ostaje na slovenskom u ovoj verziji.",
+    "sr": "UI je preveden. Sadržaj (govori, prigovori, primeri) ostaje na slovenačkom u ovoj verziji."
+  },
+  "nav.settings": {
+    "sl": "Settings",
+    "hr": "Postavke",
+    "sr": "Pode?avanja"
+  },
+  "page.settings.title": {
+    "sl": "Settings",
+    "hr": "Postavke",
+    "sr": "Pode?avanja"
+  },
+  "page.settings.subtitle": {
+    "sl": "Lokalni admin za profile, vidne zavihke in popravke besedil po trgih.",
+    "hr": "Lokalni admin za profile, vidljive kartice i ispravke tekstova po tr?i?tima.",
+    "sr": "Lokalni admin za profile, vidljive kartice i ispravke tekstova po tr?i?tima."
+  },
+  "settings.profiles": {
+    "sl": "Profili",
+    "hr": "Profili",
+    "sr": "Profili"
+  },
+  "settings.local_notice": {
+    "sl": "Lokalna nastavitev za poenostavitev portala. To ni varnostni sistem.",
+    "hr": "Lokalna postavka za pojednostavljenje portala. Ovo nije sigurnosni sustav.",
+    "sr": "Lokalno pode?avanje za pojednostavljenje portala. Ovo nije sigurnosni sistem."
+  },
+  "settings.add_profile": {
+    "sl": "+ Nov profil",
+    "hr": "+ Novi profil",
+    "sr": "+ Novi profil"
+  },
+  "settings.active_profile": {
+    "sl": "Aktivni profil",
+    "hr": "Aktivni profil",
+    "sr": "Aktivni profil"
+  },
+  "settings.active_hint": {
+    "sl": "Preklop profila spremeni privzeti jezik in vidne zavihke.",
+    "hr": "Promjena profila mijenja zadani jezik i vidljive kartice.",
+    "sr": "Promena profila menja podrazumevani jezik i vidljive kartice."
+  },
+  "settings.text_tools": {
+    "sl": "Besedila in popravki",
+    "hr": "Tekstovi i ispravci",
+    "sr": "Tekstovi i ispravke"
+  },
+  "settings.export_overrides": {
+    "sl": "Izvozi lokalne popravke",
+    "hr": "Izvezi lokalne ispravke",
+    "sr": "Izvezi lokalne ispravke"
+  },
+  "settings.import_overrides": {
+    "sl": "Uvozi lokalne popravke",
+    "hr": "Uvezi lokalne ispravke",
+    "sr": "Uvezi lokalne ispravke"
+  },
+  "settings.download_tsv": {
+    "sl": "Prenesi TSV za prevode",
+    "hr": "Preuzmi TSV za prijevode",
+    "sr": "Preuzmi TSV za prevode"
+  },
+  "settings.override_hint": {
+    "sl": "Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogo?a, da jih kasneje zdru?imo v aplikacijo.",
+    "hr": "Ispravci se spremaju u ovom pregledniku. Izvoz JSON datoteke omogu?uje da ih kasnije spojimo u aplikaciju.",
+    "sr": "Ispravke se ?uvaju u ovom browser-u. Izvoz JSON datoteke omogu?ava da ih kasnije spojimo u aplikaciju."
+  },
+  "settings.name": {
+    "sl": "Ime",
+    "hr": "Ime",
+    "sr": "Ime"
+  },
+  "settings.role": {
+    "sl": "Vloga",
+    "hr": "Uloga",
+    "sr": "Uloga"
+  },
+  "settings.language": {
+    "sl": "Privzeti jezik",
+    "hr": "Zadani jezik",
+    "sr": "Podrazumevani jezik"
+  },
+  "settings.markets": {
+    "sl": "Trgi",
+    "hr": "Tr?i?ta",
+    "sr": "Tr?i?ta"
+  },
+  "settings.visible_modules": {
+    "sl": "Vidni zavihki",
+    "hr": "Vidljive kartice",
+    "sr": "Vidljive kartice"
+  },
+  "settings.delete_profile": {
+    "sl": "Izbri?i profil",
+    "hr": "Obri?i profil",
+    "sr": "Obri?i profil"
+  },
+  "settings.import_done": {
+    "sl": "Popravki so uvo?eni. Stran se bo osve?ila.",
+    "hr": "Ispravci su uvezeni. Stranica ?e se osvje?iti.",
+    "sr": "Ispravke su uvezene. Stranica ?e se osve?iti."
+  },
+  "settings.import_error": {
+    "sl": "Uvoz ni uspel. Preveri JSON datoteko.",
+    "hr": "Uvoz nije uspio. Provjeri JSON datoteku.",
+    "sr": "Uvoz nije uspeo. Proveri JSON datoteku."
+  },
+  "editor.toggle": {
+    "sl": "Uredi tekst",
+    "hr": "Uredi tekst",
+    "sr": "Izmeni tekst"
+  },
+  "editor.export": {
+    "sl": "Izvozi popravke",
+    "hr": "Izvezi ispravke",
+    "sr": "Izvezi ispravke"
+  },
+  "editor.title": {
+    "sl": "Popravek besedila",
+    "hr": "Ispravak teksta",
+    "sr": "Ispravka teksta"
+  },
+  "editor.no_source": {
+    "sl": "Tega besedila ne morem povezati z izvirnikom.",
+    "hr": "Ovaj tekst ne mogu povezati s izvornikom.",
+    "sr": "Ovaj tekst ne mogu povezati sa izvornikom."
+  },
+  "settings.no_admin": {
+    "sl": "Nima? admin dostopa",
+    "hr": "Nema? admin pristup",
+    "sr": "Nema? admin pristup"
+  },
+  "settings.no_admin_hint": {
+    "sl": "Tvoj profil dolo?a, katere module vidi?. Urejanje uporabnikov je na voljo samo adminu.",
+    "hr": "Tvoj profil odre?uje koje module vidi?. Ure?ivanje korisnika dostupno je samo adminu.",
+    "sr": "Tvoj profil odre?uje koje module vidi?. Ure?ivanje korisnika dostupno je samo adminu."
+  },
+  "settings.users": {
+    "sl": "Uporabniki",
+    "hr": "Korisnici",
+    "sr": "Korisnici"
+  },
+  "settings.users_hint": {
+    "sl": "Uporabnika najprej ustvari? v Supabase Authentication, tukaj pa mu dodeli? profil in pravice v portalu.",
+    "hr": "Korisnika najprije kreira? u Supabase Authentication, a ovdje mu dodjeljuje? profil i prava u portalu.",
+    "sr": "Korisnika prvo kreira? u Supabase Authentication, a ovde mu dodeljuje? profil i prava u portalu."
+  },
+  "settings.can_edit": {
+    "sl": "Ureja tekst",
+    "hr": "Ure?uje tekst",
+    "sr": "Ure?uje tekst"
+  },
+  "settings.save_user": {
+    "sl": "Shrani uporabnika",
+    "hr": "Spremi korisnika",
+    "sr": "Sa?uvaj korisnika"
+  },
+  "settings.cloud_notice": {
+    "sl": "Profili so shranjeni v Supabase in veljajo za vse uporabnike po prijavi.",
+    "hr": "Profili su spremljeni u Supabase i vrijede za sve korisnike nakon prijave.",
+    "sr": "Profili su sa?uvani u Supabase i va?e za sve korisnike nakon prijave."
+  }
+}

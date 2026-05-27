@@ -1,0 +1,372 @@
+{
+  "_opis": "Vodič po prodajnem razgovoru. Sledi po vrsti. Za vsako fazo: cilj, ključne točke, dobesedni govori, kaj narediti če stranka reagira drugače, tipične napake.",
+  "uvod": "Prodajni razgovor ima ritem. Če ga uloviš, stranka sama pripelje pogovor do točke, kjer ji pomaga. Če ga zgrešiš, postaneš trgovec, ki potiska. Spodaj je preverjena pot. Ni edina pravilna, je pa varna izbira — zlasti za nove komercialiste.",
+  "faze": [
+    {
+      "id": "pred-sestankom",
+      "ikona": "📋",
+      "naziv": "Pred sestankom",
+      "trajanje": "30 minut priprave dan prej",
+      "cilj": "Priti na sestanek z osnovno hipotezo, ne s slepim katalogom storitev.",
+      "kljucne_tocke": [
+        "Preveri spletno stran stranke — kaj proizvajajo, koliko lokacij, kakšen je njihov javni nastop o trajnosti.",
+        "Identificiraj panogo in tipične bolečine v modulu Priprava — to ti da hipotezo, ne odgovore.",
+        "Pripravi 3 konkretne zgodbe iz primerljivih strank (anonimizirano, če nimaš dovoljenja).",
+        "Identificiraj verjetne 3 ugovore za to panogo in pripravi odgovore.",
+        "Postavi si cilj sestanka: kaj je realen naslednji korak? (Ne 'podpis pogodbe' po prvem sestanku.)"
+      ],
+      "govori": [],
+      "branche": [
+        {
+          "ce_stranka": "Ti je pred sestankom poslala konkretno vprašanje ali zahtevo.",
+          "ti_naredi": "Pripravi odgovor, vendar ne začni sestanka z odgovorom — najprej razumi širši kontekst, šele potem se vrni na njihovo vprašanje."
+        }
+      ],
+      "tipicne_napake": [
+        "Pripraviš predstavitev vseh storitev Interzero in jih nameravaš predstaviti po vrsti.",
+        "Ne preveriš osnov: koliko je velika stranka, v katerih trgih je prisotna, kateri sektor.",
+        "Greš na sestanek brez konkretnega cilja, kaj bi želel doseči."
+      ],
+      "signal_konca": "Imaš 3-5 hipotez, ki jih boš testiral na sestanku, in 2-3 zgodbe za primerljive stranke."
+    },
+    {
+      "id": "uvod",
+      "ikona": "🤝",
+      "naziv": "Uvod (prvih 5 minut)",
+      "trajanje": "5 minut",
+      "cilj": "Postaviti pričakovanja, dobiti stranko v aktiven način razmišljanja, ne v pasivnega poslušalca.",
+      "kljucne_tocke": [
+        "Prvih 30 sekund določa preostanek sestanka. Stranka v tem času oceni, ali si profesionalec ali prodajalec.",
+        "Predstavi sebe in podjetje v dveh stavkih — ne več.",
+        "Dogovori se o poteku sestanka — to ti da kontrolo nad ritmom.",
+        "Pridobi 'da' na strukturo sestanka, preden začneš discovery."
+      ],
+      "govori": [
+        {
+          "kdaj": "Po pozdravu in zahvali za čas",
+          "tekst": "Predlagam, da delava takole: jaz vam v dveh minutah razložim, kdo smo in s kakšnimi podjetji delamo, potem pa bi rad razumel vašo situacijo — kaj imate trenutno urejeno, kje vas zatika in kaj bi želeli izboljšati. Na koncu se bova dogovorila, ali je smiselno iti naprej, in če ja, kako. Vam to ustreza?"
+        },
+        {
+          "kdaj": "Kratka predstavitev Interzero (1 minuta, ne več)",
+          "tekst": "Interzero ureja EPR obveznosti, ravnanje z odpadki, embalažo, sekundarne surovine in poročanje za podjetja, ki dajejo izdelke ali embalažo na trg. V regiji delujemo v Sloveniji, na Hrvaškem in v Srbiji. To pomeni, da če prodajate v več državah, je vse na enem mestu."
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Ima pripravljen seznam svojih vprašanj in želi začeti z njimi.",
+          "ti_naredi": "Spusti svoj načrt. Reci: 'Odlično, povejte mi vaša vprašanja, da razumem, kaj je za vas pomembno. Potem se vrneva.' Najprej posluša, potem se vrne k strukturi."
+        },
+        {
+          "ce_stranka": "Reče: 'Veste, mi imamo malo časa, povejte mi takoj, kaj ponujate.'",
+          "ti_naredi": "Reci: 'Razumem. Naj v eni minuti povem, potem pa imam tri vprašanja, brez katerih vam ne morem reči nič koristnega. Ali vam ustreza?' Tako zaščitiš čas za discovery."
+        },
+        {
+          "ce_stranka": "Začne z 'pošljite mi cenik / ponudbo'.",
+          "ti_naredi": "Reci: 'Lahko, vendar splošen cenik vam ne bo koristil — vsako podjetje ima drugačno embalažo, lokacije, obveznosti. Predlagam 15 minut pogovora, potem vam pošljem nekaj, kar je za vas dejansko relevantno.'"
+        }
+      ],
+      "tipicne_napake": [
+        "Predolga predstavitev podjetja (več kot 2 minuti) — stranka izgubi pozornost, preden začneš poslušati.",
+        "Skok takoj v predstavitev storitev brez postavljanja okvirja sestanka.",
+        "Pozabljen 'mehki cilj': pridobi 'da' na strukturo sestanka, da imaš kontrolo nad ritmom."
+      ],
+      "signal_konca": "Stranka je sprejela predlagano strukturo in razmišlja, kaj ti bo povedala. Pripravljena je na vprašanja."
+    },
+    {
+      "id": "discovery",
+      "ikona": "🔍",
+      "naziv": "Discovery (25 minut)",
+      "trajanje": "25 minut — največji del sestanka",
+      "cilj": "Razumeti dejansko situacijo stranke, ne potrjevati svoje hipoteze. 80 % govori stranka, 20 % ti.",
+      "kljucne_tocke": [
+        "Začni splošno (kaj urejate, kdo to vodi), potem zoži (specifične bolečine, posledice).",
+        "Ne pripravljaj naslednjega vprašanja, medtem ko stranka govori — POSLUŠAJ.",
+        "Aktivno povzemaj: 'Razumem prav, da...' To pokaže, da poslušaš, in stranki da možnost popravka.",
+        "Iskaj 'kako veste, da to deluje' in 'kakšna bi bila vaša idealna rešitev' — to so zlate stranke.",
+        "Ne prodajaj med discoveryjem. Ne reagiraj z 'mi to tudi delamo' na vsako njihovo težavo."
+      ],
+      "govori": [
+        {
+          "kdaj": "Prvo vprašanje — odpiraš",
+          "tekst": "Da bi vam jaz danes res nekaj koristnega povedal, mi pomagajte razumeti, kako vi to danes urejate. Kdo pri vas trenutno skrbi za EPR obveznosti, embalažo, odpadke — je to ena oseba ali več?"
+        },
+        {
+          "kdaj": "Sondiranje bolečin",
+          "tekst": "Kaj danes dela najbolje? Kje vas pa zatakne?"
+        },
+        {
+          "kdaj": "Razumeti posledice",
+          "tekst": "Ko se to zgodi, kaj to pomeni za vas? [Posluša] In koliko časa približno na mesec porabite za to?"
+        },
+        {
+          "kdaj": "Razumeti motivacijo za spremembo",
+          "tekst": "Kaj se je spremenilo, da o tem zdaj razmišljate? Je nekdo notranje rekel, da se mora to urediti, ali je razlog kje drugje?"
+        },
+        {
+          "kdaj": "Razumeti odločitveni proces",
+          "tekst": "Če bi se zdaj odločali za novega partnerja na tem področju, kako bi pri vas to potekalo? Kdo bi moral dati zeleno luč?"
+        },
+        {
+          "kdaj": "Aktivni povzetek vmes",
+          "tekst": "Naj povzamem, da preverim, ali razumem prav. Slišal sem tri stvari: prvič [bolečina A], drugič [bolečina B], tretjič [bolečina C]. Sem kaj zgrešil ali izpustil?"
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Odgovarja s kratkimi enobesednimi odgovori ('da', 'ne', 'normalno').",
+          "ti_naredi": "Postavljaj odprta vprašanja: 'Kako bi to opisali?' 'Lahko mi malo več razložite, kaj mislite s tem?' Daj jim prostor."
+        },
+        {
+          "ce_stranka": "Začne govoriti o stvareh, ki ne pripadajo Interzero (njihova proizvodnja, kadrovske težave).",
+          "ti_naredi": "Posluša 2-3 minute, ne prekinjaj. Pogosto je to način, kako te testira, ali si pravi sogovornik. Nato se mehko vrni: 'Razumem. Vrnimo se za trenutek k embalaži in odpadkom — kako pa pri tem...'"
+        },
+        {
+          "ce_stranka": "Reče: 'Nimamo težav, vse je v redu.'",
+          "ti_naredi": "Ne nasprotuj. Reci: 'To je dobro slišati. Iz radovednosti — če bi nekaj lahko izboljšali, kaj bi bilo to? Ne pravim, da je problem, ampak kaj bi se vam zdelo lepo, če bi delovalo še bolje?'"
+        },
+        {
+          "ce_stranka": "Pove ti specifično bolečino, ki je ne morete rešiti.",
+          "ti_naredi": "Bodi pošten. Reci: 'To je legitimna težava, ampak iskreno, to ni naše glavno področje. Lahko vam svetujem, kam pogledati. Vrnimo pa se k [drugi temi, ki jo lahko rešimo].' Iskrenost gradi zaupanje."
+        }
+      ],
+      "tipicne_napake": [
+        "Govoriš več kot stranka. Če sledi sestanka kažejo, da si govoril več kot 30 %, si zgrešil discovery.",
+        "Pripravljaš naslednje vprašanje, medtem ko stranka govori — opaziti je, ker tvoji odgovori ne kažejo, da si poslušal.",
+        "Prodajaš vmes: 'Aha, mi to imamo zelo dobro pokrito.' To prekine miselni tok stranke in jo postavi v defenzivni način.",
+        "Postavljaš zaprta vprašanja, na katera se odgovori z 'da/ne'. 'Imate težave z odpadki?' = slabo. 'Kako vam danes deluje ravnanje z odpadki?' = dobro.",
+        "Pozabljaš povzeti. Brez povzetka stranka misli, da nisi poslušal, in ne ve, kaj si si zapomnil."
+      ],
+      "signal_konca": "Identificiral si 2-4 konkretne bolečine s posledicami. Stranka je potrdila povzetek. Veš, kdo odloča in po katerem procesu."
+    },
+    {
+      "id": "tranzicija",
+      "ikona": "🎯",
+      "naziv": "Prehod v predstavitev",
+      "trajanje": "1-2 minuti",
+      "cilj": "Mostiti od poslušanja k predstavljanju. Ne preskakuj te faze.",
+      "kljucne_tocke": [
+        "Ta prehod loči profesionalca od trgovca.",
+        "Eksplicitno povej, da prehajaš v predstavitev.",
+        "Vežo predstavitev na to, kar si slišal — ne na svoj katalog."
+      ],
+      "govori": [
+        {
+          "kdaj": "Standardni prehod",
+          "tekst": "Hvala, da ste mi to razložili. Zdaj bolje razumem vašo situacijo. Predlagam, da vam v 10 minutah pokažem, kako bi Interzero pristopil k vsem trem stvarem, ki ste jih izpostavili — [naštej 3]. Če bo vmes karkoli nejasnega ali se bom oddaljil od vaše situacije, me prosim ustavite. Vam to ustreza?"
+        }
+      ],
+      "branche": [],
+      "tipicne_napake": [
+        "Brez prehoda začneš z 'Naj vam povem, kaj delamo...' — stranka takoj zazna, da nisi poslušal.",
+        "Predstavljaš celoten katalog namesto treh stvari, ki jih je stranka izpostavila."
+      ],
+      "signal_konca": "Stranka je odobrila prehod in pričakuje, da boš nagovoril tri stvari, ki jih je povedala."
+    },
+    {
+      "id": "predstavitev",
+      "ikona": "💡",
+      "naziv": "Predstavitev rešitve (10 minut)",
+      "trajanje": "10 minut",
+      "cilj": "Pokazati, kako Interzero rešuje tri specifične bolečine, ki si jih slišal. Nič več.",
+      "kljucne_tocke": [
+        "Tri stvari, ne deset. Več kot tri stvari = stranka se ne spomni ničesar.",
+        "Vsaka točka: njihova bolečina → kako jo rešujemo → konkreten primer iz primerljive stranke.",
+        "Med predstavitvijo dva-trikrat preveri: 'Ali to nagovori vašo situacijo?'",
+        "Cena se običajno NE pove na prvem sestanku, razen če stranka eksplicitno vpraša."
+      ],
+      "govori": [
+        {
+          "kdaj": "Začetek predstavitve",
+          "tekst": "Naj začnem s prvo stvarjo, ki ste jo izpostavili — [bolečina A]. Pri stranki vašega profila to tipično rešimo tako, da [konkreten korak]. Konkreten primer: pri [panoga, brez imena] smo začeli z [začetno stanje], v 3 mesecih dosegli [konkreten rezultat]. Ali to zveni razumno za vašo situacijo?"
+        },
+        {
+          "kdaj": "Sredina, preverjanje",
+          "tekst": "Preden grem naprej — ali to, kar sem opisal, ustreza temu, kar ste imeli v mislih, ali je vaš primer drugačen?"
+        },
+        {
+          "kdaj": "Konec predstavitve",
+          "tekst": "Na kratko, kar predlagam, je tole: [3 točke]. Vse to lahko sestavimo v en paket, en mesečni račun, en kontakt. Kaj od tega je za vas najpomembnejše — če bi morali izbrati eno?"
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Vpraša: 'Koliko to stane?'",
+          "ti_naredi": "Ne izogibaj se, vendar ne podaj končne številke prehitro. Reci: 'Pošteno vprašanje. Da vam dam realno številko, potrebujem [konkreten podatek — količine, lokacije, obstoječi stroški]. Lahko vam pa zdaj povem razpon: pri stranki vaše velikosti se ponavadi gibljemo med [X in Y] letno. Je to v razponu, ki ga pričakujete?'"
+        },
+        {
+          "ce_stranka": "Med predstavitvijo začne ugovarjati ('to že imamo').",
+          "ti_naredi": "Ne brani se. Reci: 'Razumem. Lahko mi razložite, kako trenutno to delate, da vidim, kje se mogoče razlikujemo?' Vrni se v discovery za to specifično točko."
+        },
+        {
+          "ce_stranka": "Postavi tehnično vprašanje, ki ga ne znaš odgovoriti.",
+          "ti_naredi": "NIKOLI ne ugibaj. Reci: 'To je zelo specifično vprašanje. Ne želim ugibati. Naj ga zapišem in vam pošljem odgovor v 24 urah s konkretno številko/dokumentom.' Iskrenost > pretveza znanja."
+        }
+      ],
+      "tipicne_napake": [
+        "Predstavitev preraste v katalog: 'imamo še... in tudi... in poleg tega...' Stranka se zmede.",
+        "Preskočiš preverjanje med predstavitvijo. Govoriš 10 minut, ne da bi vedel, ali ti še sledijo.",
+        "Daš ceno prehitro, brez kvalifikacije obsega. Stranka jo primerja z napačnim kontekstom.",
+        "Govoriš o značilnostih (mi imamo X), ne o koristih (vam to pomeni Y)."
+      ],
+      "signal_konca": "Stranka je potrdila, da rešitev nagovarja njihove bolečine. Pripravljena je razmišljati o naslednjem koraku."
+    },
+    {
+      "id": "ugovori",
+      "ikona": "💬",
+      "naziv": "Soočenje z ugovori",
+      "trajanje": "Sproti, ne v ločeni fazi",
+      "cilj": "Ugovor ni ovira — je signal interesa. Stranka, ki ugovarja, razmišlja. Tiha stranka je nevarnejša.",
+      "kljucne_tocke": [
+        "Formula 'A-V-O': Acknowledge (priznaj) → Vprašaj (kaj točno) → Odgovori.",
+        "Nikoli takoj ne argumentiraj proti ugovoru. To je defenzivno in proti tebi.",
+        "Knjižnica vseh ugovorov je v modulu Ugovori — odpri ga med pripravo."
+      ],
+      "govori": [
+        {
+          "kdaj": "Standardna formula AVO",
+          "tekst": "[Acknowledge] Razumem, to je legitimno vprašanje / pošten ugovor. [Vprašaj] Lahko mi malo več razložite, kaj točno mislite s tem? Da vam odgovorim na pravo stvar. [Posluša]. [Odgovori] Glede na to, kar ste povedali, [konkreten odgovor]."
+        },
+        {
+          "kdaj": "Univerzalni začetek pri težkem ugovoru",
+          "tekst": "Hvala, da ste to izpostavili. Bolje, da se o tem pogovoriva zdaj, kot da bi vas to pestilo kasneje."
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Ugovor je o ceni.",
+          "ti_naredi": "Ne padaj v popust. Vprašaj: 'V primerjavi s čim?' Pogosto stranka primerja jabolka in hruške. Razjasni, kaj točno primerjajo."
+        },
+        {
+          "ce_stranka": "Ugovor je o obstoječem dobavitelju ('imamo že koga').",
+          "ti_naredi": "Ne napadi konkurenta. Vprašaj: 'Kako sodelujete? Kaj dela dobro? Kaj bi želeli izboljšati?' Iščeš vrzeli, ne razlogov za zamenjavo."
+        },
+        {
+          "ce_stranka": "Ugovor je o času ('ni časa zdaj').",
+          "ti_naredi": "Ne pritiskaj. Daj jim izhod: 'Razumem. Lahko se vrnem čez 3 mesece. Ali pa 15 minut zdaj, da vidite, ali sploh ima smisel.' Stranka, ki nima časa danes, lahko ima jutri."
+        }
+      ],
+      "tipicne_napake": [
+        "Začneš odgovarjati, preden si razumel, kaj točno je ugovor. 'Predragi ste' lahko pomeni 5 različnih stvari.",
+        "Postaneš defenziven. Ko stranka ugovarja, jo motivira tvoja reakcija, ne argument.",
+        "Pridiguješ. Stranka ne potrebuje predavanja, potrebuje rešitev."
+      ],
+      "signal_konca": "Stranka je sprejela tvoj odgovor (ne nujno strinjala se) in pogovor lahko gre naprej."
+    },
+    {
+      "id": "zakljucek",
+      "ikona": "✅",
+      "naziv": "Zaključek in naslednji korak (10 minut)",
+      "trajanje": "10 minut",
+      "cilj": "Pridobiti konkreten naslednji korak z DATUMOM. Sestanek brez naslednjega koraka je izgubljen sestanek.",
+      "kljucne_tocke": [
+        "Naslednji korak ne sme biti 'razmislili bomo' ali 'kontaktirali se bomo'. Mora imeti datum.",
+        "Predlagaj ti, ne čakaj, da bo stranka.",
+        "Pridobi commitment, ne odprtih emailov.",
+        "Pred koncem povzemi, da si na isti strani."
+      ],
+      "govori": [
+        {
+          "kdaj": "Povzetek pred zaključkom",
+          "tekst": "Da povzamem, na čem sva. Slišal sem, da je za vas najpomembnejše [glavna bolečina]. Predlagam, da [konkreten naslednji korak]. Da bo to delovalo, mi vi pošljete [konkreten podatek — količine, lokacije, dokument]. Jaz vam pripravim [konkreten rezultat — predračun, analizo, primerjavo] do [datum]. Potem se vidimo še za 30 minut, da pregleva. Vam to ustreza?"
+        },
+        {
+          "kdaj": "Postavljanje datuma",
+          "tekst": "Predlagam, da se zdaj že dogovoriva za naslednji sestanek, da ne izgubimo časa s pošiljanjem terminov. Koledar imam tukaj. Kaj vam ustreza — torek 5. ali sreda 6.?"
+        },
+        {
+          "kdaj": "Zaključno preverjanje",
+          "tekst": "Še zadnja stvar — ali je še kaj, kar bi se vam zdelo pomembno, da pred naslednjim sestankom razrešim ali pripravim?"
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Reče: 'Razmislili bomo in se vam oglasimo.'",
+          "ti_naredi": "Ne sprejmi tega kot konec. Reci: 'Razumem, da potrebujete čas. Da ne ostane v zraku — lahko se vseeno dogovoriva za 15-minutni klic, recimo prihodnji teden? Tako vidite, kje smo, in jaz vem, kdaj pričakovati odgovor. Vam ustreza četrtek ob 10h?'"
+        },
+        {
+          "ce_stranka": "Reče: 'Pošljite mi ponudbo / gradivo.'",
+          "ti_naredi": "Reci: 'Lahko, ampak najprej ena stvar. Predlagam, da ponudbo pripravim na podlagi konkretnih podatkov, ne splošno. Lahko mi do [datum] pošljete [konkreten seznam]? Ponudbo dobite v [rok]. Po tem se slišiva 15 minut, da pregleva.' Brez pošljatve v črno luknjo."
+        },
+        {
+          "ce_stranka": "Reče: 'Pošljite, mogoče bomo, mogoče ne.'",
+          "ti_naredi": "Bodi pošten: 'Razumem. Naj iskreno vprašam — ali je smiselno, da nadaljujemo, ali je trenutek napačen? Oba odgovora sta zame koristna, ker ne želim, da se vsi vmes mučimo.' Pošteno vprašanje pogosto razkrije resnico."
+        },
+        {
+          "ce_stranka": "Reče: 'Moramo dobiti soglasje [vodstva / centrale / lastnika].'",
+          "ti_naredi": "Reci: 'Razumem. Lahko jaz pomagam — ali pripravim povzetek, ki vam pomaga to interno predstaviti, ali pa se priključim sestanku z njimi za 20 minut. Kaj bi bilo bolj koristno?'"
+        }
+      ],
+      "tipicne_napake": [
+        "Sprejmeš 'oglasili se bomo' brez datuma. Več kot 80 % takih primerov se ne vrne.",
+        "Pošlješ ponudbo brez dogovorjenega datuma za pregled. Stranka jo prebere v 2 minutah in se odloči brez tebe.",
+        "Pozabiš seznam podatkov, ki jih stranka pošlje. Brez tega ne moreš pripraviti realne ponudbe.",
+        "Pomesh sestanek s 'in oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma."
+      ],
+      "signal_konca": "Imaš konkreten naslednji korak z DATUMOM v koledarju in dogovorjen seznam stvari, ki jih pošlje stranka."
+    },
+    {
+      "id": "po-sestanku",
+      "ikona": "📨",
+      "naziv": "Po sestanku (24 ur)",
+      "trajanje": "30 minut v 24 urah",
+      "cilj": "Cementirati dogovor s pisno potrditvijo, zapisati znanje v CRM, premakniti se proti naslednjemu koraku.",
+      "kljucne_tocke": [
+        "Follow-up email v 24 urah ni vljudnost, je profesionalna obveznost.",
+        "CRM zapis v 24 urah — ne na koncu tedna. Spomin zbledi.",
+        "Razmisli: kaj se je naučil za naslednji sestanek? Kaj bi naredil drugače?"
+      ],
+      "govori": [
+        {
+          "kdaj": "Follow-up email — predloga",
+          "tekst": "Pozdravljeni [ime],\n\nhvala za današnji čas. Da povzamem, o čemer sva se dogovorila:\n\n• Glavne teme, ki ste jih izpostavili: [seznam].\n• Predlagana rešitev z naše strani: [kratek opis].\n• Naslednji korak: [konkreten korak, datum].\n• Podatki, ki jih pošljete: [konkreten seznam].\n\nČe sem kaj pomembnega izpustil, mi prosim sporočite. Sicer računam, da se slišiva [datum].\n\nLep pozdrav,\n[ime]"
+        }
+      ],
+      "branche": [
+        {
+          "ce_stranka": "Ne odgovori v 7 dneh kljub dogovoru.",
+          "ti_naredi": "Pošlji kratek opomnik. Ne sprašuj 'ste prejeli moj email' — predpostavlja, da je krivda na njihovi strani. Reci: 'Vračam se k temu, da ne ostane pozabljeno. Še vedno aktualno?'"
+        },
+        {
+          "ce_stranka": "Pošlje vse podatke kot dogovorjeno.",
+          "ti_naredi": "Potrdi prejem v 24 urah, tudi če ponudba še ni gotova. 'Vse prejeto, pripravljam, dobite do [datum].' Tišina = stranka misli, da si pozabil."
+        }
+      ],
+      "tipicne_napake": [
+        "Follow-up email šele čez 3-5 dni. Stranka že pozabi kontekst.",
+        "CRM zapis ostane v glavi ali v Excelu. Vodja prodaje ne ve, kje je posel. Tudi ti ne, čez en mesec.",
+        "Ne narediš osebne refleksije: kaj je delovalo, kaj ne, kaj bi naredil drugače."
+      ],
+      "signal_konca": "Email poslan, CRM zapisan, koledar ima datum naslednjega koraka, ti pa eno vrstico osebne lekcije."
+    }
+  ],
+  "principi": [
+    {
+      "naslov": "Razmerje 80/20",
+      "vsebina": "Med sestankom 80 % časa govori stranka, 20 % ti. Če je obratno, si zgrešil discovery in stranka ti ne zaupa."
+    },
+    {
+      "naslov": "Aktivni povzetek",
+      "vsebina": "Vsakih 5-10 minut povzemi, kar si slišal. 'Razumem prav, da...' To gradi zaupanje in daje stranki priložnost popravka."
+    },
+    {
+      "naslov": "Ne prodajaj med discoveryjem",
+      "vsebina": "Ko slišiš bolečino, ne reci 'mi to delamo zelo dobro'. Reci: 'Razumem. Kako to vpliva na vas?' Globlje vprašanje, ne plitva prodaja."
+    },
+    {
+      "naslov": "Tri stvari, ne deset",
+      "vsebina": "V predstavitvi reši tri specifične bolečine, ki si jih slišal. Ne kataloga storitev. Stranka se spomni treh stvari, ne desetih."
+    },
+    {
+      "naslov": "Naslednji korak z datumom",
+      "vsebina": "Brez datuma ni naslednjega koraka. 'Oglasili se bomo' = posel je izgubljen v 80 % primerov. Vedno predlagaj konkreten datum."
+    },
+    {
+      "naslov": "Iskrenost pred pretvezo",
+      "vsebina": "Če nečesa ne veš, povej. 'Tega ne vem, vam pošljem v 24 urah s konkretnim podatkom.' Iskrenost gradi zaupanje, ugibanje ga uniči."
+    },
+    {
+      "naslov": "Ugovor je signal interesa",
+      "vsebina": "Tiha stranka je nevarnejša od stranke, ki ugovarja. Ugovor pomeni, da razmišlja. Pozdravi ga."
+    }
+  ]
+}

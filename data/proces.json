@@ -1,0 +1,169 @@
+{
+  "_opis": "10-fazni prodajni proces. Vsaka faza ima cilj, kontrolna vprašanja, obvezne izhode, CRM polja in tipičen rok.",
+  "faze": [
+    {
+      "stevilka": 1,
+      "id": "lead",
+      "naziv": "Lead",
+      "cilj": "Zabeležiti vir in osnovni interes.",
+      "kljucna_vprasanja": [
+        "Od kod je lead — kampanja, priporočilo, dogodek, hladen klic?",
+        "Katera storitev ga zanima?",
+        "Ali izpolnjuje osnovne kriterije ICP?"
+      ],
+      "obvezen_izhod": "Lead vpisan v CRM s polji: vir, država, podjetje, kontakt, interes.",
+      "odgovoren": "Prodaja ali marketing",
+      "crm_polja": ["vir lead-a", "država", "podjetje", "kontaktna oseba", "kontakt podatki", "interes", "datum prvega stika"],
+      "tipicen_rok": "Takoj ob prejemu",
+      "anti_vzorec": "Lead ostane v inboxu ali Excelu in pozabljen. Vedno isti dan v CRM."
+    },
+    {
+      "stevilka": 2,
+      "id": "kvalifikacija",
+      "naziv": "Kvalifikacija",
+      "cilj": "Ugotoviti, ali je priložnost vredna časa.",
+      "kljucna_vprasanja": [
+        "Imajo EPR obveznosti?",
+        "Kakšne so okvirne količine?",
+        "Koliko lokacij?",
+        "Imajo rok ali pritisk za odločitev?",
+        "Kdo je verjeten odločevalec?"
+      ],
+      "obvezen_izhod": "Go / No-go odločitev z obrazložitvijo. Pri 'go' dogovorjen prvi sestanek.",
+      "odgovoren": "Prodajalec",
+      "crm_polja": ["segment", "ocena potenciala (S/M/L)", "interesna storitev", "ocena vrednosti", "datum naslednjega koraka"],
+      "tipicen_rok": "5 delovnih dni od lead-a",
+      "anti_vzorec": "Vsak lead se ohrani 'za vsak slučaj' in pipeline se napihne."
+    },
+    {
+      "stevilka": 3,
+      "id": "prvi-sestanek",
+      "naziv": "Prvi sestanek",
+      "cilj": "Razumeti kontekst in vzpostaviti zaupanje. NE prodajati storitev.",
+      "kljucna_vprasanja": [
+        "Kaj urejate danes in kdo?",
+        "Kaj ne deluje?",
+        "Kaj je razlog za morebitno spremembo?",
+        "Kdo bo na koncu odločal?"
+      ],
+      "obvezen_izhod": "Dogovor za analizo potreb. Pisni povzetek sestanka.",
+      "odgovoren": "Prodajalec",
+      "crm_polja": ["datum sestanka", "udeleženci", "povzetek bolečin", "naslednji korak", "datum naslednjega koraka"],
+      "tipicen_rok": "10 delovnih dni od kvalifikacije",
+      "anti_vzorec": "Prodajalec govori večino časa in pokaže ves katalog storitev."
+    },
+    {
+      "stevilka": 4,
+      "id": "analiza-potreb",
+      "naziv": "Analiza potreb",
+      "cilj": "Zbrati podatke, ki omogočajo realno rešitev.",
+      "kljucna_vprasanja": [
+        "Kje nastajajo odpadki?",
+        "Kaj dajete na trg in v kakšnih količinah?",
+        "Kako trenutno poročate?",
+        "Katere podatke imate, katerih ne?"
+      ],
+      "obvezen_izhod": "Izpolnjen discovery obrazec. Pridobljeni potrebni dokumenti.",
+      "odgovoren": "Prodaja + strokovna ekipa (delivery)",
+      "crm_polja": ["pridobljeni podatki", "manjkajoči podatki", "odprta vprašanja", "vključeni strokovnjaki"],
+      "tipicen_rok": "2 tedna od prvega sestanka",
+      "anti_vzorec": "Ponudba pripravljena brez polnih podatkov, posledica so napake."
+    },
+    {
+      "stevilka": 5,
+      "id": "predstavitev-resitve",
+      "naziv": "Predstavitev rešitve",
+      "cilj": "Povezati potrebe z Interzero rešitvijo. Potrditi obseg.",
+      "kljucna_vprasanja": [
+        "Ali rešitev pokriva glavni problem stranke?",
+        "Kdo mora notranje potrditi?",
+        "Kateri del je še odprt?"
+      ],
+      "obvezen_izhod": "Potrditev obsega in odločevalcev pred pripravo ponudbe.",
+      "odgovoren": "Prodaja + specialist",
+      "crm_polja": ["predlagane storitve", "potrjeni obseg", "odločevalci", "predviden rok ponudbe"],
+      "tipicen_rok": "1 teden po analizi",
+      "anti_vzorec": "Stranka po predstavitvi reče 'pošljite ponudbo' brez konkretnih dogovorov o obsegu."
+    },
+    {
+      "stevilka": 6,
+      "id": "ponudba",
+      "naziv": "Ponudba",
+      "cilj": "Dati jasno komercialno rešitev.",
+      "kljucna_vprasanja": [
+        "Je obseg jasen?",
+        "Je cena razumljiva in primerljiva?",
+        "Kaj manjka v primerjavi z dogovorjenim?"
+      ],
+      "obvezen_izhod": "Poslana ponudba s povzetkom, obsegom, ceno, roki, odgovornostmi, pogoji, naslednjim korakom.",
+      "odgovoren": "Prodajalec",
+      "crm_polja": ["vrednost ponudbe", "datum pošiljanja", "veljavnost do", "dokument", "predvideno zaprtje"],
+      "tipicen_rok": "1 teden po potrjenem obsegu",
+      "anti_vzorec": "Ponudba poslana in tišina — brez dogovorjenega datuma za pregled."
+    },
+    {
+      "stevilka": 7,
+      "id": "usklajevanje",
+      "naziv": "Usklajevanje",
+      "cilj": "Zapreti odprta vprašanja, ugovore in pravne pogoje.",
+      "kljucna_vprasanja": [
+        "Kaj blokira odločitev — cena, obseg, pravni pogoji?",
+        "Kdo še mora videti ponudbo?",
+        "Kateri ugovor je največji?"
+      ],
+      "obvezen_izhod": "Dogovorjene morebitne spremembe ali jasna pot do podpisa.",
+      "odgovoren": "Prodaja + finance / pravna služba",
+      "crm_polja": ["zabeleženi ugovori", "spremembe ponudbe", "naslednji sestanek", "verjetnost zaprtja (%)"],
+      "tipicen_rok": "2–4 tedne",
+      "anti_vzorec": "Več krogov sprememb brez jasne odločevalske vključenosti."
+    },
+    {
+      "stevilka": 8,
+      "id": "odlocitev",
+      "naziv": "Odločitev",
+      "cilj": "Dobiti podpis ali jasen razlog izgube.",
+      "kljucna_vprasanja": [
+        "Kdaj točno odločite?",
+        "Kdo podpiše?",
+        "Če je ne, zakaj — cena, konkurent, časovni okvir, druga prioriteta?"
+      ],
+      "obvezen_izhod": "Podpis ali zapisan razlog izgube.",
+      "odgovoren": "Prodajalec",
+      "crm_polja": ["status (zmaga/izguba/odloženo)", "razlog izgube", "konkurent", "datum odločitve"],
+      "tipicen_rok": "do dogovorjenega roka",
+      "anti_vzorec": "'Stranka se še ni odločila' ostane v CRM mesece brez datuma in naslednje aktivnosti."
+    },
+    {
+      "stevilka": 9,
+      "id": "predaja",
+      "naziv": "Predaja delivery ekipi",
+      "cilj": "Preprečiti izgubo informacij med prodajo in izvedbo.",
+      "kljucna_vprasanja": [
+        "Kaj je bilo stranki obljubljeno?",
+        "Kaj mora delivery vedeti?",
+        "Kdo je primarni kontakt pri stranki?"
+      ],
+      "obvezen_izhod": "Predajni zapisnik z obsegom, roki, kontakti, posebnimi dogovori.",
+      "odgovoren": "Prodaja + delivery",
+      "crm_polja": ["pogodba (link/datoteka)", "obseg po točkah", "roki", "kontaktne osebe", "posebnosti"],
+      "tipicen_rok": "1 teden po podpisu",
+      "anti_vzorec": "Prodajalec 'pojasni preko telefona' in dokumenta ni."
+    },
+    {
+      "stevilka": 10,
+      "id": "follow-up",
+      "naziv": "Poprodajni follow-up",
+      "cilj": "Preveriti zadovoljstvo in dodatne priložnosti.",
+      "kljucna_vprasanja": [
+        "Ali storitev deluje, kot je bilo obljubljeno?",
+        "Kje vidite dodatne priložnosti?",
+        "Bi nas priporočili?"
+      ],
+      "obvezen_izhod": "Pregled po 30 in 90 dneh, plan razvoja stranke.",
+      "odgovoren": "Account manager",
+      "crm_polja": ["zadovoljstvo", "dodatne priložnosti", "datum naslednjega pregleda", "reference soglasje"],
+      "tipicen_rok": "30 in 90 dni po startu",
+      "anti_vzorec": "Stranka se sliši šele, ko se pojavi problem."
+    }
+  ]
+}

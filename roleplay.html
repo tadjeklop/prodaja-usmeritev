@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="sl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roleplay vaja — Interzero EPR</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .kriterij { padding: 0.5rem 0.75rem; border-radius: 0.5rem; border: 1px solid #e7e5e4; margin: 0.25rem 0; }
+    .kriterij-ok { background: #ecfdf5; border-color: #2e7d32; }
+    .kriterij-miss { background: #fef2f2; border-color: #ef4444; }
+    .tezavnost-lahko { color: #15803d; }
+    .tezavnost-srednje { color: #d97706; }
+    .tezavnost-tezko { color: #dc2626; }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900">
+  <div id="app-nav"></div>
+
+  <main class="max-w-4xl mx-auto px-6 py-10">
+    <header class="mb-6">
+      <h1 class="text-3xl font-bold" data-i18n="page.roleplay.title">Roleplay vaja</h1>
+      <p class="mt-2 text-stone-600 max-w-3xl" id="opis">Nalagam…</p>
+    </header>
+
+    <!-- Izbira -->
+    <div id="izbira-scenarija" class="panel mb-6">
+      <h2 class="font-semibold mb-3">Izberi scenarij</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <select id="filter-segment" class="select">
+          <option value="">Vsi segmenti</option>
+        </select>
+        <select id="filter-tezavnost" class="select">
+          <option value="">Vse težavnosti</option>
+          <option value="lahko">Lahko</option>
+          <option value="srednje">Srednje</option>
+          <option value="tezko">Težko</option>
+        </select>
+        <button id="btn-nakljucno" class="btn btn-primary">🎲 Naključen scenarij</button>
+      </div>
+      <div id="seznam-scenarijev" class="mt-4 space-y-2"></div>
+    </div>
+
+    <!-- Aktiven scenarij -->
+    <div id="scenarij" class="hidden">
+      <div class="panel mb-4">
+        <div class="flex items-baseline gap-3 flex-wrap mb-3">
+          <span class="badge badge-stone" id="scenarij-segment"></span>
+          <span class="badge" id="scenarij-tezavnost"></span>
+        </div>
+        <h2 class="font-bold text-lg mb-2">Situacija</h2>
+        <p id="scenarij-situacija" class="text-sm mb-4"></p>
+
+        <h3 class="font-semibold mb-1 text-sm">🗣️ Stranka pravi:</h3>
+        <div class="script-block" id="stranka-tekst" data-speech-lang="sl-SI">
+          <button class="copy-btn" data-copy="#stranka-tekst">Kopiraj</button>
+        </div>
+      </div>
+
+      <div class="panel mb-4">
+        <h2 class="font-semibold mb-2">Tvoj odgovor</h2>
+        <p class="text-xs text-stone-500 mb-2">Napiši, kar bi rekel stranki. Bolj naravno = bolj realna ocena.</p>
+        <textarea id="moj-odgovor" class="textarea" rows="6" placeholder="Tipkaj odgovor tukaj..."></textarea>
+        <div class="mt-3 flex gap-2 flex-wrap">
+          <button id="btn-oceni" class="btn btn-primary">Oceni odgovor</button>
+          <button id="btn-namig" class="btn btn-secondary">💡 Pokaži namig</button>
+          <button id="btn-koncaj" class="btn btn-ghost">Drug scenarij</button>
+        </div>
+        <div id="namig" class="hidden mt-3 p-3 bg-blue-50 border border-blue-200 rounded text-sm"></div>
+      </div>
+
+      <div id="ocena" class="hidden panel"></div>
+    </div>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    let DATA = null, SEGMENTI = [], aktivenScenarij = null;
+
+    async function init() {
+      const [rp, seg] = await Promise.all([loadData('roleplay'), loadData('segmentacija')]);
+      if (!rp) { document.getElementById('opis').textContent = 'Napaka pri nalaganju.'; return; }
+      DATA = rp;
+      SEGMENTI = seg ? seg.segmenti : [];
+
+      document.getElementById('opis').textContent = DATA._opis;
+
+      const segSel = document.getElementById('filter-segment');
+      SEGMENTI.forEach(s => segSel.innerHTML += `<option value="${s.id}">${s.kratko}</option>`);
+      document.getElementById('filter-segment').addEventListener('change', renderSeznam);
+      document.getElementById('filter-tezavnost').addEventListener('change', renderSeznam);
+      document.getElementById('btn-nakljucno').addEventListener('click', nakljucno);
+      document.getElementById('btn-oceni').addEventListener('click', oceniOdgovor);
+      document.getElementById('btn-namig').addEventListener('click', pokaziNamig);
+      document.getElementById('btn-koncaj').addEventListener('click', zapri);
+
+      renderSeznam();
+    }
+
+    function renderSeznam() {
+      const seg = document.getElementById('filter-segment').value;
+      const tez = document.getElementById('filter-tezavnost').value;
+      let items = DATA.scenariji;
+      if (seg) items = items.filter(x => x.segment === seg);
+      if (tez) items = items.filter(x => x.tezavnost === tez);
+
+      document.getElementById('seznam-scenarijev').innerHTML = items.map(s => {
+        const segDef = SEGMENTI.find(x => x.id === s.segment);
+        return `
+          <button class="w-full text-left p-3 border border-stone-200 rounded hover:bg-green-50 hover:border-green-500" data-id="${s.id}">
+            <div class="flex items-baseline justify-between gap-2 flex-wrap">
+              <div>
+                <span class="badge badge-stone">${segDef ? segDef.kratko : s.segment}</span>
+                <span class="ml-2 tezavnost-${s.tezavnost} font-semibold text-sm">${s.tezavnost}</span>
+              </div>
+            </div>
+            <div class="text-sm mt-2 text-stone-700">${s.situacija}</div>
+          </button>
+        `;
+      }).join('') || '<p class="text-stone-500 text-sm">Ni scenarijev za izbrane filtre.</p>';
+
+      document.querySelectorAll('#seznam-scenarijev button').forEach(b =>
+        b.addEventListener('click', () => start(b.dataset.id))
+      );
+    }
+
+    function nakljucno() {
+      const seg = document.getElementById('filter-segment').value;
+      const tez = document.getElementById('filter-tezavnost').value;
+      let items = DATA.scenariji;
+      if (seg) items = items.filter(x => x.segment === seg);
+      if (tez) items = items.filter(x => x.tezavnost === tez);
+      if (!items.length) return;
+      const r = items[Math.floor(Math.random() * items.length)];
+      start(r.id);
+    }
+
+    function start(id) {
+      aktivenScenarij = DATA.scenariji.find(s => s.id === id);
+      if (!aktivenScenarij) return;
+      document.getElementById('izbira-scenarija').classList.add('hidden');
+      document.getElementById('scenarij').classList.remove('hidden');
+
+      const segDef = SEGMENTI.find(x => x.id === aktivenScenarij.segment);
+      document.getElementById('scenarij-segment').textContent = segDef ? segDef.kratko : aktivenScenarij.segment;
+      const t = aktivenScenarij.tezavnost;
+      const tBadge = document.getElementById('scenarij-tezavnost');
+      tBadge.textContent = t;
+      tBadge.className = `badge tezavnost-${t}`;
+
+      document.getElementById('scenarij-situacija').textContent = aktivenScenarij.situacija;
+      const strankaTekst = document.getElementById('stranka-tekst');
+      strankaTekst.innerHTML = `„${aktivenScenarij.stranka_pravi}"<button class="copy-btn" data-copy="#stranka-tekst">Kopiraj</button>`;
+
+      document.getElementById('moj-odgovor').value = '';
+      document.getElementById('namig').classList.add('hidden');
+      document.getElementById('ocena').classList.add('hidden');
+      wireCopyButtons();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function pokaziNamig() {
+      const n = document.getElementById('namig');
+      n.textContent = '💡 ' + aktivenScenarij.namig;
+      n.classList.remove('hidden');
+    }
+
+    function oceniOdgovor() {
+      const odgovor = document.getElementById('moj-odgovor').value.trim().toLowerCase();
+      if (!odgovor) { alert('Najprej napiši odgovor.'); return; }
+
+      const rezultati = aktivenScenarij.kaj_iskati.map(k => {
+        const tezi = k.tezi.toLowerCase();
+        const ok = odgovor.includes(tezi) || odgovor.replace(/[čćšž]/g, c => ({ č: 'c', ć: 'c', š: 's', ž: 'z' }[c])).includes(tezi.replace(/[čćšž]/g, c => ({ č: 'c', ć: 'c', š: 's', ž: 'z' }[c])));
+        return { ...k, ok };
+      });
+      const stTocni = rezultati.filter(r => r.ok).length;
+      const skupaj = rezultati.length;
+      const odstotek = Math.round(stTocni / skupaj * 5); // 0-5 zvezdic
+
+      const slot = document.getElementById('ocena');
+      slot.classList.remove('hidden');
+      slot.innerHTML = `
+        <div class="text-center mb-4">
+          <div class="text-xs uppercase text-stone-500">Ocena</div>
+          <div class="text-5xl font-bold ${odstotek >= 4 ? 'text-green-700' : odstotek >= 3 ? 'text-amber-600' : 'text-red-600'}">${'★'.repeat(odstotek)}${'☆'.repeat(5-odstotek)}</div>
+          <div class="text-sm text-stone-600 mt-2">${stTocni} / ${skupaj} kriterijev izpolnjenih</div>
+          <div class="text-sm font-semibold mt-2">${DATA.kriteriji_ocene[odstotek] || ''}</div>
+        </div>
+        <h3 class="font-semibold mb-2">Pregled kriterijev</h3>
+        <div>
+          ${rezultati.map(r => `
+            <div class="kriterij ${r.ok ? 'kriterij-ok' : 'kriterij-miss'}">
+              <span>${r.ok ? '✓' : '✗'}</span> ${r.kriterij}
+            </div>
+          `).join('')}
+        </div>
+        <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded text-sm">
+          <strong>💡 Namig vodiča:</strong> ${aktivenScenarij.namig}
+        </div>
+        <div class="mt-4 flex gap-2">
+          <button class="btn btn-secondary" onclick="document.getElementById('moj-odgovor').value=''; document.getElementById('ocena').classList.add('hidden'); document.getElementById('moj-odgovor').focus();">↻ Poskusi znova</button>
+          <button class="btn btn-primary" onclick="nakljucno()">→ Drug scenarij</button>
+        </div>
+      `;
+      window.scrollTo({ top: slot.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function zapri() {
+      aktivenScenarij = null;
+      document.getElementById('scenarij').classList.add('hidden');
+      document.getElementById('izbira-scenarija').classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
