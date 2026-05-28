@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Koledar EPR datumov — Interzero EPR</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css?v18" />
+  <link rel="stylesheet" href="css/style.css?v19" />
 </head>
 <body class="bg-stone-50 text-stone-900">
   <div id="app-nav"></div>
@@ -18,6 +18,43 @@
 
     <div id="trenutni-mesec" class="mb-6"></div>
 
+    <section class="panel mb-6 no-print">
+      <h2 class="text-lg font-semibold mb-3">Dodaj ročni dogodek ali task</h2>
+      <form id="custom-calendar-form" class="grid grid-cols-1 md:grid-cols-6 gap-3">
+        <div>
+          <label class="label">Tip</label>
+          <select id="custom-tip" class="select">
+            <option value="dogodek">Dogodek</option>
+            <option value="splosni-task">Splošni task za mesec</option>
+            <option value="osebni-task">Osebni task za mesec</option>
+          </select>
+        </div>
+        <div>
+          <label class="label">Mesec</label>
+          <select id="custom-mesec" class="select"></select>
+        </div>
+        <div class="md:col-span-2">
+          <label class="label">Naslov</label>
+          <input id="custom-naslov" class="input" required>
+        </div>
+        <div>
+          <label class="label">Lastnik</label>
+          <input id="custom-lastnik" class="input" placeholder="npr. Tadej">
+        </div>
+        <div>
+          <label class="label">Zadnji rok</label>
+          <input id="custom-rok" class="input" type="date">
+        </div>
+        <div class="md:col-span-5">
+          <label class="label">Komentar</label>
+          <textarea id="custom-komentar" class="textarea" rows="2" placeholder="Kaj je treba narediti, kaj je dogovorjeno, povezave ..."></textarea>
+        </div>
+        <div class="flex items-end">
+          <button class="btn btn-primary w-full" type="submit">Dodaj</button>
+        </div>
+      </form>
+    </section>
+
     <h2 class="text-lg font-semibold mb-4">Letni cikel</h2>
     <div id="cikel" class="space-y-3 mb-10"></div>
 
@@ -26,41 +63,51 @@
   </main>
 
   <script src="js/storage.js"></script>
-  <script src="js/app.js?v18"></script>
+  <script src="js/app.js?v19"></script>
   <script>
+    const MESECI = ['Januar','Februar','Marec','April','Maj','Junij','Julij','Avgust','September','Oktober','November','December'];
+    let DATA = null;
+
     async function init() {
-      const data = await loadData('koledar');
-      if (!data) {
+      DATA = await loadData('koledar');
+      if (!DATA) {
         document.getElementById('cikel').innerHTML =
           '<p class="text-red-700">Ne morem naložiti podatkov.</p>';
         return;
       }
+      napolniMesecSelect();
+      document.getElementById('custom-calendar-form').addEventListener('submit', shraniCustomItem);
+      render();
+    }
 
+    function render() {
       const trenutni = new Date().getMonth() + 1;
-      const tm = data.letni_cikel.find(m => m.mesec === trenutni);
+      const tm = DATA.letni_cikel.find(m => m.mesec === trenutni);
       if (tm) {
         document.getElementById('trenutni-mesec').innerHTML = `
-          <div class="panel bg-green-50 border-green-200">
-            <div class="text-xs font-semibold uppercase text-green-800 mb-1">Trenutni mesec</div>
+          <div class="panel" style="background:#eef9fd;border-color:#009dd3">
+            <div class="text-xs font-semibold uppercase mb-1" style="color:#183362">Trenutni mesec</div>
             <h2 class="text-xl font-bold mb-3">${tm.naziv}</h2>
             ${tm.dogodki.map(d => renderDogodek(d)).join('')}
+            ${renderCustomItems(trenutni)}
           </div>
         `;
       }
 
-      document.getElementById('cikel').innerHTML = data.letni_cikel.map(m => `
+      document.getElementById('cikel').innerHTML = DATA.letni_cikel.map(m => `
         <details class="panel" ${m.mesec === trenutni ? 'open' : ''}>
           <summary class="cursor-pointer">
             <span class="font-semibold">${m.mesec}. ${m.naziv}</span>
-            <span class="text-sm text-stone-600 ml-2">${m.dogodki.length} ${m.dogodki.length === 1 ? 'dogodek' : 'dogodki'}</span>
+            <span class="text-sm text-stone-600 ml-2">${m.dogodki.length + customItemsForMonth(m.mesec).length} vnosov</span>
           </summary>
           <div class="mt-3 space-y-3">
             ${m.dogodki.map(d => renderDogodek(d)).join('')}
+            ${renderCustomItems(m.mesec)}
           </div>
         </details>
       `).join('');
 
-      document.getElementById('horizont').innerHTML = data.vecletni_horizont.map(h => `
+      document.getElementById('horizont').innerHTML = DATA.vecletni_horizont.map(h => `
         <div class="panel">
           <div class="flex items-baseline gap-2 flex-wrap mb-2">
             <span class="badge badge-blue">${h.datum}</span>
@@ -70,6 +117,9 @@
           <p class="text-sm text-stone-700"><strong>Vpliv na stranke:</strong> ${h.vpliv_na_stranke}</p>
         </div>
       `).join('');
+      document.querySelectorAll('[data-delete-custom]').forEach(btn => {
+        btn.addEventListener('click', () => izbrisiCustomItem(btn.dataset.deleteCustom));
+      });
     }
 
     function renderDogodek(d) {
@@ -85,6 +135,82 @@
           ${d.interzero_vloga ? `<div class="text-sm bg-white p-2 rounded border-l-2 border-green-500"><strong>Interzero vloga:</strong> ${d.interzero_vloga}</div>` : ''}
         </div>
       `;
+    }
+
+    function napolniMesecSelect() {
+      const select = document.getElementById('custom-mesec');
+      select.innerHTML = MESECI.map((m, i) => `<option value="${i + 1}">${i + 1}. ${m}</option>`).join('');
+      select.value = String(new Date().getMonth() + 1);
+    }
+
+    function getCustomItems() {
+      return Storage.get('koledar-custom-items', []);
+    }
+
+    function customItemsForMonth(mesec) {
+      return getCustomItems().filter(item => Number(item.mesec) === Number(mesec));
+    }
+
+    function shraniCustomItem(event) {
+      event.preventDefault();
+      const item = {
+        id: Date.now().toString(36),
+        tip: document.getElementById('custom-tip').value,
+        mesec: Number(document.getElementById('custom-mesec').value),
+        naslov: document.getElementById('custom-naslov').value.trim(),
+        lastnik: document.getElementById('custom-lastnik').value.trim(),
+        rok: document.getElementById('custom-rok').value,
+        komentar: document.getElementById('custom-komentar').value.trim(),
+        createdAt: new Date().toISOString()
+      };
+      if (!item.naslov) return;
+      Storage.set('koledar-custom-items', [item, ...getCustomItems()]);
+      event.target.reset();
+      napolniMesecSelect();
+      render();
+    }
+
+    function izbrisiCustomItem(id) {
+      Storage.set('koledar-custom-items', getCustomItems().filter(item => item.id !== id));
+      render();
+    }
+
+    function renderCustomItems(mesec) {
+      const items = customItemsForMonth(mesec);
+      if (!items.length) return '';
+      return `
+        <div class="space-y-2">
+          ${items.map(item => `
+            <div class="p-3 rounded border bg-white border-sky-200">
+              <div class="flex items-baseline gap-2 flex-wrap mb-1">
+                <span class="badge badge-blue">${labelTip(item.tip)}</span>
+                <span class="font-semibold">${escapeHtml(item.naslov)}</span>
+                <button class="ml-auto text-xs underline text-stone-500 no-print" type="button" data-delete-custom="${item.id}">Izbriši</button>
+              </div>
+              <div class="text-xs text-stone-500 mb-1">
+                ${item.lastnik ? `Lastnik: <strong>${escapeHtml(item.lastnik)}</strong>` : 'Brez lastnika'}
+                ${item.rok ? ` · zadnji rok: <strong>${fmtDatum(item.rok)}</strong>` : ''}
+              </div>
+              ${item.komentar ? `<div class="text-sm">${escapeHtml(item.komentar)}</div>` : ''}
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function labelTip(tip) {
+      return tip === 'splosni-task' ? 'Splošni task' : tip === 'osebni-task' ? 'Osebni task' : 'Dogodek';
+    }
+
+    function fmtDatum(iso) {
+      const d = new Date(iso);
+      return Number.isNaN(d.getTime()) ? iso : `${d.getDate()}. ${d.getMonth() + 1}. ${d.getFullYear()}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      }[char]));
     }
 
     document.addEventListener('DOMContentLoaded', init);

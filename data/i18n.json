@@ -18,9 +18,9 @@
     "sr": "Dashboard"
   },
   "nav.stranke": {
-    "sl": "Stranke",
-    "hr": "Klijenti",
-    "sr": "Klijenti"
+    "sl": "CRM",
+    "hr": "CRM",
+    "sr": "CRM"
   },
   "nav.segmenti": {
     "sl": "Segmenti",
@@ -33,24 +33,24 @@
     "sr": "Vodič"
   },
   "nav.roleplay": {
-    "sl": "Vaja",
-    "hr": "Vježba",
-    "sr": "Vežba"
+    "sl": "Roleplay",
+    "hr": "Roleplay",
+    "sr": "Roleplay"
   },
   "nav.priprava": {
-    "sl": "Priprava",
-    "hr": "Priprema",
-    "sr": "Priprema"
+    "sl": "Brief",
+    "hr": "Brief",
+    "sr": "Brief"
   },
   "nav.obrazec": {
-    "sl": "Obrazec",
-    "hr": "Obrazac",
-    "sr": "Obrazac"
+    "sl": "Discovery",
+    "hr": "Discovery",
+    "sr": "Discovery"
   },
   "nav.govori": {
-    "sl": "Govori",
-    "hr": "Govori",
-    "sr": "Govori"
+    "sl": "Skripte",
+    "hr": "Skripte",
+    "sr": "Skripte"
   },
   "nav.ugovori": {
     "sl": "Ugovori",
@@ -83,9 +83,9 @@
     "sr": "Proces"
   },
   "nav.glosar": {
-    "sl": "Glosar",
-    "hr": "Pojmovnik",
-    "sr": "Pojmovnik"
+    "sl": "Besednjak",
+    "hr": "Rječnik",
+    "sr": "Rečnik"
   },
   "nav.koledar": {
     "sl": "Koledar",
@@ -93,9 +93,9 @@
     "sr": "Kalendar"
   },
   "nav.vsebine": {
-    "sl": "Vsebine",
-    "hr": "Sadržaj",
-    "sr": "Sadržaj"
+    "sl": "LI vsebine",
+    "hr": "LI sadržaj",
+    "sr": "LI sadržaj"
   },
   "nav.zakonodaja": {
     "sl": "Zakonodaja",

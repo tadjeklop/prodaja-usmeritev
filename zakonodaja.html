@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Zakonodaja — Interzero EPR</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/style.css?v18" />
+  <link rel="stylesheet" href="css/style.css?v19" />
 </head>
 <body class="bg-stone-50 text-stone-900">
   <div id="app-nav"></div>
@@ -22,11 +22,39 @@
       <button class="tab" data-drz="rs">🇷🇸 Srbija</button>
     </div>
 
+    <section class="panel mb-6 no-print">
+      <h2 class="text-lg font-semibold mb-3">Uradni viri in revizija zakonodaje</h2>
+      <p class="text-sm text-stone-600 mb-3">
+        Za aktualno zakonodajo dodajaj uradne linke po državi. Portal naj bo prodajni pregled; pravno veljavnost vedno potrdi uradni vir ali pravna služba.
+      </p>
+      <form id="law-source-form" class="grid grid-cols-1 md:grid-cols-6 gap-3">
+        <div class="md:col-span-2">
+          <label class="label">Naziv vira</label>
+          <input id="law-source-title" class="input" placeholder="npr. Uradni list / Narodne novine" required>
+        </div>
+        <div class="md:col-span-3">
+          <label class="label">URL</label>
+          <input id="law-source-url" class="input" type="url" placeholder="https://..." required>
+        </div>
+        <div>
+          <label class="label">Revizija</label>
+          <input id="law-source-review" class="input" type="date">
+        </div>
+        <div class="md:col-span-5">
+          <label class="label">Opomba</label>
+          <input id="law-source-note" class="input" placeholder="Kaj preveriti, kateri tok odpadkov, kdo je potrdil ...">
+        </div>
+        <div class="flex items-end">
+          <button class="btn btn-primary w-full" type="submit">Dodaj vir</button>
+        </div>
+      </form>
+    </section>
+
     <div id="vsebina"></div>
   </main>
 
   <script src="js/storage.js"></script>
-  <script src="js/app.js?v18"></script>
+  <script src="js/app.js?v19"></script>
   <script>
     let DRZ = 'si';
     const STATUS_DRZAVE = {
@@ -36,6 +64,7 @@
     };
 
     async function init() {
+      document.getElementById('law-source-form').addEventListener('submit', shraniLawSource);
       document.querySelectorAll('.tab').forEach(t => {
         t.addEventListener('click', () => {
           DRZ = t.dataset.drz;
@@ -105,7 +134,73 @@
             </ul>
           </div>
         ` : ''}
+
+        ${renderCustomLawSources()}
       `;
+      document.querySelectorAll('[data-delete-law-source]').forEach(btn => {
+        btn.addEventListener('click', () => izbrisiLawSource(btn.dataset.deleteLawSource));
+      });
+    }
+
+    function lawSourceKey() {
+      return `law-sources-${DRZ}`;
+    }
+
+    function getLawSources() {
+      return Storage.get(lawSourceKey(), []);
+    }
+
+    function shraniLawSource(event) {
+      event.preventDefault();
+      const item = {
+        id: Date.now().toString(36),
+        title: document.getElementById('law-source-title').value.trim(),
+        url: document.getElementById('law-source-url').value.trim(),
+        review: document.getElementById('law-source-review').value,
+        note: document.getElementById('law-source-note').value.trim()
+      };
+      if (!item.title || !item.url) return;
+      Storage.set(lawSourceKey(), [item, ...getLawSources()]);
+      event.target.reset();
+      render();
+    }
+
+    function izbrisiLawSource(id) {
+      Storage.set(lawSourceKey(), getLawSources().filter(item => item.id !== id));
+      render();
+    }
+
+    function renderCustomLawSources() {
+      const items = getLawSources();
+      if (!items.length) return '';
+      return `
+        <div class="panel mt-6">
+          <h3 class="font-semibold mb-2">Ročno dodani uradni viri</h3>
+          <div class="space-y-2 text-sm">
+            ${items.map(item => `
+              <div class="p-3 rounded border border-sky-200 bg-white">
+                <div class="flex gap-2 flex-wrap items-baseline">
+                  <a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer" class="font-semibold underline text-sky-700">${escapeHtml(item.title)}</a>
+                  ${item.review ? `<span class="badge badge-amber">revizija: ${fmtDatum(item.review)}</span>` : ''}
+                  <button class="ml-auto text-xs underline text-stone-500 no-print" type="button" data-delete-law-source="${item.id}">Izbriši</button>
+                </div>
+                ${item.note ? `<div class="text-stone-600 mt-1">${escapeHtml(item.note)}</div>` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function fmtDatum(iso) {
+      const d = new Date(iso);
+      return Number.isNaN(d.getTime()) ? iso : `${d.getDate()}. ${d.getMonth() + 1}. ${d.getFullYear()}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value || '').replace(/[&<>"']/g, char => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      }[char]));
     }
 
     document.addEventListener('DOMContentLoaded', init);

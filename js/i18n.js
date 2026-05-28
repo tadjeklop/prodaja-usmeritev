@@ -40,6 +40,7 @@ const I18n = {
     if (!['sl', 'hr', 'sr'].includes(lang)) return;
     this.jezik = lang;
     Storage.set('i18n-lang', lang);
+    Storage.set('i18n-lang-user-set', true);
     document.documentElement.lang = lang;
     location.reload();
   },

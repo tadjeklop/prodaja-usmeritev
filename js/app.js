@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v18';
+const APP_ASSET_VERSION = 'v19';
 
 (function clearOldRuntimeCache() {
   try {
@@ -19,22 +19,22 @@ const APP_ASSET_VERSION = 'v18';
 const NAV_ITEMS = [
   { href: 'index.html',       label: 'Domov',       i18n: 'nav.domov' },
   { href: 'dashboard.html',   label: 'Dashboard',   i18n: 'nav.dashboard' },
-  { href: 'stranke.html',     label: 'Stranke',     i18n: 'nav.stranke' },
+  { href: 'stranke.html',     label: 'CRM',         i18n: 'nav.stranke' },
   { href: 'segmentacija.html',label: 'Segmenti',    i18n: 'nav.segmenti' },
   { href: 'vodic.html',       label: 'Vodič',       i18n: 'nav.vodic' },
-  { href: 'roleplay.html',    label: 'Vaja',        i18n: 'nav.roleplay' },
-  { href: 'priprava.html',    label: 'Priprava',    i18n: 'nav.priprava' },
-  { href: 'obrazec.html',     label: 'Obrazec',     i18n: 'nav.obrazec' },
-  { href: 'govori.html',      label: 'Govori',      i18n: 'nav.govori' },
+  { href: 'roleplay.html',    label: 'Roleplay',    i18n: 'nav.roleplay' },
+  { href: 'priprava.html',    label: 'Brief',       i18n: 'nav.priprava' },
+  { href: 'obrazec.html',     label: 'Discovery',   i18n: 'nav.obrazec' },
+  { href: 'govori.html',      label: 'Skripte',     i18n: 'nav.govori' },
   { href: 'ugovori.html',     label: 'Ugovori',     i18n: 'nav.ugovori' },
   { href: 'konkurenca.html',  label: 'Konkurenca',  i18n: 'nav.konkurenca' },
   { href: 'reference.html',   label: 'Reference',   i18n: 'nav.reference' },
   { href: 'kalkulacije.html', label: 'Kalkulacije', i18n: 'nav.kalkulacije' },
   { href: 'ponudba.html',     label: 'Ponudba',     i18n: 'nav.ponudba' },
   { href: 'proces.html',      label: 'Proces',      i18n: 'nav.proces' },
-  { href: 'glosar.html',      label: 'Glosar',      i18n: 'nav.glosar' },
+  { href: 'glosar.html',      label: 'Besednjak',   i18n: 'nav.glosar' },
   { href: 'koledar.html',     label: 'Koledar',     i18n: 'nav.koledar' },
-  { href: 'vsebine.html',     label: 'Vsebine',     i18n: 'nav.vsebine' },
+  { href: 'vsebine.html',     label: 'LI vsebine',  i18n: 'nav.vsebine' },
   { href: 'zakonodaja.html',  label: 'Zakonodaja',  i18n: 'nav.zakonodaja' },
   { href: 'onboarding.html',  label: 'Onboarding',  i18n: 'nav.onboarding' },
   { href: 'kpi.html',         label: 'KPI',         i18n: 'nav.kpi' },
@@ -111,6 +111,7 @@ const ProfileManager = {
     const profile = this.getProfiles().find(item => item.id === id);
     if (!profile) return;
     Storage.set('active-profile-id', id);
+    Storage.remove('i18n-lang-user-set');
     if (profile.defaultLanguage) Storage.set('i18n-lang', profile.defaultLanguage);
     location.reload();
   },

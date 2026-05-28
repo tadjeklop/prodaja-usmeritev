@@ -186,10 +186,15 @@ const Auth = {
 
   applyProfile() {
     if (!this.profile) return;
+    const previousProfileId = Storage.get('active-profile-id', null);
     const previousLanguage = Storage.get('i18n-lang', 'sl');
+    const userSelectedLanguage = Storage.get('i18n-lang-user-set', false);
     Storage.set('active-profile-id', this.profile.id);
-    if (this.profile.defaultLanguage) Storage.set('i18n-lang', this.profile.defaultLanguage);
-    if (!this.isLoginPage() && this.profile.defaultLanguage && previousLanguage !== this.profile.defaultLanguage) {
+    const shouldApplyProfileLanguage =
+      this.profile.defaultLanguage &&
+      (!userSelectedLanguage || previousProfileId !== this.profile.id);
+    if (shouldApplyProfileLanguage) Storage.set('i18n-lang', this.profile.defaultLanguage);
+    if (!this.isLoginPage() && shouldApplyProfileLanguage && previousLanguage !== this.profile.defaultLanguage) {
       location.reload();
     }
   },

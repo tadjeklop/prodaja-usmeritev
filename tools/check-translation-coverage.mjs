@@ -59,6 +59,7 @@ function looksLikeCode(text) {
     /[{};[\]()]/.test(text) ||
     /[=>]/.test(text) ||
     /\b(text|bg|border|rounded|hidden|flex|grid|w-full|mt|mb|pt|py|px)-/.test(text) ||
+    /\b(flex|items-end)\b/.test(text) ||
     /\b(btn|login-error|justify-center|saved-panel|no-print)\b/.test(text) ||
     /^data\/[-a-z0-9/.]+$/i.test(text) ||
     /\b(function|const|let|return|Promise|querySelector)\b/.test(text);
