@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const version = 'v20';
+const version = 'v21';
 const htmlFiles = fs.readdirSync('.').filter(file => file.endsWith('.html'));
 const failures = [];
 

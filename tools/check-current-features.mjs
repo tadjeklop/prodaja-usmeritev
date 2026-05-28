@@ -3,6 +3,7 @@ import fs from 'node:fs';
 const app = fs.readFileSync('js/app.js', 'utf8');
 const i18n = fs.readFileSync('data/i18n.json', 'utf8');
 const auth = fs.readFileSync('js/auth.js', 'utf8');
+const css = fs.readFileSync('css/style.css', 'utf8');
 const koledar = fs.readFileSync('koledar.html', 'utf8');
 const vsebine = fs.readFileSync('vsebine.html', 'utf8');
 const zakonodaja = fs.readFileSync('zakonodaja.html', 'utf8');
@@ -16,6 +17,7 @@ const checks = [
   ['nav besednjak label', app.includes("label: 'Besednjak'") && i18n.includes('"sl": "Besednjak"')],
   ['nav LI vsebine label', app.includes("label: 'LI vsebine'") && i18n.includes('"sl": "LI vsebine"')],
   ['nav grouped categories', app.includes('NAV_GROUPS') && app.includes('app-nav-group') && i18n.includes('"nav.group.sales"')],
+  ['nav group cards', css.includes('.app-nav-group') && css.includes('background: #f8fbfd') && css.includes('border: 1px solid var(--iz-border)')],
   ['auth respects manual language', auth.includes('i18n-lang-user-set') && auth.includes('shouldApplyProfileLanguage')],
   ['calendar custom events', koledar.includes('koledar-custom-items') && koledar.includes('lastnik') && koledar.includes('zadnji rok')],
   ['content custom ideas', vsebine.includes('li-content-ideas') && vsebine.includes('objavil') && vsebine.includes('tagi')],

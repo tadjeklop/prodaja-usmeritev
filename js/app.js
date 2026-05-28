@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v20';
+const APP_ASSET_VERSION = 'v21';
 
 (function clearOldRuntimeCache() {
   try {
