@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v14';
+const APP_ASSET_VERSION = 'v15';
 
 (function clearOldRuntimeCache() {
   try {
@@ -430,6 +430,9 @@ async function bootApp() {
   if (authLoadPromise) await authLoadPromise;
   if (typeof Auth !== 'undefined' && Auth.ready) await Auth.ready;
   renderNav();
+  if (i18nLoadPromise) await i18nLoadPromise;
+  if (typeof I18n !== 'undefined' && I18n.ready) await I18n.ready;
+  if (typeof I18n !== 'undefined' && I18n.injectSwitcher) I18n.injectSwitcher();
   enforcePageAccess();
   applyProfileVisibility();
   wireCopyButtons();

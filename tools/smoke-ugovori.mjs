@@ -33,16 +33,19 @@ async function main() {
     await browser.send('Runtime.enable');
     await waitForReady(browser);
     await waitForCondition(browser, `document.querySelectorAll('#seznam .panel').length > 5`);
+    await waitForCondition(browser, `document.querySelectorAll('.lang-switcher .lang-btn').length === 3`);
 
     const result = await evalValue(browser, `(() => ({
       cards: document.querySelectorAll('#seznam .panel').length,
       categories: document.querySelectorAll('#kategorija option').length,
+      langButtons: document.querySelectorAll('.lang-switcher .lang-btn').length,
       hasExpensive: document.getElementById('seznam').textContent.includes('Predragi ste'),
       hasError: document.getElementById('seznam').textContent.includes('Ne morem nalo')
     }))()`);
 
     assert(result.cards > 5, 'objection cards were not rendered');
     assert(result.categories > 5, 'objection categories were not rendered');
+    assert(result.langButtons === 3, 'language switcher buttons were not rendered');
     assert(result.hasExpensive, 'expected objection text is missing');
     assert(!result.hasError, 'page shows data loading error');
     console.log(`ugovori smoke: rendered ${result.cards} cards and ${result.categories} categories`);
