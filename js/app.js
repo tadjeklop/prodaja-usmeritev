@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v15';
+const APP_ASSET_VERSION = 'v16';
 
 (function clearOldRuntimeCache() {
   try {
@@ -153,20 +153,11 @@ function renderNav() {
     const i18nAttr = item.i18n ? ` data-i18n="${item.i18n}"` : '';
     return `<a href="${item.href}" class="app-nav-link${active}"${i18nAttr}>${item.label}</a>`;
   }).join('');
-  const quickLinks = ['obrazec.html', 'govori.html', 'ugovori.html']
-    .map(href => visibleItems.find(item => item.href === href))
-    .filter(Boolean)
-    .map(item => {
-      const active = item.href === here ? ' active' : '';
-      const i18nAttr = item.i18n ? ` data-i18n="${item.i18n}"` : '';
-      return `<a href="${item.href}" class="app-nav-quick-link${active}"${i18nAttr}>${item.label}</a>`;
-    }).join('');
 
   const html = `
     <nav class="app-nav">
       <div class="app-nav-inner">
         <a href="index.html" class="app-nav-logo">Interzero EPR</a>
-        <div class="app-nav-quick-links">${quickLinks}</div>
         <details class="app-nav-menu">
           <summary class="app-nav-menu-button" data-i18n="nav.menu">Meni</summary>
           <div class="app-nav-links">${links}</div>

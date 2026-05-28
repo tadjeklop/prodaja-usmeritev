@@ -39,6 +39,8 @@ async function main() {
       cards: document.querySelectorAll('#seznam .panel').length,
       categories: document.querySelectorAll('#kategorija option').length,
       langButtons: document.querySelectorAll('.lang-switcher .lang-btn').length,
+      quickLinks: document.querySelectorAll('.app-nav-quick-link').length,
+      dropdownUgovori: !!document.querySelector('.app-nav-links a[href="ugovori.html"]'),
       hasExpensive: document.getElementById('seznam').textContent.includes('Predragi ste'),
       hasError: document.getElementById('seznam').textContent.includes('Ne morem nalo')
     }))()`);
@@ -46,6 +48,8 @@ async function main() {
     assert(result.cards > 5, 'objection cards were not rendered');
     assert(result.categories > 5, 'objection categories were not rendered');
     assert(result.langButtons === 3, 'language switcher buttons were not rendered');
+    assert(result.quickLinks === 0, 'quick links should not be rendered in the top bar');
+    assert(result.dropdownUgovori, 'Ugovori link is missing from dropdown menu');
     assert(result.hasExpensive, 'expected objection text is missing');
     assert(!result.hasError, 'page shows data loading error');
     console.log(`ugovori smoke: rendered ${result.cards} cards and ${result.categories} categories`);
