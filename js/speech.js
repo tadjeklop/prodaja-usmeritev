@@ -285,7 +285,7 @@ const Speech = {
     }
     .speech-player-inner {
       background: white;
-      border: 1px solid #d6d3d1;
+      border: 1px solid #d9e2e8;
       border-radius: 9999px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
       padding: 0.375rem 0.75rem;
@@ -299,7 +299,7 @@ const Speech = {
     .speech-btn {
       width: 2rem; height: 2rem;
       border-radius: 9999px;
-      border: 1px solid #d6d3d1;
+      border: 1px solid #d9e2e8;
       background: #f5f5f4;
       cursor: pointer;
       font-size: 0.875rem;
@@ -307,13 +307,13 @@ const Speech = {
       align-items: center;
       justify-content: center;
     }
-    .speech-btn:hover { background: #e8f5e9; border-color: #2e7d32; }
+    .speech-btn:hover { background: #eef9fd; border-color: #009dd3; }
     .speech-settings-btn { font-size: 1rem; }
     .speech-progress {
       font-size: 0.75rem;
-      color: #57534e;
+      color: #51606c;
       padding: 0 0.5rem;
-      border-left: 1px solid #e7e5e4;
+      border-left: 1px solid #d9e2e8;
     }
     .speech-warning {
       font-size: 0.7rem;
@@ -328,7 +328,7 @@ const Speech = {
       right: 0;
       margin-bottom: 0.5rem;
       background: white;
-      border: 1px solid #d6d3d1;
+      border: 1px solid #d9e2e8;
       border-radius: 0.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
       padding: 0.75rem 1rem;
@@ -343,8 +343,8 @@ const Speech = {
       margin: 0.375rem 0;
     }
     .speech-settings-row label { font-weight: 600; min-width: 4rem; font-size: 0.8rem; }
-    .speech-settings-row select, .speech-settings-row input { flex: 1; padding: 0.25rem; border: 1px solid #d6d3d1; border-radius: 0.25rem; font-size: 0.85rem; }
-    .speech-help { font-size: 0.75rem; color: #57534e; padding-top: 0.5rem; margin-top: 0.5rem; border-top: 1px solid #e7e5e4; }
+    .speech-settings-row select, .speech-settings-row input { flex: 1; padding: 0.25rem; border: 1px solid #d9e2e8; border-radius: 0.25rem; font-size: 0.85rem; }
+    .speech-help { font-size: 0.75rem; color: #51606c; padding-top: 0.5rem; margin-top: 0.5rem; border-top: 1px solid #d9e2e8; }
     .speech-read-btn {
       position: absolute;
       top: 0.5rem;
@@ -352,16 +352,16 @@ const Speech = {
       font-size: 0.75rem;
       padding: 0.25rem 0.5rem;
       background: white;
-      border: 1px solid #d6d3d1;
+      border: 1px solid #d9e2e8;
       border-radius: 0.375rem;
       cursor: pointer;
-      color: #57534e;
+      color: #51606c;
     }
-    .speech-read-btn:hover { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
+    .speech-read-btn:hover { background: #eef9fd; border-color: #009dd3; color: #183362; }
     .script-block.speech-active {
-      background: #ecfdf5 !important;
-      border-color: #2e7d32 !important;
-      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+      background: #eef9fd !important;
+      border-color: #009dd3 !important;
+      box-shadow: 0 0 0 2px rgba(0, 157, 211, 0.18);
     }
     .speech-bulk-btn {
       display: inline-flex;
@@ -369,14 +369,14 @@ const Speech = {
       gap: 0.5rem;
       padding: 0.5rem 1rem;
       background: white;
-      border: 1px solid #d6d3d1;
+      border: 1px solid #d9e2e8;
       border-radius: 9999px;
       cursor: pointer;
       font-size: 0.875rem;
-      color: #1b5e20;
+      color: #183362;
       font-weight: 500;
     }
-    .speech-bulk-btn:hover { background: #e8f5e9; border-color: #2e7d32; }
+    .speech-bulk-btn:hover { background: #eef9fd; border-color: #009dd3; }
     @media print {
       .speech-player, .speech-read-btn, .speech-bulk-btn { display: none !important; }
     }

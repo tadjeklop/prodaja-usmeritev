@@ -150,16 +150,16 @@ window.I18n = I18n;
   const css = `
     .lang-switcher {
       display: flex; gap: 0.125rem; padding: 0.125rem;
-      background: #f5f5f4; border: 1px solid #d6d3d1; border-radius: 0.5rem;
+      background: #eef9fd; border: 1px solid #d9e2e8; border-radius: 0.5rem;
       margin-left: 0.5rem;
     }
     .lang-btn {
       padding: 0.25rem 0.5rem; font-size: 0.75rem; font-weight: 600;
-      background: transparent; border: none; color: #57534e;
+      background: transparent; border: none; color: #51606c;
       cursor: pointer; border-radius: 0.375rem; min-width: 2rem;
     }
-    .lang-btn:hover { color: #1b5e20; }
-    .lang-btn.active { background: #2e7d32; color: white; }
+    .lang-btn:hover { color: #183362; }
+    .lang-btn.active { background: #ffce00; color: #183362; }
   `;
   const style = document.createElement('style');
   style.textContent = css;

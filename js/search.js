@@ -156,7 +156,7 @@ const Search = {
       box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     }
     #search-input {
-      padding: 1rem 1.25rem; font-size: 1.1rem; border: none; border-bottom: 1px solid #e7e5e4;
+      padding: 1rem 1.25rem; font-size: 1.1rem; border: none; border-bottom: 1px solid #d9e2e8;
       outline: none; border-radius: 0.75rem 0.75rem 0 0;
     }
     #search-results { overflow-y: auto; flex: 1; }
@@ -164,33 +164,33 @@ const Search = {
       display: block; padding: 0.75rem 1.25rem; border-bottom: 1px solid #f5f5f4;
       text-decoration: none; color: inherit; cursor: pointer;
     }
-    .search-result:hover, .search-result.selected { background: #ecfdf5; }
+    .search-result:hover, .search-result.selected { background: #eef9fd; }
     .search-module {
       display: inline-block; font-size: 0.7rem; padding: 0.125rem 0.5rem;
-      background: #f5f5f4; color: #57534e; border-radius: 9999px; margin-right: 0.5rem;
+      background: #f4f7f9; color: #51606c; border-radius: 9999px; margin-right: 0.5rem;
       font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
     }
-    .search-result.selected .search-module { background: #2e7d32; color: white; }
+    .search-result.selected .search-module { background: #009dd3; color: white; }
     .search-title { font-weight: 600; }
-    .search-snippet { display: block; font-size: 0.85rem; color: #57534e; margin-top: 0.25rem; }
+    .search-snippet { display: block; font-size: 0.85rem; color: #51606c; margin-top: 0.25rem; }
     .search-empty { padding: 2rem; text-align: center; color: #78716c; }
     .search-footer {
-      padding: 0.5rem 1.25rem; border-top: 1px solid #e7e5e4; font-size: 0.75rem;
+      padding: 0.5rem 1.25rem; border-top: 1px solid #d9e2e8; font-size: 0.75rem;
       color: #78716c; background: #fafaf9; border-radius: 0 0 0.75rem 0.75rem;
     }
     .search-footer kbd {
       display: inline-block; padding: 0.125rem 0.375rem; background: white;
-      border: 1px solid #d6d3d1; border-radius: 0.25rem; font-size: 0.7rem; margin: 0 0.125rem;
+      border: 1px solid #d9e2e8; border-radius: 0.25rem; font-size: 0.7rem; margin: 0 0.125rem;
     }
     .search-trigger {
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.375rem 0.75rem; background: #f5f5f4;
-      border: 1px solid #d6d3d1; border-radius: 0.5rem;
-      cursor: pointer; font-size: 0.85rem; color: #57534e;
+      border: 1px solid #d9e2e8; border-radius: 0.5rem;
+      cursor: pointer; font-size: 0.85rem; color: #51606c;
     }
-    .search-trigger:hover { background: #e8f5e9; border-color: #2e7d32; }
+    .search-trigger:hover { background: #eef9fd; border-color: #009dd3; }
     .search-trigger kbd {
-      padding: 0.125rem 0.375rem; background: white; border: 1px solid #d6d3d1;
+      padding: 0.125rem 0.375rem; background: white; border: 1px solid #d9e2e8;
       border-radius: 0.25rem; font-size: 0.7rem;
     }
   `;

@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v16';
+const APP_ASSET_VERSION = 'v17';
 
 (function clearOldRuntimeCache() {
   try {
@@ -369,7 +369,7 @@ function wireCopyButtons(root = document) {
   if (!document.querySelector('meta[name="theme-color"]')) {
     const meta = document.createElement('meta');
     meta.name = 'theme-color';
-    meta.content = '#2e7d32';
+    meta.content = '#009dd3';
     document.head.appendChild(meta);
   }
   // Apple touch icon

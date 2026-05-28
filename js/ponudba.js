@@ -134,7 +134,7 @@ function renderPreview() {
           <div class="text-sm text-stone-600 mt-1">${s.stevilka ? 'Št. ' + s.stevilka + ' · ' : ''}${fmtDatum(s.datum)}</div>
         </div>
         <div class="text-right text-sm">
-          <div class="font-bold" style="color: #1b5e20">${TPL.ponudnik.naziv}</div>
+          <div class="font-bold" style="color: #183362">${TPL.ponudnik.naziv}</div>
           <div class="text-stone-600">${TPL.ponudnik.naslov}</div>
           <div class="text-stone-600 mt-1">${TPL.ponudnik.kontakt_email}</div>
           <div class="text-stone-600">${TPL.ponudnik.kontakt_telefon}</div>
