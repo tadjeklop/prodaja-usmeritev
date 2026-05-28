@@ -36,11 +36,22 @@ body {
   position: relative;
 }
 .app-nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-weight: 700;
   color: var(--iz-green-dark);
   text-decoration: none;
   font-size: 1.05rem;
   white-space: nowrap;
+}
+.app-nav-logo::before {
+  content: "";
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 0.2rem;
+  background: linear-gradient(135deg, var(--iz-green) 0 62%, var(--iz-yellow) 62% 100%);
+  box-shadow: inset 0 0 0 1px rgba(24, 51, 98, 0.08);
 }
 .app-nav-menu {
   position: relative;
@@ -179,6 +190,17 @@ body {
 .moment-icon {
   font-size: 1.75rem;
   line-height: 1;
+}
+
+main > header {
+  border-left: 0.45rem solid var(--iz-green);
+  padding-left: 1.25rem;
+}
+main > header h1 {
+  color: var(--iz-green-dark);
+}
+main > header p {
+  color: var(--iz-muted);
 }
 
 /* Module cards */
