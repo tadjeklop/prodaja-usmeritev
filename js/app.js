@@ -2,7 +2,7 @@
 
 let i18nLoadPromise = null;
 let authLoadPromise = null;
-const APP_ASSET_VERSION = 'v19';
+const APP_ASSET_VERSION = 'v20';
 
 (function clearOldRuntimeCache() {
   try {
@@ -17,30 +17,37 @@ const APP_ASSET_VERSION = 'v19';
 })();
 
 const NAV_ITEMS = [
-  { href: 'index.html',       label: 'Domov',       i18n: 'nav.domov' },
-  { href: 'dashboard.html',   label: 'Dashboard',   i18n: 'nav.dashboard' },
-  { href: 'stranke.html',     label: 'CRM',         i18n: 'nav.stranke' },
-  { href: 'segmentacija.html',label: 'Segmenti',    i18n: 'nav.segmenti' },
-  { href: 'vodic.html',       label: 'Vodič',       i18n: 'nav.vodic' },
-  { href: 'roleplay.html',    label: 'Roleplay',    i18n: 'nav.roleplay' },
-  { href: 'priprava.html',    label: 'Brief',       i18n: 'nav.priprava' },
-  { href: 'obrazec.html',     label: 'Discovery',   i18n: 'nav.obrazec' },
-  { href: 'govori.html',      label: 'Skripte',     i18n: 'nav.govori' },
-  { href: 'ugovori.html',     label: 'Ugovori',     i18n: 'nav.ugovori' },
-  { href: 'konkurenca.html',  label: 'Konkurenca',  i18n: 'nav.konkurenca' },
-  { href: 'reference.html',   label: 'Reference',   i18n: 'nav.reference' },
-  { href: 'kalkulacije.html', label: 'Kalkulacije', i18n: 'nav.kalkulacije' },
-  { href: 'ponudba.html',     label: 'Ponudba',     i18n: 'nav.ponudba' },
-  { href: 'proces.html',      label: 'Proces',      i18n: 'nav.proces' },
-  { href: 'glosar.html',      label: 'Besednjak',   i18n: 'nav.glosar' },
-  { href: 'koledar.html',     label: 'Koledar',     i18n: 'nav.koledar' },
-  { href: 'vsebine.html',     label: 'LI vsebine',  i18n: 'nav.vsebine' },
-  { href: 'zakonodaja.html',  label: 'Zakonodaja',  i18n: 'nav.zakonodaja' },
-  { href: 'onboarding.html',  label: 'Onboarding',  i18n: 'nav.onboarding' },
-  { href: 'kpi.html',         label: 'KPI',         i18n: 'nav.kpi' },
-  { href: 'asistent.html',    label: 'AI',          i18n: 'nav.asistent' },
-  { href: 'zgodovina.html',   label: 'Zgodovina',   i18n: 'nav.zgodovina' },
-  { href: 'settings.html',    label: 'Settings',    i18n: 'nav.settings', always: true }
+  { href: 'index.html',       label: 'Domov',       i18n: 'nav.domov',       group: 'sales' },
+  { href: 'dashboard.html',   label: 'Dashboard',   i18n: 'nav.dashboard',   group: 'sales' },
+  { href: 'stranke.html',     label: 'CRM',         i18n: 'nav.stranke',     group: 'sales' },
+  { href: 'segmentacija.html',label: 'Segmenti',    i18n: 'nav.segmenti',    group: 'sales' },
+  { href: 'priprava.html',    label: 'Brief',       i18n: 'nav.priprava',    group: 'sales' },
+  { href: 'obrazec.html',     label: 'Discovery',   i18n: 'nav.obrazec',     group: 'sales' },
+  { href: 'ponudba.html',     label: 'Ponudba',     i18n: 'nav.ponudba',     group: 'sales' },
+  { href: 'proces.html',      label: 'Proces',      i18n: 'nav.proces',      group: 'sales' },
+  { href: 'zgodovina.html',   label: 'Zgodovina',   i18n: 'nav.zgodovina',   group: 'sales' },
+  { href: 'govori.html',      label: 'Skripte',     i18n: 'nav.govori',      group: 'content' },
+  { href: 'ugovori.html',     label: 'Ugovori',     i18n: 'nav.ugovori',     group: 'content' },
+  { href: 'roleplay.html',    label: 'Roleplay',    i18n: 'nav.roleplay',    group: 'content' },
+  { href: 'vodic.html',       label: 'Vodič',       i18n: 'nav.vodic',       group: 'content' },
+  { href: 'reference.html',   label: 'Reference',   i18n: 'nav.reference',   group: 'content' },
+  { href: 'konkurenca.html',  label: 'Konkurenca',  i18n: 'nav.konkurenca',  group: 'content' },
+  { href: 'vsebine.html',     label: 'LI vsebine',  i18n: 'nav.vsebine',     group: 'content' },
+  { href: 'glosar.html',      label: 'Besednjak',   i18n: 'nav.glosar',      group: 'content' },
+  { href: 'koledar.html',     label: 'Koledar',     i18n: 'nav.koledar',     group: 'operations' },
+  { href: 'kalkulacije.html', label: 'Kalkulacije', i18n: 'nav.kalkulacije', group: 'operations' },
+  { href: 'zakonodaja.html',  label: 'Zakonodaja',  i18n: 'nav.zakonodaja',  group: 'operations' },
+  { href: 'onboarding.html',  label: 'Onboarding',  i18n: 'nav.onboarding',  group: 'operations' },
+  { href: 'kpi.html',         label: 'KPI',         i18n: 'nav.kpi',         group: 'operations' },
+  { href: 'asistent.html',    label: 'AI',          i18n: 'nav.asistent',    group: 'operations' },
+  { href: 'settings.html',    label: 'Settings',    i18n: 'nav.settings',    group: 'admin', always: true }
+];
+
+const NAV_GROUPS = [
+  { id: 'sales', label: 'Prodaja in CRM', i18n: 'nav.group.sales' },
+  { id: 'content', label: 'Vsebina in trening', i18n: 'nav.group.content' },
+  { id: 'operations', label: 'Operativa in vodenje', i18n: 'nav.group.operations' },
+  { id: 'admin', label: 'Admin', i18n: 'nav.group.admin' }
 ];
 
 const DEFAULT_MODULES = NAV_ITEMS.map(item => item.href.replace('.html', ''));
@@ -149,10 +156,21 @@ function currentPage() {
 function renderNav() {
   const here = currentPage();
   const visibleItems = ProfileManager.visibleNavItems();
-  const links = visibleItems.map(item => {
+  const renderLink = item => {
     const active = item.href === here ? ' active' : '';
     const i18nAttr = item.i18n ? ` data-i18n="${item.i18n}"` : '';
     return `<a href="${item.href}" class="app-nav-link${active}"${i18nAttr}>${item.label}</a>`;
+  };
+  const links = NAV_GROUPS.map(group => {
+    const items = visibleItems.filter(item => (item.group || 'sales') === group.id);
+    if (!items.length) return '';
+    const i18nAttr = group.i18n ? ` data-i18n="${group.i18n}"` : '';
+    return `
+      <section class="app-nav-group">
+        <div class="app-nav-group-title"${i18nAttr}>${group.label}</div>
+        <div class="app-nav-group-links">${items.map(renderLink).join('')}</div>
+      </section>
+    `;
   }).join('');
 
   const html = `

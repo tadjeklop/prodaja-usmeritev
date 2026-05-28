@@ -1,7 +1,7 @@
 // Service worker — network-first strategija (popravljeno zaradi i18n stale cache problem).
 // Bump verzije ob vsaki pomembnejši spremembi JS/JSON datotek.
 
-const CACHE_NAME = 'interzero-epr-v19';
+const CACHE_NAME = 'interzero-epr-v20';
 
 self.addEventListener('install', e => {
   self.skipWaiting();

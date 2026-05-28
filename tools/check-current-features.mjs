@@ -15,6 +15,7 @@ const checks = [
   ['nav skripte label', app.includes("label: 'Skripte'") && i18n.includes('"sl": "Skripte"')],
   ['nav besednjak label', app.includes("label: 'Besednjak'") && i18n.includes('"sl": "Besednjak"')],
   ['nav LI vsebine label', app.includes("label: 'LI vsebine'") && i18n.includes('"sl": "LI vsebine"')],
+  ['nav grouped categories', app.includes('NAV_GROUPS') && app.includes('app-nav-group') && i18n.includes('"nav.group.sales"')],
   ['auth respects manual language', auth.includes('i18n-lang-user-set') && auth.includes('shouldApplyProfileLanguage')],
   ['calendar custom events', koledar.includes('koledar-custom-items') && koledar.includes('lastnik') && koledar.includes('zadnji rok')],
   ['content custom ideas', vsebine.includes('li-content-ideas') && vsebine.includes('objavil') && vsebine.includes('tagi')],

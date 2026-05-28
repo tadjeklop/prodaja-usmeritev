@@ -657,6 +657,26 @@
     "hr": "Postavke",
     "sr": "Pode?avanja"
   },
+  "nav.group.sales": {
+    "sl": "Prodaja in CRM",
+    "hr": "Prodaja i CRM",
+    "sr": "Prodaja i CRM"
+  },
+  "nav.group.content": {
+    "sl": "Vsebina in trening",
+    "hr": "Sadržaj i trening",
+    "sr": "Sadržaj i trening"
+  },
+  "nav.group.operations": {
+    "sl": "Operativa in vodenje",
+    "hr": "Operativa i vođenje",
+    "sr": "Operativa i vođenje"
+  },
+  "nav.group.admin": {
+    "sl": "Admin",
+    "hr": "Admin",
+    "sr": "Admin"
+  },
   "page.settings.title": {
     "sl": "Settings",
     "hr": "Postavke",

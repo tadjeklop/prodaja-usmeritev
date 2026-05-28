@@ -80,12 +80,12 @@ body {
 }
 .app-nav-links {
   display: grid;
-  grid-template-columns: repeat(4, minmax(8rem, 1fr));
-  gap: 0.25rem;
+  grid-template-columns: repeat(4, minmax(10rem, 1fr));
+  gap: 0.75rem;
   position: absolute;
   top: calc(100% + 0.5rem);
   left: 0;
-  width: min(60rem, calc(100vw - 2rem));
+  width: min(68rem, calc(100vw - 2rem));
   overflow: visible;
   padding: 0.5rem;
   background: white;
@@ -93,6 +93,21 @@ body {
   border-radius: 0.5rem;
   box-shadow: 0 18px 40px rgba(0,0,0,0.14);
   z-index: 100;
+}
+.app-nav-group {
+  min-width: 0;
+}
+.app-nav-group-title {
+  padding: 0.25rem 0.5rem 0.45rem;
+  color: var(--iz-green-dark);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.app-nav-group-links {
+  display: grid;
+  gap: 0.15rem;
 }
 .app-nav-link {
   color: var(--iz-muted);
@@ -161,6 +176,9 @@ body {
     width: calc(100vw - 2rem);
     max-height: none;
     left: -5.2rem;
+  }
+  .app-nav-group-title {
+    padding-left: 0.35rem;
   }
   .account-chip {
     max-width: 10rem;
