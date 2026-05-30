@@ -140,9 +140,9 @@ Template je namenjen temu, da v novem chatu ali novem folderju dodaš nov poslov
 ## Hitra uporaba
 
 1. Kopiraj ta folder v nov projekt.
-2. Odpri \`TEMPLATE-CONTEXT.md\` in zamenjaj vsebino z novim kontekstom.
-3. V novem chatu povej: "Uporabi ta template in kontekst iz TEMPLATE-CONTEXT.md ter ustvari nov prodajni portal."
-4. Po potrebi uredi \`data/*.json\`, \`css/style.css\` in Supabase nastavitve.
+2. Odpri \`TEMPLATE-CONTEXT.md\` ali \`data/portal-context.example.json\` in dodaj nov kontekst.
+3. V novem chatu povej: "Uporabi ta template, preberi kontekst in posodobi portal po PORTAL-CONTENT-MAP.md."
+4. Portal naj ohrani vse module, spremeni pa naj vsebino, primere, vprašanja, skripte, ugovore, koledar, vire in brand.
 
 ## Jezik
 
@@ -214,7 +214,15 @@ Izpolni ta dokument pred začetkom novega portala.
 - Ton oblikovanja:
 - Logotip ali znak:
 
-## 9. Moduli
+## 9. Pravila prilagoditve
+
+- Ohrani vse obstoječe module, razen če izrecno naročim drugače.
+- Ne briši funkcionalnosti, samo prilagodi vsebino in brand.
+- Vse konkretne primere, vprašanja, skripte in ugovore prilagodi novemu trgu.
+- Če kontekst ne vsebuje dovolj informacij, pusti generične placeholderje in jih označi z "DOPOLNI".
+- Najprej posodobi podatkovne datoteke v \`data/\`, nato UI besedila.
+
+## 10. Moduli
 
 Označi, kaj naj ostane v novem portalu:
 
@@ -232,6 +240,90 @@ Označi, kaj naj ostane v novem portalu:
 - [ ] Settings / uporabniki
 `);
 
+  fs.writeFileSync(path.join(dir, 'PORTAL-CONTENT-MAP.md'), `# Portal Content Map
+
+Ta dokument pove, katero vsebino mora nov chat spremeniti, ko dobi nov poslovni kontekst.
+
+Pravilo: **ohrani module in funkcionalnost, zamenjaj vsebino.**
+
+## Brand in osnovni UI
+
+- \`index.html\` - naslov portala, uvodni tekst, seznam modulov na prvi strani.
+- \`manifest.json\` - ime aplikacije.
+- \`css/style.css\` - barve, tipografija, nevtralni CGP.
+- \`js/app.js\` - ime portala v navigaciji, kategorije menija, seznam modulov.
+- \`data/i18n.json\` - slovenske UI oznake.
+
+## CRM in prodajni proces
+
+- \`stranke.html\` in \`js/stranke.js\` - polja CRM, statusi, pipeline, prikazi.
+- \`data/proces.json\` - faze prodajnega procesa, CRM polja, izhodi iz faz.
+- \`data/panoge.json\` - panoge ali segmenti trga.
+- \`data/odlocevalci.json\` - buyer persone, motivi, vprašanja.
+
+## Brief in priprava na sestanek
+
+- \`priprava.html\` in \`js/priprava.js\` - logika briefa.
+- \`data/panoge.json\`
+- \`data/odlocevalci.json\`
+- \`data/ugovori.json\`
+- \`data/govori.json\`
+
+## Discovery
+
+- \`obrazec.html\` - UI obrazca in CRM povzetek.
+- \`data/discovery.json\` - sklopi, vprašanja, namigi, CRM zapisnik.
+
+## Skripte in ugovori
+
+- \`data/govori.json\` - prodajne skripte, emaili, follow-up, pitch.
+- \`data/ugovori.json\` - ugovori, odgovori, opombe, kategorije.
+- \`govori.html\` in \`ugovori.html\` - prikaz in filtri.
+
+## Segmentacija, konkurenca, reference
+
+- \`data/segmentacija.json\` - segmenti kupcev in kviz.
+- \`data/konkurenca.json\` - battlecards in primerjava.
+- \`data/reference.json\` - case studies ali dokazni primeri.
+
+## Kalkulacije in ponudba
+
+- \`data/epr-cene-si.json\` - ceniki, paketni primeri, vhodni parametri.
+- \`data/predloga-ponudbe.json\` - predloga ponudbe in podatki ponudnika.
+- \`js/kalkulacije.js\`, \`js/ponudba.js\` - logika kalkulacije in predogleda.
+
+## Koledar, LI vsebine, zakonodaja / viri
+
+- \`data/koledar.json\` - letni cikli, roki, dogodki, taski.
+- \`data/vsebine.json\` - LinkedIn / outreach ideje, tedni, statusi, lastniki.
+- \`data/zakonodaja-si.json\` - uradni viri, strokovni viri, opombe za prodajo.
+
+## Onboarding, KPI, trening
+
+- \`data/onboarding.json\` - 30/60/90 plan, vaje, pričakovanja.
+- \`data/kpi.json\` - KPI metrika, coaching vprašanja, vodenje ekipe.
+- \`data/roleplay.json\` - roleplay scenariji, kriteriji ocenjevanja.
+- \`data/vodic.json\` - vodnik po prodajnem razgovoru.
+
+## AI asistent
+
+- \`asistent.html\` - sistemski prompt, hitri prompti, ton odgovora.
+
+## Settings, uporabniki, Supabase
+
+- \`settings.html\`, \`js/admin.js\`, \`js/auth.js\` - profili, uporabniki, pravice.
+- \`supabase-schema.sql\` - opcijska cloud shema.
+- \`data/auth-config.json\` - vklop/izklop prijave.
+
+## Priporočeno zaporedje pri novem kontekstu
+
+1. Preberi \`TEMPLATE-CONTEXT.md\` ali \`data/portal-context.example.json\`.
+2. Posodobi brand: \`index.html\`, \`manifest.json\`, \`css/style.css\`, \`js/app.js\`.
+3. Posodobi prodajno jedro: \`data/proces.json\`, \`data/discovery.json\`, \`data/govori.json\`, \`data/ugovori.json\`.
+4. Posodobi podporne module: segmentacija, konkurenca, reference, kalkulacije, koledar, vsebine, viri.
+5. Zaženi smoke teste.
+`);
+
   fs.writeFileSync(path.join(dir, 'CREATE-NEW-PORTAL.md'), `# Kako iz tega template-a ustvariti nov portal
 
 ## Priporočen proces
@@ -246,6 +338,8 @@ Uporabi ta sales portal template.
 Preberi TEMPLATE-CONTEXT.md.
 Prilagodi portal novemu podjetju/trgu.
 Ohrani samo slovenščino, dokler ne rečem drugače.
+Ohrani vse module in funkcionalnost, razen če izrecno rečem drugače.
+Uporabi PORTAL-CONTENT-MAP.md kot zemljevid datotek.
 Najprej posodobi podatkovne JSON-e, nato UI, nato teste.
 \`\`\`
 
@@ -267,6 +361,65 @@ Supabase je opcijski. Uporabi ga, če potrebuješ prijavo, uporabnike, profile i
 
 Če ga ne potrebuješ, lahko ostane \`data/auth-config.json\` nastavljen na \`enabled: false\`.
 `);
+
+  fs.writeFileSync(path.join(dir, 'data/portal-context.example.json'), JSON.stringify({
+    portal: {
+      name: 'Prodajni portal',
+      market: 'Slovenija',
+      language: 'sl',
+      brand: {
+        primaryColor: '#2563eb',
+        secondaryColor: '#f59e0b',
+        tone: 'miren, profesionalen, uporaben'
+      }
+    },
+    company: {
+      name: '',
+      shortDescription: '',
+      productsOrServices: [],
+      targetCustomers: [],
+      differentiators: []
+    },
+    salesProcess: {
+      stages: [],
+      crmFields: [],
+      qualificationCriteria: [],
+      commonLossReasons: []
+    },
+    discovery: {
+      sections: [],
+      mustAskQuestions: [],
+      highIntentSignals: [],
+      riskSignals: []
+    },
+    scripts: {
+      openingPitch: '',
+      followUpEmail: '',
+      objectionHandlingStyle: '',
+      forbiddenClaims: []
+    },
+    objections: [],
+    segmentation: {
+      customerSegments: [],
+      industries: [],
+      decisionMakers: []
+    },
+    contentCalendar: {
+      themes: [],
+      seasonalEvents: [],
+      owners: []
+    },
+    sources: {
+      officialSources: [],
+      internalDocuments: [],
+      reviewOwner: '',
+      reviewCycle: ''
+    },
+    modules: {
+      keepAll: true,
+      notes: 'Ne briši modulov. Vsebino prilagodi kontekstu.'
+    }
+  }, null, 2) + '\n');
 }
 
 function isTextFile(file) {

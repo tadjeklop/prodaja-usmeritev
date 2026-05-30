@@ -4,8 +4,10 @@ import path from 'node:path';
 const target = process.argv[2] || path.resolve('..', '..', 'Codex', 'COWORK', 'sales-portal-template');
 const required = [
   'TEMPLATE-CONTEXT.md',
+  'PORTAL-CONTENT-MAP.md',
   'CREATE-NEW-PORTAL.md',
   'README.md',
+  'data/portal-context.example.json',
   'index.html',
   'js/app.js',
   'css/style.css',
