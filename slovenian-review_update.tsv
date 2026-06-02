@@ -59,7 +59,7 @@ json	data/discovery.json	sklopi.4.naslov	Zakonodaja in poročanje
 json	data/discovery.json	sklopi.4.vprasanja.0	Kdo pri vas spremlja spremembe okoljske zakonodaje?		
 json	data/discovery.json	sklopi.4.vprasanja.1	Kdaj ste imeli zadnjo inšpekcijo in kakšne so bile ugotovitve?		
 json	data/discovery.json	sklopi.4.vprasanja.2	Imate dokumentacijo zbrano na enem mestu?		
-json	data/discovery.json	sklopi.4.vprasanja.4	Kakšno tveganje vidite v naslednjih 12 mesecih?		
+json	data/discovery.json	sklopi.4.vprasanja.4	Kakšne tveganje vidite v naslednjih 12 mesecih?	Kakšno tveganje vidite v naslednjih 12 mesecih?	slovnica: 'tveganje' je srednjega spola → 'kakšno'
 json	data/discovery.json	sklopi.5.namen	Razumeti zunanje pritiske.		
 json	data/discovery.json	sklopi.5.naslov	ESG in trajnost		
 json	data/discovery.json	sklopi.5.vprasanja.0	Ali vam kupci ali banke že zahtevajo ESG podatke ali poročila?		
@@ -112,7 +112,7 @@ json	data/epr-cene-si.json	paketi_storitev.2.vsebina.2	Polletni pregled regional
 json	data/epr-cene-si.json	paketi_storitev.3.primeren_za	Podjetja z naprednimi trajnostnimi cilji ali zahtevami kupcev.		
 json	data/epr-cene-si.json	paketi_storitev.3.vsebina.1	Podpora pri ESG vprašalnikih in CSRD pripravi.		
 json	data/epr-cene-si.json	paketi_storitev.3.vsebina.2	Strategija krožnega gospodarstva za podjetje.		
-json	data/epr-cene-si.json	paketi_storitev.3.vsebina.3	Periodične strokovne delavnice z vašo HSE / trajnostno ekipo.		
+json	data/epr-cene-si.json	paketi_storitev.3.vsebina.3	Periodični strokovni delavnice z vašo HSE / trajnostno ekipo.	Periodične strokovne delavnice z vašo HSE / trajnostno ekipo.	slovnica: 'delavnice' so ž. spola, množina → 'periodične strokovne'
 json	data/glosar.json	_opis	Slovar EPR in okoljskih pojmov za komercialiste. Namenjen novim komercialistom in razjasnitvi s strankami, ki uporabljajo napačne izraze.		
 json	data/glosar.json	kategorije.0.naziv	Osnovni pojmi		
 json	data/glosar.json	kategorije.0.pojmi.0.razlaga	Razširjena odgovornost proizvajalca. Načelo, da je proizvajalec ali uvoznik odgovoren za izdelek tudi po koncu njegove življenjske dobe — predvsem za zbiranje, ponovno uporabo in recikliranje.		
@@ -125,13 +125,13 @@ json	data/glosar.json	kategorije.0.pojmi.3.izraz	Individualni načrt
 json	data/glosar.json	kategorije.0.pojmi.3.razlaga	Alternativa skupni shemi — stranka sama izpolnjuje EPR obveznosti, brez vključitve v operaterja. Potrebne lastne evidence, lastna mreža partnerjev, dokazila.		
 json	data/glosar.json	kategorije.0.pojmi.3.v_praksi	Smiselno le pri specifični embalaži in velikih količinah. Za večino strank administrativno preveč zahtevno.		
 json	data/glosar.json	kategorije.0.pojmi.4.izraz	Proizvajalec / uvoznik		
-json	data/glosar.json	kategorije.0.pojmi.4.v_praksi	Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in v dobavni verigi si podajajo odgovornost. Razjasni v discoveryju.		
+json	data/glosar.json	kategorije.0.pojmi.4.v_praksi	Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in dobava si pošilja odgovornost. Razjasni v discoveryju.	Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in v dobavni verigi si podajajo odgovornost. Razjasni v discoveryju.	besedišče: 'dobava si pošilja odgovornost' je kalk → 'v dobavni verigi si podajajo odgovornost'
 json	data/glosar.json	kategorije.0.pojmi.5.izraz	Dati na trg		
 json	data/glosar.json	kategorije.0.pojmi.5.v_praksi	Ne pomeni nujno fizičnega gibanja blaga. Tudi izdelek iz uvoznega skladišča, ki je sproščen v prodajo, je 'dan na trg'.		
 json	data/glosar.json	kategorije.1.naziv	Tokovi odpadkov in materialov		
 json	data/glosar.json	kategorije.1.pojmi.0.izraz	Embalaža		
 json	data/glosar.json	kategorije.1.pojmi.0.v_praksi	Pri discoveryju vprašaj, ali stranka razlikuje med vrstami — pogosto poročajo samo eno raven.		
-json	data/glosar.json	kategorije.1.pojmi.1.v_praksi	Tudi izdelek z LED lučko ali baterijo lahko pade v EPR za EE-opremo, ne le 'klasični' aparati.		
+json	data/glosar.json	kategorije.1.pojmi.1.v_praksi	Tudi izdelek z LED lučko ali baterijo lahko padete v EPR za EE-opremo, ne le 'klasične' aparati.	Tudi izdelek z LED lučko ali baterijo lahko pade v EPR za EE-opremo, ne le 'klasični' aparati.	slovnica: osebek 'izdelek' je ednina → 'pade'; ujemanje → 'klasični aparati'
 json	data/glosar.json	kategorije.1.pojmi.2.izraz	Baterije in akumulatorji		
 json	data/glosar.json	kategorije.1.pojmi.3.izraz	Sekundarna surovina		
 json	data/glosar.json	kategorije.1.pojmi.3.v_praksi	Interzero kupuje in prodaja sekundarne surovine — tudi prodajni argument za proizvajalce, ki želijo dokazati krožno gospodarstvo.		
@@ -250,23 +250,23 @@ i18n	data/i18n.json	ph.ugovori	npr. cena, ESG, lokalni…
 i18n	data/i18n.json	settings.active_hint	Preklop profila spremeni privzeti jezik in vidne zavihke.		
 i18n	data/i18n.json	settings.active_profile	Aktivni profil		
 i18n	data/i18n.json	settings.add_profile	+ Nov profil		
-i18n	data/i18n.json	settings.admin_sql_hint	V Supabase SQL Editorju za ta email zaženi ta ukaz:		
+i18n	data/i18n.json	settings.admin_sql_hint	V Supabase SQL Editorju za ta email za?eni ta ukaz:	V Supabase SQL Editorju za ta email zaženi ta ukaz:	kodiranje: 'za?eni' → 'zaženi'
 i18n	data/i18n.json	settings.can_edit	Ureja tekst		
 i18n	data/i18n.json	settings.cloud_notice	Profili so shranjeni v Supabase in veljajo za vse uporabnike po prijavi.		
-i18n	data/i18n.json	settings.delete_profile	Izbriši profil		
+i18n	data/i18n.json	settings.delete_profile	Izbri?i profil	Izbriši profil	kodiranje: 'Izbri?i' → 'Izbriši'
 i18n	data/i18n.json	settings.download_tsv	Prenesi TSV za prevode		
 i18n	data/i18n.json	settings.export_overrides	Izvozi lokalne popravke		
-i18n	data/i18n.json	settings.import_done	Popravki so uvoženi. Stran se bo osvežila.		
+i18n	data/i18n.json	settings.import_done	Popravki so uvo?eni. Stran se bo osve?ila.	Popravki so uvoženi. Stran se bo osvežila.	kodiranje: 'uvo?eni'/'osve?ila' → 'uvoženi'/'osvežila'
 i18n	data/i18n.json	settings.import_error	Uvoz ni uspel. Preveri JSON datoteko.		
 i18n	data/i18n.json	settings.import_overrides	Uvozi lokalne popravke		
 i18n	data/i18n.json	settings.language	Privzeti jezik		
 i18n	data/i18n.json	settings.local_notice	Lokalna nastavitev za poenostavitev portala. To ni varnostni sistem.		
-i18n	data/i18n.json	settings.no_admin	Nimaš admin dostopa		
-i18n	data/i18n.json	settings.no_admin_hint	Tvoj profil določa, katere module vidiš. Urejanje uporabnikov je na voljo samo adminu.		
-i18n	data/i18n.json	settings.override_hint	Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogoča, da jih kasneje združimo v aplikacijo.		
+i18n	data/i18n.json	settings.no_admin	Nima? admin dostopa	Nimaš admin dostopa	kodiranje: 'Nima?' → 'Nimaš'
+i18n	data/i18n.json	settings.no_admin_hint	Tvoj profil dolo?a, katere module vidi?. Urejanje uporabnikov je na voljo samo adminu.	Tvoj profil določa, katere module vidiš. Urejanje uporabnikov je na voljo samo adminu.	kodiranje: 'dolo?a'/'vidi?' → 'določa'/'vidiš'
+i18n	data/i18n.json	settings.override_hint	Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogo?a, da jih kasneje zdru?imo v aplikacijo.	Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogoča, da jih kasneje združimo v aplikacijo.	kodiranje: 'omogo?a'/'zdru?imo' → 'omogoča'/'združimo'
 i18n	data/i18n.json	settings.save_user	Shrani uporabnika		
 i18n	data/i18n.json	settings.text_tools	Besedila in popravki		
-i18n	data/i18n.json	settings.users_hint	Uporabnika najprej ustvariš v Supabase Authentication, tukaj pa mu dodeliš profil in pravice v portalu.		
+i18n	data/i18n.json	settings.users_hint	Uporabnika najprej ustvari? v Supabase Authentication, tukaj pa mu dodeli? profil in pravice v portalu.	Uporabnika najprej ustvariš v Supabase Authentication, tukaj pa mu dodeliš profil in pravice v portalu.	kodiranje: 'ustvari?'/'dodeli?' → 'ustvariš'/'dodeliš'
 i18n	data/i18n.json	settings.visible_modules	Vidni zavihki		
 i18n	data/i18n.json	stranke.alarm_hint	Stranke v rdečem imajo zapadel naslednji korak ali manjkajoč datum.		
 i18n	data/i18n.json	stranke.audit	Audit log		
@@ -294,7 +294,7 @@ json	data/koledar.json	letni_cikel.0.dogodki.0.rok	Skozi cel mesec
 json	data/koledar.json	letni_cikel.1.dogodki.0.kaj	Interzero ekipa do tega datuma pripravi vse osnutke poročil za stranke. Stranke imajo cel marec za pregled in potrditev.		
 json	data/koledar.json	letni_cikel.1.dogodki.0.naslov	Notranji rok za pripravo letnih poročil		
 json	data/koledar.json	letni_cikel.1.dogodki.0.rok	Konec februarja		
-json	data/koledar.json	letni_cikel.10.dogodki.0.interzero_vloga	Pospeši še aktivne priložnosti. Po decembru se odločanja zamaknejo.		
+json	data/koledar.json	letni_cikel.10.dogodki.0.interzero_vloga	Pospeš še aktivne priložnosti. Po decembru se odločanja zamaknejo.	Pospeši še aktivne priložnosti. Po decembru se odločanja zamaknejo.	slovnica: velelnik 'Pospeš' → 'Pospeši'
 json	data/koledar.json	letni_cikel.10.dogodki.0.kaj	Stranke želijo pogodbe sklenjene do 1. januarja, da se prične z novim letom. November je rok za podpis.		
 json	data/koledar.json	letni_cikel.10.dogodki.0.naslov	Sklenitev novih pogodb		
 json	data/koledar.json	letni_cikel.10.dogodki.0.rok	Pred koncem leta		
@@ -340,7 +340,7 @@ json	data/koledar.json	letni_cikel.9.dogodki.1.rok	Tretji kvartalni obračun
 json	data/koledar.json	vecletni_horizont.0.datum	Postopno 2026-2030		
 json	data/koledar.json	vecletni_horizont.0.kaj	Postopno uveljavljanje EU uredbe 2025/40 o embalaži in odpadni embalaži. Zahteve: zmanjšanje embalaže, recyclability, vsebnost recyclata, ponovna uporaba.		
 json	data/koledar.json	vecletni_horizont.0.naslov	PPWR — Uredba o embalaži		
-json	data/koledar.json	vecletni_horizont.0.vpliv_na_stranke	Vsi, ki dajejo embalirane izdelke na trg, bodo morali prilagoditi embalažo, dobavne verige in dokumentacijo.		
+json	data/koledar.json	vecletni_horizont.0.vpliv_na_stranke	Vse, ki dajejo embalirane izdelke na trg, bodo morale prilagoditi embalažo, dobavne verige in dokumentacijo.	Vsi, ki dajejo embalirane izdelke na trg, bodo morali prilagoditi embalažo, dobavne verige in dokumentacijo.	slovnica: osebek (zavezanci/podjetja) → moška množina 'Vsi … bodo morali'
 json	data/koledar.json	vecletni_horizont.1.datum	Postopno 2025-2028		
 json	data/koledar.json	vecletni_horizont.1.kaj	Postopno se uvajajo zahteve za poročanje o trajnosti. Najprej velika javna podjetja, potem srednja.		
 json	data/koledar.json	vecletni_horizont.1.naslov	CSRD — Trajnostno poročanje		
@@ -369,7 +369,7 @@ json	data/konkurenca.json	konkurenti.0.kdaj_zmagamo.2	Stranka potrebuje svetovan
 json	data/konkurenca.json	konkurenti.0.nase_razlike.0	Mednarodna mreža — Interzero deluje v desetih evropskih državah, kar je ključno za podjetja s prodajo v več državah.		
 json	data/konkurenca.json	konkurenti.0.nase_razlike.1	Pokrivamo več tokov: poleg embalaže tudi EE-oprema, baterije, svetovanje, ESG, ravnanje z odpadki.		
 json	data/konkurenca.json	konkurenti.0.nase_razlike.2	Strokovni dialog ne samo kot operater sheme, ampak kot svetovalec za EPR strategijo.		
-json	data/konkurenca.json	konkurenti.0.nase_razlike.3	Modularna ponudba — stranka lahko vzame samo to, kar potrebuje.		
+json	data/konkurenca.json	konkurenti.0.nase_razlike.3	Modulardna ponudba — stranka lahko vzame samo to, kar potrebuje.	Modularna ponudba — stranka lahko vzame samo to, kar potrebuje.	črkovanje: 'Modulardna' → 'Modularna'
 json	data/konkurenca.json	konkurenti.0.njihove_prednosti.1	Dolgoletne pogodbene relacije s številnimi velikimi proizvajalci.		
 json	data/konkurenca.json	konkurenti.0.njihove_prednosti.2	Stabilna mreža za prevzem in obdelavo embalaže.		
 json	data/konkurenca.json	konkurenti.0.njihove_prednosti.3	Široko prepoznavna blagovna znamka.		
@@ -403,7 +403,7 @@ json	data/konkurenca.json	konkurenti.3.njihove_prednosti.2	Notranje znanje, pril
 json	data/konkurenca.json	konkurenti.3.tip	Stranka ureja sama, brez zunanjega partnerja		
 json	data/konkurenca.json	konkurenti.3.tipicni_argumenti_stranke_za_njih.0	Naša HSE oseba je odlična, vse pokriva.		
 json	data/konkurenca.json	konkurenti.3.tipicni_argumenti_stranke_za_njih.1	Imamo notranje znanje, ne potrebujemo zunanjega svetovalca.		
-json	data/konkurenca.json	konkurenti.4.kako_odgovoriti	Razumem. Včasih je individualni načrt pravi izbor, vendar pogosto šele po analizi. Naša izkušnja: 80 % podjetij, ki so razmišljala o individualnem načrtu, je na koncu izbrala skupno shemo, ker je administrativno breme podcenjeno. Lahko skupaj naredimo primerjavo: kaj bi vas dejansko stalo eno in drugo?		
+json	data/konkurenca.json	konkurenti.4.kako_odgovoriti	Razumem. Včasih je individualni načrt pravi izbor, vendar pogosto šele po analizi. Naša izkušnja: 80 % podjetij, ki so razmišljala o individualnem načrtu, je na koncu izbrala skupno shemo, ker je administrativni teret prenizko cenjen. Lahko skupaj naredimo primerjavo: kaj bi vas dejansko stalo eno in drugo?	Razumem. Včasih je individualni načrt pravi izbor, vendar pogosto šele po analizi. Naša izkušnja: 80 % podjetij, ki so razmišljala o individualnem načrtu, je na koncu izbrala skupno shemo, ker je administrativno breme podcenjeno. Lahko skupaj naredimo primerjavo: kaj bi vas dejansko stalo eno in drugo?	besedišče: 'teret' je srbohrvatizem → 'breme'; 'prenizko cenjen' → 'podcenjeno'
 json	data/konkurenca.json	konkurenti.4.nase_razlike.0	Individualni načrt je administrativno izjemno zahteven — potrebna lastna evidenca prevzemov, mreža partnerjev, dokazila o reciklaži.		
 json	data/konkurenca.json	konkurenti.4.nase_razlike.1	Praviloma se splača le pri zelo velikih količinah in specifični embalaži.		
 json	data/konkurenca.json	konkurenti.4.nase_razlike.2	Tveganje napak in inšpekcij je večje.		
@@ -439,7 +439,7 @@ json	data/kpi.json	kpi.3.meri	Velikost poslov, ki jih ekipa lovi.
 json	data/kpi.json	kpi.3.naziv	Povprečna vrednost priložnosti		
 json	data/kpi.json	kpi.3.norma	Določiti glede na trg. Cilj je rasti — od posameznih storitev k paketom.		
 json	data/kpi.json	kpi.3.tipicna_napaka	Prodaja samo tistega, kar je stranka prvotno omenila, brez kvalitetnega cross-sella.		
-json	data/kpi.json	kpi.4.coaching_vprasanja.0	Pri katerih priložnostih se cikel vleče? Zakaj?		
+json	data/kpi.json	kpi.4.coaching_vprasanja.0	Pri katerih priložnostih cikel se vleče? Zakaj?	Pri katerih priložnostih se cikel vleče? Zakaj?	besedni red: naslonka 'se' sodi na drugo mesto
 json	data/kpi.json	kpi.4.coaching_vprasanja.1	Ali imaš pri vsaki priložnosti dogovorjen naslednji konkretni korak z datumom?		
 json	data/kpi.json	kpi.4.coaching_vprasanja.2	Ali si govoril s pravim odločevalcem, ali samo s posrednikom?		
 json	data/kpi.json	kpi.4.meri	Hitrost odločanja in vodenje pipeline-a.		
@@ -494,7 +494,7 @@ json	data/odlocevalci.json	odlocevalci.1.naziv	Finance / kontroling / nabava
 json	data/odlocevalci.json	odlocevalci.1.ne_govori_jim_o.0	operativnih detajlih, ki jih ne zanimajo		
 json	data/odlocevalci.json	odlocevalci.1.ne_govori_jim_o.1	neformalnih dogovorih		
 json	data/odlocevalci.json	odlocevalci.1.pravi_argumenti.0	Predvidljivi mesečni stroški namesto skokov.		
-json	data/odlocevalci.json	odlocevalci.1.pravi_argumenti.1	En račun, ena pogodba, ena nasprotna stranka.		
+json	data/odlocevalci.json	odlocevalci.1.pravi_argumenti.1	En račun, ena pogodba, en nasprotni stranek.	En račun, ena pogodba, ena nasprotna stranka.	slovnica: 'en nasprotni stranek' → 'ena nasprotna stranka'
 json	data/odlocevalci.json	odlocevalci.1.pravi_argumenti.2	Možnost paketov in popustov pri večletnih dogovorih.		
 json	data/odlocevalci.json	odlocevalci.1.pravi_argumenti.3	Manj skritih stroškov zaradi napačnega ravnanja ali kazni.		
 json	data/odlocevalci.json	odlocevalci.2.kaj_jih_skrbi	Manj tveganja, zunanji ugled, skladnost, da ne pride do težav, dobro ime, regionalni nastop.		
@@ -543,9 +543,9 @@ json	data/onboarding.json	obdobja.1.trajanje	8.–14. dan
 json	data/onboarding.json	obdobja.2.cilj	Iti na realne sestanke z izkušenim komercialistom. Opazovati, ne govoriti.		
 json	data/onboarding.json	obdobja.2.naloge.0.naziv	Udeleži se vsaj 5 sestankov z izkušenim komercialistom		
 json	data/onboarding.json	obdobja.2.naloge.1.naziv	Po vsakem sestanku 30 minut debrief: kaj je delovalo, kaj ne, zakaj		
-json	data/onboarding.json	obdobja.2.naloge.2.naziv	Bodi tih opazovalec — predstavi se na začetku, potem samo poslušaj		
+json	data/onboarding.json	obdobja.2.naloge.2.naziv	Bodite tihi opazovalec — predstavi se na začetku, potem samo poslušaj	Bodi tih opazovalec — predstavi se na začetku, potem samo poslušaj	slog/doslednost: ostali ukazi so v 2. os. ed. (ti); 'Bodite' → 'Bodi tih opazovalec'
 json	data/onboarding.json	obdobja.2.naloge.3.naziv	Vodi zapiske: 3 dobesedne stavke komercialista, ki so dobro delovali		
-json	data/onboarding.json	obdobja.2.naloge.4.naziv	Vodi zapiske: 3 ugovore stranke in kako jih je komercialist obravnaval		
+json	data/onboarding.json	obdobja.2.naloge.4.naziv	Vodi zapiske: 3 ugovorov stranke in kako jih je komercialist obravnaval	Vodi zapiske: 3 ugovore stranke in kako jih je komercialist obravnaval	slovnica: ob števniku 3 tožilnik množine → '3 ugovore'
 json	data/onboarding.json	obdobja.2.naloge.5.naziv	Sestavi svoj seznam 10 najprimernejših discovery vprašanj za EPR sestanke		
 json	data/onboarding.json	obdobja.2.preverljiv_rezultat	Vodja oceni, da bi te v naslednjem mesecu poslal sam na sestanek pri majhni stranki.		
 json	data/onboarding.json	obdobja.2.trajanje	15.–28. dan		
@@ -553,7 +553,7 @@ json	data/onboarding.json	obdobja.3.cilj	Vodi prve sestanke sam, ob podpori vodj
 json	data/onboarding.json	obdobja.3.naloge.1.naziv	Izpolni Discovery obrazec za vsak sestanek pred odhodom		
 json	data/onboarding.json	obdobja.3.naloge.3.naziv	Po vsakem sestanku z vodjo: kaj je delovalo, kaj bi naredil drugače		
 json	data/onboarding.json	obdobja.3.naloge.4.naziv	Pošlji follow-up email v 24 urah po vsakem sestanku		
-json	data/onboarding.json	obdobja.3.naloge.5.naziv	Vpiši vsako stranko v modul Stranke z naslednjim korakom in datumom		
+json	data/onboarding.json	obdobja.3.naloge.5.naziv	Vpisi vsako stranko v modul Stranke z naslednjim korakom in datumom	Vpiši vsako stranko v modul Stranke z naslednjim korakom in datumom	črkovanje: velelnik 'Vpisi' → 'Vpiši'
 json	data/onboarding.json	obdobja.3.naziv	Tedna 5-6 — Prvi samostojni sestanki		
 json	data/onboarding.json	obdobja.3.preverljiv_rezultat	Lahko pripeljem stranko od prvega stika do potrjenega obsega ponudbe brez vmesne pomoči.		
 json	data/onboarding.json	obdobja.3.trajanje	29.–42. dan		
@@ -715,7 +715,7 @@ json	data/predloga-ponudbe.json	predloge.2.povzetek_resitve	Enotna rešitev za p
 json	data/predloga-ponudbe.json	predloge.3.kaj_potrebujemo_od_stranke.0	Trenutne trajnostne dokumente in poročila.		
 json	data/predloga-ponudbe.json	predloge.3.obseg_storitev.1	Podpora pri ESG vprašalnikih in CSRD pripravi.		
 json	data/predloga-ponudbe.json	predloge.3.obseg_storitev.2	Strategija krožnega gospodarstva za podjetje.		
-json	data/predloga-ponudbe.json	predloge.3.obseg_storitev.3	Periodične strokovne delavnice z vašo HSE / trajnostno ekipo.		
+json	data/predloga-ponudbe.json	predloge.3.obseg_storitev.3	Periodični strokovni delavnice z vašo HSE / trajnostno ekipo.	Periodične strokovne delavnice z vašo HSE / trajnostno ekipo.	slovnica: ujemanje → 'periodične strokovne delavnice'
 json	data/predloga-ponudbe.json	predloge.3.obseg_storitev.4	Dostop do mreže strokovnjakov za specifična vprašanja.		
 json	data/predloga-ponudbe.json	predloge.3.povzetek_resitve	Za podjetja z naprednimi trajnostnimi cilji ali zahtevami velikih B2B kupcev. Strokovna podpora pri ESG, analizi embalaže in trajnostni strategiji.		
 json	data/predloga-ponudbe.json	predloge.4.kaj_potrebujemo_od_stranke.0	SKU katalog z opisi embalaže.		
@@ -739,7 +739,7 @@ json	data/predloga-ponudbe.json	predloge.5.obseg_storitev.3	Predloga ESG izjave 
 json	data/predloga-ponudbe.json	predloge.5.obseg_storitev.4	Opozorila o spremembah lokalne zakonodaje v vseh državah prodaje.		
 json	data/predloga-ponudbe.json	predloge.5.okvirna_cena_letno	od 9.000 EUR		
 json	data/predloga-ponudbe.json	predloge.5.povzetek_resitve	Za spletne trgovce, ki prodajajo v več državah. Pokriva EPR obveznosti v SI/HR/RS, transportno embalažo, reusable packaging trend, ESG izjave za B2B kupce.		
-json	data/predloga-ponudbe.json	predloge.5.primeren_za	Spletne trgovine s prodajo v 2+ državah ali pričakovano hitro rastjo		
+json	data/predloga-ponudbe.json	predloge.5.primeren_za	Spletne trgovine s prodajo v 2+ državah ali pričakovanim hitra rastjo	Spletne trgovine s prodajo v 2+ državah ali pričakovano hitro rastjo	slovnica: orodnik → 'pričakovano hitro rastjo'
 json	data/predloga-ponudbe.json	predloge.6.kaj_potrebujemo_od_stranke.0	Katalog izdelkov s tehničnimi specifikacijami embalaže.		
 json	data/predloga-ponudbe.json	predloge.6.kaj_potrebujemo_od_stranke.1	Letne količine po SKU.		
 json	data/predloga-ponudbe.json	predloge.6.naslov	Kozmetika paket — nega in lepota		
@@ -912,7 +912,7 @@ json	data/reference.json	_kako_uporabiti.2	Po sestanku predlagaj pisno verzijo c
 json	data/reference.json	_kako_uporabiti.3	Reference, kjer stranka dovoli ime, so vedno močnejše. Sproti pridobivaj dovoljenja.		
 json	data/reference.json	kako_pridobiti_reference.0	Po uspešnem prvem letu — vprašaj stranko za referenco. To je naravni trenutek.		
 json	data/reference.json	kako_pridobiti_reference.1	Ponudi konkreten format: 1-stranski case study, ki ga ti pripraviš, stranka samo potrdi.		
-json	data/reference.json	primeri.0.izziv	Trije različni dobavitelji za odpadke, ena interna oseba je 30 % časa porabila za EPR poročanje, vsako leto težave z marčevskim rokom.		
+json	data/reference.json	primeri.0.izziv	Tri različni dobavitelji za odpadke, ena interna oseba je 30 % časa porabila za EPR poročanje, vsako leto težave z marčevskim rokom.	Trije različni dobavitelji za odpadke, ena interna oseba je 30 % časa porabila za EPR poročanje, vsako leto težave z marčevskim rokom.	slovnica: moška množina, imenovalnik → 'Trije različni dobavitelji'
 json	data/reference.json	primeri.0.kaj_smo_naredili.1	Konsolidacija ravnanja z odpadki na enega izvajalca prek Interzero.		
 json	data/reference.json	primeri.0.kaj_smo_naredili.2	Avtomatizirano kvartalno poročanje s podatki iz njihovega ERP-a.		
 json	data/reference.json	primeri.0.ki_je_uporabna_za	Stranke z 1-2 lokacijama, srednje velike, ki imajo interno HSE/admin osebo.		
@@ -926,7 +926,7 @@ json	data/reference.json	primeri.1.kaj_smo_naredili.1	Vključitev v lokalne shem
 json	data/reference.json	primeri.1.kaj_smo_naredili.2	Centraliziran sistem poročanja, en kontakt za vse tri države.		
 json	data/reference.json	primeri.1.kaj_smo_naredili.3	Priprava ESG izjave za nemške B2B kupce.		
 json	data/reference.json	primeri.1.ki_je_uporabna_za	Stranke, ki prodajajo v več državah ali so pod pritiskom velikih B2B kupcev.		
-json	data/reference.json	primeri.1.rezultat.0	Vsi trije trgi skladni v 6 mesecih.		
+json	data/reference.json	primeri.1.rezultat.0	Vse tri trge skladne z 6 meseci.	Vsi trije trgi skladni v 6 mesecih.	slovnica: imenovalnik 'Vsi trije trgi skladni'; 'z 6 meseci' → 'v 6 mesecih'
 json	data/reference.json	primeri.1.rezultat.1	Pridobili pogodbo z nemškim kupcem, ki je zahteval ESG dokazila.		
 json	data/reference.json	primeri.1.rezultat.2	Brez koncentracije znanja v eni interni osebi.		
 json	data/reference.json	primeri.1.trajanje	4 meseci do polne implementacije.		
@@ -961,9 +961,9 @@ json	data/reference.json	primeri.4.panoga	Trgovina / veriga
 json	data/reference.json	primeri.4.rezultat.0	11 % nižji povprečni strošek na trgovino.		
 json	data/reference.json	primeri.4.rezultat.1	Centralna nabava ima podatke za pogajanja s pogodbenimi partnerji.		
 json	data/reference.json	primeri.4.rezultat.2	Manjše trgovine niso več 'izgubljene' v pavšalnih pogodbah.		
-json	data/reference.json	primeri.4.trajanje	Fazni zagon 9 mesecev.		
+json	data/reference.json	primeri.4.trajanje	Faznega zagona 9 mesecev.	Fazni zagon 9 mesecev.	slovnica: imenovalnik (kot druge vrstice trajanja) → 'Fazni zagon'
 json	data/reference.json	primeri.4.velikost	30 trgovin, 200+ zaposlenih		
-json	data/reference.json	primeri.5.izziv	Uvozili izdelke z baterijami, ne da bi se zavedali EPR obveznosti. Po prijavi konkurenta dobili klic ARSO.		
+json	data/reference.json	primeri.5.izziv	Uvozili izdelke z baterijami, nezavedajoč se EPR obveznosti. Po prijavi konkurenta dobili klic ARSO.	Uvozili izdelke z baterijami, ne da bi se zavedali EPR obveznosti. Po prijavi konkurenta dobili klic ARSO.	besedišče: 'nezavedajoč se' je nenaraven deležnik → 'ne da bi se zavedali'
 json	data/reference.json	primeri.5.kaj_smo_naredili.0	Hitra registracija v sistem proizvajalcev baterij in EE-opreme.		
 json	data/reference.json	primeri.5.kaj_smo_naredili.1	Retroaktivno poročanje za zadnja 3 leta.		
 json	data/reference.json	primeri.5.kaj_smo_naredili.2	Vključitev v skupno shemo za naprej.		
@@ -1112,9 +1112,9 @@ json	data/segmentacija.json	segmenti.2.ce_je_to_segment	Začni z 'mi vam pomagam
 json	data/segmentacija.json	segmenti.2.ce_ni_ta_segment	Če omenijo ESG kot 'lepo bi bilo', ne pa kot 'moramo' — to še ni ESG-driven. To je še compliance ali cost-optimizer.		
 json	data/segmentacija.json	segmenti.2.indikatorji.0	Omenjajo SAQ, EcoVadis, CSRD, Scope 3, Made for Recycling.		
 json	data/segmentacija.json	segmenti.2.indikatorji.1	Imajo sustainability manager ali ESG poročilo v pripravi.		
-json	data/segmentacija.json	segmenti.2.indikatorji.2	Pritisk prihaja od njihovih kupcev, ne od regulative.		
+json	data/segmentacija.json	segmenti.2.indikatorji.2	Pritiska gre od njihovih kupcev, ne od regulative.	Pritisk prihaja od njihovih kupcev, ne od regulative.	slovnica: 'Pritiska gre' → 'Pritisk prihaja'
 json	data/segmentacija.json	segmenti.2.indikatorji.3	Pripravljeni so plačati premium, če to reši njihov B2B problem.		
-json	data/segmentacija.json	segmenti.2.opis	Glavno gonilo ni notranja motivacija — je B2B kupec, banka, javni naročnik ali matično podjetje. Stranke pridejo z 'morali bomo dokazati X'. Hitrost odločanja je visoka, ker imajo rok.		
+json	data/segmentacija.json	segmenti.2.opis	Glavni voznik ni notranja motivacija — je B2B kupec, banka, javni naročnik ali matično podjetje. Stranke pridejo z 'morali bomo dokazati X'. Hitrost odločanja je visoka, ker imajo rok.	Glavno gonilo ni notranja motivacija — je B2B kupec, banka, javni naročnik ali matično podjetje. Stranke pridejo z 'morali bomo dokazati X'. Hitrost odločanja je visoka, ker imajo rok.	besedišče: 'voznik' je kalk za angl. 'driver' → 'gonilo'
 json	data/segmentacija.json	segmenti.2.polni_naziv	Pod pritiskom kupcev, bank ali matičnega podjetja		
 json	data/segmentacija.json	segmenti.2.tipicni_odlocevalec	sustainability, vodstvo, marketing		
 json	data/segmentacija.json	segmenti.3.ce_je_to_segment	Začni s 'koliko držav, koliko različnih pogodb, koliko različnih kontaktov'. Slika konsolidacije pove več kot številke.		
@@ -1130,7 +1130,7 @@ json	data/segmentacija.json	segmenti.4.indikatorji.0	Klic 'imamo težavo, lahko 
 json	data/segmentacija.json	segmenti.4.indikatorji.1	Konkretne časovne stiske — dnevi, ne meseci.		
 json	data/segmentacija.json	segmenti.4.indikatorji.2	Pripravljeni plačati 'kar je treba', dokler je rešeno.		
 json	data/segmentacija.json	segmenti.4.indikatorji.3	Lahko pridejo prek konkurenta, ki ni zmogel rešiti.		
-json	data/segmentacija.json	segmenti.4.polni_naziv	Pod inšpekcijskim ali kupčevim pritiskom — potrebujejo TAKOJ		
+json	data/segmentacija.json	segmenti.4.polni_naziv	Pod inšpekcijskim ali kupcev pritiskom — potrebujejo TAKOJ	Pod inšpekcijskim ali kupčevim pritiskom — potrebujejo TAKOJ	slovnica: 'kupcev pritiskom' → svojilni pridevnik 'kupčevim'
 json	data/segmentacija.json	segmenti.4.tipicni_odlocevalec	vodstvo, pravna služba, HSE		
 json	data/segmentacija.json	segmenti.5.ce_je_to_segment	Govori v jeziku strategije, ne taktike. Pripravi 3-letno vizijo, ne ponudbe za eno leto. Predlagaj skupne projekte, ki krepijo njihovo blagovno znamko.		
 json	data/segmentacija.json	segmenti.5.ce_ni_ta_segment	Tudi velika podjetja niso vedno strateški partnerji. Če je nakup zgolj prek nabave brez vodstvene angažiranosti — to je le 'veliki cost-optimizer'.		
@@ -1282,11 +1282,11 @@ json	data/vodic.json	faze.2.tipicne_napake.1	Pripravljaš naslednje vprašanje, 
 json	data/vodic.json	faze.2.tipicne_napake.2	Prodajaš vmes: 'Aha, mi to imamo zelo dobro pokrito.' To prekine miselni tok stranke in jo postavi v defenzivni način.		
 json	data/vodic.json	faze.2.tipicne_napake.4	Pozabljaš povzeti. Brez povzetka stranka misli, da nisi poslušal, in ne ve, kaj si si zapomnil.		
 json	data/vodic.json	faze.2.trajanje	25 minut — največji del sestanka		
-json	data/vodic.json	faze.3.cilj	Preiti od poslušanja k predstavitvi. Ne preskakuj te faze.		
+json	data/vodic.json	faze.3.cilj	Mostiti od poslušanja k predstavljanju. Ne preskakuj te faze.	Preiti od poslušanja k predstavitvi. Ne preskakuj te faze.	besedišče: 'Mostiti' je kalk → 'Preiti'
 json	data/vodic.json	faze.3.govori.0.kdaj	Standardni prehod		
 json	data/vodic.json	faze.3.kljucne_tocke.0	Ta prehod loči profesionalca od trgovca.		
 json	data/vodic.json	faze.3.kljucne_tocke.1	Eksplicitno povej, da prehajaš v predstavitev.		
-json	data/vodic.json	faze.3.kljucne_tocke.2	Veži predstavitev na to, kar si slišal — ne na svoj katalog.		
+json	data/vodic.json	faze.3.kljucne_tocke.2	Vežo predstavitev na to, kar si slišal — ne na svoj katalog.	Veži predstavitev na to, kar si slišal — ne na svoj katalog.	slovnica: velelnik 'Vežo' → 'Veži'
 json	data/vodic.json	faze.3.naziv	Prehod v predstavitev		
 json	data/vodic.json	faze.3.signal_konca	Stranka je odobrila prehod in pričakuje, da boš nagovoril tri stvari, ki jih je povedala.		
 json	data/vodic.json	faze.3.tipicne_napake.0	Brez prehoda začneš z 'Naj vam povem, kaj delamo...' — stranka takoj zazna, da nisi poslušal.		
@@ -1343,7 +1343,7 @@ json	data/vodic.json	faze.6.signal_konca	Imaš konkreten naslednji korak z DATUM
 json	data/vodic.json	faze.6.tipicne_napake.0	Sprejmeš 'oglasili se bomo' brez datuma. Več kot 80 % takih primerov se ne vrne.		
 json	data/vodic.json	faze.6.tipicne_napake.1	Pošlješ ponudbo brez dogovorjenega datuma za pregled. Stranka jo prebere v 2 minutah in se odloči brez tebe.		
 json	data/vodic.json	faze.6.tipicne_napake.2	Pozabiš seznam podatkov, ki jih stranka pošlje. Brez tega ne moreš pripraviti realne ponudbe.		
-json	data/vodic.json	faze.6.tipicne_napake.3	Sestanek zaključiš z 'oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma.		
+json	data/vodic.json	faze.6.tipicne_napake.3	Pomesh sestanek s 'in oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma.	Sestanek zaključiš z 'oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma.	besedišče: 'Pomesh' ni beseda → 'Sestanek zaključiš'
 json	data/vodic.json	faze.7.branche.0.ce_stranka	Ne odgovori v 7 dneh kljub dogovoru.		
 json	data/vodic.json	faze.7.branche.0.ti_naredi	Pošlji kratek opomnik. Ne sprašuj 'ste prejeli moj email' — predpostavlja, da je krivda na njihovi strani. Reci: 'Vračam se k temu, da ne ostane pozabljeno. Še vedno aktualno?'		
 json	data/vodic.json	faze.7.branche.1.ce_stranka	Pošlje vse podatke kot dogovorjeno.		
@@ -1390,7 +1390,7 @@ json	data/vsebine.json	predlogi.11.naslov	Kozmetika in 200+ SKU-jev: kako voditi
 json	data/vsebine.json	predlogi.12.hook_si	Slovenska uredba je pred prenovo. V zadnjih mesecih sem v razgovoru z resorjem zbral nekaj signalov — niso uradni, vendar nakazujejo smer. Tu je, na kaj se velja pripravljati.		
 json	data/vsebine.json	predlogi.12.naslov	Slovenska Uredba o embalaži 2026: kaj se obeta		
 json	data/vsebine.json	predlogi.13.naslov	Barvana PET steklenica: zakaj jo recikler ne mara		
-json	data/vsebine.json	predlogi.14.hook_si	Tako kot v Sloveniji se bo tudi na Hrvaškem PPWR neposredno uveljavil. Vendar so razlike pri uveljavitvi: Hrvaška ima e-ONTO, depozitni sistem in svoje posebnosti. Tu je primerjava.		
+json	data/vsebine.json	predlogi.14.hook_si	Tako kot v Sloveniji se bo tudi v Hrvaški PPWR neposredno uveljavil. Vendar so razlike pri uveljavitvi: Hrvaška ima e-ONTO, depozitni sustav, in svoje specifike. Tu je primerjava.	Tako kot v Sloveniji se bo tudi na Hrvaškem PPWR neposredno uveljavil. Vendar so razlike pri uveljavitvi: Hrvaška ima e-ONTO, depozitni sistem in svoje posebnosti. Tu je primerjava.	slovnica/besedišče: 'v Hrvaški' → 'na Hrvaškem'; 'sustav' → 'sistem'; 'specifike' → 'posebnosti'
 json	data/vsebine.json	predlogi.14.naslov	PPWR vs hrvaška uredba: praktična primerjava		
 json	data/vsebine.json	predlogi.15.hook_si	Srbski klient z 8 SKU-ji je imel 6 različnih embalažnih dobaviteljev. V 4 mesecih smo to znižali na 2 dobavitelja in 3 enotne materiale. Marže navzgor, recyclability navzgor. Kako smo to naredili.		
 json	data/vsebine.json	predlogi.15.naslov	Konsolidacija embalaže pri srbski stranki		
@@ -1439,7 +1439,7 @@ json	data/vsebine.json	predlogi.37.hook_si	PPWR ne grozi z denarnimi kaznimi v p
 json	data/vsebine.json	predlogi.37.naslov	Kdo bo na črni listi PPWR — in zakaj ne želiš biti tam		
 json	data/vsebine.json	predlogi.38.hook_si	En klient je letos prodal 200 ton folije, ki bi sicer šla v sežig, kot sekundarno surovino. Cena: 80 EUR/tono. Strošek pred tem: 30 EUR/tono. Razlika je 110 EUR/tono v korist. Kako smo to organizirali.		
 json	data/vsebine.json	predlogi.38.naslov	Sekundarne surovine: kako iz odpadka postane surovina		
-json	data/vsebine.json	predlogi.39.naslov	Mercatorjev pristop: kako veliki trgovci pritiskajo na embalažo dobaviteljev		
+json	data/vsebine.json	predlogi.39.naslov	Mercator pristop: kako veliki trgovci pritiskajo na embalažo dobaviteljev	Mercatorjev pristop: kako veliki trgovci pritiskajo na embalažo dobaviteljev	slovnica: svojilni pridevnik → 'Mercatorjev pristop'
 json	data/vsebine.json	predlogi.4.hook_si	Vsak teden dobimo vprašanje 'kaj točno bo PPWR zahteval'. Iskren odgovor: ne vemo še vsega. Delegated acts EU komisije, ki bodo dali konkretne tehnične zahteve, prihajajo postopno. Tukaj je seznam, kaj še manjka.		
 json	data/vsebine.json	predlogi.40.hook_si	Stranka pogleda v vas, ko prvič rečete 'PPWR'. Tri stavki, ki delujejo: kaj je, koga zadeva, kdaj. Ne začnite s členi uredbe — začnite s posledico za njihovo embalažo.		
 json	data/vsebine.json	predlogi.40.naslov	Skripta: ko stranka prvič sliši za PPWR		
@@ -1536,7 +1536,7 @@ json	data/zakonodaja-hr.json	sklopi.6.koga_zavezuje	Podjetja, ki proizvajajo, pr
 json	data/zakonodaja-hr.json	sklopi.6.naslov	e-ONTO sistem		
 json	data/zakonodaja-hr.json	sklopi.7.koga_zavezuje	Vse, ki dajejo embalirane izdelke na trg EU, vključno s Hrvaško.		
 json	data/zakonodaja-hr.json	sklopi.7.naslov	PPWR — nova EU Uredba o embalaži		
-json	data/zakonodaja-hr.json	sklopi.7.vsebina	Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi na Hrvaškem od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.		
+json	data/zakonodaja-hr.json	sklopi.7.vsebina	Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi v Hrvaški od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.	Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi na Hrvaškem od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.	slovnica: 'v Hrvaški' → 'na Hrvaškem'
 json	data/zakonodaja-hr.json	sklopi.8.naslov	ESG in CSRD		
 json	data/zakonodaja-hr.json	viri.0.naziv	Zakon.hr — predpisi		
 json	data/zakonodaja-hr.json	viri.1.naziv	FZOEU — Fond za zaštitu okoliša		
@@ -1548,12 +1548,12 @@ json	data/zakonodaja-rs.json	sklopi.0.kljucne_obveznosti.2	Plačilo prispevkov s
 json	data/zakonodaja-rs.json	sklopi.0.kljucne_obveznosti.3	Letno poročanje količin po posameznih tokovih.		
 json	data/zakonodaja-rs.json	sklopi.0.naslov	EPR — splošno		
 json	data/zakonodaja-rs.json	sklopi.1.datumi_in_pragovi	Manjši proizvajalci pod določenimi količinami imajo nekatere oprostitve. Preveri trenutno veljavno verzijo Uredbe.		
-json	data/zakonodaja-rs.json	sklopi.1.kljucne_obveznosti.0	Vključitev v sistem ravnanja z embalažo prek licenciranega operaterja.		
+json	data/zakonodaja-rs.json	sklopi.1.kljucne_obveznosti.0	Vključitev v sistem upravljanja embalažo prek licenciranega operaterja.	Vključitev v sistem ravnanja z embalažo prek licenciranega operaterja.	slovnica: 'upravljanja embalažo' (brez predloga) je srbizem → 'ravnanja z embalažo'
 json	data/zakonodaja-rs.json	sklopi.1.kljucne_obveznosti.1	Mesečno ali letno poročanje količin embalaže po materialih.		
 json	data/zakonodaja-rs.json	sklopi.1.kljucne_obveznosti.2	Plačilo prispevkov, ki se izračunajo na kg/material.		
 json	data/zakonodaja-rs.json	sklopi.1.kljucne_obveznosti.3	Stopnje recikliranja postopno naraščajo skladno z EU usklajevanjem.		
 json	data/zakonodaja-rs.json	sklopi.1.naslov	Embalaža in odpadna embalaža		
-json	data/zakonodaja-rs.json	sklopi.1.vsebina	Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema ravnanja z odpadno embalažo.		
+json	data/zakonodaja-rs.json	sklopi.1.vsebina	Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema upravljanja odpadno embalažo.	Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema ravnanja z odpadno embalažo.	slovnica: slovenski del 'upravljanja odpadno embalažo' → 'ravnanja z odpadno embalažo' (srbski naslov uredbe ostane)
 json	data/zakonodaja-rs.json	sklopi.2.kljucne_obveznosti.0	Vpis v register proizvajalcev EE-opreme pri SEPA.		
 json	data/zakonodaja-rs.json	sklopi.2.kljucne_obveznosti.1	Vključitev v shemo upravljanja oziroma individualni načrt.		
 json	data/zakonodaja-rs.json	sklopi.2.kljucne_obveznosti.3	Letno poročanje količin po kategorijah.		
@@ -1642,7 +1642,7 @@ html_text	index.html	text.33	Onboarding 30/60/90
 html_text	index.html	text.34	Načrt za nove komercialiste		
 html_text	index.html	text.35	Govori in skripte		
 html_text	index.html	text.36	Knjižnica po scenarijih		
-html_text	index.html	text.38	Iskanje in pogosti odgovori		
+html_text	index.html	text.38	Iskljive in pogoste odzive	Iskanje in pogosti odgovori	tok: izvirnik 'Iskljive in pogoste odzive' je popačen/nerazumljiv
 html_text	index.html	text.40	EPR, pred/po, ROI, paketi		
 html_text	index.html	text.41	Predloga ponudbe		
 html_text	index.html	text.42	Generator z živim predogledom in PDF		
@@ -1762,7 +1762,7 @@ html_text	login.html	text.0	Prijava — Interzero EPR
 html_text	login.html	text.1	Interzero EPR		
 html_text	login.html	text.2	Prijava v prodajni portal		
 html_text	login.html	text.3	Uporabniško ime / email		
-html_text	login.html	text.6	Auth še ni vklopljen. Nastavi		
+html_text	login.html	text.6	Auth Å¡e ni vklopljen. Nastavi	Auth še ni vklopljen. Nastavi	kodiranje: 'Å¡e' → 'še'
 html_text	login.html	text.8	s Supabase URL in anon key.		
 html_attr	obrazec.html	aria-label.0	Sklopi obrazca		
 html_attr	obrazec.html	placeholder.1	Naslov obrazca		
@@ -1891,7 +1891,7 @@ html_text	segmentacija.html	text.5	Začni kviz
 html_text	segmentacija.html	text.7	Kako uporabiti segmente		
 html_text	segmentacija.html	text.8	Vsi segmenti		
 html_text	segmentacija.html	text.9	Dodatne dimenzije za uvrstitev		
-html_text	settings.html	text.0	Nastavitve — Interzero EPR		
+html_text	settings.html	text.0	Settings — Interzero EPR	Nastavitve — Interzero EPR	slog/doslednost: vsi drugi naslovi strani so v slovenščini
 html_text	settings.html	text.2	Lokalni admin za profile, vidne zavihke in popravke besedil po trgih.		
 html_attr	stranke.html	placeholder.0	podjetje, kontakt...		
 html_attr	stranke.html	placeholder.1	npr. Poslati ponudbo do 30. 5.		
@@ -1945,7 +1945,7 @@ html_text	vsebine.html	text.2	Predlogi LinkedIn objav z hooki za vsak trg posebe
 html_text	vsebine.html	text.20	🌍 Regionalno		
 html_text	vsebine.html	text.22	Po tednih		
 html_text	vsebine.html	text.24	Dodaj LI idejo v teden		
-html_text	vsebine.html	text.3	naravni govorec		
+html_text	vsebine.html	text.3	native speaker	naravni govorec	besedišče: 'native speaker' → 'naravni govorec'
 html_text	vsebine.html	text.33	Načrtovano		
 html_text	vsebine.html	text.36	Ideja / hook		
 html_text	vsebine.html	text.38	Kdo bo objavil		

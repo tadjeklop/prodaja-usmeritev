@@ -733,7 +733,7 @@
     "sr": "Preuzmi TSV za prevode"
   },
   "settings.override_hint": {
-    "sl": "Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogo?a, da jih kasneje zdru?imo v aplikacijo.",
+    "sl": "Popravki se shranijo v tem brskalniku. Izvoz JSON datoteke omogoča, da jih kasneje združimo v aplikacijo.",
     "hr": "Ispravci se spremaju u ovom pregledniku. Izvoz JSON datoteke omogu?uje da ih kasnije spojimo u aplikaciju.",
     "sr": "Ispravke se ?uvaju u ovom browser-u. Izvoz JSON datoteke omogu?ava da ih kasnije spojimo u aplikaciju."
   },
@@ -763,12 +763,12 @@
     "sr": "Vidljive kartice"
   },
   "settings.delete_profile": {
-    "sl": "Izbri?i profil",
+    "sl": "Izbriši profil",
     "hr": "Obri?i profil",
     "sr": "Obri?i profil"
   },
   "settings.import_done": {
-    "sl": "Popravki so uvo?eni. Stran se bo osve?ila.",
+    "sl": "Popravki so uvoženi. Stran se bo osvežila.",
     "hr": "Ispravci su uvezeni. Stranica ?e se osvje?iti.",
     "sr": "Ispravke su uvezene. Stranica ?e se osve?iti."
   },
@@ -798,12 +798,12 @@
     "sr": "Ovaj tekst ne mogu povezati sa izvornikom."
   },
   "settings.no_admin": {
-    "sl": "Nima? admin dostopa",
+    "sl": "Nimaš admin dostopa",
     "hr": "Nema? admin pristup",
     "sr": "Nema? admin pristup"
   },
   "settings.no_admin_hint": {
-    "sl": "Tvoj profil dolo?a, katere module vidi?. Urejanje uporabnikov je na voljo samo adminu.",
+    "sl": "Tvoj profil določa, katere module vidiš. Urejanje uporabnikov je na voljo samo adminu.",
     "hr": "Tvoj profil odre?uje koje module vidi?. Ure?ivanje korisnika dostupno je samo adminu.",
     "sr": "Tvoj profil odre?uje koje module vidi?. Ure?ivanje korisnika dostupno je samo adminu."
   },
@@ -813,7 +813,7 @@
     "sr": "Korisnici"
   },
   "settings.users_hint": {
-    "sl": "Uporabnika najprej ustvari? v Supabase Authentication, tukaj pa mu dodeli? profil in pravice v portalu.",
+    "sl": "Uporabnika najprej ustvariš v Supabase Authentication, tukaj pa mu dodeliš profil in pravice v portalu.",
     "hr": "Korisnika najprije kreira? u Supabase Authentication, a ovdje mu dodjeljuje? profil i prava u portalu.",
     "sr": "Korisnika prvo kreira? u Supabase Authentication, a ovde mu dodeljuje? profil i prava u portalu."
   },
@@ -833,7 +833,7 @@
     "sr": "Profili su sa?uvani u Supabase i va?e za sve korisnike nakon prijave."
   },
   "settings.admin_sql_hint": {
-    "sl": "V Supabase SQL Editorju za ta email za?eni ta ukaz:",
+    "sl": "V Supabase SQL Editorju za ta email zaženi ta ukaz:",
     "hr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:",
     "sr": "U Supabase SQL Editoru za ovaj email pokreni ovu naredbu:"
   },

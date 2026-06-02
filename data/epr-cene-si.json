@@ -4,16 +4,60 @@
   "_zadnja_revizija": "2026-05 (placeholder)",
   "_enota": "EUR / kg embalaže, dane na trg",
   "materiali": [
-    { "id": "papir-karton", "naziv": "Papir in karton",       "cena_eur_kg": 0.045, "opomba": "Najnižja stopnja, ker se dobro reciklira." },
-    { "id": "plastika",     "naziv": "Plastika (skupna)",     "cena_eur_kg": 0.180, "opomba": "Stopnja se razlikuje glede na vrsto plastike (PET, HDPE, PP, PS, druga)." },
-    { "id": "plastika-pet", "naziv": "Plastika — PET",        "cena_eur_kg": 0.150 },
-    { "id": "plastika-pp",  "naziv": "Plastika — PP/HDPE",    "cena_eur_kg": 0.190 },
-    { "id": "plastika-druga","naziv": "Plastika — druga",     "cena_eur_kg": 0.250, "opomba": "Slabše recikljiva plastika ima višjo stopnjo." },
-    { "id": "steklo",       "naziv": "Steklo",                "cena_eur_kg": 0.030 },
-    { "id": "kovina-fe",    "naziv": "Kovina — železo/jeklo", "cena_eur_kg": 0.060 },
-    { "id": "kovina-al",    "naziv": "Kovina — aluminij",     "cena_eur_kg": 0.080 },
-    { "id": "les",          "naziv": "Les",                   "cena_eur_kg": 0.020 },
-    { "id": "kompozit",     "naziv": "Kompozitna embalaža",   "cena_eur_kg": 0.220, "opomba": "Težje recikljiva, višja stopnja." }
+    {
+      "id": "papir-karton",
+      "naziv": "Papir in karton",
+      "cena_eur_kg": 0.045,
+      "opomba": "Najnižja stopnja, ker se dobro reciklira."
+    },
+    {
+      "id": "plastika",
+      "naziv": "Plastika (skupna)",
+      "cena_eur_kg": 0.18,
+      "opomba": "Stopnja se razlikuje glede na vrsto plastike (PET, HDPE, PP, PS, druga)."
+    },
+    {
+      "id": "plastika-pet",
+      "naziv": "Plastika — PET",
+      "cena_eur_kg": 0.15
+    },
+    {
+      "id": "plastika-pp",
+      "naziv": "Plastika — PP/HDPE",
+      "cena_eur_kg": 0.19
+    },
+    {
+      "id": "plastika-druga",
+      "naziv": "Plastika — druga",
+      "cena_eur_kg": 0.25,
+      "opomba": "Slabše recikljiva plastika ima višjo stopnjo."
+    },
+    {
+      "id": "steklo",
+      "naziv": "Steklo",
+      "cena_eur_kg": 0.03
+    },
+    {
+      "id": "kovina-fe",
+      "naziv": "Kovina — železo/jeklo",
+      "cena_eur_kg": 0.06
+    },
+    {
+      "id": "kovina-al",
+      "naziv": "Kovina — aluminij",
+      "cena_eur_kg": 0.08
+    },
+    {
+      "id": "les",
+      "naziv": "Les",
+      "cena_eur_kg": 0.02
+    },
+    {
+      "id": "kompozit",
+      "naziv": "Kompozitna embalaža",
+      "cena_eur_kg": 0.22,
+      "opomba": "Težje recikljiva, višja stopnja."
+    }
   ],
   "paketi_storitev": [
     {
@@ -58,7 +102,7 @@
         "Analiza embalaže in priporočila (recyclability, Made for Recycling).",
         "Podpora pri ESG vprašalnikih in CSRD pripravi.",
         "Strategija krožnega gospodarstva za podjetje.",
-        "Periodični strokovni delavnice z vašo HSE / trajnostno ekipo."
+        "Periodične strokovne delavnice z vašo HSE / trajnostno ekipo."
       ],
       "primeren_za": "Podjetja z naprednimi trajnostnimi cilji ali zahtevami kupcev.",
       "okvirna_cena_letno": "od 8.000 EUR (dodatek k osnovnim paketom)"

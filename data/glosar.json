@@ -28,7 +28,7 @@
         {
           "izraz": "Proizvajalec / uvoznik",
           "razlaga": "Subjekt, ki PRVI da izdelek ali embalažo na slovenski trg. Lahko je proizvajalec, uvoznik, distributer ali tudi spletni prodajalec (če prodaja končnemu potrošniku v SI).",
-          "v_praksi": "Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in dobava si pošilja odgovornost. Razjasni v discoveryju."
+          "v_praksi": "Ključno vprašanje: kdo je 'prvi na trgu'? Pogosto stranka ne ve in v dobavni verigi si podajajo odgovornost. Razjasni v discoveryju."
         },
         {
           "izraz": "Dati na trg",
@@ -49,7 +49,7 @@
         {
           "izraz": "EE-oprema (OEEO)",
           "razlaga": "Električna in elektronska oprema. Po slovenski zakonodaji v 6 kategorijah (gospodinjska, IT, razsvetljava, mali, veliki, medicinski/profesionalni aparati).",
-          "v_praksi": "Tudi izdelek z LED lučko ali baterijo lahko padete v EPR za EE-opremo, ne le 'klasične' aparati."
+          "v_praksi": "Tudi izdelek z LED lučko ali baterijo lahko pade v EPR za EE-opremo, ne le 'klasični' aparati."
         },
         {
           "izraz": "Baterije in akumulatorji",

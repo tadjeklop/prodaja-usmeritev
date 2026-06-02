@@ -16,10 +16,10 @@
     },
     {
       "naslov": "Embalaža in odpadna embalaža",
-      "vsebina": "Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema upravljanja odpadno embalažo.",
+      "vsebina": "Uredba o upravljanju ambalažom i ambalažnim otpadom. Interzero PAK je licenciran operater sistema ravnanja z odpadno embalažo.",
       "koga_zavezuje": "Vsi, ki dajejo embalirane izdelke prvič na srbski trg (proizvajalci, uvozniki, distributerji).",
       "kljucne_obveznosti": [
-        "Vključitev v sistem upravljanja embalažo prek licenciranega operaterja.",
+        "Vključitev v sistem ravnanja z embalažo prek licenciranega operaterja.",
         "Mesečno ali letno poročanje količin embalaže po materialih.",
         "Plačilo prispevkov, ki se izračunajo na kg/material.",
         "Stopnje recikliranja postopno naraščajo skladno z EU usklajevanjem."
@@ -73,8 +73,17 @@
     }
   ],
   "viri": [
-    { "naziv": "Ministarstvo zaštite životne sredine", "url": "https://www.ekologija.gov.rs" },
-    { "naziv": "SEPA — Agencija za zaštitu životne sredine", "url": "http://www.sepa.gov.rs" },
-    { "naziv": "Interzero PAK Srbija", "url": "https://interzero.rs" }
+    {
+      "naziv": "Ministarstvo zaštite životne sredine",
+      "url": "https://www.ekologija.gov.rs"
+    },
+    {
+      "naziv": "SEPA — Agencija za zaštitu životne sredine",
+      "url": "http://www.sepa.gov.rs"
+    },
+    {
+      "naziv": "Interzero PAK Srbija",
+      "url": "https://interzero.rs"
+    }
   ]
 }

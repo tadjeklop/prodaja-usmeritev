@@ -71,7 +71,7 @@
     },
     {
       "naslov": "PPWR — nova EU Uredba o embalaži",
-      "vsebina": "Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi v Hrvaški od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.",
+      "vsebina": "Uredba EU 2025/40 o embalaži in odpadni embalaži velja neposredno tudi na Hrvaškem od leta 2026 naprej. Uvaja nove zahteve: zmanjšanje embalaže, ponovna uporaba, omejitve določene plastike, vsebnost recikliranih materialov.",
       "koga_zavezuje": "Vse, ki dajejo embalirane izdelke na trg EU, vključno s Hrvaško."
     },
     {
@@ -80,9 +80,21 @@
     }
   ],
   "viri": [
-    { "naziv": "Zakon.hr — predpisi", "url": "https://zakon.hr" },
-    { "naziv": "FZOEU — Fond za zaštitu okoliša", "url": "https://www.fzoeu.hr" },
-    { "naziv": "MINGOR — Ministarstvo gospodarstva", "url": "https://mingor.gov.hr" },
-    { "naziv": "Interzero Hrvaška", "url": "https://interzero.hr" }
+    {
+      "naziv": "Zakon.hr — predpisi",
+      "url": "https://zakon.hr"
+    },
+    {
+      "naziv": "FZOEU — Fond za zaštitu okoliša",
+      "url": "https://www.fzoeu.hr"
+    },
+    {
+      "naziv": "MINGOR — Ministarstvo gospodarstva",
+      "url": "https://mingor.gov.hr"
+    },
+    {
+      "naziv": "Interzero Hrvaška",
+      "url": "https://interzero.hr"
+    }
   ]
 }

@@ -5,7 +5,10 @@
       "id": "operativa",
       "naziv": "Operativa / vodja proizvodnje / vodja logistike",
       "kaj_jih_skrbi": "Manj težav v vsakdanjem delu, manj prekinitev, manj prostora za odpadke, jasne odgovornosti, zanesljivi izvajalci.",
-      "ne_govori_jim_o": ["abstraktnih ESG trendih", "kompleksnih pravnih razlagah"],
+      "ne_govori_jim_o": [
+        "abstraktnih ESG trendih",
+        "kompleksnih pravnih razlagah"
+      ],
       "pravi_argumenti": [
         "Manj klicev z izvajalci in zbiralci.",
         "Jasno določene odgovornosti in roki odvozov.",
@@ -22,10 +25,13 @@
       "id": "finance",
       "naziv": "Finance / kontroling / nabava",
       "kaj_jih_skrbi": "Nadzor stroškov, predvidljivost, pogodbene jasnosti, primerljive ponudbe, neto učinek na bilanco.",
-      "ne_govori_jim_o": ["operativnih detajlih, ki jih ne zanimajo", "neformalnih dogovorih"],
+      "ne_govori_jim_o": [
+        "operativnih detajlih, ki jih ne zanimajo",
+        "neformalnih dogovorih"
+      ],
       "pravi_argumenti": [
         "Predvidljivi mesečni stroški namesto skokov.",
-        "En račun, ena pogodba, en nasprotni stranek.",
+        "En račun, ena pogodba, ena nasprotna stranka.",
         "Možnost paketov in popustov pri večletnih dogovorih.",
         "Manj skritih stroškov zaradi napačnega ravnanja ali kazni."
       ],
@@ -39,7 +45,10 @@
       "id": "vodstvo",
       "naziv": "Vodstvo / direktor / lastnik",
       "kaj_jih_skrbi": "Manj tveganja, zunanji ugled, skladnost, da ne pride do težav, dobro ime, regionalni nastop.",
-      "ne_govori_jim_o": ["detajlih operative", "tehničnih specifikacijah"],
+      "ne_govori_jim_o": [
+        "detajlih operative",
+        "tehničnih specifikacijah"
+      ],
       "pravi_argumenti": [
         "Manj tveganja pri inšpekcijah in spremembah zakonodaje.",
         "Profesionalen partner z znanimi referencami.",
@@ -56,7 +65,10 @@
       "id": "hse",
       "naziv": "HSE / sustainability / pravna služba",
       "kaj_jih_skrbi": "Skladnost, pravilna dokumentacija, sledljivost, podpora pri spremembah zakonodaje, strokoven partner.",
-      "ne_govori_jim_o": ["zgolj o ceni", "improvizaciji"],
+      "ne_govori_jim_o": [
+        "zgolj o ceni",
+        "improvizaciji"
+      ],
       "pravi_argumenti": [
         "Točna in pravočasna poročila.",
         "Spremljanje zakonodaje in opozarjanje na spremembe.",

@@ -143,11 +143,11 @@
       "ikona": "🎯",
       "naziv": "Prehod v predstavitev",
       "trajanje": "1-2 minuti",
-      "cilj": "Mostiti od poslušanja k predstavljanju. Ne preskakuj te faze.",
+      "cilj": "Preiti od poslušanja k predstavitvi. Ne preskakuj te faze.",
       "kljucne_tocke": [
         "Ta prehod loči profesionalca od trgovca.",
         "Eksplicitno povej, da prehajaš v predstavitev.",
-        "Vežo predstavitev na to, kar si slišal — ne na svoj katalog."
+        "Veži predstavitev na to, kar si slišal — ne na svoj katalog."
       ],
       "govori": [
         {
@@ -300,7 +300,7 @@
         "Sprejmeš 'oglasili se bomo' brez datuma. Več kot 80 % takih primerov se ne vrne.",
         "Pošlješ ponudbo brez dogovorjenega datuma za pregled. Stranka jo prebere v 2 minutah in se odloči brez tebe.",
         "Pozabiš seznam podatkov, ki jih stranka pošlje. Brez tega ne moreš pripraviti realne ponudbe.",
-        "Pomesh sestanek s 'in oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma."
+        "Sestanek zaključiš z 'oglasil se bom v naslednjih dneh' — preveč mehko, brez datuma."
       ],
       "signal_konca": "Imaš konkreten naslednji korak z DATUMOM v koledarju in dogovorjen seznam stvari, ki jih pošlje stranka."
     },
